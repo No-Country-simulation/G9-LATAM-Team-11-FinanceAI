@@ -1,0 +1,63 @@
+services:
+  # 1. Base de Datos PostgreSQL
+  db:
+    image: postgres:15-alpine
+    container_name: financeai_db
+    environment:
+      POSTGRES_DB: financeai_db
+      POSTGRES_USER: dev_user
+      POSTGRES_PASSWORD: dev_password
+    ports:
+      - "127.0.0.1:5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    restart: always
+
+  # 2. Back-End: API REST (Java / Spring Boot)
+  backend:
+    image: eclipse-temurin:17-jdk
+    container_name: financeai_backend
+    ports:
+      - "127.0.0.1:8081:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+      - DB_URL=jdbc:postgresql://db:5432/financeai_db
+      - OCI_STORAGE_BUCKET=financeai-bucket
+    volumes:
+      - ./backend:/app
+      - ./shared-models:/app/models
+    working_dir: /app
+    # Si pom.xml/mvnw existe ejecuta Spring Boot; si aún no existe, se mantiene a la espera sin romperse
+    command: sh -c "if [ -f mvnw ]; then ./mvnw spring-boot:run; else tail -f /dev/null; fi"
+    depends_on:
+      - db
+    restart: always
+
+  # 3. Front-End: Interfaz de Usuario (Vue 3 + Vite)
+  frontend:
+    image: node:20-alpine
+    container_name: financeai_frontend
+    ports:
+      - "127.0.0.1:8082:3000"
+    volumes:
+      - ./frontend:/app
+    working_dir: /app
+    # Instala dependencias si no están listas y levanta el servidor dev
+    command: sh -c "npm install && npm run dev"
+    restart: always
+
+  # 4. Ciencia de Datos: Entorno de Entrenamiento y Serialización
+  data-science:
+    image: jupyter/scipy-notebook:latest
+    container_name: financeai_datascience
+    ports:
+      - "127.0.0.1:8888:8888"
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+    volumes:
+      - ./notebooks:/home/jovyan/work
+      - ./shared-models:/home/jovyan/work/models
+    restart: always
+
+volumes:
+  pgdata:

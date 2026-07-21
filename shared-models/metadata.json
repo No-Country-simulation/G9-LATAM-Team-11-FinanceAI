@@ -1,0 +1,7 @@
+{
+  "model_version": "1.0.0",
+  "categories": ["Alimentacion", "Transporte", "Salud", "Vivienda", "Educacion", "Ocio", "Servicios", "Deudas", "Ahorro"],
+  "profiles": ["Saludable", "En observación", "En riesgo"],
+  "onnx_input_name": "float_input",
+  "onnx_output_name": "output_label"
+}

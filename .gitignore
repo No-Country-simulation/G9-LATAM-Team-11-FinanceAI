@@ -1,0 +1,23 @@
+# Dependencias y compilaciones de Node (Frontend)
+frontend/node_modules/
+frontend/dist/
+frontend/.cache/
+
+# Archivos de compilación de Java/Spring Boot (Backend)
+backend/target/
+backend/.mvn/
+backend/*.jar
+
+# Archivos de Jupyter y Data Science
+.ipynb_checkpoints/
+notebooks/.ipynb_checkpoints/
+notebooks/data/*.csv
+
+# Archivos de IDE y sistema operativo
+.DS_Store
+.vscode/
+.idea/
+*.log
+
+# Datos persistentes de contenedores local
+pgdata/
