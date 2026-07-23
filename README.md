@@ -83,7 +83,6 @@ Test/
 ```bash
 # 1. Clonar el repositorio y posicionarse en la carpeta del proyecto
 git clone <URL_REPOSISTORIO>
-cd Test/
 
 # 2. Levantar todos los servicios en segundo plano
 docker compose up -d
