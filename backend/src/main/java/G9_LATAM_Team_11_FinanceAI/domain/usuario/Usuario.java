@@ -24,4 +24,6 @@ public class Usuario {
     private Date fecha_creacion;
     private boolean activo;
 
+    @OneToMany(mappedBy = "usuario")
+    private List<Transaccion> transacciones;
 }
