@@ -1,11 +1,13 @@
 package G9_LATAM_Team_11_FinanceAI.domain.usuario;
 
+import G9_LATAM_Team_11_FinanceAI.domain.transaccion.Transaccion;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 import java.util.Date;
+import java.util.List;
 
 
 @Table(name="usuarios")
