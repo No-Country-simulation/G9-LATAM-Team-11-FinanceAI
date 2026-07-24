@@ -20,4 +20,7 @@ public class Transaccion {
     private Double monto;
     private String categoria;
     private Date fechia;
+
+
+    private Usuario usuario;
 }
