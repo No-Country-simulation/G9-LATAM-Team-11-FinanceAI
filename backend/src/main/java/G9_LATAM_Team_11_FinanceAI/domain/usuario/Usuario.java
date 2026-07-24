@@ -26,8 +26,5 @@ public class Usuario {
 
     @OneToMany(mappedBy = "usuario")
     private List<Transaccion> transacciones;
-<<<<<<< HEAD
-=======
 
->>>>>>> b753147 (Realizacion de la relacion de la entidad usuarios y transacciones)
 }
