@@ -21,6 +21,6 @@ public class Transaccion {
     private String categoria;
     private Date fechia;
 
-
+    @ManyToOne
     private Usuario usuario;
 }
