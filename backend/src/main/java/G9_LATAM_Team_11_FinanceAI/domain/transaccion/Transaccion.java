@@ -19,5 +19,5 @@ public class Transaccion {
     private String descripccion;
     private Double monto;
     private String categoria;
-    private Date fecha;
+    private Date fechia;
 }
