@@ -1,0 +1,45 @@
+package G9_LATAM_Team_11_FinanceAI.Controller;
+
+import G9_LATAM_Team_11_FinanceAI.DTO.IngresarUsuarioDTO;
+import G9_LATAM_Team_11_FinanceAI.Repository.IUsuarioRepository;
+import G9_LATAM_Team_11_FinanceAI.domain.usuario.Usuario;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.*;
+
+
+@RestController
+@RequestMapping("/usuario")
+public class Controller {
+
+    @Autowired
+    private IUsuarioRepository repository;
+
+
+    @Transactional
+    @PostMapping
+    public ResponseEntity ingresarUsuario(@RequestBody IngresarUsuarioDTO datos) {
+        var ingreso = new Usuario(datos);
+        repository.save(ingreso);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(datos);
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
