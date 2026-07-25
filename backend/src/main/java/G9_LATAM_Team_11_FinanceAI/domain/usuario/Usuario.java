@@ -5,26 +5,29 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
+import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
 
 
 @Table(name="usuarios")
 @Entity(name = "Usuario")
 @Getter
+@NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private String nombre;
     private String email;
     private String password;
-    private double ingreso_mensual;
-    private LocalDateTime fecha_creacion;
-    private boolean activo;
+    private BigDecimal ingresoMensual;
+    private LocalDate fechaCreacion;
+    private Boolean activo;
 
     @OneToMany(mappedBy = "usuario")
     private List<Transaccion> transacciones;

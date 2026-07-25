@@ -6,7 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
+import java.math.BigDecimal;
+import java.time.LocalDate;
 
 @Table(name = "transacciones")
 @Entity(name = "Transaccion")
@@ -17,11 +18,12 @@ public class Transaccion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String descripccion;
-    private Double monto;
+    private String descripcion;
+    private BigDecimal monto;
     private String categoria;
-    private Date fechia;
+    private LocalDate fecha;
 
     @ManyToOne
+    @JoinColumn(name = "usuario_id")
     private Usuario usuario;
 }
