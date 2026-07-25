@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -23,7 +24,7 @@ public class Usuario {
     private String email;
     private String password;
     private double ingreso_mensual;
-    private Date fecha_creacion;
+    private LocalDateTime fecha_creacion;
     private boolean activo;
 
     @OneToMany(mappedBy = "usuario")
