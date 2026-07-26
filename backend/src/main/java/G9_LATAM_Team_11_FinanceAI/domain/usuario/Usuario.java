@@ -45,4 +45,8 @@ public class Usuario {
 
     }
 
+    public Usuario(Long id) {
+        this.id = id;
+    }
+
 }

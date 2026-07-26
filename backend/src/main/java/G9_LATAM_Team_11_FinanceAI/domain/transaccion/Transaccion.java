@@ -1,5 +1,6 @@
 package G9_LATAM_Team_11_FinanceAI.domain.transaccion;
 
+import G9_LATAM_Team_11_FinanceAI.DTO.IngresarTransaccionDTO;
 import G9_LATAM_Team_11_FinanceAI.domain.usuario.Usuario;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -26,4 +27,13 @@ public class Transaccion {
     @ManyToOne
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
+
+    public Transaccion(IngresarTransaccionDTO datos) {
+        this.descripcion=datos.descripcion();
+        this.monto = datos.monto();
+        this.categoria = datos.categoria(); //traer categoria de DS
+        this.fecha = datos.fecha();
+        this.usuario = new Usuario(datos.idUsuario());
+
+    }
 }
