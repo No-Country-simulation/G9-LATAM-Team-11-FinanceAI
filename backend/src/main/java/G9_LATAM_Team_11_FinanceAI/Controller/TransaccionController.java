@@ -26,4 +26,6 @@ public class TransaccionController {
         repository.save(ingreso);
         return ResponseEntity.status(HttpStatus.CREATED).body(datos);
     }
+
+
 }

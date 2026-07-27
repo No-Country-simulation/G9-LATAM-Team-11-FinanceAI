@@ -1,6 +1,7 @@
 package G9_LATAM_Team_11_FinanceAI.Controller;
 
 import G9_LATAM_Team_11_FinanceAI.DTO.IngresarUsuarioDTO;
+import G9_LATAM_Team_11_FinanceAI.DTO.ListadoUsuarioDTO;
 import G9_LATAM_Team_11_FinanceAI.Repository.IUsuarioRepository;
 import G9_LATAM_Team_11_FinanceAI.domain.usuario.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,15 @@ public class Controller {
         repository.save(ingreso);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(datos);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<ListadoUsuarioDTO> obtenerUsuarioConTransacciones(@PathVariable Long id) {
+        Usuario usuario = repository.findById(id).orElseThrow(() -> new RuntimeException("usuario no encontrado"));
+        ListadoUsuarioDTO dto = new ListadoUsuarioDTO(usuario);
+        return ResponseEntity.ok(dto);
+
+
     }
 
 }
