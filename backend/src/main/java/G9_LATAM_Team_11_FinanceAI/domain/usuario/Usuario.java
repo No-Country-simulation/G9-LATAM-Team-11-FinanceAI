@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 
 
@@ -49,4 +48,8 @@ public class Usuario {
         this.id = id;
     }
 
+    public void eliminarUsuario(){
+        this.activo = false;
+
+    }
 }

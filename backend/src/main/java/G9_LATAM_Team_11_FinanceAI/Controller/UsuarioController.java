@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/usuario")
-public class Controller {
+public class UsuarioController {
 
     @Autowired
     private IUsuarioRepository repository;
@@ -27,14 +27,22 @@ public class Controller {
 
         return ResponseEntity.status(HttpStatus.CREATED).body(datos);
     }
-
+    @Transactional
     @GetMapping("/{id}")
     public ResponseEntity<ListadoUsuarioDTO> obtenerUsuarioConTransacciones(@PathVariable Long id) {
         Usuario usuario = repository.findById(id).orElseThrow(() -> new RuntimeException("usuario no encontrado"));
         ListadoUsuarioDTO dto = new ListadoUsuarioDTO(usuario);
         return ResponseEntity.ok(dto);
+    }
 
+    //se realiza soft-delete en la base para desactivar cuentas de usuarios.
+    @Transactional
+    @DeleteMapping("/{id}")
+    public ResponseEntity eliminarUsuario (@PathVariable Long id){
+        var eliminar = repository.getReferenceById(id);
+        eliminar.eliminarUsuario();
 
+        return ResponseEntity.noContent().build();
     }
 
 }
