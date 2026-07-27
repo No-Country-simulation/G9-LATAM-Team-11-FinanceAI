@@ -29,9 +29,6 @@ public class Transaccion {
 
     @ManyToOne
     private Usuario usuario;
-    // Esto deberia ir en un service lo puse aqui de manera temporal
-
-
 
 
     public Transaccion(IngresarTransaccionDTO datos, Usuario usuario) {

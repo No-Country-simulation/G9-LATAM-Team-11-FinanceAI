@@ -18,7 +18,6 @@ public class TransacionService {
         Usuario usuario = usuarioRepository.findById(datos.idUsuario())
                 .orElseThrow(() -> new RuntimeException("Usuario no existe"));
 
-        Transaccion transaccion = new Transaccion(datos, usuario);
         var ingreso = new Transaccion(datos, usuario);
         return ingreso;
     }

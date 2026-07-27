@@ -25,7 +25,7 @@ public class TransaccionController {
 
     @Transactional
     @PostMapping
-    public ResponseEntity ingresarTransaccion(@RequestBody @Valid IngresarTransaccionDTO datos){
+    public ResponseEntity<?> ingresarTransaccion(@RequestBody @Valid IngresarTransaccionDTO datos){
 
         var ingreso = transacionService.ingresarTransaccion(datos);
 

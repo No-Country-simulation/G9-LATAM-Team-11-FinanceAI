@@ -26,10 +26,12 @@ public class UsuarioController {
     @Transactional
     @PostMapping
     public ResponseEntity ingresarUsuario(@RequestBody IngresarUsuarioDTO datos) {
+
         var ingreso = usuarioService.ingresarUsuario(datos);
 
         repository.save(ingreso);
-        return ResponseEntity.status(HttpStatus.CREATED).body(datos);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body("Usuario " + datos.nombre() + " creado con exito!.");
     }
     @Transactional
     @GetMapping("/{id}")
