@@ -2,7 +2,7 @@ package G9_LATAM_Team_11_FinanceAI.Controller;
 
 import G9_LATAM_Team_11_FinanceAI.DTO.IngresarTransaccionDTO;
 import G9_LATAM_Team_11_FinanceAI.Repository.ITransaccionRepository;
-import G9_LATAM_Team_11_FinanceAI.domain.transaccion.Transaccion;
+import G9_LATAM_Team_11_FinanceAI.domain.Service.TransacionService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,11 +19,18 @@ public class TransaccionController {
     @Autowired
     private ITransaccionRepository repository;
 
+    @Autowired
+    TransacionService transacionService;
+
+
     @Transactional
     @PostMapping
     public ResponseEntity ingresarTransaccion(@RequestBody @Valid IngresarTransaccionDTO datos){
-        var ingreso = new Transaccion(datos);
+
+        var ingreso = transacionService.ingresarTransaccion(datos);
+
         repository.save(ingreso);
+
         return ResponseEntity.status(HttpStatus.CREATED).body(datos);
     }
 

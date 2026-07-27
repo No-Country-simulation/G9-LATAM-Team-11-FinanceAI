@@ -15,6 +15,6 @@ public record IngresarTransaccionDTO(
         @NotNull
         LocalDate fecha,
         @NotNull
-        long idUsuario
+        Long idUsuario
 ) {
 }

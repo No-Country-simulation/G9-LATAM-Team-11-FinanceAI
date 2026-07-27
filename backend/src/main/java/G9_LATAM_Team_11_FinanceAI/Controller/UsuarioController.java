@@ -3,7 +3,9 @@ package G9_LATAM_Team_11_FinanceAI.Controller;
 import G9_LATAM_Team_11_FinanceAI.DTO.IngresarUsuarioDTO;
 import G9_LATAM_Team_11_FinanceAI.DTO.ListadoUsuarioDTO;
 import G9_LATAM_Team_11_FinanceAI.Repository.IUsuarioRepository;
+import G9_LATAM_Team_11_FinanceAI.domain.Service.UsuarioService;
 import G9_LATAM_Team_11_FinanceAI.domain.usuario.Usuario;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,20 +20,25 @@ public class UsuarioController {
     @Autowired
     private IUsuarioRepository repository;
 
+    @Autowired
+    private UsuarioService usuarioService;
 
     @Transactional
     @PostMapping
     public ResponseEntity ingresarUsuario(@RequestBody IngresarUsuarioDTO datos) {
-        var ingreso = new Usuario(datos);
-        repository.save(ingreso);
+        var ingreso = usuarioService.ingresarUsuario(datos);
 
+        repository.save(ingreso);
         return ResponseEntity.status(HttpStatus.CREATED).body(datos);
     }
     @Transactional
     @GetMapping("/{id}")
     public ResponseEntity<ListadoUsuarioDTO> obtenerUsuarioConTransacciones(@PathVariable Long id) {
-        Usuario usuario = repository.findById(id).orElseThrow(() -> new RuntimeException("usuario no encontrado"));
+
+        Usuario usuario = usuarioService.obtenerUsuarioConTransacciones(id);
+
         ListadoUsuarioDTO dto = new ListadoUsuarioDTO(usuario);
+
         return ResponseEntity.ok(dto);
     }
 
@@ -41,7 +48,6 @@ public class UsuarioController {
     public ResponseEntity eliminarUsuario (@PathVariable Long id){
         var eliminar = repository.getReferenceById(id);
         eliminar.eliminarUsuario();
-
         return ResponseEntity.noContent().build();
     }
 
