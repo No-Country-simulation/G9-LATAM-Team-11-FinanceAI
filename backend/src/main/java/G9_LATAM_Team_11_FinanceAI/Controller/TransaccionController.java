@@ -16,8 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/transaccion")
 public class TransaccionController {
-    @Autowired
-    private ITransaccionRepository repository;
 
     @Autowired
     TransacionService transacionService;
@@ -27,9 +25,7 @@ public class TransaccionController {
     @PostMapping
     public ResponseEntity<?> ingresarTransaccion(@RequestBody @Valid IngresarTransaccionDTO datos){
 
-        var ingreso = transacionService.ingresarTransaccion(datos);
-
-        repository.save(ingreso);
+        transacionService.ingresarTransaccion(datos);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(datos);
     }

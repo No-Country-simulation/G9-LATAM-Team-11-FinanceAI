@@ -11,15 +11,30 @@ import org.springframework.stereotype.Service;
 public class UsuarioService {
 
     @Autowired
+    private IUsuarioRepository repository;
+
+    @Autowired
     IUsuarioRepository usuarioRepository;
 
     public Usuario ingresarUsuario(IngresarUsuarioDTO datos){
+
         var ingreso = new Usuario(datos);
-        return ingreso;
+
+        return repository.save(ingreso);
     }
 
     public Usuario obtenerUsuarioConTransacciones(Long id){
-        Usuario usuario = usuarioRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("usuario no encontrado"));
+
+        Usuario usuario = usuarioRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("usuario no encontrado"));
+
         return usuario;
+    }
+
+    public void eliminarUsuario(Long id){
+
+        var eliminar = repository.getReferenceById(id);
+
+        eliminar.eliminarUsuario();
     }
 }

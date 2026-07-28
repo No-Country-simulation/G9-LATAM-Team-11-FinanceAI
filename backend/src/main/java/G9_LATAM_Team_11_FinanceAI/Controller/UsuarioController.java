@@ -17,8 +17,6 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/usuario")
 public class UsuarioController {
 
-    @Autowired
-    private IUsuarioRepository repository;
 
     @Autowired
     private UsuarioService usuarioService;
@@ -27,9 +25,7 @@ public class UsuarioController {
     @PostMapping
     public ResponseEntity ingresarUsuario(@RequestBody IngresarUsuarioDTO datos) {
 
-        var ingreso = usuarioService.ingresarUsuario(datos);
-
-        repository.save(ingreso);
+        usuarioService.ingresarUsuario(datos);
 
         return ResponseEntity.status(HttpStatus.CREATED).body("Usuario " + datos.nombre() + " creado con exito!.");
     }
@@ -48,8 +44,9 @@ public class UsuarioController {
     @Transactional
     @DeleteMapping("/{id}")
     public ResponseEntity eliminarUsuario (@PathVariable Long id){
-        var eliminar = repository.getReferenceById(id);
-        eliminar.eliminarUsuario();
+
+        usuarioService.eliminarUsuario(id);
+
         return ResponseEntity.noContent().build();
     }
 
