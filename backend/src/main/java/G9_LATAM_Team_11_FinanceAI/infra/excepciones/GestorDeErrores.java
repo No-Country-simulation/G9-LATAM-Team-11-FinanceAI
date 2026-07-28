@@ -1,6 +1,7 @@
 package G9_LATAM_Team_11_FinanceAI.infra.excepciones;
 
 import jakarta.persistence.EntityNotFoundException;
+import jakarta.validation.ValidationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -22,6 +23,11 @@ public class GestorDeErrores {
                 )
         );
 
+    }
+
+    @ExceptionHandler(ValidationException.class)
+    public ResponseEntity gestionarErrorDeValidacion(ValidationException e){
+        return ResponseEntity.badRequest().body(e.getMessage());
     }
 
 }
