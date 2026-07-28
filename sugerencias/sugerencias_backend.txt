@@ -1,0 +1,91 @@
+========================================================================
+🚀 SUGERENCIAS DE ARQUITECTURA - EQUIPO DE BACKEND (FinanceAI)
+========================================================================
+
+¡Hola equipo! 
+
+Estuve revisando el esqueleto inicial que prepararon en su rama de desarrollo. ¡Excelente trabajo estructurando las primeras entidades (Usuario y Transaccion) y configurando Flyway!
+
+Para facilitarles el trabajo y adaptarnos a sus conocimientos y decisiones tecnológicas, realizamos unos ajustes en el entorno de Docker local. Además, les dejo unas sugerencias muy sencillas para que podamos poner en marcha la primera prueba de comunicación en vivo con el equipo de Data Science.
+
+---
+
+📢 1. AJUSTES EN EL ENTORNO LOCAL (DOCKER)
+------------------------------------------------------------------------
+* Cambiamos la base de datos de la infraestructura de desarrollo: ahora Docker
+  levantará un contenedor oficial de **MySQL 8.0** en lugar de PostgreSQL.
+* El puerto de conexión local de MySQL está expuesto de forma segura en el puerto
+  estándar `3306` (apuntando a `127.0.0.1` para proteger su entorno).
+
+---
+
+🛠️ 2. SUGERENCIAS PARA EL CÓDIGO (NIVEL INICIAL)
+------------------------------------------------------------------------
+
+A continuación, les detallo 3 pequeños cambios que necesitamos realizar en su código para que el servidor de Spring Boot inicie correctamente en Docker y podamos recibir datos del equipo de Ciencia de Datos:
+
+### Sugerencia A: Inyectar la contraseña en application.properties
+* **Qué detectamos**: En su archivo 'application.properties', la línea de la contraseña está vacía:
+  `spring.datasource.password=`
+* **Por qué es un problema**: Docker levanta MySQL con una contraseña de seguridad requerida. Si la app intenta entrar vacía, la conexión fallará y Spring Boot se apagará con un error.
+* **Solución sugerida**: Modifiquen esa línea para que tome la contraseña de forma dinámica desde las variables que configuramos en Docker:
+  ```properties
+  spring.datasource.password=${DB_PASSWORD}
+  ```
+
+### Sugerencia B: Agregar la dependencia Spring Web al pom.xml
+* **Qué detectamos**: Actualmente el proyecto tiene las dependencias de datos (JPA, Flyway y Conector MySQL), pero no tiene configurado el módulo Web.
+* **Por qué es un problema**: Sin el módulo web, Spring Boot no levanta un servidor de red (Tomcat) y finaliza la ejecución inmediatamente tras arrancar.
+* **Solución sugerida**: Agreguen esta dependencia clásica dentro del bloque `<dependencies>` de su archivo 'pom.xml':
+  ```xml
+  <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+  </dependency>
+  ```
+
+### Sugerencia C: Crear un Controlador Básico de Integración
+Para realizar la primera prueba en vivo, necesitamos un canal receptor (endpoint) que acepte la información que les enviará el equipo de Data Science desde Python.
+* **Solución sugerida**: Creen una clase controladora simple en una carpeta llamada 'controller' (ej. G9_LATAM_Team_11_FinanceAI/controller/AnalisisController.java) con este código de prueba:
+  ```java
+  package G9_LATAM_Team_11_FinanceAI.controller;
+
+  import org.springframework.http.ResponseEntity;
+  import org.springframework.web.bind.annotation.*;
+  import java.util.Map;
+
+  @RestController
+  @RequestMapping("/analisis-financiero")
+  public class AnalisisController {
+
+      @PostMapping
+      public ResponseEntity<String> recibirDatosDePrueba(@RequestBody Map<String, Object> payload) {
+          // Esto imprimirá en la consola de Docker el JSON que mande Data Science
+          System.out.println("====== NUEVO EVENTO DE DATOS ======");
+          System.out.println("JSON Recibido: " + payload);
+          System.out.println("===================================");
+          
+          return ResponseEntity.ok("Conexión exitosa. El Backend recibió los datos.");
+      }
+  }
+  ```
+
+### Sugerencia D: Recarga en caliente con Spring Boot DevTools
+* **Beneficio**: Si agregan la librería DevTools, cada vez que editen y guarden un archivo Java en su IDE, el servidor dentro de Docker se reiniciará de forma automática en un segundo para aplicar los cambios sin tener que apagar y volver a encender el contenedor.
+* **Cómo implementarlo**: Agreguen esta dependencia en su 'pom.xml':
+  ```xml
+  <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-devtools</artifactId>
+      <scope>runtime</scope>
+      <optional>true</optional>
+  </dependency>
+  ```
+
+### Sugerencia E: Compartir pruebas de API mediante Insomnia
+* **Beneficio**: Como la API corre en `http://localhost:8081`, pueden usar Insomnia para disparar peticiones de prueba directamente contra el contenedor.
+* **Práctica recomendada**: Cuando configuren las pruebas en Insomnia, exporten la colección (el archivo JSON) y guárdenla en una carpeta llamada `/backend/tests/` dentro del repositorio. Así, los desarrolladores de frontend y de datos podrán importarla y probar la API con un solo clic sin reescribir los JSON.
+
+---
+
+¡Con estos pequeños pasos, ya estaremos listos para levantar Docker Compose y realizar el primer intercambio de información entre Python y Java! Si tienen alguna duda con las dependencias o la configuración, me avisan y lo resolvemos juntos. ¡A seguir metiéndole!
