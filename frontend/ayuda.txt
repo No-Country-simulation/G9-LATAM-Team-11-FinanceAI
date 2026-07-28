@@ -1,0 +1,25 @@
+========================================================================
+📂 SERVICIO: frontend (Interfaz Web en Vue 3 + Vite)
+========================================================================
+
+¿QUÉ ES ESTA CARPETA?
+Contiene la interfaz de usuario de la aplicación web, desarrollada con
+Vue 3, TypeScript/JavaScript y empaquetada con Vite.
+
+¿PARA QUÉ SIRVE?
+Es la cara visual con la que interactuará el cliente. Permite el registro de
+usuarios, inicio de sesión, ingreso manual de transacciones (gastos/ingresos)
+y visualización del dashboard de salud financiera con gráficos.
+
+ROLES INVOLUCRADOS Y CÓMO USARLA:
+
+🎨 FRONTEND DEVELOPER:
+- Escribe todo el código Vue/HTML/CSS en esta carpeta.
+- El contenedor de Docker se encarga de instalar dependencias y levantar el
+  servidor de desarrollo automáticamente en el puerto '8082'.
+- Realiza peticiones HTTP (Axios/Fetch) hacia el puerto '8081' (Backend)
+  para enviar y recibir datos en formato JSON.
+
+⚙️ BACKEND DEVELOPER / DATA SCIENTIST:
+- Puedes abrir 'http://localhost:8082' en tu navegador para interactuar
+  y probar cómo responden tus modelos de IA integrados al flujo web.

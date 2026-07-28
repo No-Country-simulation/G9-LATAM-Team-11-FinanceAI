@@ -21,3 +21,16 @@ notebooks/data/*.csv
 
 # Datos persistentes de contenedores local
 pgdata/
+
+# Archivos de variables de entorno locales (credenciales)
+*.env
+.env
+
+# Archivos de lectura para LLMs
+.agent/
+
+# Resguardo de scripts locales
+backup-shs/
+
+# Override local de Docker Compose
+docker-compose.override.yml

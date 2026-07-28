@@ -1,0 +1,47 @@
+========================================================================
+DOCUMENTACIÓN DE SEGURIDAD Y PLAN DE COMANDOS A FUTURO (FinanceAI)
+========================================================================
+
+Este archivo documenta la estrategia adoptada para la ejecucion de comandos de terminal
+dentro de contenedores, previniendo riesgos en la cadena de suministro (Supply Chain Risks)
+y aislando al equipo de ejecuciones no deseadas.
+
+------------------------------------------------------------------------
+ESTADO ACTUAL (SEGURIDAD EN GITHUB)
+------------------------------------------------------------------------
+- El archivo de orquestacion principal 'docker-compose.yml' se encuentra libre de
+  comandos de terminal ('command: sh -c ...'). Esto asegura que ningun desarrollador
+  corra de forma automatica scripts de instalacion o compilacion al clonar y
+  levantar el proyecto desde GitHub.
+- Los comandos de automatizacion de arranque han sido replegados al archivo local
+  'docker-compose.override.yml'. Este archivo esta listado en '.gitignore' para que
+  solo permanezca en la computadora del lider del proyecto y nunca se suba al repositorio.
+
+------------------------------------------------------------------------
+PLANES A FUTURO PARA USO DE COMANDOS DE FORMA SEGURA
+------------------------------------------------------------------------
+
+Si en fases avanzadas del proyecto el equipo decide utilizar scripts de inicio automáticos
+o comandos de terminal dentro del compose, se recomiendan los siguientes pasos:
+
+1. COMPILACIÓN DE DEPENDENCIAS FUERA DE TIEMPO DE RUNTIME (IMÁGENES DE PRODUCCIÓN):
+   - En lugar de ejecutar 'npm install' en caliente dentro del contenedor al arrancar,
+     las dependencias de produccion del frontend deben estar empaquetadas directamente
+     en la imagen de Docker durante la fase de construccion (Build Stage).
+   - Esto evita que los contenedores dependan de la red publica para compilar al iniciar.
+
+2. AUDITORÍA CRIPTOGRÁFICA OBLIGATORIA (COMPROBACIÓN DE HASHES):
+   - Al agregar comandos de instalacion en el backend (Maven) o frontend (Node), se debe
+     forzar la verificacion rigurosa de firmas de paquetes.
+   - En Node.js: Utilizar 'npm ci' (clean install) en lugar de 'npm install' para forzar
+     que las dependencias coincidan exactamente con la firma de 'package-lock.json'.
+
+3. AUDITORÍA AUTOMÁTICA DE VULNERABILIDADES:
+   - Configurar herramientas de escaneo estatico de dependencias en el repositorio
+     (como Dependabot en GitHub o 'npm audit' integrado en el Dockerfile) para detectar
+     paquetes comprometidos o con fallos de seguridad antes de compilar.
+
+4. REDUCCIÓN DE PRIVILEGIOS (NON-ROOT USER):
+   - Configurar los contenedores para que no se ejecuten como el usuario administrador ('root').
+   - En el backend Java, crear un usuario de sistema 'springuser' en el Dockerfile.
+   - En el frontend Vue, forzar el uso del usuario de seguridad 'node' en la imagen alpine.

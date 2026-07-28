@@ -1,0 +1,31 @@
+========================================================================
+📂 CARPETA COMPARTIDA: shared-models (Modelos de IA en producción)
+========================================================================
+
+¿QUÉ ES ESTA CARPETA?
+Es el puente de conexión directa entre Data Science y el Backend. Funciona
+como un volumen compartido de Docker para que Java pueda acceder a la IA.
+
+¿PARA QUÉ SIRVE?
+Aquí se depositan los modelos de Machine Learning ya entrenados en formato
+interoperable (.onnx). El Backend los leerá desde esta carpeta para realizar
+las predicciones en tiempo real en la aplicación.
+
+ROLES INVOLUCRADOS Y CÓMO USARLA:
+
+🧠 DATA SCIENTIST:
+- Es el encargado de escribir en esta carpeta.
+- Cuando tu entrenamiento en Jupyter termine, exporta tus archivos binarios
+  ('.onnx') y el 'metadata.json' directamente en este directorio.
+- Asegúrate de no renombrar los archivos existentes si ya están siendo usados
+  por el backend, a menos que coordines el cambio con el desarrollador Java.
+
+⚙️ BACKEND DEVELOPER (Java):
+- Es el encargado de leer de esta carpeta de forma pasiva.
+- Utiliza la librería ONNX Runtime de Java (importada en pom.xml) para abrir
+  estos modelos en memoria y ejecutar las predicciones.
+- NUNCA intentes modificar ni compilar los archivos '.onnx' desde Java.
+
+⚠️ REGLA DE ORO DEL EQUIPO:
+No borres los modelos (.onnx) de esta carpeta; de lo contrario, el contenedor
+de Backend fallará al arrancar ya que buscará los archivos para cargarlos en memoria.
