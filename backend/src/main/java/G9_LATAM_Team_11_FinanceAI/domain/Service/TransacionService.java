@@ -28,9 +28,13 @@ public class TransacionService {
 
         Usuario usuario = obtenerUsuarioPorId(datos.idUsuario());
 
+        validarUsuarioActivo(usuario);
+
         var ingreso = crearTransaccion(datos, usuario);
 
-        validarUsuarioActivo(usuario);
+
+        descontarMontoDelIngresoMensual(usuario, datos);
+
 
         return repository.save(ingreso);
 
@@ -53,6 +57,15 @@ public class TransacionService {
         }
 
     }
+
+    public void descontarMontoDelIngresoMensual(Usuario usuario, IngresarTransaccionDTO datos){
+
+        if (usuario.getIngresoMensual() == null || datos.monto() == null) {
+            throw new ValidationException("Ingreso mensual o monto de transacción no puede ser nulo.");
+        }
+        usuario.setIngresoMensual(usuario.getIngresoMensual().subtract(datos.monto()));
+    }
+
     // Metodo para filtrar transacciones de usuarios por rangos de fechas
     public List<DetallesTransaccionFiltradaDTO> obtenerTransaccionesPorRango(TransaccionFiltradaDTO datos) {
                 Usuario usuario = usuarioRepository.findById(datos.idUsuario())
