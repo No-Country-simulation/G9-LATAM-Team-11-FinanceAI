@@ -33,14 +33,14 @@ public class GestorDeErrores {
     @ExceptionHandler(IllegalStateException.class)
     public ResponseEntity<Map<String, String>> handleIllegalStateException(IllegalStateException e) {
         return ResponseEntity
-                .status(HttpStatus.BAD_REQUEST) // 400 Bad Request
+                .status(HttpStatus.BAD_REQUEST)
                 .body(Map.of("Mensaje", e.getMessage()));
     }
 
     @ExceptionHandler(IllegalArgumentException.class)
     public ResponseEntity<Map<String, String>> handleIllegalArgumentException(IllegalArgumentException e) {
         return ResponseEntity
-                .status(HttpStatus.NOT_FOUND) // 404 Not Found
+                .status(HttpStatus.NOT_FOUND)
                 .body(Map.of("Mensaje", e.getMessage()));
     }
 
