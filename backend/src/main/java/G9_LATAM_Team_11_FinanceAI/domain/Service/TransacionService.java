@@ -69,10 +69,10 @@ public class TransacionService {
     // Metodo para filtrar transacciones de usuarios por rangos de fechas
     public List<DetallesTransaccionFiltradaDTO> obtenerTransaccionesPorRango(TransaccionFiltradaDTO datos) {
                 Usuario usuario = usuarioRepository.findById(datos.idUsuario())
-                .orElseThrow(() -> new IllegalArgumentException("El usuario ingresado no existe."));
+                .orElseThrow(() -> new IllegalArgumentException("No se encontró la información solicitada para los parámetros ingresados."));
 
         if (!Boolean.TRUE.equals(usuario.getActivo())) {
-            throw new IllegalStateException("No se puede realizar la acción solicitada.");
+            throw new IllegalStateException("No se logró realizar la acción solicitada.");
         }
 
         List<Transaccion> listadoTransacciones = repository

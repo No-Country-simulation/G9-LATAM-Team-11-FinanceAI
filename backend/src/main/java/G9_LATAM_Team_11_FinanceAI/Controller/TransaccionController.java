@@ -12,7 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Map;
 
 
 @RestController
@@ -32,15 +31,9 @@ public class TransaccionController {
     }
 
     @PostMapping("/rangos")
-    public ResponseEntity<?> obtenerTransaccionPorFechas(@RequestBody TransaccionFiltradaDTO datos) {
-        try {
+    public ResponseEntity<List<DetallesTransaccionFiltradaDTO>> obtenerTransaccionPorFechas(@RequestBody TransaccionFiltradaDTO datos) {
             List<DetallesTransaccionFiltradaDTO> transacciones = transacionService.obtenerTransaccionesPorRango(datos);
             return ResponseEntity.ok(transacciones);
-        } catch (IllegalStateException e) {
-            return ResponseEntity.badRequest().body(Map.of("mensaje", e.getMessage()));
-        } catch (IllegalArgumentException e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("mensaje", e.getMessage()));
-        }
     }
 
 

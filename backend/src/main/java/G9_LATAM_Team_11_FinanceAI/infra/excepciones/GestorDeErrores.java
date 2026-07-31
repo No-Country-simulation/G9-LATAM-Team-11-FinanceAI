@@ -4,12 +4,12 @@ import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.ValidationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.util.Map;
 
-@ControllerAdvice
+@RestControllerAdvice
 public class GestorDeErrores {
 
     @ExceptionHandler(EntityNotFoundException.class)
@@ -28,6 +28,20 @@ public class GestorDeErrores {
     @ExceptionHandler(ValidationException.class)
     public ResponseEntity gestionarErrorDeValidacion(ValidationException e){
         return ResponseEntity.badRequest().body(e.getMessage());
+    }
+
+    @ExceptionHandler(IllegalStateException.class)
+    public ResponseEntity<Map<String, String>> handleIllegalStateException(IllegalStateException e) {
+        return ResponseEntity
+                .status(HttpStatus.BAD_REQUEST) // 400 Bad Request
+                .body(Map.of("Mensaje", e.getMessage()));
+    }
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<Map<String, String>> handleIllegalArgumentException(IllegalArgumentException e) {
+        return ResponseEntity
+                .status(HttpStatus.NOT_FOUND) // 404 Not Found
+                .body(Map.of("Mensaje", e.getMessage()));
     }
 
 }
