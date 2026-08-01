@@ -1,5 +1,6 @@
 package G9_LATAM_Team_11_FinanceAI.domain.Service;
 
+import G9_LATAM_Team_11_FinanceAI.DTO.ActualizarTransaccionDTO;
 import G9_LATAM_Team_11_FinanceAI.DTO.DetallesTransaccionFiltradaDTO;
 import G9_LATAM_Team_11_FinanceAI.DTO.IngresarTransaccionDTO;
 import G9_LATAM_Team_11_FinanceAI.DTO.TransaccionFiltradaDTO;
@@ -12,13 +13,14 @@ import jakarta.validation.ValidationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Service
 public class TransacionService {
 
     @Autowired
-    private ITransaccionRepository repository;
+    private ITransaccionRepository transaccionRepository;
 
     @Autowired
     private IUsuarioRepository usuarioRepository;
@@ -30,13 +32,19 @@ public class TransacionService {
 
         validarUsuarioActivo(usuario);
 
-        var ingreso = crearTransaccion(datos, usuario);
+        BigDecimal ingreso = usuario.getIngresoMensual();
+
+        if(ingreso == null || ingreso.compareTo(datos.monto()) <= 0 ){
+            throw new ValidationException("No tiene suficiente ingreso para hacer esta transferencia.");
+        }
+
+        var transaccion  = crearTransaccion(datos, usuario);
 
 
         descontarMontoDelIngresoMensual(usuario, datos);
 
 
-        return repository.save(ingreso);
+        return transaccionRepository.save(transaccion);
 
     }
 
@@ -75,11 +83,37 @@ public class TransacionService {
             throw new IllegalStateException("No se logró realizar la acción solicitada.");
         }
 
-        List<Transaccion> listadoTransacciones = repository
+        List<Transaccion> listadoTransacciones = transaccionRepository
                 .findByUsuarioIdAndFechaBetween(datos.idUsuario(), datos.desde(), datos.hasta());
 
         return listadoTransacciones.stream()
                 .map(DetallesTransaccionFiltradaDTO::new)
                 .toList();
+    }
+
+
+    public void actualizarTransferencia(Long id, ActualizarTransaccionDTO actualizar){
+
+        Transaccion transaccion = obtenerTransaccionPorId(id);
+
+        if (actualizar.categoria() != null) {
+            transaccion.setCategoria(actualizar.categoria());
+        }
+
+        if (actualizar.descripcion() != null) {
+            transaccion.setDescripcion(actualizar.descripcion());
+        }
+
+        if (actualizar.fecha() != null) {
+            transaccion.setFecha(actualizar.fecha());
+        }
+
+        if (actualizar.monto() != null) {
+            transaccion.setMonto(actualizar.monto());
+        }
+    }
+    private Transaccion obtenerTransaccionPorId(Long id){
+        return transaccionRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("usuario no encontrado"));
     }
 }

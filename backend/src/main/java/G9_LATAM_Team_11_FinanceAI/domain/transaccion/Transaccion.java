@@ -7,6 +7,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.math.BigDecimal;
@@ -16,6 +17,7 @@ import java.util.Date;
 @Table(name = "transacciones")
 @Entity(name = "Transaccion")
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Transaccion {
