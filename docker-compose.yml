@@ -12,7 +12,12 @@ services:
       - "127.0.0.1:3306:3306"
     volumes:
       - mysql_data:/var/lib/mysql
-    restart: always
+    restart: "no"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "5"
 
   # 2. Back-End: API REST (Java / Spring Boot)
   backend:
@@ -32,7 +37,12 @@ services:
     working_dir: /app
     depends_on:
       - db
-    restart: always
+    restart: "no"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "5"
 
   # 3. Front-End: Interfaz de Usuario (Vue 3 + Vite)
   frontend:
@@ -43,7 +53,12 @@ services:
     volumes:
       - ./frontend:/app
     working_dir: /app
-    restart: always
+    restart: "no"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "5"
 
   # 4. Ciencia de Datos: Entorno de Entrenamiento y Serialización
   data-science:
@@ -58,7 +73,14 @@ services:
     volumes:
       - ./notebooks:/home/jovyan/work
       - ./shared-models:/home/jovyan/work/models
-    restart: always
+    restart: "no"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "5"
+
 
 volumes:
   mysql_data:
+
