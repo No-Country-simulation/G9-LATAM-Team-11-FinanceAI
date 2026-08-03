@@ -7,6 +7,8 @@ import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UsuarioService {
 
@@ -36,5 +38,9 @@ public class UsuarioService {
         var eliminar = repository.getReferenceById(id);
 
         eliminar.eliminarUsuario();
+    }
+
+    public List<Usuario> obtenerTodosLosUsuariosConTransaccionesPorMesAnio(int mes, int anio) {
+        return usuarioRepository.findAllUsuariosActivosConTransaccionesPorMesAnio(mes, anio);
     }
 }

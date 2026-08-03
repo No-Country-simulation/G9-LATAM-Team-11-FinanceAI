@@ -12,6 +12,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 @RestController
 @RequestMapping("/usuario")
@@ -50,6 +52,18 @@ public class UsuarioController {
         return ResponseEntity.noContent().build();
     }
 
+    @Transactional(readOnly = true)
+    @GetMapping("/activos/mesanio")
+    public ResponseEntity<List<ListadoUsuarioDTO>> obtenerTodosLosUsuariosConTransacciones(@RequestParam(name = "mes") int mes, @RequestParam(name = "anio") int anio) {
+
+        List<Usuario> usuarios = usuarioService.obtenerTodosLosUsuariosConTransaccionesPorMesAnio(mes, anio);
+
+        List<ListadoUsuarioDTO> dtoList = usuarios.stream()
+                .map(ListadoUsuarioDTO::new)
+                .toList();
+
+        return ResponseEntity.ok(dtoList);
+    }
 }
 
 
