@@ -32,6 +32,8 @@ public class TransacionService {
 
         validarUsuarioActivo(usuario);
 
+        validarTransaccionDuplicada(datos);
+
         BigDecimal ingreso = usuario.getIngresoMensual();
 
         if(ingreso == null || ingreso.compareTo(datos.monto()) <= 0 ){
@@ -46,6 +48,21 @@ public class TransacionService {
 
         return transaccionRepository.save(transaccion);
 
+    }
+
+    //Validación para que un mismo usuario no pueda ingresar transacciones con los datos repetidos.
+    public void validarTransaccionDuplicada(IngresarTransaccionDTO datos) {
+        boolean existeDuplicidad = transaccionRepository.existsByUsuarioIdAndDescripcionAndMontoAndFecha(
+                datos.idUsuario(),
+                datos.descripcion(),
+                datos.monto(),
+                datos.fecha()
+
+        );
+
+        if (existeDuplicidad) {
+            throw new ValidationException("Esta transacción ya fue ingresada al sistema.");
+        }
     }
 
     public Usuario obtenerUsuarioPorId(Long id){

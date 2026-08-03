@@ -2,10 +2,8 @@ package G9_LATAM_Team_11_FinanceAI.Controller;
 
 import G9_LATAM_Team_11_FinanceAI.DTO.IngresarUsuarioDTO;
 import G9_LATAM_Team_11_FinanceAI.DTO.ListadoUsuarioDTO;
-import G9_LATAM_Team_11_FinanceAI.Repository.IUsuarioRepository;
 import G9_LATAM_Team_11_FinanceAI.domain.Service.UsuarioService;
 import G9_LATAM_Team_11_FinanceAI.domain.usuario.Usuario;
-import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
