@@ -1,0 +1,1 @@
+ALTER TABLE usuarios MODIFY COLUMN fecha_creacion DATE;
