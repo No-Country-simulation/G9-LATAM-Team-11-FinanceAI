@@ -94,12 +94,11 @@
             <artifactId>spring-boot-starter-flyway-test</artifactId>
             <scope>test</scope>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>com.microsoft.onnxruntime</groupId>-->
-<!--            <artifactId>onnxruntime</artifactId>-->
-<!--            <version>1.27.0</version>-->
-<!--            <scope>compile</scope>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>com.microsoft.onnxruntime</groupId>
+            <artifactId>onnxruntime</artifactId>
+            <version>1.18.0</version>
+        </dependency>
     </dependencies>
 
 	<build>
@@ -114,6 +113,7 @@
                             <artifactId>lombok</artifactId>
                         </exclude>
                     </excludes>
+                    <mainClass>G9_LATAM_Team_11_FinanceAI.Application</mainClass>
                 </configuration>
             </plugin>
             <plugin>
