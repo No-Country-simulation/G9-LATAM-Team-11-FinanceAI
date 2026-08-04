@@ -2,16 +2,23 @@
 import { storeToRefs } from 'pinia'
 import { useRouter } from 'vue-router'
 import { useAnalisisFinancieroStore } from '@/stores/analisisFinanciero'
+import { useAnalisisFinanciero } from '@/composables/useAnalisisFinanciero'
 import TransaccionesLista from '@/components/transactions/TransaccionesLista.vue'
 
 const router = useRouter()
 const store = useAnalisisFinancieroStore()
-const { ingresoMensual, nivelEndeudamiento, frecuenciaAhorro } = storeToRefs(store)
+const { ingresoMensual, nivelEndeudamiento, frecuenciaAhorro, loading, error } = storeToRefs(store)
+const { enviarAnalisis } = useAnalisisFinanciero()
 
 const opcionesFrecuencia = ['Baja', 'Media', 'Alta']
 
-function continuar() {
-  router.push({ name: 'resultado' })
+async function continuar() {
+  try {
+    await enviarAnalisis()
+    router.push({ name: 'resultado' })
+  } catch {
+    // el error queda en el store y se muestra en la vista
+  }
 }
 </script>
 
@@ -56,7 +63,11 @@ function continuar() {
 
       <TransaccionesLista />
 
-      <button type="submit">Analizar mis finanzas</button>
+      <p v-if="error" class="formulario-error" role="alert">{{ error }}</p>
+
+      <button type="submit" :disabled="loading">
+        {{ loading ? 'Analizando…' : 'Analizar mis finanzas' }}
+      </button>
     </form>
   </main>
 </template>
