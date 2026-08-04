@@ -154,7 +154,13 @@ function irModoDemo() {
         <BaseButton variante="secundario" bloqueado @click="irModoDemo">
           Explorar en modo demo
         </BaseButton>
+        </div>
       </div>
     </div>
+
+    <footer class="flex flex-wrap items-center justify-between gap-3 pt-8 text-xs text-dim">
+      <p>© {{ new Date().getFullYear() }} Finance<span class="text-cyan">AI</span> · Hackathon No Country</p>
+      <p class="font-mono uppercase tracking-[0.14em]">G9-LATAM-Team 11</p>
+    </footer>
   </main>
 </template>

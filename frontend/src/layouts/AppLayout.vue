@@ -1,5 +1,6 @@
 <script setup>
 import { RouterView } from 'vue-router'
+import AppFooter from '@/components/nav/AppFooter.vue'
 import AppNav from '@/components/nav/AppNav.vue'
 import AppTabBar from '@/components/nav/AppTabBar.vue'
 </script>
@@ -22,6 +23,7 @@ import AppTabBar from '@/components/nav/AppTabBar.vue'
         </Transition>
       </RouterView>
     </main>
+    <AppFooter />
     <AppTabBar />
   </div>
 </template>
