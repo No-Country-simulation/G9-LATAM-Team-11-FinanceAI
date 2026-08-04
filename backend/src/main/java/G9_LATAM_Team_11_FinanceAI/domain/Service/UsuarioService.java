@@ -4,6 +4,7 @@ import G9_LATAM_Team_11_FinanceAI.DTO.IngresarUsuarioDTO;
 import G9_LATAM_Team_11_FinanceAI.Repository.IUsuarioRepository;
 import G9_LATAM_Team_11_FinanceAI.domain.usuario.Usuario;
 import jakarta.persistence.EntityNotFoundException;
+import jakarta.validation.ValidationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,7 +23,18 @@ public class UsuarioService {
 
         var ingreso = new Usuario(datos);
 
+        ValidaUsuarioRepetido(datos);
+
         return repository.save(ingreso);
+    }
+
+    public void ValidaUsuarioRepetido(IngresarUsuarioDTO datos){
+        boolean cuentaRepetida =usuarioRepository.existsByEmail(
+                datos.email());
+
+        if (cuentaRepetida){
+            throw new ValidationException("La cuenta ya se encuentra registrada en la base de datos.");
+        }
     }
 
     public Usuario obtenerUsuarioConTransacciones(Long id){
