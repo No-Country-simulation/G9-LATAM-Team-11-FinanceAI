@@ -58,4 +58,25 @@ Se han resuelto los siguientes problemas técnicos críticos en esta rama:
 
 ### 4. Fix: Conectividad interna de Red y contraseña en `application.properties`
 * **Problema:** El backend apuntaba a `localhost` (lo que falla en contenedores separados) y usaba la variable incorrecta `${DB_PASS}`.
-* **Solución:** Se reconfiguró `application.properties` para apuntar a la red interna de Docker (`${DB_HOST}`) y mapear la contraseña con `${DB_PASSWORD}` de forma alineaada con Docker Compose.
+* **Solución:** Se reconfiguró `application.properties` para apuntar a la red interna de Docker (`${DB_HOST}`) y mapear la contraseña con `${DB_PASSWORD}` de forma alineada con Docker Compose.
+
+### 5. Fix: Consumo de recursos
+* **Problema:** Al levantar el stack completo, la compilación de Java (Maven) y la base de datos MySQL pueden generar picos de consumo de CPU y consumir mucha memoria del sistema.
+* **Solución:** Se agregaron límites estrictos de CPU y memoria en todos los servicios de [docker-compose.yml](./docker-compose.yml) (`deploy.resources.limits`) y se limitó la memoria interna de la JVM con `MAVEN_OPTS=-Xmx1024m -Xms512m` en el backend.
+
+---
+
+## 💡 4. Tip de Windows: Evitar que WSL2 devore tu RAM
+
+En Windows, WSL2 (la máquina virtual donde corre Docker) tiende a consumir de forma ilimitada la RAM del sistema. Si a algún miembro del equipo se le sigue colgando la computadora, la solución definitiva es:
+
+1. Abrir la carpeta de usuario en Windows (escribir `%USERPROFILE%` en el explorador de archivos).
+2. Crear un archivo de texto llamado `.wslconfig` (asegúrate de que no termine en `.txt`).
+3. Pegar la siguiente configuración para ponerle un tope máximo a Linux:
+   ```ini
+   [wsl2]
+   memory=4GB
+   processors=4
+   ```
+4. Abrir la terminal de Windows y reiniciar WSL con: `wsl --shutdown`.
+
