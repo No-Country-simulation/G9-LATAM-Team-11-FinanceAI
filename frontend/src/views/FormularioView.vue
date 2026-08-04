@@ -2,6 +2,7 @@
 import { storeToRefs } from 'pinia'
 import { useRouter } from 'vue-router'
 import { useAnalisisFinancieroStore } from '@/stores/analisisFinanciero'
+import TransaccionesLista from '@/components/transactions/TransaccionesLista.vue'
 
 const router = useRouter()
 const store = useAnalisisFinancieroStore()
@@ -52,6 +53,8 @@ function continuar() {
           </option>
         </select>
       </label>
+
+      <TransaccionesLista />
 
       <button type="submit">Analizar mis finanzas</button>
     </form>
