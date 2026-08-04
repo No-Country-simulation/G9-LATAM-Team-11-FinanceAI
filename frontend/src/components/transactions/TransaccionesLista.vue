@@ -37,7 +37,7 @@ function eliminarFila(id) {
       />
     </div>
 
-    <button type="button" class="transacciones-agregar" @click="nuevaFila">
+    <button type="button" class="btn-secundario transacciones-agregar" @click="nuevaFila">
       Agregar transacción
     </button>
   </section>

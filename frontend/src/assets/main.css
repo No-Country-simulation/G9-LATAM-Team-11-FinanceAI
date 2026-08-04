@@ -1,35 +1,206 @@
 @import './base.css';
 
 #app {
-  max-width: 1280px;
+  max-width: 720px;
   margin: 0 auto;
-  padding: 2rem;
-  font-weight: normal;
+  padding: 1rem;
 }
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
+.formulario,
+.resultado {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
+.formulario h1,
+.resultado h1 {
+  font-size: 1.5rem;
 }
 
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
+.resultado h2 {
+  font-size: 1.125rem;
+}
 
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  padding: 1.25rem;
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  min-width: 0;
+}
+
+fieldset:disabled {
+  opacity: 0.7;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 0.625rem 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+input::placeholder {
+  color: var(--color-text-muted);
+}
+
+button {
+  appearance: none;
+  width: 100%;
+  padding: 0.625rem 1rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  background: var(--color-primary);
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:hover:not(:disabled) {
+  background: var(--color-primary-hover);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+button.btn-secundario {
+  background: var(--color-surface);
+  border-color: var(--color-border);
+  color: var(--color-primary);
+}
+
+button.btn-secundario:hover:not(:disabled) {
+  background: #f8fafc;
+}
+
+.formulario-error {
+  background: var(--color-danger-bg);
+  border: 1px solid var(--color-danger-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-danger);
+  padding: 0.75rem;
+  font-size: 0.875rem;
+}
+
+.transacciones {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  border-top: 1px solid var(--color-border);
+  padding-top: 1.25rem;
+}
+
+.transacciones-vacio {
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+}
+
+.transacciones-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.transaccion-fila {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.transaccion-fila-eliminar {
+  width: 2.25rem;
+  height: 2.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-danger);
+}
+
+.transaccion-fila-eliminar:hover:not(:disabled) {
+  background: var(--color-danger-bg);
+  border-color: var(--color-danger-border);
+}
+
+.resultado-perfil,
+.resultado-gastos,
+.recomendaciones,
+.resultado-estado {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  padding: 1.25rem;
+}
+
+.resultado-perfil {
+  text-align: center;
+}
+
+.resultado-perfil-nombre {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.resultado-probabilidad {
+  margin-top: 0.25rem;
+  color: var(--color-text-muted);
+}
+
+.resultado-error {
+  color: var(--color-danger);
+}
+
+.recomendaciones ul {
+  margin-top: 0.75rem;
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.resultado-estado {
+  text-align: center;
+}
+
+@media (min-width: 768px) {
   #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
+    padding: 2rem 1.5rem;
+  }
+
+  .formulario h1,
+  .resultado h1 {
+    font-size: 1.75rem;
   }
 }

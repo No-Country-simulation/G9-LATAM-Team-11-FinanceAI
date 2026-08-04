@@ -26,7 +26,9 @@ function formatoProbabilidad(probabilidad) {
 
     <section v-else-if="error && !resultado" class="resultado-estado">
       <p class="resultado-error">{{ error }}</p>
-      <button type="button" @click="irAlFormulario">Volver e intentar de nuevo</button>
+      <button type="button" class="btn-secundario" @click="irAlFormulario">
+        Volver e intentar de nuevo
+      </button>
     </section>
 
     <template v-else-if="resultado">
@@ -46,12 +48,16 @@ function formatoProbabilidad(probabilidad) {
 
       <RecomendacionesLista :recomendaciones="resultado.recomendaciones" />
 
-      <button type="button" @click="irAlFormulario">Editar mis datos</button>
+      <button type="button" class="btn-secundario" @click="irAlFormulario">
+        Editar mis datos
+      </button>
     </template>
 
     <section v-else class="resultado-sin-datos">
       <p>No hay resultados todavía. Completa el formulario para analizar tus finanzas.</p>
-      <button type="button" @click="irAlFormulario">Ir al formulario</button>
+      <button type="button" class="btn-secundario" @click="irAlFormulario">
+        Ir al formulario
+      </button>
     </section>
   </main>
 </template>
