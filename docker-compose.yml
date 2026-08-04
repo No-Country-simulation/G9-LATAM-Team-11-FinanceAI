@@ -13,6 +13,11 @@ services:
     volumes:
       - mysql_data:/var/lib/mysql
     restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 1024M
 
   # 2. Back-End: API REST (Java / Spring Boot)
   backend:
@@ -25,15 +30,23 @@ services:
       - DB_HOST=db
       - DB_USER_M=${DB_USER_M:-dev_user}
       - DB_PASSWORD=${DB_PASSWORD:-dev_password}
+      - DB_ROOT=${DB_ROOT:-root}
+      - DB_ROOT_PASSWORD=${DB_ROOT_PASSWORD:-root_password}
       - OCI_STORAGE_BUCKET=${OCI_STORAGE_BUCKET:-financeai-bucket}
+      - MAVEN_OPTS=-Xmx1024m -Xms512m
     volumes:
       - ./backend:/app
       - ./shared-models:/app/models
     working_dir: /app
-    command: mvn spring-boot:run
+    command: sh -c "mvn clean package -DskipTests -Dmaven.test.skip=true && java -Xmx512m -jar target/*.jar"
     depends_on:
       - db
     restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 2048M
 
   # 3. Front-End: Interfaz de Usuario (Vue 3 + Vite)
   frontend:
@@ -46,6 +59,11 @@ services:
     working_dir: /app
     command: sh -c "npm install && npm run dev" 
     restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 
   # 4. Ciencia de Datos: Entorno de Entrenamiento y Serialización
   data-science:
@@ -61,6 +79,11 @@ services:
       - ./notebooks:/home/jovyan/work
       - ./shared-models:/home/jovyan/work/models
     restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 2048M
 
 volumes:
   mysql_data:

@@ -2,6 +2,10 @@
 
 Esta rama está dedicada exclusivamente a la configuración, testing y estabilización de la infraestructura local multiplataforma utilizando Docker y Docker Compose en la fase de desarrollo.
 
+Cada contenedor está pensado y estructurado para que funcione y esté listo para que cada rol/sector del proyecto no tenga que preocuparse por docker, pero sí por sus tareas. Cualquier sugerencia es bien recibida.
+
+Los contenedores se detendrán entre un inicio de sesión y el siguiente, de manera que deben arrancarse manualmente en cada reinicio (docker compose up -d). Esto está hecho así para evitar consumir recursos cuando no corresponda.
+
 ---
 
 ## 🛠️ 1. Estructura de Contenedores y Puertos
@@ -17,10 +21,10 @@ El entorno local levanta 4 servicios interconectados dentro de la misma red de D
 
 ## 🚀 2. Guía de Configuración y Arranque Rápido
 
-Seguí estos pasos en orden para levantar el entorno local:
+Sigue estos pasos en orden para levantar el entorno local:
 
 ### Paso 1: Configurar archivos locales a partir de las plantillas
-Dado que las credenciales y las configuraciones de desarrollo local no se suben a GitHub por seguridad, debés duplicar y renombrar los archivos plantilla en la raíz del proyecto (podés hacerlo visualmente desde tu explorador de archivos o con la terminal):
+Dado que las credenciales y las configuraciones de desarrollo local no se suben a GitHub por seguridad, debés duplicar y renombrar los archivos plantilla en la raíz del proyecto. Podés hacerlo visualmente desde tu explorador de archivos:
 
 * **Variables de entorno:** Copiar `.env.example` y renombrarlo como `.env`
 * **Overrides de Docker:** Copiar `docker-compose.override.yml.example` y renombrarlo como `docker-compose.override.yml`
