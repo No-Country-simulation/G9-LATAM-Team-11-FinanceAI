@@ -32,7 +32,7 @@ const {
       <div>
         <BaseTag punto>En vivo</BaseTag>
         <h1 class="mt-4 text-2xl font-bold tracking-tight md:text-3xl">
-          Hola, <span class="text-white">{{ nombre }}</span>
+          Hola, <span class="text-cyan">{{ nombre }}</span>
         </h1>
         <p class="mt-1 text-sm text-muted">
           Gasto de este mes: <span class="font-semibold text-ink">−{{ formatoMoneda(gastoMes) }}</span>
