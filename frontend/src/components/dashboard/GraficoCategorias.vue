@@ -2,7 +2,7 @@
 import { computed } from 'vue'
 import { ArcElement, Chart as ChartJS, Legend, Tooltip } from 'chart.js'
 import { Doughnut } from 'vue-chartjs'
-import { etiquetaCategoria } from '@/utils/categorias'
+import { etiquetaCategoria, colorCategoria } from '@/utils/categorias'
 
 ChartJS.register(ArcElement, Tooltip, Legend)
 
@@ -10,14 +10,12 @@ const props = defineProps({
   datos: { type: Array, required: true },
 })
 
-const paleta = ['#00e5ff', '#34d399', '#8b5cf6', '#f59e0b', '#f43f5e', '#3b82f6', '#9aa3ad']
-
 const chartData = computed(() => ({
   labels: props.datos.map(([categoria]) => etiquetaCategoria(categoria)),
   datasets: [
     {
       data: props.datos.map(([, total]) => total),
-      backgroundColor: props.datos.map((_, indice) => paleta[indice % paleta.length]),
+      backgroundColor: props.datos.map(([categoria]) => colorCategoria(categoria)),
       borderColor: '#0a0a0b',
       borderWidth: 2,
       hoverOffset: 6,
