@@ -51,14 +51,7 @@ const chartOptions = {
 </script>
 
 <template>
-  <div class="grafico-gastos">
+  <div class="relative h-60">
     <Bar :data="chartData" :options="chartOptions" />
   </div>
 </template>
-
-<style scoped>
-.grafico-gastos {
-  position: relative;
-  height: 240px;
-}
-</style>
