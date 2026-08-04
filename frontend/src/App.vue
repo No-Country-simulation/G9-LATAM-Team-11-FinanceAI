@@ -1,9 +1,26 @@
 <script setup>
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 import { RouterView, useRoute } from 'vue-router'
+import { useAuthStore } from '@/stores/auth'
+import { useUsuario } from '@/composables/useUsuario'
 
 const route = useRoute()
 const clave = computed(() => route.name || route.path)
+
+onMounted(async () => {
+  const auth = useAuthStore()
+  const { cargarUsuario, entrarDemo } = useUsuario()
+
+  if (auth.sesionActiva) {
+    try {
+      await cargarUsuario(auth.usuarioId)
+    } catch {
+      entrarDemo()
+    }
+  } else {
+    entrarDemo()
+  }
+})
 </script>
 
 <template>
