@@ -1,22 +1,24 @@
 import { useAnalisisFinancieroStore } from '@/stores/analisisFinanciero'
+import { useUsuarioStore } from '@/stores/usuario'
 import { enviarAnalisisFinanciero } from '@/services/analisis'
 
 export function useAnalisisFinanciero() {
   const store = useAnalisisFinancieroStore()
+  const usuarioStore = useUsuarioStore()
 
   async function enviarAnalisis() {
     store.setLoading(true)
     store.setError('')
 
     const payload = {
-      ingreso_mensual: store.ingresoMensual,
+      ingreso_mensual: usuarioStore.ingresoDisponible,
       nivel_endeudamiento: store.nivelEndeudamiento,
       frecuencia_ahorro: store.frecuenciaAhorro,
-      transacciones: store.transacciones
-        .filter((transaccion) => transaccion.descripcion?.trim() && transaccion.valor != null)
+      transacciones: usuarioStore.transacciones
+        .filter((transaccion) => transaccion.descripcion?.trim() && transaccion.monto != null)
         .map((transaccion) => ({
           descripcion: transaccion.descripcion.trim(),
-          valor: Number(transaccion.valor),
+          valor: Number(transaccion.monto),
         })),
     }
 
