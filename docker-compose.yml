@@ -30,15 +30,13 @@ services:
       - DB_HOST=db
       - DB_USER_M=${DB_USER_M:-dev_user}
       - DB_PASSWORD=${DB_PASSWORD:-dev_password}
-      - DB_ROOT=${DB_ROOT:-root}
-      - DB_ROOT_PASSWORD=${DB_ROOT_PASSWORD:-root_password}
       - OCI_STORAGE_BUCKET=${OCI_STORAGE_BUCKET:-financeai-bucket}
       - MAVEN_OPTS=-Xmx1024m -Xms512m
     volumes:
       - ./backend:/app
       - ./shared-models:/app/models
     working_dir: /app
-    command: sh -c "mvn clean package -DskipTests -Dmaven.test.skip=true && java -Xmx512m -jar target/*.jar"
+    command: mvn spring-boot:run
     depends_on:
       - db
     restart: always
