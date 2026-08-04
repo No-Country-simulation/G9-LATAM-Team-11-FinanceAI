@@ -5,6 +5,7 @@ import { useUsuario } from '@/composables/useUsuario'
 import { useAuthStore } from '@/stores/auth'
 import { verificarPassword, passwordEsValida } from '@/utils/password'
 import BaseButton from '@/components/base/BaseButton.vue'
+import BasePasswordStrength from '@/components/base/BasePasswordStrength.vue'
 import BaseTag from '@/components/base/BaseTag.vue'
 
 const router = useRouter()
@@ -146,6 +147,7 @@ function irModoDemo() {
                 autocomplete="new-password"
               />
             </label>
+            <BasePasswordStrength :password="form.password" class="mt-2" />
             <ul v-if="form.password" class="mt-2 grid gap-1 text-xs" aria-label="Requisitos de contraseña">
               <li
                 v-for="requisito in requisitos"
