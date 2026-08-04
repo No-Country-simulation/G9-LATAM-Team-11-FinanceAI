@@ -2,6 +2,7 @@
 import { storeToRefs } from 'pinia'
 import { useRouter } from 'vue-router'
 import { useAnalisisFinancieroStore } from '@/stores/analisisFinanciero'
+import BaseButton from '@/components/base/BaseButton.vue'
 import GraficoGastos from '@/components/result/GraficoGastos.vue'
 import RecomendacionesLista from '@/components/result/RecomendacionesLista.vue'
 
@@ -26,9 +27,9 @@ function formatoProbabilidad(probabilidad) {
 
     <section v-else-if="error && !resultado" class="resultado-estado">
       <p class="resultado-error">{{ error }}</p>
-      <button type="button" class="btn-secundario" @click="irAlFormulario">
+      <BaseButton variante="secundario" @click="irAlFormulario">
         Volver e intentar de nuevo
-      </button>
+      </BaseButton>
     </section>
 
     <template v-else-if="resultado">
@@ -48,16 +49,16 @@ function formatoProbabilidad(probabilidad) {
 
       <RecomendacionesLista :recomendaciones="resultado.recomendaciones" />
 
-      <button type="button" class="btn-secundario" @click="irAlFormulario">
+      <BaseButton variante="secundario" @click="irAlFormulario">
         Editar mis datos
-      </button>
+      </BaseButton>
     </template>
 
     <section v-else class="resultado-sin-datos">
       <p>No hay resultados todavía. Completa el formulario para analizar tus finanzas.</p>
-      <button type="button" class="btn-secundario" @click="irAlFormulario">
+      <BaseButton variante="secundario" @click="irAlFormulario">
         Ir al formulario
-      </button>
+      </BaseButton>
     </section>
   </main>
 </template>

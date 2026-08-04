@@ -9,13 +9,15 @@ defineProps({
 })
 
 const varianteClases = {
-  primario: 'bg-paper text-onyx hover:bg-white hover:-translate-y-px',
+  primario:
+    'border-transparent bg-paper text-onyx hover:border-cyan/50 hover:bg-white hover:-translate-y-px',
   secundario:
-    'border-ghost-edge bg-coal text-silver hover:border-ghost-edge-strong hover:text-white hover:-translate-y-px',
-  fantasma: 'bg-transparent text-muted hover:bg-surface hover:text-ink',
-  enlace: 'bg-transparent text-cyan hover:underline',
+    'border-ghost-edge bg-coal text-silver hover:border-cyan/50 hover:text-white hover:-translate-y-px',
+  fantasma:
+    'border-transparent bg-transparent text-muted hover:border-cyan/40 hover:bg-surface hover:text-ink',
+  enlace: 'border-transparent bg-transparent text-cyan hover:underline',
   peligro:
-    'bg-danger-bg border-danger-edge text-danger hover:bg-danger/15 hover:border-danger hover:-translate-y-px',
+    'border-danger-edge bg-danger-bg text-danger hover:border-danger hover:bg-danger/15 hover:-translate-y-px',
 }
 
 const tamanoClases = {

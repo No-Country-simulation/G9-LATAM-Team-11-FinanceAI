@@ -92,18 +92,6 @@
     @apply -mt-3 text-sm text-danger;
   }
 
-  button {
-    @apply cursor-pointer rounded-md border border-transparent bg-paper px-5 py-2.5 font-semibold text-onyx transition-all duration-200 ease-out hover:-translate-y-px hover:bg-white active:scale-[0.985] disabled:cursor-not-allowed disabled:opacity-55;
-  }
-
-  form button:not(.btn) {
-    width: 100%;
-  }
-
-  button.btn-secundario {
-    @apply border-ghost-edge bg-coal text-silver hover:border-ghost-edge-strong hover:text-white;
-  }
-
   .formulario-error {
     @apply rounded-md border border-danger-edge bg-danger-bg px-3.5 py-2.5 text-sm text-danger;
   }

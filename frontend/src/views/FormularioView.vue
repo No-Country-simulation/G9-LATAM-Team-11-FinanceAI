@@ -5,6 +5,7 @@ import { useRouter } from 'vue-router'
 import { useAnalisisFinancieroStore } from '@/stores/analisisFinanciero'
 import { useUsuarioStore } from '@/stores/usuario'
 import { useAnalisisFinanciero } from '@/composables/useAnalisisFinanciero'
+import BaseButton from '@/components/base/BaseButton.vue'
 
 const router = useRouter()
 const store = useAnalisisFinancieroStore()
@@ -97,9 +98,9 @@ async function continuar() {
         {{ error }}
       </p>
 
-      <button type="submit" :disabled="loading" :aria-busy="loading">
+      <BaseButton tipo="submit" :cargando="loading" bloqueado>
         {{ loading ? 'Analizando…' : 'Analizar mis finanzas' }}
-      </button>
+      </BaseButton>
     </form>
   </main>
 </template>

@@ -68,43 +68,48 @@ function irModoDemo() {
 </script>
 
 <template>
-  <main class="relative z-10 flex min-h-screen items-center justify-center px-4 py-12">
-    <div class="w-full max-w-md">
-      <div class="mb-8 text-center">
-        <RouterLink to="/home" class="text-xl font-extrabold tracking-tight">
-          Finance<span class="text-cyan">AI</span>
-        </RouterLink>
-        <p class="mt-2 text-sm text-muted">Tu salud financiera, en un vistazo.</p>
-      </div>
-
-      <div class="rounded-lg border border-edge bg-surface p-6">
-        <BaseTag class="mb-5" punto>Acceso</BaseTag>
-
-        <div
-          class="mb-5 grid grid-cols-2 gap-1 rounded-md border border-ghost-edge bg-coal p-1"
-          role="tablist"
-        >
-          <button
-            type="button"
-            class="rounded-sm px-3 py-2 text-[13px] font-semibold transition-colors duration-200"
-            :class="modo === 'registro' ? 'bg-paper text-onyx' : 'text-muted hover:text-white'"
-            role="tab"
-            :aria-selected="modo === 'registro'"
-            @click="modo = 'registro'"
-          >
-            Crear cuenta
-          </button>
-          <button
-            type="button"
-            class="rounded-sm px-3 py-2 text-[13px] font-semibold transition-colors duration-200"
-            :class="modo === 'ingresar' ? 'bg-paper text-onyx' : 'text-muted hover:text-white'"
-            role="tab"
-            :aria-selected="modo === 'ingresar'"
-            @click="modo = 'ingresar'"
-          >
-            Ya tengo cuenta
-          </button>
+  <main class="relative z-10 flex min-h-screen flex-col px-4 py-12">
+    <div class="flex flex-1 items-center justify-center">
+      <div class="w-full max-w-md">
+        <div class="mb-8 text-center">
+          <RouterLink to="/home" class="text-xl font-extrabold tracking-tight">
+            Finance<span class="text-cyan">AI</span>
+          </RouterLink>
+          <p class="mt-2 text-sm text-muted">Tu salud financiera, en un vistazo.</p>
         </div>
+
+        <div class="rounded-lg border border-edge bg-surface p-6">
+          <BaseTag class="mb-5" punto>Acceso</BaseTag>
+
+          <div
+            class="mb-5 grid grid-cols-2 gap-1 rounded-md border border-ghost-edge bg-coal p-1"
+            role="tablist"
+          >
+            <button
+              type="button"
+              class="cursor-pointer rounded-sm px-3 py-2 text-[13px] font-semibold transition-colors duration-200"
+              :class="
+                modo === 'registro' ? 'bg-paper text-onyx' : 'text-muted hover:bg-surface-hover hover:text-white'
+              "
+              role="tab"
+              :aria-selected="modo === 'registro'"
+              @click="modo = 'registro'"
+            >
+              Crear cuenta
+            </button>
+            <button
+              type="button"
+              class="cursor-pointer rounded-sm px-3 py-2 text-[13px] font-semibold transition-colors duration-200"
+              :class="
+                modo === 'ingresar' ? 'bg-paper text-onyx' : 'text-muted hover:bg-surface-hover hover:text-white'
+              "
+              role="tab"
+              :aria-selected="modo === 'ingresar'"
+              @click="modo = 'ingresar'"
+            >
+              Ya tengo cuenta
+            </button>
+          </div>
 
         <form v-if="modo === 'registro'" class="gap-4" @submit.prevent="registrar">
           <label for="nombre">
