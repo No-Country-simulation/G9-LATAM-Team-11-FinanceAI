@@ -1,4 +1,5 @@
 <script setup>
+import { reactive } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useRouter } from 'vue-router'
 import { useAnalisisFinancieroStore } from '@/stores/analisisFinanciero'
@@ -11,8 +12,52 @@ const { ingresoMensual, nivelEndeudamiento, frecuenciaAhorro, loading, error } =
 const { enviarAnalisis } = useAnalisisFinanciero()
 
 const opcionesFrecuencia = ['Baja', 'Media', 'Alta']
+const errores = reactive({
+  ingresoMensual: '',
+  nivelEndeudamiento: '',
+  frecuenciaAhorro: '',
+  transacciones: '',
+})
+
+function validar() {
+  errores.ingresoMensual = ''
+  errores.nivelEndeudamiento = ''
+  errores.frecuenciaAhorro = ''
+  errores.transacciones = ''
+
+  let valido = true
+
+  const ingreso = Number(store.ingresoMensual)
+  if (!Number.isFinite(ingreso) || ingreso <= 0) {
+    errores.ingresoMensual = 'Ingresa un ingreso mensual mayor a 0.'
+    valido = false
+  }
+
+  const endeudamiento = Number(store.nivelEndeudamiento)
+  if (!Number.isFinite(endeudamiento) || endeudamiento < 0 || endeudamiento > 100) {
+    errores.nivelEndeudamiento = 'Ingresa un nivel de endeudamiento entre 0 y 100.'
+    valido = false
+  }
+
+  if (!store.frecuenciaAhorro) {
+    errores.frecuenciaAhorro = 'Selecciona una frecuencia de ahorro.'
+    valido = false
+  }
+
+  const hayTransaccionValida = store.transacciones.some(
+    (transaccion) => transaccion.descripcion?.trim() && Number(transaccion.valor) > 0,
+  )
+  if (!hayTransaccionValida) {
+    errores.transacciones = 'Agrega al menos una transacción con descripción y monto.'
+    valido = false
+  }
+
+  return valido
+}
 
 async function continuar() {
+  if (!validar()) return
+
   try {
     await enviarAnalisis()
     router.push({ name: 'resultado' })
@@ -37,8 +82,12 @@ async function continuar() {
             min="0"
             step="0.01"
             placeholder="Ej: 4500"
+            :class="{ 'campo-invalido': errores.ingresoMensual }"
+            :aria-invalid="errores.ingresoMensual ? 'true' : 'false'"
+            @input="errores.ingresoMensual = ''"
           />
         </label>
+        <p v-if="errores.ingresoMensual" class="campo-error">{{ errores.ingresoMensual }}</p>
 
         <label for="nivel-endeudamiento">
           Nivel de endeudamiento (%)
@@ -49,20 +98,37 @@ async function continuar() {
             min="0"
             max="100"
             placeholder="Ej: 25"
+            :class="{ 'campo-invalido': errores.nivelEndeudamiento }"
+            :aria-invalid="errores.nivelEndeudamiento ? 'true' : 'false'"
+            @input="errores.nivelEndeudamiento = ''"
           />
         </label>
+        <p v-if="errores.nivelEndeudamiento" class="campo-error">
+          {{ errores.nivelEndeudamiento }}
+        </p>
 
         <label for="frecuencia-ahorro">
           Frecuencia de ahorro
-          <select id="frecuencia-ahorro" v-model="frecuenciaAhorro">
+          <select
+            id="frecuencia-ahorro"
+            v-model="frecuenciaAhorro"
+            :class="{ 'campo-invalido': errores.frecuenciaAhorro }"
+            :aria-invalid="errores.frecuenciaAhorro ? 'true' : 'false'"
+            @change="errores.frecuenciaAhorro = ''"
+          >
             <option value="" disabled>Selecciona una opción</option>
             <option v-for="opcion in opcionesFrecuencia" :key="opcion" :value="opcion">
               {{ opcion }}
             </option>
           </select>
         </label>
+        <p v-if="errores.frecuenciaAhorro" class="campo-error">
+          {{ errores.frecuenciaAhorro }}
+        </p>
 
         <TransaccionesLista />
+
+        <p v-if="errores.transacciones" class="campo-error">{{ errores.transacciones }}</p>
       </fieldset>
 
       <p v-if="error" id="formulario-error" class="formulario-error" role="alert">

@@ -69,6 +69,17 @@ input::placeholder {
   color: var(--color-text-muted);
 }
 
+input.campo-invalido,
+select.campo-invalido {
+  border-color: var(--color-danger);
+}
+
+.campo-error {
+  color: var(--color-danger);
+  font-size: 0.8125rem;
+  margin-top: -0.625rem;
+}
+
 button {
   appearance: none;
   width: 100%;
