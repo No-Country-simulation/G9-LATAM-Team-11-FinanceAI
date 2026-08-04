@@ -1,18 +1,15 @@
 package G9_LATAM_Team_11_FinanceAI.domain.transaccion;
 
 import G9_LATAM_Team_11_FinanceAI.DTO.IngresarTransaccionDTO;
-import G9_LATAM_Team_11_FinanceAI.Repository.IUsuarioRepository;
 import G9_LATAM_Team_11_FinanceAI.domain.usuario.Usuario;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.Date;
 
 @Table(name = "transacciones")
 @Entity(name = "Transaccion")
