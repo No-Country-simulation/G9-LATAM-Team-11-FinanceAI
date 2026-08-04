@@ -1,110 +1,168 @@
-:root {
-  color-scheme: dark;
+@import 'tailwindcss';
 
-  --color-bg: #05070d;
+@theme {
+  /* Neo-Onice — superficies monocromas */
+  --color-onyx: #050505;
+  --color-coal: #0c0c0d;
   --color-surface: rgba(255, 255, 255, 0.04);
-  --color-surface-hover: rgba(255, 255, 255, 0.07);
-  --color-border: rgba(255, 255, 255, 0.1);
-  --color-border-strong: rgba(255, 255, 255, 0.18);
+  --color-surface-hover: rgba(255, 255, 255, 0.08);
+  --color-edge: rgba(255, 255, 255, 0.1);
+  --color-edge-strong: rgba(255, 255, 255, 0.18);
 
-  --color-primary: #10b981;
-  --color-primary-hover: #34d399;
-  --color-primary-glow: rgba(16, 185, 129, 0.28);
-  --color-accent: #22d3ee;
-  --color-accent-glow: rgba(34, 211, 238, 0.22);
+  /* Neo-Onice — acento único */
+  --color-cyan: #22d3ee;
+  --color-cyan-hover: #67e8f9;
+  --color-cyan-glow: rgba(34, 211, 238, 0.25);
 
+  /* texto */
+  --color-ink: #f4f6f8;
+  --color-muted: #9aa3ad;
+  --color-faint: #565d66;
+
+  /* estado */
   --color-success: #34d399;
   --color-warning: #fbbf24;
   --color-danger: #f87171;
-  --color-danger-bg: rgba(248, 113, 113, 0.1);
-  --color-danger-border: rgba(248, 113, 113, 0.35);
+  --color-danger-bg: rgba(248, 113, 113, 0.08);
+  --color-danger-edge: rgba(248, 113, 113, 0.35);
 
-  --color-text: #e5e9f0;
-  --color-text-muted: #8b95a7;
-  --color-text-dim: #5b6472;
+  /* radios cuadrados */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 10px;
+  --radius-full: 999px;
 
-  --radius-sm: 10px;
-  --radius-md: 16px;
-  --radius-lg: 24px;
-  --radius-pill: 999px;
+  /* tipografía */
+  --font-sans: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
 
-  --shadow-card:
-    0 0 0 1px rgba(255, 255, 255, 0.06),
-    0 20px 50px -24px rgba(0, 0, 0, 0.7);
-  --shadow-glow-primary: 0 0 24px var(--color-primary-glow);
-  --inset-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.08);
-
-  --font-display: 'Sora', sans-serif;
-  --font-body: 'Space Grotesk', sans-serif;
-
+  /* movimiento */
   --ease-out: cubic-bezier(0.32, 0.72, 0, 1);
-  --transition-fast: 180ms var(--ease-out);
-  --transition-medium: 320ms var(--ease-out);
 
-  --max-width: 1100px;
+  /* layout */
+  --max-width: 1120px;
   --gap: 1rem;
-  --nav-height: 64px;
+  --nav-height: 72px;
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    min-height: 100vh;
+    background-color: var(--color-onyx);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    position: relative;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  ::selection {
+    background: var(--color-cyan-glow);
+    color: #fff;
+  }
+
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible,
+  a:focus-visible {
+    outline: 2px solid var(--color-cyan);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* glow cian sutil fijo en la parte superior */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 320px;
+    z-index: 0;
+    pointer-events: none;
+    background: radial-gradient(720px 280px at 50% -20%, rgba(34, 211, 238, 0.14), transparent 72%);
+  }
+
+  /* grano cinematográfico sutil */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 2147483647;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* scrollbar personalizada */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-onyx);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.16);
+    border-radius: var(--radius-full);
+    border: 2px solid var(--color-onyx);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.18) var(--color-onyx);
+  }
 }
 
-html {
-  -webkit-text-size-adjust: 100%;
-  scroll-behavior: smooth;
+/* animaciones premium (GPU-safe, respetan prefers-reduced-motion) */
+@keyframes shimmer {
+  0% {
+    background-position: -480px 0;
+  }
+  100% {
+    background-position: 480px 0;
+  }
 }
 
-body {
-  min-height: 100vh;
-  color: var(--color-text);
-  background:
-    radial-gradient(1100px 600px at 88% -12%, rgba(16, 185, 129, 0.12), transparent 60%),
-    radial-gradient(900px 520px at -5% 18%, rgba(34, 211, 238, 0.09), transparent 55%),
-    radial-gradient(900px 700px at 50% 115%, rgba(99, 102, 241, 0.07), transparent 60%),
-    var(--color-bg);
-  background-attachment: fixed;
-  font-family: var(--font-body);
-  font-size: 16px;
-  line-height: 1.55;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
 }
 
-h1,
-h2,
-h3,
-h4 {
-  font-family: var(--font-display);
-  line-height: 1.15;
-  font-weight: 600;
-}
-
-button,
-input,
-select,
-textarea {
-  font: inherit;
-  color: inherit;
-}
-
-::selection {
-  background: var(--color-primary-glow);
-  color: #fff;
-}
-
-button:focus-visible,
-input:focus-visible,
-select:focus-visible,
-textarea:focus-visible,
-a:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
-  border-radius: 4px;
+@keyframes spin-ring {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
