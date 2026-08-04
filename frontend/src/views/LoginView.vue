@@ -16,14 +16,13 @@ const error = ref('')
 const form = reactive({
   nombre: '',
   email: '',
-  ingreso: null,
   id: '',
 })
 
 async function registrar() {
   error.value = ''
-  if (!form.nombre.trim() || !form.email.trim() || !(Number(form.ingreso) > 0)) {
-    error.value = 'Completa nombre, email e ingreso mensual mayor a 0.'
+  if (!form.nombre.trim() || !form.email.trim()) {
+    error.value = 'Completa tu nombre y email.'
     return
   }
   cargando.value = true
@@ -31,7 +30,8 @@ async function registrar() {
     const id = await registrarYEntrar({
       nombre: form.nombre.trim(),
       email: form.email.trim(),
-      ingresoMensual: Number(form.ingreso),
+      // TODO: el ingreso se define luego (formulario de análisis); el backend lo exige al registrar.
+      ingresoMensual: 0,
     })
     auth.iniciarSesion(id)
     router.push({ name: 'home' })
@@ -114,17 +114,6 @@ function irModoDemo() {
           <label for="email">
             Email
             <input id="email" v-model="form.email" type="email" placeholder="tu@email.com" />
-          </label>
-          <label for="ingreso">
-            Ingreso mensual
-            <input
-              id="ingreso"
-              v-model.number="form.ingreso"
-              type="number"
-              min="0"
-              step="0.01"
-              placeholder="Ej: 4500"
-            />
           </label>
 
           <p v-if="error" class="rounded-md border border-danger-edge bg-danger-bg px-3 py-2 text-sm text-danger" role="alert">
