@@ -9,20 +9,18 @@ import { useAnalisisFinanciero } from '@/composables/useAnalisisFinanciero'
 const router = useRouter()
 const store = useAnalisisFinancieroStore()
 const usuarioStore = useUsuarioStore()
-const { nivelEndeudamiento, frecuenciaAhorro, loading, error } = storeToRefs(store)
+const { frecuenciaAhorro, loading, error } = storeToRefs(store)
 const { ingresoDisponible } = storeToRefs(usuarioStore)
 const { enviarAnalisis } = useAnalisisFinanciero()
 
 const opcionesFrecuencia = ['Baja', 'Media', 'Alta']
 const errores = reactive({
   ingreso: '',
-  nivelEndeudamiento: '',
   frecuenciaAhorro: '',
 })
 
 function validar() {
   errores.ingreso = ''
-  errores.nivelEndeudamiento = ''
   errores.frecuenciaAhorro = ''
 
   let valido = true
@@ -30,12 +28,6 @@ function validar() {
   const ingreso = Number(usuarioStore.ingresoDisponible)
   if (!Number.isFinite(ingreso) || ingreso <= 0) {
     errores.ingreso = 'Ingresa un ingreso mensual mayor a 0.'
-    valido = false
-  }
-
-  const endeudamiento = Number(store.nivelEndeudamiento)
-  if (!Number.isFinite(endeudamiento) || endeudamiento < 0 || endeudamiento > 100) {
-    errores.nivelEndeudamiento = 'Ingresa un nivel de endeudamiento entre 0 y 100.'
     valido = false
   }
 
@@ -80,24 +72,6 @@ async function continuar() {
           />
         </label>
         <p v-if="errores.ingreso" class="campo-error">{{ errores.ingreso }}</p>
-
-        <label for="nivel-endeudamiento">
-          Nivel de endeudamiento (%)
-          <input
-            id="nivel-endeudamiento"
-            v-model.number="nivelEndeudamiento"
-            type="number"
-            min="0"
-            max="100"
-            placeholder="Ej: 25"
-            :class="{ 'campo-invalido': errores.nivelEndeudamiento }"
-            :aria-invalid="errores.nivelEndeudamiento ? 'true' : 'false'"
-            @input="errores.nivelEndeudamiento = ''"
-          />
-        </label>
-        <p v-if="errores.nivelEndeudamiento" class="campo-error">
-          {{ errores.nivelEndeudamiento }}
-        </p>
 
         <label for="frecuencia-ahorro">
           Frecuencia de ahorro

@@ -2,7 +2,6 @@ import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 
 export const useAnalisisFinancieroStore = defineStore('analisisFinanciero', () => {
-  const nivelEndeudamiento = ref(null)
   const frecuenciaAhorro = ref('')
   const resultado = ref(null)
   const loading = ref(false)
@@ -28,7 +27,6 @@ export const useAnalisisFinancieroStore = defineStore('analisisFinanciero', () =
   }
 
   return {
-    nivelEndeudamiento,
     frecuenciaAhorro,
     resultado,
     loading,

@@ -10,16 +10,21 @@ export function useAnalisisFinanciero() {
     store.setLoading(true)
     store.setError('')
 
+    const transacciones = usuarioStore.transacciones
+      .filter((transaccion) => transaccion.descripcion?.trim() && transaccion.monto != null)
+      .map((transaccion) => ({
+        descripcion: transaccion.descripcion.trim(),
+        valor: Number(transaccion.monto),
+      }))
+
     const payload = {
       ingreso_mensual: usuarioStore.ingresoDisponible,
-      nivel_endeudamiento: store.nivelEndeudamiento,
+      nivel_endeudamiento: calcularEndeudamiento(
+        usuarioStore.transacciones,
+        usuarioStore.ingresoDisponible,
+      ),
       frecuencia_ahorro: store.frecuenciaAhorro,
-      transacciones: usuarioStore.transacciones
-        .filter((transaccion) => transaccion.descripcion?.trim() && transaccion.monto != null)
-        .map((transaccion) => ({
-          descripcion: transaccion.descripcion.trim(),
-          valor: Number(transaccion.monto),
-        })),
+      transacciones,
     }
 
     try {
@@ -35,6 +40,25 @@ export function useAnalisisFinanciero() {
   }
 
   return { enviarAnalisis }
+}
+
+// El nivel de endeudamiento se deriva de las transacciones del mes y el ingreso mensual,
+// no se pregunta al usuario (lo calcula el backend en el análisis real).
+function calcularEndeudamiento(transacciones, ingreso) {
+  const ahora = new Date()
+  const gastoMes = transacciones
+    .filter((transaccion) => {
+      if (!transaccion.fecha) return false
+      const fecha = new Date(transaccion.fecha)
+      return (
+        fecha.getMonth() === ahora.getMonth() &&
+        fecha.getFullYear() === ahora.getFullYear()
+      )
+    })
+    .reduce((total, transaccion) => total + Number(transaccion.monto || 0), 0)
+
+  if (!ingreso || ingreso <= 0) return 0
+  return Math.min(100, Math.round((gastoMes / Number(ingreso)) * 100))
 }
 
 function mensajeError(error) {

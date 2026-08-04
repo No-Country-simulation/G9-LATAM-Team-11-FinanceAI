@@ -54,7 +54,33 @@
 
   input,
   select {
-    @apply w-full rounded-md border border-ghost-edge bg-coal px-3.5 py-2.5 text-ink transition-colors placeholder:text-dim focus:border-cyan focus:outline-none focus:ring-2 focus:ring-cyan-glow;
+    @apply w-full appearance-none rounded-md border border-edge-strong bg-coal px-3.5 py-2.5 text-ink transition-colors placeholder:text-dim focus:border-cyan focus:outline-none focus:ring-2 focus:ring-cyan-glow;
+  }
+
+  input[type='number']::-webkit-outer-spin-button,
+  input[type='number']::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type='number'] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+
+  select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2366666e' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.9rem center;
+    padding-right: 2.5rem;
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 1000px var(--color-coal) inset;
+    -webkit-text-fill-color: var(--color-ink);
+    transition: background-color 9999s ease-out;
   }
 
   input.campo-invalido,
