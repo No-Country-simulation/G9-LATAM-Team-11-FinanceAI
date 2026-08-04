@@ -1,14 +1,15 @@
 <script setup>
-import { reactive, ref } from 'vue'
+import { computed, reactive, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useUsuario } from '@/composables/useUsuario'
 import { useAuthStore } from '@/stores/auth'
+import { verificarPassword, passwordEsValida } from '@/utils/password'
 import BaseButton from '@/components/base/BaseButton.vue'
 import BaseTag from '@/components/base/BaseTag.vue'
 
 const router = useRouter()
 const auth = useAuthStore()
-const { registrarYEntrar, cargarUsuario, entrarDemo } = useUsuario()
+const { registrarYEntrar, iniciarSesionCredenciales, cargarUsuario, entrarDemo } = useUsuario()
 const modo = ref('registro')
 const cargando = ref(false)
 const error = ref('')
@@ -16,8 +17,13 @@ const error = ref('')
 const form = reactive({
   nombre: '',
   email: '',
-  id: '',
+  password: '',
+  confirmarPassword: '',
+  emailLogin: '',
+  passwordLogin: '',
 })
+
+const requisitos = computed(() => verificarPassword(form.password))
 
 async function registrar() {
   error.value = ''
@@ -25,11 +31,20 @@ async function registrar() {
     error.value = 'Completa tu nombre y email.'
     return
   }
+  if (!passwordEsValida(form.password)) {
+    error.value = 'La contraseña no cumple con el nivel de seguridad requerido.'
+    return
+  }
+  if (form.password !== form.confirmarPassword) {
+    error.value = 'Las contraseñas no coinciden.'
+    return
+  }
   cargando.value = true
   try {
     const id = await registrarYEntrar({
       nombre: form.nombre.trim(),
       email: form.email.trim(),
+      password: form.password,
       // TODO: el ingreso se define luego (formulario de análisis); el backend lo exige al registrar.
       ingresoMensual: 0,
     })
@@ -44,13 +59,13 @@ async function registrar() {
 
 async function ingresar() {
   error.value = ''
-  const id = Number(form.id)
-  if (!Number.isInteger(id) || id <= 0) {
-    error.value = 'Ingresa un ID de usuario válido.'
+  if (!form.emailLogin.trim() || !form.passwordLogin) {
+    error.value = 'Ingresa tu email y contraseña.'
     return
   }
   cargando.value = true
   try {
+    const id = await iniciarSesionCredenciales(form.emailLogin, form.passwordLogin)
     await cargarUsuario(id)
     auth.iniciarSesion(id)
     router.push({ name: 'home' })
@@ -120,6 +135,40 @@ function irModoDemo() {
             Email
             <input id="email" v-model="form.email" type="email" placeholder="tu@email.com" />
           </label>
+          <div>
+            <label for="password">
+              Contraseña
+              <input
+                id="password"
+                v-model="form.password"
+                type="password"
+                placeholder="Crea una contraseña"
+                autocomplete="new-password"
+              />
+            </label>
+            <ul v-if="form.password" class="mt-2 grid gap-1 text-xs" aria-label="Requisitos de contraseña">
+              <li
+                v-for="requisito in requisitos"
+                :key="requisito.clave"
+                :class="requisito.cumple ? 'text-success' : 'text-dim'"
+              >
+                {{ requisito.cumple ? '✓' : '○' }} {{ requisito.etiqueta }}
+              </li>
+            </ul>
+          </div>
+          <label for="confirmar-password">
+            Confirmar contraseña
+            <input
+              id="confirmar-password"
+              v-model="form.confirmarPassword"
+              type="password"
+              placeholder="Repite la contraseña"
+              autocomplete="new-password"
+            />
+          </label>
+          <p v-if="form.confirmarPassword && form.password !== form.confirmarPassword" class="campo-error">
+            Las contraseñas no coinciden.
+          </p>
 
           <p v-if="error" class="rounded-md border border-danger-edge bg-danger-bg px-3 py-2 text-sm text-danger" role="alert">
             {{ error }}
@@ -131,9 +180,25 @@ function irModoDemo() {
         </form>
 
         <form v-else class="gap-4" @submit.prevent="ingresar">
-          <label for="usuario-id">
-            ID de usuario
-            <input id="usuario-id" v-model.number="form.id" type="number" placeholder="Ej: 1" />
+          <label for="email-login">
+            Email
+            <input
+              id="email-login"
+              v-model="form.emailLogin"
+              type="email"
+              placeholder="tu@email.com"
+              autocomplete="email"
+            />
+          </label>
+          <label for="password-login">
+            Contraseña
+            <input
+              id="password-login"
+              v-model="form.passwordLogin"
+              type="password"
+              placeholder="Tu contraseña"
+              autocomplete="current-password"
+            />
           </label>
 
           <p v-if="error" class="rounded-md border border-danger-edge bg-danger-bg px-3 py-2 text-sm text-danger" role="alert">

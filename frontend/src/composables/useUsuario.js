@@ -4,6 +4,37 @@ import { useTransacciones } from '@/composables/useTransacciones'
 import { mensajeErrorApi } from '@/utils/errores'
 import { datosDemo } from '@/data/demo'
 
+// TODO: mock temporal de credenciales — el backend no expone un login por email y
+// contraseña (solo POST /usuario, GET /usuario/{id} y /usuario/activos/mesanio).
+// Se guardan en el navegador las cuentas creadas para poder volver a entrar.
+const CLAVE_CUENTAS = 'financeai:cuentas'
+
+function obtenerCuentasGuardadas() {
+  try {
+    return JSON.parse(localStorage.getItem(CLAVE_CUENTAS)) ?? []
+  } catch {
+    return []
+  }
+}
+
+function guardarCuenta(datos, id) {
+  const cuentas = obtenerCuentasGuardadas().filter(
+    (cuenta) => cuenta.email.toLowerCase() !== String(datos.email).toLowerCase(),
+  )
+  cuentas.push({ email: datos.email, password: datos.password, id })
+  localStorage.setItem(CLAVE_CUENTAS, JSON.stringify(cuentas))
+}
+
+async function iniciarSesionCredenciales(email, password) {
+  const cuenta = obtenerCuentasGuardadas().find(
+    (c) => c.email.toLowerCase() === String(email).trim().toLowerCase(),
+  )
+  if (!cuenta || cuenta.password !== password) {
+    throw new Error('Email o contraseña incorrectos.')
+  }
+  return cuenta.id
+}
+
 export function useUsuario() {
   const store = useUsuarioStore()
   const { listarTransacciones } = useTransacciones()
@@ -30,6 +61,7 @@ export function useUsuario() {
     try {
       await registrarUsuario(datos)
       const id = await obtenerIdTrasRegistro(datos)
+      guardarCuenta(datos, id)
       await cargarUsuario(id)
       return id
     } catch (error) {
@@ -54,7 +86,7 @@ export function useUsuario() {
     store.setTransacciones(datosDemo.transacciones)
   }
 
-  return { cargarUsuario, registrarYEntrar, salir, entrarDemo }
+  return { cargarUsuario, registrarYEntrar, iniciarSesionCredenciales, salir, entrarDemo }
 }
 
 // TODO: mock temporal, reemplazar cuando backend devuelva el id en POST /usuario
