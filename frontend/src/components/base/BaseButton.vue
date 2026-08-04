@@ -9,10 +9,11 @@ defineProps({
 })
 
 const varianteClases = {
-  primario: 'bg-cyan text-black hover:bg-cyan-hover hover:-translate-y-px',
+  primario: 'bg-paper text-onyx hover:bg-white hover:-translate-y-px',
   secundario:
-    'bg-white/[0.04] border-edge text-ink hover:bg-white/[0.08] hover:border-edge-strong hover:-translate-y-px',
+    'border-ghost-edge bg-coal text-silver hover:border-ghost-edge-strong hover:text-white hover:-translate-y-px',
   fantasma: 'bg-transparent text-muted hover:bg-surface hover:text-ink',
+  enlace: 'bg-transparent text-cyan hover:underline',
   peligro:
     'bg-danger-bg border-danger-edge text-danger hover:bg-danger/15 hover:border-danger hover:-translate-y-px',
 }

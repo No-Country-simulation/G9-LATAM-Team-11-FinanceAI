@@ -25,7 +25,7 @@ defineProps({
     <p class="text-[0.9375rem] text-muted">{{ mensaje }}</p>
     <p
       v-if="cubrir"
-      class="absolute bottom-7 font-display text-xs font-medium uppercase tracking-widest text-faint"
+      class="absolute bottom-7 font-mono text-[11px] font-medium uppercase tracking-[0.16em] text-dim"
     >
       Finance<span class="text-cyan">AI</span>
     </p>

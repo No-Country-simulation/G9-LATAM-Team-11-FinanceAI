@@ -2,22 +2,30 @@
 
 @theme {
   /* Neo-Onice — superficies monocromas */
-  --color-onyx: #050505;
-  --color-coal: #0c0c0d;
-  --color-surface: rgba(255, 255, 255, 0.04);
-  --color-surface-hover: rgba(255, 255, 255, 0.08);
-  --color-edge: rgba(255, 255, 255, 0.1);
-  --color-edge-strong: rgba(255, 255, 255, 0.18);
+  --color-onyx: #050506;
+  --color-coal: #0b0b0c;
+  --color-surface: #0a0a0b;
+  --color-surface-hover: #0e0e10;
+  --color-edge: #1a1a1e;
+  --color-edge-strong: #2e2e34;
+  --color-hairline: #17171a;
+  --color-ghost-edge: #232327;
+  --color-ghost-edge-strong: #3a3a40;
 
   /* Neo-Onice — acento único */
-  --color-cyan: #22d3ee;
-  --color-cyan-hover: #67e8f9;
-  --color-cyan-glow: rgba(34, 211, 238, 0.25);
+  --color-cyan: #00e5ff;
+  --color-cyan-hover: #66f0ff;
+  --color-cyan-glow: rgba(0, 229, 255, 0.25);
 
   /* texto */
-  --color-ink: #f4f6f8;
-  --color-muted: #9aa3ad;
-  --color-faint: #565d66;
+  --color-ink: #ececec;
+  --color-muted: #8a8a92;
+  --color-faint: #66666e;
+  --color-dim: #55555c;
+  --color-silver: #c9c9cf;
+
+  /* botón principal (papel) */
+  --color-paper: #f5f5f6;
 
   /* estado */
   --color-success: #34d399;
@@ -35,6 +43,7 @@
   /* tipografía */
   --font-sans: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
   --font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
 
   /* movimiento */
   --ease-out: cubic-bezier(0.32, 0.72, 0, 1);
@@ -42,7 +51,7 @@
   /* layout */
   --max-width: 1120px;
   --gap: 1rem;
-  --nav-height: 72px;
+  --nav-height: 70px;
 }
 
 @layer base {
@@ -69,7 +78,7 @@
     font-family: var(--font-display);
     line-height: 1.2;
     font-weight: 700;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.02em;
   }
 
   ::selection {
@@ -87,7 +96,7 @@
     border-radius: 4px;
   }
 
-  /* glow cian sutil fijo en la parte superior */
+  /* glow blanco sutil fijo en la parte superior */
   body::before {
     content: '';
     position: fixed;
@@ -97,7 +106,7 @@
     height: 320px;
     z-index: 0;
     pointer-events: none;
-    background: radial-gradient(720px 280px at 50% -20%, rgba(34, 211, 238, 0.14), transparent 72%);
+    background: radial-gradient(640px 320px at 50% -100px, rgba(255, 255, 255, 0.07), transparent 70%);
   }
 
   /* grano cinematográfico sutil */
@@ -162,6 +171,16 @@
 @keyframes spin-ring {
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes punto-pulso {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 229, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(0, 229, 255, 0);
   }
 }
 

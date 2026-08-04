@@ -49,12 +49,12 @@
   }
 
   label {
-    @apply flex flex-col gap-2 text-xs font-medium uppercase tracking-wider text-muted;
+    @apply flex flex-col gap-2 font-mono text-[11px] font-medium uppercase tracking-[0.16em] text-faint;
   }
 
   input,
   select {
-    @apply w-full rounded-md border border-edge bg-white/[0.03] px-3.5 py-2.5 text-ink transition-colors placeholder:text-faint focus:border-cyan focus:outline-none focus:ring-2 focus:ring-cyan-glow;
+    @apply w-full rounded-md border border-ghost-edge bg-coal px-3.5 py-2.5 text-ink transition-colors placeholder:text-dim focus:border-cyan focus:outline-none focus:ring-2 focus:ring-cyan-glow;
   }
 
   input.campo-invalido,
@@ -67,11 +67,11 @@
   }
 
   button {
-    @apply w-full cursor-pointer rounded-md border border-transparent bg-cyan px-5 py-2.5 font-semibold text-black transition-transform duration-200 ease-out hover:-translate-y-px active:scale-[0.985] disabled:cursor-not-allowed disabled:opacity-55;
+    @apply w-full cursor-pointer rounded-md border border-transparent bg-paper px-5 py-2.5 font-semibold text-onyx transition-all duration-200 ease-out hover:-translate-y-px hover:bg-white active:scale-[0.985] disabled:cursor-not-allowed disabled:opacity-55;
   }
 
   button.btn-secundario {
-    @apply border-edge bg-white/[0.04] text-ink hover:border-edge-strong hover:bg-white/[0.08];
+    @apply border-ghost-edge bg-coal text-silver hover:border-ghost-edge-strong hover:text-white;
   }
 
   .formulario-error {
