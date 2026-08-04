@@ -128,19 +128,19 @@
   }
 }
 
-@keyframes logo-ai-flotar {
+@keyframes logo-ai-tilt {
   0%,
   100% {
-    transform: translateY(0);
+    transform: rotate(-7deg);
   }
   50% {
-    transform: translateY(-2px);
+    transform: rotate(7deg);
   }
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .logo-ai {
     display: inline-block;
-    animation: logo-ai-flotar 2.6s ease-in-out infinite;
+    animation: logo-ai-tilt 2.8s ease-in-out infinite;
   }
 }
