@@ -29,7 +29,7 @@ function cerrarSesion() {
 <template>
   <header class="flex h-[70px] items-center justify-between gap-4">
     <RouterLink to="/home" class="text-lg font-extrabold tracking-tight">
-      Finance<span class="text-cyan">AI</span>
+      Finance<span class="logo-ai text-cyan">AI</span>
     </RouterLink>
 
     <nav class="hidden items-center gap-7 md:flex" aria-label="Principal">
