@@ -15,7 +15,7 @@ const coloresTono = {
 }
 
 const color = computed(() =>
-  props.tono ? (coloresTono[props.tono] ?? '#8b95a7') : colorCategoria(props.categoria),
+  props.tono ? (coloresTono[props.tono] ?? '#9aa3ad') : colorCategoria(props.categoria),
 )
 
 const texto = computed(() =>
@@ -30,19 +30,10 @@ const estilo = computed(() => ({
 </script>
 
 <template>
-  <span class="badge" :style="estilo">{{ texto }}</span>
+  <span
+    class="inline-flex items-center whitespace-nowrap rounded-full border px-2 py-0.5 text-xs font-semibold tracking-wider"
+    :style="estilo"
+  >
+    {{ texto }}
+  </span>
 </template>
-
-<style scoped>
-.badge {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.25rem 0.625rem;
-  border: 1px solid transparent;
-  border-radius: var(--radius-pill);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  white-space: nowrap;
-}
-</style>

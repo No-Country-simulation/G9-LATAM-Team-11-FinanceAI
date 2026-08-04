@@ -6,9 +6,9 @@ defineProps({
 </script>
 
 <template>
-  <div class="empty">
+  <div class="flex flex-col items-center gap-2.5 px-4 py-8 text-center">
     <svg
-      class="empty__icono"
+      class="text-faint"
       width="48"
       height="48"
       viewBox="0 0 48 48"
@@ -17,6 +17,7 @@ defineProps({
     >
       <circle cx="24" cy="24" r="16" stroke="currentColor" stroke-width="1.5" opacity="0.25" />
       <circle
+        class="origin-center animate-[spin-ring_12s_linear_infinite]"
         cx="24"
         cy="24"
         r="16"
@@ -33,41 +34,10 @@ defineProps({
         opacity="0.55"
       />
     </svg>
-    <h3 class="empty__titulo">{{ titulo }}</h3>
-    <p v-if="mensaje" class="empty__mensaje">{{ mensaje }}</p>
-    <div v-if="$slots.accion" class="empty__accion">
+    <h3 class="text-base font-semibold">{{ titulo }}</h3>
+    <p v-if="mensaje" class="max-w-[34ch] text-sm text-muted">{{ mensaje }}</p>
+    <div v-if="$slots.accion" class="mt-2 w-full">
       <slot name="accion" />
     </div>
   </div>
 </template>
-
-<style scoped>
-.empty {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.625rem;
-  text-align: center;
-  padding: 2rem 1rem;
-}
-
-.empty__icono {
-  color: var(--color-text-dim);
-}
-
-.empty__titulo {
-  font-size: 1rem;
-  font-weight: 600;
-}
-
-.empty__mensaje {
-  color: var(--color-text-muted);
-  font-size: 0.875rem;
-  max-width: 34ch;
-}
-
-.empty__accion {
-  margin-top: 0.5rem;
-  width: 100%;
-}
-</style>
