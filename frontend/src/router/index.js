@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import AppLayout from '../layouts/AppLayout.vue'
-import FormularioView from '../views/FormularioView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -25,22 +24,22 @@ const router = createRouter({
           name: 'analisis',
           component: () => import('../views/AnalisisView.vue'),
         },
+        {
+          path: 'formulario',
+          name: 'formulario',
+          component: () => import('../views/FormularioView.vue'),
+        },
+        {
+          path: 'resultado',
+          name: 'resultado',
+          component: () => import('../views/ResultadoView.vue'),
+        },
       ],
     },
     {
       path: '/login',
       name: 'login',
       component: () => import('../views/LoginView.vue'),
-    },
-    {
-      path: '/formulario',
-      name: 'formulario',
-      component: FormularioView,
-    },
-    {
-      path: '/resultado',
-      name: 'resultado',
-      component: () => import('../views/ResultadoView.vue'),
     },
   ],
 })

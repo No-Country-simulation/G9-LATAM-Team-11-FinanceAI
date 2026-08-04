@@ -20,7 +20,7 @@ function formatoProbabilidad(probabilidad) {
 </script>
 
 <template>
-  <main class="resultado">
+  <main class="resultado mx-auto w-full max-w-lg">
     <section v-if="loading" class="resultado-estado" aria-busy="true">
       <p>Analizando tus finanzas…</p>
     </section>

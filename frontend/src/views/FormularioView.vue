@@ -53,7 +53,7 @@ async function continuar() {
 </script>
 
 <template>
-  <main class="formulario">
+  <main class="formulario mx-auto w-full max-w-md">
     <h1>Análisis financiero</h1>
 
     <form @submit.prevent="continuar">
