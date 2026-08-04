@@ -7,7 +7,7 @@ import RecomendacionesLista from '@/components/result/RecomendacionesLista.vue'
 
 const router = useRouter()
 const store = useAnalisisFinancieroStore()
-const { resultado } = storeToRefs(store)
+const { resultado, loading, error } = storeToRefs(store)
 
 function irAlFormulario() {
   router.push({ name: 'formulario' })
@@ -20,7 +20,16 @@ function formatoProbabilidad(probabilidad) {
 
 <template>
   <main class="resultado">
-    <template v-if="resultado">
+    <section v-if="loading" class="resultado-estado" aria-busy="true">
+      <p>Analizando tus finanzas…</p>
+    </section>
+
+    <section v-else-if="error && !resultado" class="resultado-estado">
+      <p class="resultado-error">{{ error }}</p>
+      <button type="button" @click="irAlFormulario">Volver e intentar de nuevo</button>
+    </section>
+
+    <template v-else-if="resultado">
       <h1>Tu perfil financiero</h1>
 
       <section class="resultado-perfil">
