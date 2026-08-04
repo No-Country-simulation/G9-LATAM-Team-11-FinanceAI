@@ -28,7 +28,7 @@ const tamanoClases = {
 <template>
   <button
     :type="tipo"
-    class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md border font-semibold transition-all duration-200 ease-out active:scale-[0.97] disabled:cursor-not-allowed disabled:opacity-55"
+    class="btn inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md border font-semibold transition-all duration-200 ease-out active:scale-[0.97] disabled:cursor-not-allowed disabled:opacity-55"
     :class="[varianteClases[variante], tamanoClases[tamano], { 'w-full': bloqueado }]"
     :disabled="deshabilitado || cargando"
     :aria-busy="cargando ? 'true' : undefined"

@@ -93,7 +93,11 @@
   }
 
   button {
-    @apply w-full cursor-pointer rounded-md border border-transparent bg-paper px-5 py-2.5 font-semibold text-onyx transition-all duration-200 ease-out hover:-translate-y-px hover:bg-white active:scale-[0.985] disabled:cursor-not-allowed disabled:opacity-55;
+    @apply cursor-pointer rounded-md border border-transparent bg-paper px-5 py-2.5 font-semibold text-onyx transition-all duration-200 ease-out hover:-translate-y-px hover:bg-white active:scale-[0.985] disabled:cursor-not-allowed disabled:opacity-55;
+  }
+
+  form button:not(.btn) {
+    width: 100%;
   }
 
   button.btn-secundario {

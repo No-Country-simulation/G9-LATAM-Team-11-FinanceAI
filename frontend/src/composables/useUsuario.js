@@ -2,6 +2,7 @@ import { useUsuarioStore } from '@/stores/usuario'
 import { registrarUsuario, obtenerUsuario, obtenerUsuariosActivosMes } from '@/services/usuarios'
 import { useTransacciones } from '@/composables/useTransacciones'
 import { mensajeErrorApi } from '@/utils/errores'
+import { datosDemo } from '@/data/demo'
 
 export function useUsuario() {
   const store = useUsuarioStore()
@@ -43,7 +44,17 @@ export function useUsuario() {
     store.limpiar()
   }
 
-  return { cargarUsuario, registrarYEntrar, salir }
+  // Modo demo: sin sesión, con datos de ejemplo para ver el dashboard.
+  function entrarDemo() {
+    store.setUsuario({
+      id: null,
+      nombre: datosDemo.nombre,
+      ingresoDisponible: datosDemo.ingresoDisponible,
+    })
+    store.setTransacciones(datosDemo.transacciones)
+  }
+
+  return { cargarUsuario, registrarYEntrar, salir, entrarDemo }
 }
 
 // TODO: mock temporal, reemplazar cuando backend devuelva el id en POST /usuario
