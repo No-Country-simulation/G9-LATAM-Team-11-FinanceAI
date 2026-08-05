@@ -1,0 +1,19 @@
+Index: .gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># Dependencias y compilaciones de Node (Frontend)\nfrontend/node_modules/\nfrontend/dist/\nfrontend/.cache/\n\n# Archivos de compilación de Java/Spring Boot (Backend)\nbackend/target/\nbackend/.mvn/\nbackend/*.jar\n\n# Archivos de Jupyter y Data Science\n.ipynb_checkpoints/\nnotebooks/.ipynb_checkpoints/\nnotebooks/data/*.csv\n\n# Archivos de IDE y sistema operativo\n.DS_Store\n.vscode/\n.idea/\n*.log\n\n# Datos persistentes de contenedores local\npgdata/\n\n# Archivos de variables de entorno locales (credenciales)\n*.env\n.env\n\n# Archivos de lectura para LLMs\n.agent/\n\n# Resguardo de scripts locales\nbackup-shs/\n\n# Override local de Docker Compose\ndocker-compose.override.yml\n
+===================================================================
+diff --git a/.gitignore b/.gitignore
+--- a/.gitignore	(revision 4b6a79fff8d194d523c6606aa3e6df84654dc2ce)
++++ b/.gitignore	(date 1785795448690)
+@@ -34,3 +34,9 @@
+ 
+ # Override local de Docker Compose
+ docker-compose.override.yml
++
++# ignora carpeta target
++target/
++.mvn/
++*.class
++*.jar
+\ No newline at end of file
