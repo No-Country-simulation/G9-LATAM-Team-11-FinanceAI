@@ -2,6 +2,7 @@ package G9_LATAM_Team_11_FinanceAI.Controller;
 
 import G9_LATAM_Team_11_FinanceAI.DTO.IngresarUsuarioDTO;
 import G9_LATAM_Team_11_FinanceAI.DTO.ListadoUsuarioDTO;
+import G9_LATAM_Team_11_FinanceAI.DTO.RespuestaUsuarioDTO;
 import G9_LATAM_Team_11_FinanceAI.domain.Service.UsuarioService;
 import G9_LATAM_Team_11_FinanceAI.domain.usuario.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,9 +26,11 @@ public class UsuarioController {
     @PostMapping
     public ResponseEntity ingresarUsuario(@RequestBody IngresarUsuarioDTO datos) {
 
-        usuarioService.ingresarUsuario(datos);
+        var u = usuarioService.ingresarUsuario(datos);
+        var mje= "Usuario "+ datos.nombre() +" registrado con exito";
+        var resultado = new RespuestaUsuarioDTO(mje, u.getId());
 
-        return ResponseEntity.status(HttpStatus.CREATED).body("Usuario " + datos.nombre() + " creado con exito!.");
+        return ResponseEntity.status(HttpStatus.CREATED).body(resultado);
     }
     @Transactional
     @GetMapping("/{id}")
