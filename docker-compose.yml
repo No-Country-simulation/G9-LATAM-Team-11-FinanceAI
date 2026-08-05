@@ -12,7 +12,7 @@ services:
       - "3307:3306"
     volumes:
       - mysql_data:/var/lib/mysql
-    restart: always
+    restart: no
     deploy:
       resources:
         limits:
@@ -39,7 +39,7 @@ services:
     command: mvn spring-boot:run
     depends_on:
       - db
-    restart: always
+    restart: no
     deploy:
       resources:
         limits:
@@ -56,7 +56,7 @@ services:
       - ./frontend:/app
     working_dir: /app
     command: sh -c "npm install && npm run dev" 
-    restart: always
+    restart: no
     deploy:
       resources:
         limits:
@@ -76,7 +76,7 @@ services:
     volumes:
       - ./notebooks:/home/jovyan/work
       - ./shared-models:/home/jovyan/work/models
-    restart: always
+    restart: no
     deploy:
       resources:
         limits:
