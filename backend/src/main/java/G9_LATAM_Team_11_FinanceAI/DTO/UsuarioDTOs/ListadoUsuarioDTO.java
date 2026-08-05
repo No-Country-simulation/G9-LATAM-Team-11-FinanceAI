@@ -1,5 +1,6 @@
-package G9_LATAM_Team_11_FinanceAI.DTO;
+package G9_LATAM_Team_11_FinanceAI.DTO.UsuarioDTOs;
 
+import G9_LATAM_Team_11_FinanceAI.DTO.TransaccionDTOs.ListadoTransaccionDTO;
 import G9_LATAM_Team_11_FinanceAI.domain.usuario.Usuario;
 
 import java.math.BigDecimal;

@@ -1,9 +1,9 @@
 package G9_LATAM_Team_11_FinanceAI.domain.Service;
 
-import G9_LATAM_Team_11_FinanceAI.DTO.ActualizarTransaccionDTO;
-import G9_LATAM_Team_11_FinanceAI.DTO.DetallesTransaccionFiltradaDTO;
-import G9_LATAM_Team_11_FinanceAI.DTO.IngresarTransaccionDTO;
-import G9_LATAM_Team_11_FinanceAI.DTO.TransaccionFiltradaDTO;
+import G9_LATAM_Team_11_FinanceAI.DTO.TransaccionDTOs.ActualizarTransaccionDTO;
+import G9_LATAM_Team_11_FinanceAI.DTO.TransaccionDTOs.DetallesTransaccionFiltradaDTO;
+import G9_LATAM_Team_11_FinanceAI.DTO.TransaccionDTOs.IngresarTransaccionDTO;
+import G9_LATAM_Team_11_FinanceAI.DTO.TransaccionDTOs.TransaccionFiltradaDTO;
 import G9_LATAM_Team_11_FinanceAI.Repository.ITransaccionRepository;
 import G9_LATAM_Team_11_FinanceAI.Repository.IUsuarioRepository;
 import G9_LATAM_Team_11_FinanceAI.domain.transaccion.Transaccion;

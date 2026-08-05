@@ -1,8 +1,8 @@
 package G9_LATAM_Team_11_FinanceAI.Controller;
 
-import G9_LATAM_Team_11_FinanceAI.DTO.IngresarUsuarioDTO;
-import G9_LATAM_Team_11_FinanceAI.DTO.ListadoUsuarioDTO;
-import G9_LATAM_Team_11_FinanceAI.DTO.RespuestaUsuarioDTO;
+import G9_LATAM_Team_11_FinanceAI.DTO.UsuarioDTOs.IngresarUsuarioDTO;
+import G9_LATAM_Team_11_FinanceAI.DTO.UsuarioDTOs.ListadoUsuarioDTO;
+import G9_LATAM_Team_11_FinanceAI.DTO.UsuarioDTOs.RespuestaUsuarioDTO;
 import G9_LATAM_Team_11_FinanceAI.domain.Service.UsuarioService;
 import G9_LATAM_Team_11_FinanceAI.domain.usuario.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
