@@ -27,7 +27,7 @@ public class UsuarioController {
     public ResponseEntity ingresarUsuario(@RequestBody IngresarUsuarioDTO datos) {
 
         var u = usuarioService.ingresarUsuario(datos);
-        var mje= "Usuario "+ datos.nombre() +" registrado con exito";
+        var mje= "Usuario "+ datos.nombre() +" registrado con éxito";
         var resultado = new RespuestaUsuarioDTO(mje, u.getId());
 
         return ResponseEntity.status(HttpStatus.CREATED).body(resultado);
