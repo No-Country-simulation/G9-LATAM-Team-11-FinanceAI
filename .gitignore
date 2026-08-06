@@ -4,3 +4,88 @@
 target/
 /target/
 .idea/
+
+# ==========================================
+# Entornos virtuales de Python
+# ==========================================
+.venv/
+venv/
+env/
+ENV/
+bin/
+lib/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# ==========================================
+# Archivos de caché y temporales de Python
+# ==========================================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+
+# ==========================================
+# Conjuntos de datos (datasets) e información confidencial
+# ==========================================
+# Evita subir archivos de datos locales que puedan causar fugas de información
+notebooks/data/
+data/
+*.csv
+*.xlsx
+*.parquet
+*.json
+*.sqlite3
+
+# ==========================================
+# Modelos entrenados y artefactos pesados
+# ==========================================
+# Los modelos locales no deben subirse a Git, se gestionan a través de OCI Object Storage
+notebooks/models/
+shared-models/
+models/
+*.pkl
+*.joblib
+*.onnx
+*.pb
+*.h5
+*.pt
+*.pth
+
+# ==========================================
+# Variables de entorno y credenciales
+# ==========================================
+.env
+*.env
+.env.local
+.env.*.local
+secrets/
+credentials/
+*.pem
+*.key
+
+# ==========================================
+# Archivos de configuración de IDEs y del sistema operativo
+# ==========================================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
