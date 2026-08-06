@@ -1,6 +1,6 @@
 package G9_LATAM_Team_11_FinanceAI.domain.Service;
 
-import G9_LATAM_Team_11_FinanceAI.DTO.IngresarUsuarioDTO;
+import G9_LATAM_Team_11_FinanceAI.DTO.UsuarioDTOs.IngresarUsuarioDTO;
 import G9_LATAM_Team_11_FinanceAI.Repository.IUsuarioRepository;
 import G9_LATAM_Team_11_FinanceAI.domain.usuario.Usuario;
 import jakarta.persistence.EntityNotFoundException;

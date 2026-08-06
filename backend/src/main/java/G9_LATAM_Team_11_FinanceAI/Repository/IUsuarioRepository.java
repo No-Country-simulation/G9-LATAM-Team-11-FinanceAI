@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface IUsuarioRepository extends JpaRepository<Usuario, Long> {
 
-    @Query("SELECT DISTINCT u FROM Usuario u LEFT JOIN FETCH u.transacciones t WHERE u.activo = true AND MONTH(t.fecha) = :mes AND YEAR(t.fecha) = :anio")
+    @Query("SELECT DISTINCT u FROM Usuario u LEFT JOIN FETCH u.transacciones t WHERE u.activo = true AND ((MONTH(t.fecha) = :mes AND YEAR(t.fecha) = :anio) OR t IS NULL)")
     List<Usuario> findAllUsuariosActivosConTransaccionesPorMesAnio(@Param("mes") int mes, @Param("anio") int anio);
 
     boolean existsByEmail(String email);

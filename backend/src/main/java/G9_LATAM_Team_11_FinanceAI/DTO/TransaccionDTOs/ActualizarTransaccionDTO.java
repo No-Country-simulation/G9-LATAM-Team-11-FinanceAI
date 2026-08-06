@@ -1,6 +1,4 @@
-package G9_LATAM_Team_11_FinanceAI.DTO;
-
-import jakarta.validation.constraints.NotNull;
+package G9_LATAM_Team_11_FinanceAI.DTO.TransaccionDTOs;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

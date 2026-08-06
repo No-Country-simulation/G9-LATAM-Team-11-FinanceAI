@@ -1,4 +1,4 @@
-package G9_LATAM_Team_11_FinanceAI.DTO;
+package G9_LATAM_Team_11_FinanceAI.DTO.UsuarioDTOs;
 
 
 import jakarta.validation.constraints.Email;
