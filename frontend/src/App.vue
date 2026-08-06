@@ -3,17 +3,23 @@ import { computed, onMounted } from 'vue'
 import { RouterView, useRoute } from 'vue-router'
 import { useAuthStore } from '@/stores/auth'
 import { useUsuario } from '@/composables/useUsuario'
-
+import { useUsuarioStore }from '@/stores/usuario'
 const route = useRoute()
 const clave = computed(() => route.name || route.path)
 
 onMounted(async () => {
   const auth = useAuthStore()
   const { cargarUsuario, entrarDemo } = useUsuario()
+  const usuarioStore = useUsuarioStore()
 
   if (auth.sesionActiva) {
     try {
       await cargarUsuario(auth.usuarioId)
+      const cuentas = JSON.parse(localStorage.getItem('financeai:cuentas') || '[]')
+      const cuenta = cuentas.find(c => c.id === auth.usuarioId)
+      if (cuenta?.nombre) {
+        usuarioStore.setUsuario({ id: auth.usuarioId, nombre: cuenta.nombre })
+      }
     } catch {
       entrarDemo()
     }
