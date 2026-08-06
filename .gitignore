@@ -4,3 +4,25 @@
 target/
 /target/
 .idea/
+
+# ==========================================
+# Archivos de Jupyter y Data Science
+# ==========================================
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+
+# Permite subir la carpeta notebooks/data pero ignora todos sus archivos de datos locales
+notebooks/data/*
+!notebooks/data/.gitkeep
+
+# Permite subir la carpeta notebooks/models pero ignora todos los archivos binarios de modelos locales
+notebooks/models/*
+!notebooks/models/.gitkeep
+
+# Tipos de archivos específicos de datos y modelos a ignorar de manera global
+*.csv
+*.xlsx
+*.parquet
+*.pkl
+*.joblib
+*.onnx

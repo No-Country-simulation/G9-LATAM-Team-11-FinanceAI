@@ -1,6 +1,7 @@
-# 💡 FinanceAI — Asistente Inteligente de Salud Financiera
+# FinanceAI — Asistente Inteligente de Salud Financiera
 
-Una solución inteligente para analizar el comportamiento y la salud financiera de usuarios a partir de sus transacciones, hábitos de consumo e indicadores financieros, transformando datos brutos en conocimiento claro y accionable.
+Esta rama está dedicada exclusivamente al desarrollo de la fase de simulación de datos sintéticos. Puede incluir tanto el notebook principal, como las versiones candidatas, borradores, etc.
+Los outputs no se suben a github, sólo a OCI Object Storage.
 
 ---
 
@@ -21,20 +22,15 @@ Una solución inteligente para analizar el comportamiento y la salud financiera 
 
 ---
 
-## 📁 3. Estructura Simplificada del Proyecto
+## 3. Estructura simplificada de la rama
 
 ```
-Test/
+G9-LATAM-Team-11-FinanceAI/
 ├── backend/                  # API REST en Java Spring Boot
-├── frontend/                 # Interfaz Web en Vue 3 + Vite
-├── notebooks/                # Experimentos, EDA y entrenamiento ML en Python
-│   ├── data/                 # Datasets sintéticos en español
-│   ├── eda.ipynb             # Exploración y visualización de datos
-│   └── training.ipynb        # Entrenamiento y exportación ONNX
-├── shared-models/            # Modelos serializados .onnx y metadatos JSON
-├── docker-compose.yml        # Orquestación de contenedores locales
+├── notebooks/                # Desarrollo de notebooks de simulación
+│   ├── data/                 # Outputs de los notebooks (.csv y .json)
 ├── .gitignore                # Reglas de exclusión de archivos pesados/temporales
-└── README.md                 # Documentación principal del proyecto
+└── README.md                 # Documentación principal de la rama
 ```
 
 ---
@@ -74,28 +70,6 @@ Test/
 
 ---
 
-## 5. Guía de Ejecución Rápida con Docker
-
-### Requisitos previos:
-- Tener instalado **Docker Desktop** (o Docker Engine en Linux).
-
-### Iniciar el proyecto completo:
-```bash
-# 1. Clonar el repositorio y posicionarse en la carpeta del proyecto
-git clone <URL_REPOSISTORIO>
-
-# 2. Levantar todos los servicios en segundo plano
-docker compose up -d
-```
-
-### Acceso a los servicios:
-- 🎨 **Front-End (Vue.js)**: `http://localhost:8082`
-- ⚙️ **Back-End (Spring Boot)**: `http://localhost:8081`
-- 📊 **Data Science (Jupyter Notebook)**: `http://localhost:8888`
-- 🗄️ **Base de Datos (PostgreSQL)**: `localhost:5433`
-
----
-
 ##  6. Equipo y Roles
 
 | Nombre     | Rol |
@@ -111,16 +85,6 @@ docker compose up -d
 
 ---
 
-## 🗺️ 7. Roadmap del Proyecto
-
-- [x] **Fase 1: Planeamiento & Arquitectura**: Definición del MVP, esquema de JSON e infraestructura Docker Compose.
-- [ ] **Fase 2: Ciencia de Datos**: Dataset sintético, EDA (`eda.ipynb`) y exportación a `.onnx`.
-- [ ] **Fase 3: Desarrollo de API & UI**: Implementación de endpoints REST en Spring Boot e interfaz web en Vue.
-- [ ] **Fase 4: Despliegue en OCI**: Configuración de servicios en Oracle Cloud Infrastructure (Object Storage / Compute).
-- [ ] **Fase 5: Verificación & Demo Day**: Pruebas integradas de 3 escenarios reales y presentación final.
-
----
-
-## 📄 8. Licencia
+## 8. Licencia
 
 Este proyecto se distribuye bajo la licencia **MIT**. Consulta el archivo `LICENSE` para más información.
