@@ -6,47 +6,23 @@ target/
 .idea/
 
 # ==========================================
-# Entornos virtuales de Python
+# Archivos de Jupyter y desarrollo local
 # ==========================================
-.venv/
-venv/
-env/
-ENV/
-bin/
-lib/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-parts/
-sdist/
-var/
-wheels/
-share/python-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
-
-# ==========================================
-# Archivos de caché y temporales de Python
-# ==========================================
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
-.pytest_cache/
-.mypy_cache/
-.ruff_cache/
-.ipynb_checkpoints/
-*/.ipynb_checkpoints/
 
 # ==========================================
-# Conjuntos de datos (datasets) e información confidencial
+# Estructura de datos (datasets)
 # ==========================================
-# Evita subir archivos de datos locales que puedan causar fugas de información
-data/
+# Permite subir la carpeta notebooks/data pero ignora su contenido de datos locales
+notebooks/data/*
+!notebooks/data/.gitkeep
+
+# Archivos de datos a ignorar globalmente
 *.csv
 *.xlsx
 *.parquet
@@ -54,11 +30,17 @@ data/
 *.sqlite3
 
 # ==========================================
-# Modelos entrenados y artefactos pesados
+# Modelos y artefactos de entrenamiento
 # ==========================================
-# Los modelos locales no deben subirse a Git, se gestionan a través de OCI Object Storage
-shared-models/
-models/
+# Permite subir la carpeta local de modelos del notebook pero ignora sus binarios
+notebooks/models/*
+!notebooks/models/.gitkeep
+
+# Permite subir la carpeta de modelos compartidos (para backend) pero ignora sus binarios
+shared-models/*
+!shared-models/.gitkeep
+
+# Extensiones de modelos y checkpoints a ignorar globalmente
 *.pkl
 *.joblib
 *.onnx
@@ -68,19 +50,16 @@ models/
 *.pth
 
 # ==========================================
-# Variables de entorno y credenciales
+# Configuración y credenciales locales
 # ==========================================
 .env
 *.env
 .env.local
 .env.*.local
 secrets/
-credentials/
-*.pem
-*.key
 
 # ==========================================
-# Archivos de configuración de IDEs y del sistema operativo
+# Archivos de IDE y sistema operativo
 # ==========================================
 .DS_Store
 Thumbs.db

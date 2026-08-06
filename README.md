@@ -1,6 +1,6 @@
 # FinanceAI — Asistente Inteligente de Salud Financiera
 
-Esta rama está dedicada exclusivamente al desarrollo de la fase de entrenamiento. Puede incluir tanto el notebook principal, como las versiones candidatas, borradores, etc.
+Esta rama está dedicada exclusivamente al desarrollo de la fase de entrenamiento del modelo. Puede incluir tanto el notebook principal, como las versiones candidatas, borradores, etc.
 Los outputs no se suben a github, sólo a OCI Object Storage.
 
 ---
@@ -27,7 +27,7 @@ Los outputs no se suben a github, sólo a OCI Object Storage.
 ```
 G9-LATAM-Team-11-FinanceAI/
 ├── backend/                  # API REST en Java Spring Boot
-├── notebooks/                # Desarrollo de notebooks de simulación
+├── notebooks/                # Desarrollo de notebooks de entrenamiento
 │   ├── data/                 # Outputs de los notebooks (.csv y .json)
 ├── .gitignore                # Reglas de exclusión de archivos pesados/temporales
 └── README.md                 # Documentación principal de la rama
