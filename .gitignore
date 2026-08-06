@@ -57,7 +57,6 @@ data/
 # Modelos entrenados y artefactos pesados
 # ==========================================
 # Los modelos locales no deben subirse a Git, se gestionan a través de OCI Object Storage
-notebooks/models/
 shared-models/
 models/
 *.pkl
