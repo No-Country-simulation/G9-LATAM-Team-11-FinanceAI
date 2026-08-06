@@ -1,6 +1,6 @@
 # FinanceAI — Asistente Inteligente de Salud Financiera
 
-Esta rama está dedicada exclusivamente al desarrollo de la simulación de los datos iniciales. Puede incluir tanto el notebook principal, como las versiones candidatas, borradores, etc.
+Esta rama está dedicada exclusivamente al desarrollo de la fase de entrenamiento. Puede incluir tanto el notebook principal, como las versiones candidatas, borradores, etc.
 Los outputs no se suben a github, sólo a OCI Object Storage.
 
 ---
