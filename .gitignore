@@ -46,7 +46,6 @@ __pycache__/
 # Conjuntos de datos (datasets) e información confidencial
 # ==========================================
 # Evita subir archivos de datos locales que puedan causar fugas de información
-notebooks/data/
 data/
 *.csv
 *.xlsx
