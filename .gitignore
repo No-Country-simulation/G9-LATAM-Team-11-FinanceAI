@@ -4,3 +4,60 @@
 target/
 /target/
 .idea/
+
+# ==========================================
+# Archivos de Jupyter y desarrollo local
+# ==========================================
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# ==========================================
+# Estructura de datos (datasets)
+# ==========================================
+# Permite subir la carpeta notebooks/data pero ignora su contenido para evitar fuga de datos
+notebooks/data/*
+!notebooks/data/.gitkeep
+
+# Tipos de archivos de datos a ignorar globalmente
+*.csv
+*.xlsx
+*.parquet
+*.json
+*.sqlite3
+
+# ==========================================
+# Visualizaciones y gráficos generados (EDA)
+# ==========================================
+# Permite subir la carpeta notebooks/plots pero ignora las imágenes generadas localmente
+notebooks/plots/*
+!notebooks/plots/.gitkeep
+
+# Extensiones de gráficos comunes que se generan dinámicamente
+*.png
+*.jpg
+*.jpeg
+*.svg
+*.pdf
+*.html
+
+# ==========================================
+# Configuración y credenciales locales
+# ==========================================
+.env
+*.env
+.env.local
+.env.*.local
+secrets/
+
+# ==========================================
+# Archivos de IDE y sistema operativo
+# ==========================================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
