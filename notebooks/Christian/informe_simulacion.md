@@ -1,4 +1,4 @@
-2)
+# 2)
 
 Se fijó una semilla global (np.random.seed = 42).
 
@@ -9,24 +9,24 @@ Se fijó una semilla global (np.random.seed = 42).
 ## Transacciones
 Se crearon 240000 transacciones, modeladas bajo la siguiente lógica:
 
-A) 
 Para hacer la muestra estadísticamente creíble las 10 categorías no se distribuyeron equitativamente. Se implementó una ruleta de probabilidades ponderadas (p=prob_categorias) donde gastos cotidianos (alimentación al 15%, servicios al 20%) aparecen con muchísima mayor frecuencia que compras grandes de lenta rotación (ej. Electrodomésticos al 5%).
 
 ### Poder adquisitivo (gastos elásticos vs inelásticos)
 Para modelar el estilo de vida del usuario:
 - Se lee el salario del usuario sobre el umbral mínimo (1500) para saber su capacidad (ej. gana 3 veces más que la media).
-- **Gastos Elásticos:** En categorías vinculadas al "estatus" (vivienda, ocio, educación), el límite máximo de pago aleatorio escala proporcionalmente al sueldo del usuario. Quienes ganan más, estadísticamente pagarán un alquiler más caro.
+- **Gastos Elásticos:** En categorías vinculadas al "estatus" (vivienda, ocio, educación), el límite máximo de pago aleatorio escala proporcionalmente al sueldo del usuario. Quienes ganan más, pueden o suelen tender a pagar un alquiler más caro.
 - **Gastos Inelásticos (productos/servicios de primera necesidad):** En categorías base (transporte, alimentación), el monto crece solo de manera marginal sin importar el salario.
 
 ## Perfil Financiero (target) - probando
 
 Se entrena el modelo intentando predecir el perfil financiero basándose en **conductas**:
 1.  **Nivel de Endeudamiento:** Sumando el *ticket promedio* de vivienda y servicios, dividido por los ingresos totales.  El resultado se restringe a un piso del 5% y un tope de 90% para asegurar que los cálculos jamás arrojen porcentajes irreales o errores en los datos.
-2.  **Frecuencia de Ahorro:** Se clasifica en 'Alta', 'Media', 'Baja' o 'Ninguna' midiendo la cantidad promedio de veces por mes que el usuario realiza operaciones en la categoría 'Inversion'. - revisar
-3.  **Mapeo Lógico:** Las cuentas que cruzan el 50% de endeudamiento van directo a `"En riesgo"`. Las que mantienen finanzas holgadas (<35%) e invierten se tildan `"Saludable"`. El resto recae en `"En observacion"`. - cambiar a <=20, <40, >=40
+2.  **Frecuencia de Ahorro:** Se clasifica en 'Alta', 'Media', 'Baja' o 'Ninguna' midiendo la cantidad promedio de veces por mes que el usuario realiza operaciones en la categoría 'Inversion'. 
+3.  **Mapeo Lógico:** Las cuentas que cruzan el 50% de endeudamiento van directo a `"En riesgo"`. Las que mantienen finanzas holgadas (<35%) e invierten se tildan `"Saludable"`. El resto recae en `"En observacion"`. 
+`cambiar a <=20, <40, >=40`
 
 ## Inyección de ruido
-Para evitar que el modelo de Machine Learning memorice la data y para prepararlo frente a usuarios descuidados, se programaron "infecciones" de ruido estadístico de forma consciente:
+Para evitar que el modelo de Machine Learning memorice la data y para prepararlo frente a usuarios descuidados, se programaron "inyecciones" de ruido estadístico de forma consciente:
 
 
 > **Puntos ciegos simulados intencionalmente:**
