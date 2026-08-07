@@ -10,7 +10,9 @@ export async function obtenerUsuario(id) {
   return data
 }
 
-export async function obtenerUsuariosActivosMes(mes, anio) {
-  const { data } = await http.get('/usuario/activos/mesanio', { params: { mes, anio } })
+// TODO: activar cuando backend implemente POST /login
+export async function loginUsuario(email, password) {
+  const { data } = await http.post('/login', { email, password })
   return data
 }
+

@@ -9,6 +9,8 @@ export function mensajeErrorApi(error) {
     mensajeBackend = datos.message
   } else if (datos?.Mensaje) {
     mensajeBackend = datos.Mensaje
+  }  else if (datos?.errors) {
+    mensajeBackend = Array.isArray(datos.errors) ? datos.errors.join(', ') : datos.errors
   }
 
   if (mensajeBackend) return mensajeBackend
