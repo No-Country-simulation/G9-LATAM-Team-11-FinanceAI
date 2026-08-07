@@ -1,5 +1,7 @@
 # 2)
 
+`Revisar/discutir: si retomo los umbrales de deuda inicialmente acordados para **mapeo lógico** se provoca un desbalance desagradable que se puede ver en la fase EDA. Tal vez convenga mantener el 50, 35 multifactorial actual `
+
 Se fijó una semilla global (np.random.seed = 42).
 
 ## Generación de usuarios
