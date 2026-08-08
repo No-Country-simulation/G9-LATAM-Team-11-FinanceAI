@@ -21,8 +21,7 @@ const enlaces = [
 function cerrarSesion() {
   auth.cerrarSesion()
   salir()
-  entrarDemo()
-  router.push({ name: 'home' })
+  router.push({ name: 'login' })
 }
 </script>
 
@@ -45,7 +44,7 @@ function cerrarSesion() {
     </nav>
 
     <div class="flex items-center gap-2.5">
-      <template v-if="tieneSesion">
+      <template v-if="auth.sesionActiva">
         <span class="hidden font-mono text-[11px] uppercase tracking-[0.14em] text-faint sm:block">
           {{ nombre }}
         </span>

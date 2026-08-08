@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { useAuthStore } from '@/stores/auth'
 import AppLayout from '../layouts/AppLayout.vue'
 
 const router = createRouter({
@@ -7,6 +8,7 @@ const router = createRouter({
     {
       path: '/',
       component: AppLayout,
+      meta: { requiereSesion: true },
       children: [
         { path: '', redirect: '/home' },
         {
@@ -42,6 +44,20 @@ const router = createRouter({
       component: () => import('../views/LoginView.vue'),
     },
   ],
+})
+
+router.beforeEach((to) => {
+  const auth = useAuthStore()
+
+  // Ruta protegida sin sesión → login
+  if (to.matched.some(r => r.meta.requiereSesion) && !auth.sesionActiva) {
+    return { name: 'login' }
+  }
+
+  // Ya logueado y va a login → home
+  if (to.name === 'login' && auth.sesionActiva) {
+    return { name: 'home' }
+  }
 })
 
 export default router

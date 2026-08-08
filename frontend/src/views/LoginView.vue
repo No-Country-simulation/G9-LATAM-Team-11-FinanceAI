@@ -93,9 +93,11 @@ async function ingresar() {
 }
 
 function irModoDemo() {
+  auth.iniciarSesion(0) // id ficticio para demo
   entrarDemo()
   router.push({ name: 'home' })
 }
+
 </script>
 
 <template>
