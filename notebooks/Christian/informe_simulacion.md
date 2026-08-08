@@ -1,6 +1,10 @@
 # 2)
 
-`Revisar/discutir: si retomo los umbrales de deuda inicialmente acordados para **mapeo lógico** se provoca un desbalance desagradable que se puede ver en la fase EDA. Tal vez convenga mantener el 50, 35 multifactorial actual `
+
+`Revisar/discutir: si retomo los umbrales de deuda inicialmente acordados para clasificar perfiles`
+
+`Se empieza a tener en cuenta el principio de arquitectura de código DRY y se evita el leakage temporal desde el primer notebook porque parece prudente y viable.`
+
 
 Se fijó una semilla global (np.random.seed = 42).
 
@@ -11,7 +15,8 @@ Se fijó una semilla global (np.random.seed = 42).
 ## Transacciones
 Se crearon 240000 transacciones, modeladas bajo la siguiente lógica:
 
-Para hacer la muestra estadísticamente creíble las 10 categorías no se distribuyeron equitativamente. Se implementó una ruleta de probabilidades ponderadas (p=prob_categorias) donde gastos cotidianos (alimentación al 15%, servicios al 20%) aparecen con muchísima mayor frecuencia que compras grandes de lenta rotación (ej. Electrodomésticos al 5%).
+~~Para hacer la muestra estadísticamente creíble las 10 categorías no se distribuyeron equitativamente. Se implementó una ruleta de probabilidades ponderadas (p=prob_categorias) donde gastos cotidianos (alimentación al 15%, servicios al 20%) aparecen con muchísima mayor frecuencia que compras grandes de lenta rotación (ej. Electrodomésticos al 5%).~~
+Nuevo: Distribución triangular sesgada.
 
 ### Poder adquisitivo (gastos elásticos vs inelásticos)
 Para modelar el estilo de vida del usuario:
@@ -40,3 +45,11 @@ Para evitar que el modelo de Machine Learning memorice la data y para prepararlo
 El guardado y corte del dataset aplicó mejores prácticas de MLOps:
 *   **Usuarios:** Split Transversal puro 60/20/20.
 *   **Transacciones:** Se usaron los primeros 8 meses del año para enseñar al modelo, y los últimos 4 meses para ponerlo a prueba. Esto garantiza que la Inteligencia Artificial no haga trampa aprendiendo de gastos que aún no han ocurrido en el tiempo.
+
+
+---
+
+
+#### Modelo mental:
+#### Cuando me paro frente a mi trabajo, en vez de pensar "está todo bien, qué maravilloso soy", pienso "aquí debe haber un problema y lo tengo que encontrar."
+#### La IA es un compañero de estudio, de diagnóstico y de exámen. Nunca es indeseable.
