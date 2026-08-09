@@ -9,6 +9,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.nio.file.Paths;
@@ -17,6 +18,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+@Service
 public class DataScienceModelService {
     //conexion entre Spring y DS con ONNX
 
@@ -98,7 +100,7 @@ public class DataScienceModelService {
                     }
                     // 2. Validamos si la categoría obtenida es reconocida en metadata.json
                     if (!categoriasValidas.isEmpty() && !categoriasValidas.contains(categoriaObtenida.toLowerCase())) {
-                        return "Respuesta 1"; // Fallback si la predicción no existe en las categorías permitidas
+                        return "otro"; // Fallback si la predicción no existe en las categorías permitidas
                     }
                     return categoriaObtenida;
                 }
@@ -106,7 +108,7 @@ public class DataScienceModelService {
 
         } catch (Exception e) {
             e.printStackTrace();
-            return "respuesta 2"; // Fallback en caso de error durante la inferencia
+            return "sin archivo"; // Fallback en caso de error durante la inferencia
         }
     }
 }
