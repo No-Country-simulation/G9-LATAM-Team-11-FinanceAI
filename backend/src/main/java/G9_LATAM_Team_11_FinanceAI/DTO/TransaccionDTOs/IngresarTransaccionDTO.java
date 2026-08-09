@@ -11,8 +11,6 @@ public record IngresarTransaccionDTO(
         @NotNull
         BigDecimal monto,
         @NotNull
-        String categoria, //ELIMINAR: traer la categoria de DS
-        @NotNull
         LocalDate fecha,
         @NotNull
         Long idUsuario
