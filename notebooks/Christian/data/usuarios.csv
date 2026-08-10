@@ -1,0 +1,1801 @@
+id,nombre,ingreso_mensual,nivel_endeudamiento,frecuencia_ahorro,perfil_financiero,split
+1,Feliciana,2810.89,22.97,Baja,En observacion,test
+2,Dani,4827.5,19.04,Media,Saludable,train
+3,Amador,4061.98,19.58,Media,Saludable,train
+4,Manuela,3595.3,19.14,Media,Saludable,train
+5,Leonardo,2046.07,25.9,Baja,En observacion,train
+6,Jose Ignacio,2045.98,25.32,Baja,En observacion,train
+7,Jacinto,1703.29,28.2,Media,En riesgo,train
+8,Emilio,4531.62,17.46,Media,Saludable,val
+9,Maite,3603.9,21.26,Media,Saludable,test
+10,Cristian,3978.25,19.52,Media,Saludable,train
+11,Inmaculada,1572.05,27.31,Baja,En riesgo,test
+12,Manu,4894.68,16.99,Baja,En observacion,test
+13,Tecla,4413.55,18.84,Baja,En observacion,test
+14,Caridad,2243.19,24.04,Baja,En observacion,train
+15,Chucho,2136.39,24.26,Media,En observacion,train
+16,Dominga,2141.92,25.4,Media,En observacion,val
+17,Telmo,2564.85,24.68,Media,En observacion,train
+18,Amílcar,3336.65,18.68,Baja,En observacion,val
+19,Amor,3011.81,23.24,Media,En observacion,train
+20,Ciro,2519.3,21.46,Baja,En observacion,train
+21,Isaías,3641.49,19.45,Baja,En observacion,val
+22,Joan,1988.23,28.72,Media,En riesgo,test
+23,Anselma,2522.51,23.87,Baja,En observacion,test
+24,Eligia,2782.27,21.72,Media,Saludable,train
+25,Amando,3096.24,22.22,Media,En observacion,train
+26,Chelo,4248.12,19.72,Baja,En observacion,train
+27,Heliodoro,2198.86,25.0,Baja,En observacion,train
+28,Lilia,3299.82,22.0,Media,Saludable,test
+29,Florentina,3573.45,19.51,Media,Saludable,test
+30,Judith,1662.58,30.42,Media,En riesgo,train
+31,Caridad,3626.41,21.21,Media,Saludable,train
+32,Simón,2096.83,25.9,Media,En observacion,train
+33,Isidro,1727.68,29.78,Media,En riesgo,test
+34,Vidal,4821.1,17.97,Baja,En observacion,train
+35,Dolores,4879.71,18.84,Media,Saludable,test
+36,Leopoldo,4329.39,21.89,Baja,En observacion,train
+37,Nydia,2566.15,23.37,Media,En observacion,train
+38,Ruth,1841.85,26.38,Baja,En riesgo,train
+39,Adolfo,3894.82,18.32,Media,Saludable,train
+40,Martina,3040.53,21.28,Media,Saludable,train
+41,Noelia,1927.13,25.82,Media,En observacion,train
+42,Feliciano,3233.12,21.58,Media,Saludable,train
+43,José,1620.36,31.4,Media,En riesgo,test
+44,Telmo,4682.62,19.51,Media,Saludable,test
+45,Noé,2405.73,22.31,Media,En observacion,val
+46,Leopoldo,3818.83,19.91,Media,Saludable,train
+47,Fabricio,2590.99,22.34,Baja,En observacion,train
+48,Ildefonso,3320.24,22.14,Baja,En observacion,val
+49,María Carmen,3413.49,20.61,Media,Saludable,test
+50,Nicodemo,2146.99,26.77,Baja,En riesgo,test
+51,Cristian,4893.55,17.79,Media,Saludable,train
+52,Cirino,4212.96,19.44,Media,Saludable,train
+53,Ricardo,4788.25,18.53,Baja,En observacion,val
+54,Cleto,4631.9,20.56,Media,Saludable,test
+55,Plinio,3592.65,18.45,Media,Saludable,train
+56,Rebeca,4726.56,19.26,Media,Saludable,train
+57,Omar,1809.72,27.99,Media,En riesgo,train
+58,Elisabet,2185.94,23.51,Media,En observacion,train
+59,Juan Luis,1658.3,27.87,Baja,En riesgo,train
+60,Noemí,2638.66,23.21,Baja,En observacion,train
+61,Armando,2860.37,20.59,Baja,En observacion,val
+62,Luna,2449.72,24.54,Media,En observacion,test
+63,Ángel,4400.58,19.55,Baja,En observacion,train
+64,Brunilda,2748.64,21.75,Media,Saludable,train
+65,Edelmiro,2483.27,23.11,Media,En observacion,train
+66,Ágata,3399.44,18.69,Baja,En observacion,train
+67,Reyes,1993.23,27.34,Baja,En riesgo,train
+68,Cayetano,4307.69,16.48,Media,Saludable,train
+69,Carmina,1760.93,28.92,Baja,En riesgo,test
+70,Lázaro,4954.1,15.81,Media,Saludable,test
+71,Paula,4202.86,19.31,Media,Saludable,train
+72,Eusebia,2195.5,24.67,Media,En observacion,train
+73,Esperanza,1519.33,28.71,Baja,En riesgo,train
+74,Sonia,4354.11,17.3,Baja,En observacion,train
+75,Rosalva,3974.0,20.78,Media,Saludable,train
+76,Porfirio,4051.53,18.44,Media,Saludable,train
+77,Crescencia,4199.45,19.92,Media,Saludable,test
+78,Gregorio,1759.16,32.12,Media,En riesgo,train
+79,Julie,2754.63,22.05,Media,En observacion,train
+80,Buenaventura,1905.54,25.7,Media,En observacion,train
+81,Artemio,4520.86,19.97,Media,Saludable,val
+82,Gisela,3681.54,17.36,Media,Saludable,train
+83,Javier,2658.14,24.52,Media,En observacion,train
+84,María Teresa,1722.45,29.17,Media,En riesgo,train
+85,Luis Miguel,2588.44,22.25,Media,En observacion,train
+86,Cebrián,2638.14,25.64,Baja,En observacion,train
+87,Rita,4053.62,20.7,Media,Saludable,test
+88,Joan,3731.45,21.86,Media,Saludable,val
+89,Roxana,4605.24,18.89,Media,Saludable,train
+90,Cosme,3152.75,20.16,Baja,En observacion,train
+91,Ricardo,1918.58,26.94,Media,En riesgo,test
+92,Leopoldo,3996.36,19.62,Media,Saludable,train
+93,Wilfredo,4162.75,19.4,Media,Saludable,val
+94,Fabiola,3464.47,18.03,Media,Saludable,val
+95,Perlita,4198.39,18.32,Baja,En observacion,train
+96,Pánfilo,3228.28,21.1,Media,Saludable,test
+97,Fermín,3329.56,19.68,Media,Saludable,train
+98,Raimundo,2996.39,21.47,Media,Saludable,train
+99,Pedro,1588.97,30.63,Media,En riesgo,train
+100,Hugo,1877.62,27.92,Media,En riesgo,train
+101,Herminia,1610.0,31.11,Baja,En riesgo,val
+102,Juanito,3727.44,18.0,Media,Saludable,train
+103,Judith,2600.25,22.23,Media,En observacion,train
+104,Isabela,3280.0,20.59,Media,Saludable,test
+105,Flora,4676.48,17.45,Baja,En observacion,train
+106,Calixto,2372.52,23.81,Baja,En observacion,train
+107,Emelina,2936.34,21.72,Media,Saludable,test
+108,Fabiola,4144.43,17.18,Media,Saludable,train
+109,Francisco Javier,2300.79,25.71,Media,En observacion,train
+110,Bibiana,1769.43,24.17,Media,En observacion,train
+111,Luisina,2514.13,24.22,Media,En observacion,test
+112,Jose Ignacio,2064.27,29.73,Media,En riesgo,train
+113,Fernando,4753.94,17.88,Media,Saludable,train
+114,Óscar,4328.42,20.87,Media,Saludable,train
+115,Reynaldo,3716.91,21.75,Media,Saludable,val
+116,Julián,4550.11,17.53,Baja,En observacion,train
+117,Ángela,4312.85,16.15,Media,Saludable,test
+118,Felicidad,2153.0,24.0,Media,En observacion,test
+119,Javiera,4623.96,17.92,Media,Saludable,train
+120,Cecilia,3387.7,19.15,Media,Saludable,train
+121,Isidoro,4326.04,18.73,Baja,En observacion,train
+122,Isidora,4636.32,19.25,Media,Saludable,train
+123,Moreno,2613.01,21.27,Baja,En observacion,train
+124,Pía,1885.18,27.79,Media,En riesgo,train
+125,María Jesús,2297.77,23.52,Media,En observacion,train
+126,Maura,2994.88,21.98,Media,Saludable,train
+127,Basilio,4363.05,16.9,Media,Saludable,train
+128,Jenaro,4512.56,21.12,Baja,En observacion,val
+129,Paca,1524.33,27.12,Media,En riesgo,val
+130,Amílcar,3287.62,20.78,Baja,En observacion,train
+131,Noa,2960.94,17.4,Baja,En observacion,train
+132,Maximiano,2277.38,23.68,Media,En observacion,val
+133,Salvador,1919.53,28.11,Media,En riesgo,val
+134,Julio,2681.65,24.59,Media,En observacion,train
+135,Blas,4800.18,18.87,Baja,En observacion,train
+136,Héctor,2631.21,22.72,Media,En observacion,train
+137,Xiomara,3315.77,22.06,Media,En observacion,train
+138,Claudia,3960.57,19.14,Baja,En observacion,val
+139,Sarita,2772.7,23.07,Media,En observacion,train
+140,Lina,4901.24,17.43,Baja,En observacion,train
+141,Maxi,4868.57,18.02,Media,Saludable,train
+142,Ibán,2381.24,24.62,Media,En observacion,train
+143,Gabriela,3240.37,21.95,Media,Saludable,test
+144,Angelina,2553.07,22.7,Media,En observacion,train
+145,Ruy,2496.94,24.29,Baja,En observacion,val
+146,Soledad,1629.1,30.91,Media,En riesgo,val
+147,Yaiza,3633.48,22.17,Media,En observacion,train
+148,Fernanda,3259.38,19.49,Media,Saludable,test
+149,Álvaro,1680.18,30.54,Media,En riesgo,test
+150,Eric,2475.26,21.13,Media,Saludable,train
+151,Juan Manuel,4678.93,18.77,Media,Saludable,train
+152,Emilio,2338.47,25.76,Media,En observacion,val
+153,Jose Manuel,2007.13,26.45,Baja,En riesgo,train
+154,Marcela,3213.08,21.35,Baja,En observacion,val
+155,Chelo,4949.78,17.85,Media,Saludable,val
+156,Bárbara,2347.19,24.8,Media,En observacion,train
+157,Juan José,3852.47,19.54,Baja,En observacion,val
+158,Margarita,4165.67,19.01,Media,Saludable,train
+159,Daniela,2331.73,23.2,Media,En observacion,train
+160,Tiburcio,4048.76,18.59,Media,Saludable,val
+161,Tomasa,2787.24,22.02,Media,En observacion,train
+162,Dalila,3713.07,19.24,Media,Saludable,train
+163,Sabas,3717.35,19.32,Baja,En observacion,val
+164,Porfirio,3375.21,22.26,Media,En observacion,val
+165,Isidoro,1816.01,26.23,Media,En riesgo,val
+166,Emiliano,4423.56,18.24,Baja,En observacion,test
+167,Araceli,2622.73,23.29,Media,En observacion,test
+168,Ana,2152.81,28.97,Media,En riesgo,val
+169,Ciriaco,1642.71,28.08,Baja,En riesgo,val
+170,Marisol,3568.13,19.1,Media,Saludable,train
+171,Asdrubal,3871.48,21.78,Media,Saludable,train
+172,Rosalinda,1558.06,31.92,Media,En riesgo,train
+173,Damián,3292.33,19.16,Media,Saludable,train
+174,Ezequiel,2292.74,25.29,Media,En observacion,val
+175,Eulalia,3758.1,19.5,Media,Saludable,test
+176,Feliciano,2110.28,26.18,Media,En riesgo,train
+177,Mónica,3918.28,18.97,Media,Saludable,train
+178,Irma,2853.57,22.54,Baja,En observacion,train
+179,Telmo,4778.55,17.95,Media,Saludable,train
+180,Débora,1981.32,25.0,Media,En observacion,train
+181,Bernardo,2693.73,23.35,Baja,En observacion,train
+182,Rogelio,1897.16,25.43,Baja,En observacion,train
+183,Rico,4736.43,17.05,Media,Saludable,val
+184,Débora,4570.69,15.59,Media,Saludable,train
+185,Adelina,2402.8,22.98,Media,En observacion,val
+186,Benigna,3809.94,21.52,Media,Saludable,train
+187,José,4360.28,19.32,Baja,En observacion,test
+188,Carolina,3443.2,18.43,Baja,En observacion,train
+189,Rosalinda,3353.78,22.31,Media,En observacion,train
+190,Aitor,2346.48,24.7,Media,En observacion,train
+191,Irma,1825.86,27.54,Baja,En riesgo,test
+192,Lorena,4640.26,17.1,Media,Saludable,test
+193,Darío,4651.46,18.8,Media,Saludable,val
+194,Isabel,3715.86,21.16,Media,Saludable,train
+195,Sonia,2686.6,24.19,Baja,En observacion,train
+196,Brunilda,2722.23,22.57,Media,En observacion,train
+197,Maricela,4040.84,18.96,Baja,En observacion,train
+198,Juanito,4639.89,17.52,Media,Saludable,train
+199,María José,4604.8,17.46,Baja,En observacion,train
+200,Felipa,4229.56,22.25,Media,En observacion,train
+201,Noé,3747.11,19.68,Baja,En observacion,val
+202,Dani,1794.49,30.21,Media,En riesgo,train
+203,Lázaro,2065.7,24.24,Media,En observacion,test
+204,Trinidad,4644.94,16.98,Baja,En observacion,val
+205,Fausto,3622.5,20.63,Media,Saludable,train
+206,Wilfredo,1532.19,30.55,Media,En riesgo,train
+207,Abraham,1855.15,26.82,Media,En riesgo,val
+208,Lorenza,3822.26,19.87,Media,Saludable,train
+209,Sara,1517.72,25.93,Media,En observacion,val
+210,Loida,2062.83,25.0,Baja,En observacion,train
+211,Juan José,3420.57,17.16,Media,Saludable,train
+212,Angelita,3921.63,18.71,Baja,En observacion,train
+213,María Belén,3781.86,17.97,Media,Saludable,train
+214,Gaspar,2284.94,21.77,Media,Saludable,val
+215,Anunciación,3992.63,19.4,Media,Saludable,test
+216,Ximena,2330.37,25.63,Media,En observacion,test
+217,Curro,2638.9,23.88,Media,En observacion,test
+218,Sabina,4112.72,19.56,Media,Saludable,train
+219,Eufemia,3773.72,20.63,Media,Saludable,train
+220,Marc,4472.28,18.27,Media,Saludable,train
+221,Prudencia,3801.65,22.44,Baja,En observacion,train
+222,Feliciana,3489.08,20.42,Baja,En observacion,train
+223,Anunciación,1827.86,26.52,Baja,En riesgo,val
+224,Emelina,2787.01,20.48,Baja,En observacion,train
+225,Heliodoro,2428.21,24.31,Media,En observacion,train
+226,Ezequiel,2353.96,25.97,Media,En observacion,train
+227,Raúl,4905.54,16.34,Media,Saludable,train
+228,María Belén,2875.84,23.9,Baja,En observacion,train
+229,Felix,4622.16,16.98,Media,Saludable,train
+230,Calista,3708.99,20.86,Media,Saludable,train
+231,Melania,4281.84,19.92,Baja,En observacion,test
+232,Ágata,3259.23,21.64,Baja,En observacion,val
+233,Bernarda,3519.16,21.53,Baja,En observacion,train
+234,Zaida,3223.81,21.58,Media,Saludable,train
+235,Aarón,2183.35,25.07,Media,En observacion,train
+236,Elena,4028.58,19.38,Media,Saludable,train
+237,Moisés,2482.7,22.37,Baja,En observacion,train
+238,Amaya,1585.11,32.14,Baja,En riesgo,train
+239,Alejo,3759.15,19.44,Media,Saludable,train
+240,Dani,2119.89,27.91,Baja,En riesgo,train
+241,Úrsula,4791.61,15.85,Baja,En observacion,test
+242,Primitivo,4838.75,19.64,Baja,En observacion,train
+243,Selena,4702.03,18.81,Media,Saludable,test
+244,Paz,2795.56,20.52,Media,Saludable,train
+245,Noemí,1554.1,30.45,Media,En riesgo,train
+246,Marino,4749.11,16.83,Baja,En observacion,val
+247,Jose,2998.64,21.32,Baja,En observacion,train
+248,Bautista,4883.29,17.4,Baja,En observacion,train
+249,Jose Angel,4872.67,18.54,Media,Saludable,val
+250,Selena,4485.53,16.32,Media,Saludable,test
+251,Claudia,2530.57,24.13,Media,En observacion,train
+252,Cayetano,2847.84,20.35,Baja,En observacion,train
+253,Che,4478.98,18.9,Media,Saludable,test
+254,Lupita,2609.23,22.19,Baja,En observacion,train
+255,Amalia,2093.22,27.5,Baja,En riesgo,val
+256,Olalla,3448.8,20.3,Media,Saludable,train
+257,Bruno,4776.54,17.74,Media,Saludable,train
+258,Martirio,3936.1,20.0,Media,Saludable,val
+259,Berta,3495.21,20.52,Media,Saludable,val
+260,María Dolores,1840.12,28.89,Baja,En riesgo,train
+261,Edgardo,3652.53,21.36,Media,Saludable,train
+262,Eduardo,4965.19,16.99,Baja,En observacion,train
+263,Georgina,1990.29,27.77,Baja,En riesgo,train
+264,Aitana,3314.15,19.3,Baja,En observacion,val
+265,Carmela,4570.81,18.7,Baja,En observacion,train
+266,Fito,4092.69,19.26,Media,Saludable,train
+267,Juan Manuel,3939.56,19.46,Media,Saludable,train
+268,Belén,3958.69,19.0,Media,Saludable,test
+269,Salud,2758.22,23.85,Media,En observacion,train
+270,Elvira,2527.57,23.6,Media,En observacion,train
+271,Teo,4332.76,17.92,Media,Saludable,train
+272,Héctor,4335.4,19.26,Baja,En observacion,val
+273,Úrsula,4534.75,18.55,Baja,En observacion,train
+274,Calista,4696.34,18.19,Media,Saludable,train
+275,Marisol,3289.7,18.78,Media,Saludable,test
+276,Luna,3255.31,18.59,Baja,En observacion,test
+277,Jenny,4294.03,18.55,Media,Saludable,test
+278,Herberto,3774.87,21.0,Baja,En observacion,train
+279,Leyre,3956.88,18.61,Media,Saludable,train
+280,Mateo,4285.27,15.38,Media,Saludable,val
+281,Sabas,4615.02,18.23,Media,Saludable,val
+282,Hilda,2682.98,25.07,Media,En observacion,train
+283,Florentina,2814.54,21.12,Media,Saludable,train
+284,Raúl,1828.94,29.14,Media,En riesgo,train
+285,Urbano,3523.98,17.17,Media,Saludable,test
+286,Trinidad,1625.8,26.23,Media,En riesgo,val
+287,Asunción,3129.59,18.65,Media,Saludable,test
+288,Vito,3399.26,20.31,Media,Saludable,train
+289,Dionisio,2502.89,23.29,Media,En observacion,test
+290,Jose Miguel,3567.92,20.8,Baja,En observacion,val
+291,Jafet,1606.75,28.81,Media,En riesgo,train
+292,Bernardo,1630.72,27.76,Baja,En riesgo,test
+293,Nilo,4379.1,17.68,Media,Saludable,test
+294,Alfonso,2760.67,23.16,Media,En observacion,train
+295,Dionisia,1944.71,25.97,Baja,En observacion,train
+296,Casandra,3327.85,21.26,Media,Saludable,test
+297,Jeremías,4194.98,17.53,Baja,En observacion,train
+298,Dionisia,2255.37,23.83,Baja,En observacion,test
+299,Isidro,3680.12,18.81,Baja,En observacion,train
+300,Adrián,1798.72,29.69,Baja,En riesgo,train
+301,Calisto,1680.89,28.43,Media,En riesgo,train
+302,Laura,3359.74,19.27,Media,Saludable,train
+303,Evangelina,3392.22,19.0,Baja,En observacion,val
+304,Benigno,3731.0,19.82,Media,Saludable,train
+305,Jenaro,4041.32,19.4,Media,Saludable,train
+306,Borja,4915.48,17.22,Media,Saludable,val
+307,Vicenta,3307.05,20.19,Media,Saludable,test
+308,Amílcar,2630.35,25.72,Media,En observacion,train
+309,Rosalina,4283.15,18.82,Media,Saludable,train
+310,Natalio,2447.91,24.02,Baja,En observacion,train
+311,Calisto,3036.4,22.07,Media,En observacion,train
+312,Aroa,1774.6,28.7,Baja,En riesgo,train
+313,Jordán,1588.73,29.54,Media,En riesgo,train
+314,León,4869.27,20.41,Baja,En observacion,val
+315,Haydée,4425.93,20.32,Media,Saludable,train
+316,Amalia,3935.91,17.74,Baja,En observacion,val
+317,Iker,2931.34,22.85,Media,En observacion,val
+318,Calista,2106.53,24.16,Media,En observacion,train
+319,Eligio,2047.53,27.86,Baja,En riesgo,test
+320,Loreto,2375.85,26.41,Media,En riesgo,train
+321,Sofía,3422.29,22.28,Media,En observacion,train
+322,Concepción,4001.09,20.03,Baja,En observacion,train
+323,Corona,3810.69,18.59,Baja,En observacion,train
+324,Ainara,2479.77,24.45,Media,En observacion,train
+325,Jose Carlos,4842.03,17.35,Media,Saludable,train
+326,Milagros,4082.64,20.74,Baja,En observacion,train
+327,Ainara,3440.24,21.05,Baja,En observacion,train
+328,Noemí,3641.02,20.37,Baja,En observacion,val
+329,Santos,2968.6,19.96,Baja,En observacion,val
+330,Goyo,2367.06,25.29,Media,En observacion,val
+331,Ciríaco,2745.9,24.19,Media,En observacion,val
+332,Cleto,4152.46,18.18,Baja,En observacion,train
+333,Genoveva,1550.38,33.98,Media,En riesgo,val
+334,Tomás,1906.25,25.17,Media,En observacion,val
+335,Paulino,1661.01,28.66,Baja,En riesgo,train
+336,Teo,1642.55,27.58,Media,En riesgo,val
+337,Segismundo,4494.11,19.14,Baja,En observacion,val
+338,Adelia,3962.8,18.57,Media,Saludable,val
+339,Rosario,3159.61,21.7,Baja,En observacion,val
+340,Luisina,1842.42,30.41,Baja,En riesgo,val
+341,Baltasar,3220.66,19.99,Media,Saludable,train
+342,Ignacia,3157.15,20.95,Baja,En observacion,test
+343,Francisca,2106.21,27.89,Media,En riesgo,train
+344,Flavia,3018.48,20.41,Media,Saludable,test
+345,Clímaco,2894.77,23.95,Media,En observacion,val
+346,Benjamín,3655.48,19.77,Media,Saludable,train
+347,Samuel,3722.83,19.31,Baja,En observacion,test
+348,Luisa,1658.56,25.75,Media,En observacion,val
+349,Norberto,2811.14,20.69,Baja,En observacion,test
+350,Nereida,3690.51,21.11,Baja,En observacion,val
+351,Rosalva,3260.98,20.94,Baja,En observacion,test
+352,César,4497.71,16.63,Media,Saludable,train
+353,Jose Ramón,3805.43,19.99,Media,Saludable,train
+354,Gregorio,2070.27,28.65,Baja,En riesgo,train
+355,Goyo,1746.99,28.69,Media,En riesgo,val
+356,Brunilda,3748.47,18.64,Media,Saludable,test
+357,Vidal,1592.79,30.16,Media,En riesgo,val
+358,Enrique,3550.21,19.74,Media,Saludable,train
+359,Telmo,4790.81,19.52,Baja,En observacion,train
+360,Gervasio,3514.16,19.29,Media,Saludable,test
+361,León,2858.59,22.81,Media,En observacion,train
+362,Óscar,3751.51,20.76,Baja,En observacion,train
+363,Josep,3103.89,22.0,Media,Saludable,train
+364,Sandra,3409.66,19.93,Baja,En observacion,train
+365,Águeda,4795.13,16.11,Media,Saludable,train
+366,Carlos,2851.36,21.31,Baja,En observacion,train
+367,Venceslás,4864.17,18.09,Media,Saludable,train
+368,Nuria,4668.73,16.97,Media,Saludable,test
+369,Rosalva,2185.27,25.17,Media,En observacion,train
+370,Roberta,1742.76,30.75,Baja,En riesgo,val
+371,Carmelita,1852.72,27.32,Baja,En riesgo,val
+372,Clímaco,1563.78,29.8,Media,En riesgo,train
+373,Aureliano,1830.55,27.57,Baja,En riesgo,train
+374,Florinda,3890.52,17.23,Media,Saludable,train
+375,Calixta,1749.16,28.96,Media,En riesgo,val
+376,Piedad,2616.41,20.34,Media,Saludable,train
+377,Albino,4457.06,19.82,Media,Saludable,train
+378,Ciro,1581.45,33.02,Media,En riesgo,val
+379,Ángeles,4350.64,20.83,Media,Saludable,val
+380,Marisa,2486.49,25.18,Baja,En observacion,test
+381,Reina,1913.58,28.96,Media,En riesgo,val
+382,Jordi,3938.58,18.07,Media,Saludable,val
+383,Flavio,3701.3,20.23,Media,Saludable,train
+384,Santos,4571.15,19.69,Baja,En observacion,train
+385,Amalia,4072.75,19.67,Media,Saludable,train
+386,Alicia,4312.18,18.21,Media,Saludable,test
+387,Ignacio,2487.12,22.96,Baja,En observacion,test
+388,Rosaura,2121.04,26.32,Media,En riesgo,train
+389,Salvador,4127.15,20.05,Baja,En observacion,val
+390,Vanesa,4323.92,18.17,Media,Saludable,test
+391,Benigno,4966.77,19.2,Baja,En observacion,train
+392,Fidel,2944.16,21.12,Baja,En observacion,train
+393,Reynaldo,2802.06,24.02,Media,En observacion,test
+394,Abilio,4217.45,18.67,Media,Saludable,train
+395,Rosario,2692.81,22.81,Baja,En observacion,val
+396,Juan Manuel,4757.65,16.53,Media,Saludable,val
+397,Ángeles,4504.44,18.18,Media,Saludable,train
+398,Miguela,3001.48,21.51,Baja,En observacion,test
+399,Milagros,4128.05,19.71,Media,Saludable,train
+400,Wálter,4140.9,21.12,Media,Saludable,train
+401,Lucho,1860.93,28.01,Baja,En riesgo,train
+402,Teo,4658.94,19.9,Media,Saludable,train
+403,Josefina,3268.38,20.2,Media,Saludable,val
+404,Lupe,4392.6,17.3,Media,Saludable,test
+405,Miguela,2620.17,22.76,Media,En observacion,test
+406,Cayetana,4634.33,18.21,Baja,En observacion,train
+407,Gisela,2862.21,20.58,Media,Saludable,val
+408,Lina,1537.93,27.78,Media,En riesgo,test
+409,Amanda,4668.84,18.72,Baja,En observacion,train
+410,Fabián,1819.5,25.0,Media,En observacion,test
+411,Goyo,2617.6,23.34,Baja,En observacion,train
+412,Manu,4825.22,16.11,Media,Saludable,train
+413,Isaac,4827.13,18.58,Media,Saludable,train
+414,Bautista,3507.03,22.27,Baja,En observacion,train
+415,Cruz,3711.43,19.68,Media,Saludable,train
+416,Magdalena,3069.56,23.07,Media,En observacion,val
+417,Candela,2526.24,25.35,Media,En observacion,train
+418,Benjamín,2650.33,23.65,Media,En observacion,train
+419,Mariana,3853.81,20.12,Baja,En observacion,train
+420,Mauricio,4133.31,18.98,Media,Saludable,test
+421,Baudelio,4270.53,17.69,Baja,En observacion,train
+422,Aureliano,4263.66,19.29,Media,Saludable,train
+423,Daniela,1819.22,29.22,Media,En riesgo,train
+424,Albina,3230.47,21.67,Media,Saludable,train
+425,Ani,1701.46,28.76,Media,En riesgo,train
+426,Zaira,3423.35,21.25,Baja,En observacion,train
+427,Reyna,3045.36,22.34,Media,En observacion,test
+428,Bernarda,4606.96,19.21,Baja,En observacion,train
+429,Fausto,2728.2,23.66,Baja,En observacion,train
+430,Baudelio,1909.73,28.4,Media,En riesgo,train
+431,Apolonia,2000.47,26.14,Media,En riesgo,train
+432,Cecilio,4165.29,19.58,Media,Saludable,train
+433,Renata,3663.76,17.04,Media,Saludable,train
+434,Gilberto,1853.93,27.71,Baja,En riesgo,train
+435,Bruno,1794.37,27.39,Media,En riesgo,test
+436,Dulce,3953.39,19.36,Baja,En observacion,train
+437,Borja,1754.67,27.2,Media,En riesgo,train
+438,Imelda,4376.51,17.78,Baja,En observacion,val
+439,Rosalva,3971.85,18.5,Media,Saludable,val
+440,Joel,1784.72,26.79,Media,En riesgo,test
+441,Sancho,1796.93,30.74,Media,En riesgo,train
+442,Dimas,4953.24,15.06,Media,Saludable,train
+443,Tania,2809.95,22.63,Media,En observacion,test
+444,Clotilde,2797.25,23.04,Baja,En observacion,train
+445,Jose Manuel,4344.8,17.99,Media,Saludable,train
+446,Cristina,4815.37,19.11,Baja,En observacion,test
+447,Dorotea,4951.0,18.28,Baja,En observacion,test
+448,Aníbal,4136.82,20.76,Media,Saludable,val
+449,Estefanía,2816.91,20.76,Media,Saludable,test
+450,Ceferino,1792.25,26.4,Media,En riesgo,train
+451,Simón,4220.01,17.07,Baja,En observacion,test
+452,Gema,3454.41,19.57,Baja,En observacion,test
+453,Dalila,2984.78,21.33,Media,Saludable,train
+454,Clara,4672.24,19.5,Media,Saludable,val
+455,Azeneth,1889.19,28.83,Baja,En riesgo,train
+456,Maximiano,3224.19,19.31,Baja,En observacion,train
+457,Juan Carlos,1539.74,31.74,Baja,En riesgo,test
+458,Hernando,3140.31,22.42,Media,En observacion,train
+459,Haydée,1697.06,30.11,Media,En riesgo,train
+460,Lilia,1915.86,27.34,Baja,En riesgo,test
+461,Mauricio,1911.34,24.39,Baja,En observacion,train
+462,Jorge,3772.24,20.08,Media,Saludable,val
+463,Juan Manuel,4111.16,19.38,Media,Saludable,train
+464,Ruy,3541.79,19.77,Media,Saludable,train
+465,Eleuterio,4867.6,18.04,Media,Saludable,train
+466,Hilda,2812.05,21.47,Media,Saludable,train
+467,Filomena,2499.99,25.41,Baja,En observacion,val
+468,Marcelo,4540.1,19.06,Media,Saludable,test
+469,Zacarías,2282.59,24.39,Media,En observacion,test
+470,Maximiano,4871.28,18.27,Media,Saludable,train
+471,Úrsula,1542.54,29.15,Media,En riesgo,train
+472,Maricruz,4894.58,20.05,Media,Saludable,train
+473,Camilo,1651.06,31.24,Baja,En riesgo,train
+474,Agapito,4619.0,17.56,Media,Saludable,test
+475,Álvaro,3346.95,21.18,Baja,En observacion,train
+476,Ester,4975.38,17.12,Media,Saludable,train
+477,Chus,1758.29,26.44,Baja,En riesgo,test
+478,Cornelio,3438.49,23.09,Baja,En observacion,test
+479,Candelario,4892.56,16.86,Media,Saludable,train
+480,Brígida,3330.84,21.67,Baja,En observacion,test
+481,Ignacio,3702.9,18.13,Media,Saludable,train
+482,Antonia,3935.12,18.15,Baja,En observacion,train
+483,Juan Manuel,3090.89,24.05,Media,En observacion,train
+484,Eligio,3696.45,19.91,Baja,En observacion,test
+485,Paco,3545.1,19.14,Baja,En observacion,val
+486,Socorro,4654.05,17.69,Media,Saludable,test
+487,Bruno,1659.06,24.47,Media,En observacion,train
+488,Serafina,2483.37,22.49,Media,En observacion,train
+489,Jose Ignacio,4826.44,19.96,Media,Saludable,test
+490,Rafael,4615.92,18.31,Media,Saludable,val
+491,Lucas,3094.8,21.44,Media,Saludable,test
+492,Fausto,3670.46,19.98,Baja,En observacion,train
+493,Urbano,2470.83,23.33,Baja,En observacion,train
+494,Perla,2158.42,26.13,Baja,En riesgo,test
+495,Candelaria,3122.94,20.16,Media,Saludable,train
+496,Juliana,2736.73,22.29,Baja,En observacion,val
+497,Marciano,3542.8,18.29,Media,Saludable,train
+498,Emma,1772.07,30.61,Media,En riesgo,train
+499,Noemí,4910.38,18.24,Baja,En observacion,val
+500,Francisca,4951.74,19.26,Media,Saludable,val
+501,Benigna,3943.57,19.06,Baja,En observacion,val
+502,Adán,3376.34,20.84,Media,Saludable,val
+503,Guadalupe,2583.35,23.5,Media,En observacion,val
+504,Olga,4348.28,19.57,Media,Saludable,train
+505,Casandra,3896.56,19.17,Media,Saludable,train
+506,Marcelino,2069.16,26.35,Media,En riesgo,train
+507,Gracia,4688.25,16.83,Baja,En observacion,val
+508,Cristóbal,4378.88,19.47,Baja,En observacion,test
+509,Selena,4824.3,17.08,Media,Saludable,test
+510,Eloy,4040.02,17.42,Media,Saludable,test
+511,Juan Luis,3646.95,18.37,Media,Saludable,train
+512,David,2963.85,22.29,Media,En observacion,train
+513,Tania,4764.55,18.3,Baja,En observacion,train
+514,Custodio,4531.22,19.24,Media,Saludable,test
+515,Manuelita,1658.27,28.21,Baja,En riesgo,val
+516,Carolina,1592.28,31.87,Media,En riesgo,train
+517,Fabricio,2817.62,22.32,Media,En observacion,val
+518,Lalo,4336.94,19.95,Baja,En observacion,train
+519,Lope,4955.47,18.25,Baja,En observacion,train
+520,Elodia,2026.46,26.74,Media,En riesgo,train
+521,Humberto,3579.46,19.99,Media,Saludable,test
+522,Liliana,2833.12,23.18,Media,En observacion,train
+523,Olegario,4894.7,18.4,Media,Saludable,train
+524,Herminio,4447.42,17.82,Baja,En observacion,train
+525,Jacinta,4434.15,17.55,Baja,En observacion,train
+526,Fabiana,3140.43,21.19,Baja,En observacion,train
+527,Reyna,2951.87,19.36,Media,Saludable,val
+528,Juan Luis,2456.92,25.25,Baja,En observacion,train
+529,Anselma,1697.31,28.77,Media,En riesgo,train
+530,Amaya,4526.53,17.75,Media,Saludable,train
+531,José,4345.15,18.33,Media,Saludable,val
+532,Vicenta,4999.01,19.35,Media,Saludable,val
+533,Vilma,4988.23,16.89,Media,Saludable,val
+534,Raquel,3444.01,20.42,Media,Saludable,test
+535,Aurelio,4191.46,20.7,Baja,En observacion,train
+536,Cirino,4806.68,17.49,Baja,En observacion,train
+537,Fabiana,4473.77,19.03,Media,Saludable,train
+538,Teo,2365.72,24.76,Media,En observacion,train
+539,Paula,3076.9,22.44,Baja,En observacion,train
+540,Leonel,1952.06,26.31,Media,En riesgo,train
+541,Arsenio,4839.18,18.85,Media,Saludable,train
+542,Abraham,3621.61,21.57,Media,Saludable,train
+543,Nazario,2300.25,25.42,Baja,En observacion,train
+544,María Manuela,3850.95,19.9,Media,Saludable,train
+545,Eladio,3663.45,20.11,Media,Saludable,test
+546,Febe,2753.57,24.33,Media,En observacion,train
+547,Juan Francisco,1897.45,28.65,Baja,En riesgo,val
+548,Felix,3850.51,18.83,Baja,En observacion,train
+549,Manuela,3321.08,22.34,Baja,En observacion,train
+550,Vasco,4203.11,17.39,Media,Saludable,train
+551,Carmen,3320.57,23.54,Baja,En observacion,train
+552,Julieta,4482.64,17.8,Baja,En observacion,test
+553,Teófilo,3431.67,20.77,Media,Saludable,train
+554,Chelo,3463.28,19.6,Baja,En observacion,test
+555,Agapito,4568.29,17.15,Media,Saludable,test
+556,Dani,2912.19,22.58,Media,En observacion,train
+557,Carlos,1969.05,24.99,Media,En observacion,test
+558,Sol,1600.74,32.27,Media,En riesgo,train
+559,Jessica,4142.98,19.21,Media,Saludable,train
+560,Vera,3671.08,19.18,Media,Saludable,val
+561,Eustaquio,3964.28,19.15,Media,Saludable,train
+562,Caridad,2245.37,24.61,Baja,En observacion,train
+563,Andrés Felipe,1977.3,28.53,Media,En riesgo,val
+564,Perlita,1550.91,29.98,Media,En riesgo,val
+565,Rafael,2727.06,23.52,Baja,En observacion,train
+566,Dafne,3564.71,17.14,Baja,En observacion,train
+567,Carmina,2872.85,22.3,Media,En observacion,test
+568,Eusebio,3031.16,22.82,Media,En observacion,train
+569,Tito,4664.56,17.71,Media,Saludable,train
+570,Edu,2718.89,24.11,Media,En observacion,train
+571,Ariel,3298.96,19.76,Media,Saludable,train
+572,Mario,4242.79,18.73,Media,Saludable,test
+573,Pánfilo,2887.9,23.51,Media,En observacion,train
+574,Trini,3677.3,20.13,Baja,En observacion,train
+575,Natividad,4518.27,16.42,Media,Saludable,train
+576,Rosalinda,4823.32,19.19,Baja,En observacion,val
+577,Aníbal,2014.76,28.6,Media,En riesgo,train
+578,Trini,4743.06,17.37,Baja,En observacion,val
+579,Pepito,3222.41,21.01,Media,Saludable,val
+580,Humberto,2403.86,25.9,Media,En observacion,train
+581,Isabel,3106.98,19.61,Baja,En observacion,train
+582,Josep,4930.11,17.58,Media,Saludable,train
+583,Griselda,3224.16,22.39,Media,En observacion,train
+584,Cristian,2650.63,20.26,Media,Saludable,train
+585,Paulino,3716.9,18.44,Media,Saludable,train
+586,Melisa,2340.51,25.69,Media,En observacion,train
+587,Charo,1765.52,27.73,Media,En riesgo,train
+588,Soledad,1951.08,25.93,Media,En observacion,train
+589,Sandra,1948.16,28.57,Baja,En riesgo,train
+590,Santos,2031.66,29.54,Media,En riesgo,train
+591,Estela,1985.9,27.31,Media,En riesgo,train
+592,Maribel,3743.06,20.49,Media,Saludable,train
+593,Fabián,2136.58,24.93,Baja,En observacion,test
+594,Ángela,2709.84,23.46,Baja,En observacion,val
+595,Jordi,4638.76,17.99,Media,Saludable,test
+596,Rosaura,3158.87,22.23,Baja,En observacion,train
+597,Fermín,3836.45,18.81,Baja,En observacion,train
+598,Nereida,2103.12,24.33,Media,En observacion,val
+599,Obdulia,2173.01,23.86,Media,En observacion,val
+600,Galo,1643.04,31.25,Baja,En riesgo,train
+601,Socorro,2091.27,28.06,Media,En riesgo,train
+602,Seve,2475.07,20.82,Baja,En observacion,train
+603,Amador,2119.54,24.1,Media,En observacion,train
+604,Gastón,1810.46,29.93,Media,En riesgo,train
+605,Maite,1922.23,26.9,Media,En riesgo,val
+606,Ámbar,3112.73,21.48,Baja,En observacion,val
+607,Nazaret,2222.17,26.73,Media,En riesgo,train
+608,Micaela,2774.94,24.48,Media,En observacion,test
+609,Sergio,3261.96,21.1,Baja,En observacion,train
+610,Nidia,3916.38,18.74,Media,Saludable,train
+611,Haydée,1637.59,28.46,Baja,En riesgo,test
+612,Rosario,4297.94,18.54,Media,Saludable,train
+613,Macaria,3697.65,19.85,Baja,En observacion,test
+614,Obdulia,1786.16,28.38,Media,En riesgo,train
+615,Jose Ramón,4557.53,16.63,Media,Saludable,train
+616,Juanito,4723.05,17.37,Baja,En observacion,train
+617,Feliciano,1713.77,28.06,Media,En riesgo,train
+618,Mirta,2469.07,24.22,Media,En observacion,train
+619,Judith,4321.7,18.74,Media,Saludable,train
+620,Cándido,4118.91,18.17,Media,Saludable,train
+621,Roberto,2145.82,23.58,Media,En observacion,train
+622,Salud,2232.72,25.62,Media,En observacion,test
+623,Antonio,2796.65,22.86,Media,En observacion,test
+624,Rosa María,3195.83,20.52,Media,Saludable,train
+625,Adoración,3663.89,18.78,Media,Saludable,val
+626,Iván,2791.2,22.06,Media,En observacion,train
+627,Heraclio,3118.87,21.12,Media,Saludable,train
+628,Olga,4116.15,17.18,Media,Saludable,train
+629,Zaida,1628.39,29.68,Media,En riesgo,train
+630,Édgar,2383.53,26.99,Media,En riesgo,val
+631,Pancho,3996.72,17.17,Media,Saludable,test
+632,Marcos,4633.22,17.22,Baja,En observacion,train
+633,Otilia,3290.87,19.53,Media,Saludable,train
+634,Natalia,3362.4,21.65,Baja,En observacion,test
+635,Salomé,1875.1,28.12,Baja,En riesgo,train
+636,Javier,3065.94,21.02,Baja,En observacion,train
+637,Jacinto,3364.16,17.15,Baja,En observacion,train
+638,Amado,2348.65,24.86,Media,En observacion,test
+639,Georgina,2442.35,22.29,Media,En observacion,val
+640,Guadalupe,2820.49,20.35,Baja,En observacion,train
+641,Sabas,1570.25,31.99,Baja,En riesgo,test
+642,Nando,2627.28,23.85,Media,En observacion,val
+643,León,2240.07,24.06,Media,En observacion,val
+644,Rosaura,2646.24,23.96,Baja,En observacion,train
+645,Buenaventura,1919.17,27.41,Media,En riesgo,train
+646,María Teresa,4616.85,19.21,Media,Saludable,train
+647,León,3577.57,19.63,Media,Saludable,test
+648,Pascual,3876.86,18.05,Media,Saludable,train
+649,Felipa,4262.1,19.14,Media,Saludable,train
+650,Araceli,3244.55,20.61,Baja,En observacion,train
+651,Salomón,1804.22,26.72,Baja,En riesgo,val
+652,Iris,3379.87,22.22,Media,En observacion,val
+653,Pía,3553.94,23.04,Media,En observacion,train
+654,Brunilda,4109.04,21.46,Media,Saludable,train
+655,Natanael,3010.81,23.99,Media,En observacion,train
+656,Amaro,1946.53,25.38,Media,En observacion,test
+657,David,2493.22,24.09,Media,En observacion,train
+658,Saturnina,2770.79,23.37,Media,En observacion,train
+659,Juan Carlos,3760.71,17.26,Baja,En observacion,train
+660,Gaspar,3497.72,18.77,Baja,En observacion,val
+661,Custodia,2746.34,23.11,Media,En observacion,test
+662,Juan Manuel,4952.8,19.31,Media,Saludable,train
+663,Antonio,3620.21,21.1,Baja,En observacion,val
+664,César,2330.29,26.07,Media,En riesgo,train
+665,Débora,1856.24,27.66,Media,En riesgo,test
+666,Toño,2035.01,27.4,Media,En riesgo,val
+667,Onofre,2360.85,24.95,Media,En observacion,val
+668,Luisina,2062.38,26.36,Baja,En riesgo,train
+669,Miriam,2152.98,26.75,Baja,En riesgo,val
+670,Mauricio,2497.83,23.56,Baja,En observacion,train
+671,Tristán,2106.81,26.08,Media,En riesgo,test
+672,Eloísa,4638.68,19.12,Media,Saludable,train
+673,Ariadna,1780.82,27.95,Baja,En riesgo,train
+674,David,3335.79,20.24,Media,Saludable,test
+675,Rogelio,2936.39,21.34,Media,Saludable,test
+676,Trinidad,4938.33,17.42,Media,Saludable,test
+677,Corona,1892.14,27.57,Baja,En riesgo,test
+678,Goyo,2892.49,23.12,Baja,En observacion,test
+679,José Manuel,4893.15,17.66,Baja,En observacion,train
+680,Arsenio,4529.27,19.21,Media,Saludable,val
+681,Leandra,4359.75,18.45,Media,Saludable,train
+682,Tristán,2402.66,22.52,Media,En observacion,train
+683,Abel,2098.11,27.41,Media,En riesgo,train
+684,Aurora,3840.25,19.82,Baja,En observacion,train
+685,Ángela,4752.82,18.51,Media,Saludable,train
+686,Noelia,3448.67,21.68,Media,Saludable,train
+687,Bárbara,3500.64,21.05,Baja,En observacion,train
+688,Jacinta,2479.93,21.99,Baja,En observacion,val
+689,Loida,4193.23,18.99,Baja,En observacion,train
+690,Manuela,2154.65,27.28,Media,En riesgo,train
+691,Maite,2632.88,23.6,Baja,En observacion,train
+692,Herminia,2989.03,23.71,Baja,En observacion,val
+693,Haroldo,3276.64,19.3,Media,Saludable,train
+694,Prudencio,2348.43,23.04,Baja,En observacion,test
+695,Tomás,1901.93,27.03,Media,En riesgo,test
+696,Buenaventura,3637.17,19.36,Media,Saludable,train
+697,Graciana,2510.21,22.71,Media,En observacion,train
+698,Zoraida,3534.33,18.87,Media,Saludable,train
+699,Natalio,2040.27,29.35,Baja,En riesgo,train
+700,Estrella,3183.99,20.63,Media,Saludable,train
+701,Mauricio,3364.06,23.29,Media,En observacion,train
+702,Gracia,1681.38,30.01,Media,En riesgo,train
+703,Regina,2678.11,25.61,Media,En observacion,test
+704,Edelmiro,1970.45,24.27,Media,En observacion,train
+705,Lola,1721.81,29.38,Baja,En riesgo,train
+706,Trinidad,4964.86,19.72,Baja,En observacion,train
+707,Marcelo,2628.24,23.32,Media,En observacion,train
+708,Anunciación,4334.56,16.56,Media,Saludable,train
+709,Martin,2391.24,25.31,Media,En observacion,test
+710,Griselda,3885.26,20.17,Media,Saludable,val
+711,Sebastian,4160.8,18.83,Media,Saludable,train
+712,Nacho,3584.74,20.61,Baja,En observacion,test
+713,Samuel,3150.52,22.52,Baja,En observacion,train
+714,Josefina,2941.44,19.04,Media,Saludable,train
+715,Manolo,2721.04,23.63,Baja,En observacion,test
+716,Casandra,4753.35,19.09,Media,Saludable,val
+717,Edu,4407.17,17.62,Media,Saludable,test
+718,Gregorio,4877.59,20.26,Baja,En observacion,train
+719,Sosimo,1935.04,25.08,Media,En observacion,val
+720,Graciana,4058.04,17.69,Media,Saludable,train
+721,Reynaldo,4784.19,17.42,Media,Saludable,val
+722,Inés,2134.32,25.96,Media,En observacion,test
+723,Marianela,1732.74,27.15,Baja,En riesgo,train
+724,Vanesa,4093.92,18.54,Baja,En observacion,test
+725,Félix,3510.66,19.46,Media,Saludable,test
+726,Encarnación,4446.4,19.71,Baja,En observacion,train
+727,Cloe,1989.2,27.28,Media,En riesgo,test
+728,Marcial,4283.44,18.48,Baja,En observacion,train
+729,Santiago,2205.7,26.09,Baja,En riesgo,train
+730,Carlota,2072.8,25.96,Baja,En observacion,val
+731,Perla,2074.93,26.95,Baja,En riesgo,train
+732,Aarón,4351.01,18.35,Media,Saludable,train
+733,Marco,3828.19,18.88,Media,Saludable,test
+734,Luciano,3330.73,20.45,Media,Saludable,train
+735,Humberto,2755.91,21.92,Media,Saludable,val
+736,Tito,4570.2,19.02,Baja,En observacion,test
+737,Mireia,2873.56,22.6,Media,En observacion,train
+738,Cruz,4358.1,16.49,Media,Saludable,test
+739,Elvira,3036.97,21.04,Media,Saludable,train
+740,Fátima,2819.31,21.68,Media,Saludable,val
+741,Modesto,3119.38,20.7,Media,Saludable,val
+742,Adela,2554.82,24.82,Media,En observacion,train
+743,Vasco,4116.63,17.45,Media,Saludable,test
+744,Vasco,3259.52,20.69,Media,Saludable,train
+745,Imelda,2312.74,26.3,Baja,En riesgo,val
+746,Ignacio,4648.51,18.17,Media,Saludable,val
+747,Ariadna,2843.62,22.65,Media,En observacion,val
+748,Ainara,3402.44,20.1,Baja,En observacion,test
+749,Nadia,4672.65,18.09,Media,Saludable,val
+750,Valentina,3684.83,21.38,Baja,En observacion,test
+751,Natividad,1909.14,28.67,Baja,En riesgo,test
+752,Magdalena,4789.41,15.85,Baja,En observacion,val
+753,Fortunato,3696.98,22.63,Baja,En observacion,test
+754,Genoveva,2672.17,22.8,Media,En observacion,test
+755,Cesar,1987.45,25.3,Media,En observacion,train
+756,Loreto,4279.09,19.24,Baja,En observacion,train
+757,Aránzazu,3670.25,20.58,Media,Saludable,train
+758,Gracia,3367.11,22.32,Media,En observacion,train
+759,Evita,4628.62,19.55,Media,Saludable,val
+760,Estefanía,4260.09,19.28,Media,Saludable,val
+761,Nico,2030.86,24.62,Media,En observacion,test
+762,Ciro,2591.03,23.51,Media,En observacion,test
+763,Olivia,2369.71,23.24,Media,En observacion,train
+764,Maricruz,4103.81,19.12,Media,Saludable,test
+765,Joel,1617.36,30.32,Media,En riesgo,train
+766,Hortensia,3494.61,19.29,Media,Saludable,val
+767,Martín,4168.61,19.01,Baja,En observacion,train
+768,Jafet,4568.68,17.45,Media,Saludable,test
+769,Noelia,2697.29,20.63,Media,Saludable,train
+770,Heliodoro,4374.4,18.47,Media,Saludable,val
+771,Eugenio,1887.21,26.19,Baja,En riesgo,train
+772,Amador,4462.58,19.4,Media,Saludable,val
+773,Arturo,1946.21,26.0,Media,En observacion,val
+774,Jose Ignacio,2890.51,21.44,Baja,En observacion,val
+775,Aitana,4290.53,19.05,Media,Saludable,train
+776,Emiliana,2024.71,25.83,Media,En observacion,train
+777,Remedios,2302.38,22.34,Media,En observacion,test
+778,María Jesús,4027.88,19.49,Media,Saludable,train
+779,Camilo,4020.13,22.57,Baja,En observacion,test
+780,Xavier,3744.02,20.41,Baja,En observacion,train
+781,Severino,3928.82,20.54,Media,Saludable,train
+782,Soraya,3399.54,17.92,Media,Saludable,train
+783,Eva,2381.3,24.35,Baja,En observacion,train
+784,Coral,2709.94,21.58,Media,Saludable,test
+785,Guiomar,2135.59,25.46,Media,En observacion,train
+786,Lina,4679.58,19.76,Media,Saludable,train
+787,Josefina,3541.87,21.48,Media,Saludable,val
+788,Rodrigo,2902.98,23.11,Media,En observacion,train
+789,Ana Belén,3117.02,22.08,Baja,En observacion,train
+790,Salomón,4815.49,19.05,Media,Saludable,val
+791,Jose Francisco,2036.73,24.8,Media,En observacion,train
+792,Eusebio,3551.8,20.51,Baja,En observacion,train
+793,Gabriela,3270.61,22.51,Media,En observacion,train
+794,Javiera,3640.09,19.08,Baja,En observacion,train
+795,Adelardo,1563.39,30.21,Media,En riesgo,test
+796,Teodora,4552.43,20.24,Media,Saludable,val
+797,Maricela,4762.41,18.16,Baja,En observacion,train
+798,Rosalinda,3477.97,21.78,Baja,En observacion,train
+799,María Luisa,3938.28,19.73,Baja,En observacion,train
+800,Sonia,4728.75,19.46,Media,Saludable,val
+801,Custodio,3975.34,18.05,Media,Saludable,test
+802,Melania,2033.89,26.49,Baja,En riesgo,test
+803,Teodoro,3517.01,20.77,Baja,En observacion,train
+804,Isidoro,3623.5,20.32,Media,Saludable,val
+805,Gabriel,2984.46,22.24,Media,En observacion,val
+806,Nilda,4077.55,17.3,Media,Saludable,test
+807,Josefa,4770.28,16.62,Media,Saludable,train
+808,Aura,4739.49,19.87,Media,Saludable,val
+809,Abril,3077.94,23.78,Media,En observacion,train
+810,Aureliano,1896.33,26.2,Media,En riesgo,train
+811,Cecilia,4946.94,15.91,Media,Saludable,train
+812,Josep,4436.14,18.51,Baja,En observacion,train
+813,Yéssica,1936.32,30.35,Media,En riesgo,test
+814,Regina,4722.95,15.3,Media,Saludable,val
+815,Domingo,4544.64,19.04,Baja,En observacion,train
+816,Yago,3315.93,22.49,Media,En observacion,train
+817,Eliseo,3569.46,22.76,Media,En observacion,train
+818,Nicolasa,2896.51,23.53,Media,En observacion,train
+819,Abril,1691.67,29.63,Media,En riesgo,val
+820,Guadalupe,2673.19,24.8,Baja,En observacion,val
+821,Bernarda,4309.99,18.64,Media,Saludable,test
+822,Celia,1516.21,28.64,Baja,En riesgo,val
+823,Dulce,2667.25,23.9,Baja,En observacion,train
+824,Maximiliano,2893.59,24.01,Media,En observacion,val
+825,Marisol,3380.88,23.05,Media,En observacion,val
+826,Tatiana,4719.49,18.79,Media,Saludable,train
+827,Venceslás,2712.21,21.97,Media,Saludable,val
+828,Emperatriz,2714.34,24.96,Baja,En observacion,train
+829,Ofelia,4081.25,20.64,Media,Saludable,test
+830,Loida,3082.76,22.33,Baja,En observacion,train
+831,Tecla,2286.12,24.04,Baja,En observacion,train
+832,Anna,3083.54,23.02,Baja,En observacion,val
+833,Teodosio,1993.0,27.46,Baja,En riesgo,train
+834,Paulina,2117.35,25.13,Baja,En observacion,train
+835,Victoria,3244.29,17.4,Media,Saludable,val
+836,Carlota,2966.24,20.34,Baja,En observacion,train
+837,Victor Manuel,4701.96,18.57,Baja,En observacion,train
+838,Teófila,2768.38,21.48,Media,Saludable,val
+839,Federico,3532.06,20.45,Media,Saludable,train
+840,Mar,3712.93,19.04,Media,Saludable,train
+841,Rosalva,1545.83,30.85,Media,En riesgo,test
+842,Aitana,3822.38,18.38,Media,Saludable,train
+843,Vinicio,2123.13,25.94,Baja,En observacion,val
+844,Juan Antonio,4863.75,17.66,Media,Saludable,train
+845,Maricruz,2020.32,27.61,Media,En riesgo,test
+846,Jose Miguel,2951.18,21.07,Media,Saludable,test
+847,Priscila,1798.72,30.03,Media,En riesgo,val
+848,Febe,4989.06,16.52,Media,Saludable,train
+849,Leonel,3257.68,18.51,Media,Saludable,train
+850,María Dolores,3583.85,19.8,Baja,En observacion,train
+851,Mayte,1734.77,28.79,Media,En riesgo,val
+852,Azahar,4124.86,17.84,Media,Saludable,test
+853,Amada,2234.67,26.08,Media,En riesgo,test
+854,Eugenia,4643.19,17.32,Media,Saludable,train
+855,Jorge,2217.99,26.61,Media,En riesgo,train
+856,Leonardo,2167.41,24.58,Baja,En observacion,train
+857,Valerio,1627.92,30.86,Baja,En riesgo,test
+858,Casemiro,3152.23,21.23,Media,Saludable,train
+859,Leyre,3476.94,20.01,Media,Saludable,test
+860,Lucho,1729.98,30.01,Baja,En riesgo,train
+861,Joel,4214.35,16.5,Media,Saludable,train
+862,Lalo,3086.51,22.3,Media,En observacion,train
+863,Nico,3335.37,18.89,Media,Saludable,train
+864,Miguel,3042.67,23.48,Media,En observacion,train
+865,Teodora,2902.67,21.97,Media,Saludable,train
+866,Calixta,3458.74,19.03,Baja,En observacion,train
+867,Cecilio,2043.34,26.45,Media,En riesgo,test
+868,Emiliano,2136.75,25.73,Media,En observacion,train
+869,Eutropio,4516.25,20.78,Media,Saludable,val
+870,Jerónimo,4811.4,16.19,Media,Saludable,train
+871,Rodolfo,2806.58,23.28,Baja,En observacion,train
+872,Joaquina,2447.61,24.03,Media,En observacion,train
+873,Ezequiel,3754.0,20.48,Media,Saludable,val
+874,Lara,2930.57,22.28,Media,En observacion,train
+875,Iker,1588.85,29.08,Media,En riesgo,train
+876,Bernardo,2046.53,26.77,Media,En riesgo,train
+877,Severino,4005.9,20.46,Media,Saludable,val
+878,Saturnino,3806.23,19.33,Media,Saludable,train
+879,Natalio,1594.84,31.47,Media,En riesgo,train
+880,Candela,2276.9,24.78,Media,En observacion,train
+881,Adelaida,2308.76,22.07,Media,En observacion,train
+882,Severo,3851.62,17.37,Media,Saludable,train
+883,Bernabé,1568.99,31.28,Media,En riesgo,train
+884,Hilario,1864.38,27.95,Media,En riesgo,train
+885,Pepita,4299.71,17.94,Media,Saludable,val
+886,Sosimo,2124.91,26.37,Baja,En riesgo,test
+887,Roque,3784.61,18.92,Baja,En observacion,val
+888,Verónica,2333.64,24.73,Media,En observacion,val
+889,María Luisa,1848.04,29.08,Media,En riesgo,train
+890,Daniela,2351.1,24.74,Baja,En observacion,test
+891,Josefa,4027.93,18.05,Media,Saludable,train
+892,Alex,4494.94,19.13,Media,Saludable,train
+893,Rocío,4405.77,17.71,Baja,En observacion,train
+894,Silvia,2890.14,24.39,Baja,En observacion,train
+895,María Del Carmen,3838.3,20.46,Media,Saludable,train
+896,Coral,2217.45,21.31,Media,Saludable,train
+897,Ricardo,2526.02,24.18,Baja,En observacion,train
+898,Albina,4637.18,17.77,Media,Saludable,val
+899,Adolfo,1545.51,31.41,Media,En riesgo,train
+900,Pastor,1799.28,28.63,Media,En riesgo,train
+901,Marc,2227.6,22.63,Media,En observacion,train
+902,Marisa,1592.86,32.13,Media,En riesgo,train
+903,Rosario,2135.02,25.17,Media,En observacion,train
+904,Reyna,3540.65,19.25,Media,Saludable,val
+905,Tecla,2974.99,21.66,Media,Saludable,test
+906,Petrona,4624.35,18.75,Baja,En observacion,val
+907,Simón,4361.05,18.65,Media,Saludable,train
+908,Bárbara,2696.36,22.16,Media,En observacion,test
+909,Mariana,2407.98,23.58,Baja,En observacion,test
+910,Macaria,2828.92,23.37,Media,En observacion,val
+911,Carina,3566.03,19.6,Baja,En observacion,test
+912,Nereida,2438.22,24.49,Media,En observacion,train
+913,Elisa,3684.52,18.78,Media,Saludable,test
+914,Tomasa,2932.94,22.37,Baja,En observacion,test
+915,Isidro,3432.17,20.41,Media,Saludable,train
+916,Amarilis,3026.44,21.45,Media,Saludable,train
+917,Isidoro,2530.63,21.13,Baja,En observacion,train
+918,Leandro,4819.59,19.38,Baja,En observacion,train
+919,Tristán,4172.62,19.61,Baja,En observacion,val
+920,Amalia,1990.4,26.95,Baja,En riesgo,test
+921,Ambrosio,4539.64,19.51,Media,Saludable,test
+922,Roque,3206.01,21.11,Media,Saludable,train
+923,Nicodemo,4630.93,18.13,Media,Saludable,train
+924,Guiomar,4299.49,18.24,Media,Saludable,test
+925,Iris,2988.25,20.74,Media,Saludable,train
+926,Nazaret,1578.64,29.93,Baja,En riesgo,train
+927,Sandalio,2440.37,23.13,Media,En observacion,train
+928,Lourdes,3395.72,20.54,Baja,En observacion,test
+929,Fito,3717.17,21.44,Baja,En observacion,train
+930,Priscila,2402.61,22.45,Media,En observacion,train
+931,Adelia,1987.75,28.42,Baja,En riesgo,train
+932,Zaira,4422.26,18.31,Media,Saludable,train
+933,Edu,4945.41,17.52,Baja,En observacion,test
+934,Esther,3339.92,21.12,Media,Saludable,val
+935,Bibiana,2100.88,27.82,Media,En riesgo,val
+936,Amando,2453.08,24.44,Media,En observacion,train
+937,Victoria,1564.37,26.1,Media,En riesgo,train
+938,Rufino,4700.05,17.73,Baja,En observacion,train
+939,Dora,1912.13,27.28,Baja,En riesgo,train
+940,Cintia,3517.81,19.23,Media,Saludable,train
+941,Gloria,2459.19,24.18,Baja,En observacion,train
+942,Amando,3439.62,19.71,Media,Saludable,train
+943,Celso,3779.97,19.54,Media,Saludable,test
+944,Fernanda,4404.1,16.89,Baja,En observacion,train
+945,Tiburcio,2222.47,23.75,Baja,En observacion,train
+946,Elpidio,1538.49,31.34,Baja,En riesgo,train
+947,Roxana,1979.1,25.84,Media,En observacion,train
+948,Íñigo,4650.07,18.65,Media,Saludable,train
+949,Germán,4558.62,21.52,Media,Saludable,train
+950,Aureliano,3590.95,20.99,Media,Saludable,train
+951,Juan Bautista,3601.81,21.62,Media,Saludable,val
+952,Reynaldo,3827.63,19.44,Media,Saludable,train
+953,Nacio,2113.8,25.59,Baja,En observacion,val
+954,Héctor,4700.44,19.3,Media,Saludable,train
+955,Wálter,2965.7,23.12,Media,En observacion,train
+956,Nacho,2840.98,23.15,Baja,En observacion,test
+957,Nicolás,3316.21,19.26,Baja,En observacion,val
+958,María,1664.38,31.78,Baja,En riesgo,test
+959,Serafina,2081.99,24.82,Baja,En observacion,train
+960,Reynaldo,4083.12,18.7,Media,Saludable,train
+961,Leopoldo,1789.8,27.06,Media,En riesgo,test
+962,Marina,3611.03,19.0,Baja,En observacion,train
+963,Paz,2358.72,25.55,Media,En observacion,val
+964,Tadeo,2862.53,23.41,Baja,En observacion,val
+965,José Antonio,2510.43,24.7,Media,En observacion,train
+966,Perlita,2744.85,24.47,Media,En observacion,train
+967,Ceferino,4016.66,17.91,Baja,En observacion,val
+968,Adoración,2539.93,24.45,Media,En observacion,val
+969,Alejo,3482.42,19.63,Media,Saludable,train
+970,Maribel,3166.18,20.68,Media,Saludable,val
+971,Calista,3822.85,18.88,Baja,En observacion,train
+972,Baldomero,4778.9,19.75,Media,Saludable,train
+973,Pancho,4064.0,19.17,Baja,En observacion,train
+974,Jacobo,2252.29,23.52,Media,En observacion,val
+975,Florentina,1609.14,30.06,Baja,En riesgo,train
+976,Bruno,2417.92,24.05,Media,En observacion,train
+977,Mercedes,3582.77,19.07,Baja,En observacion,train
+978,Florinda,1679.99,29.32,Baja,En riesgo,train
+979,Apolinar,3237.28,20.15,Media,Saludable,train
+980,Marisela,3588.95,20.59,Media,Saludable,train
+981,Américo,2669.85,21.72,Media,Saludable,test
+982,Jose Miguel,4198.19,21.21,Baja,En observacion,train
+983,Heraclio,1873.09,27.25,Media,En riesgo,train
+984,Primitiva,1762.98,30.21,Media,En riesgo,val
+985,Alex,4048.66,20.44,Media,Saludable,train
+986,Ester,3234.22,21.98,Media,Saludable,test
+987,Ezequiel,3909.41,20.09,Media,Saludable,val
+988,Jorge,3021.9,21.03,Media,Saludable,test
+989,Edmundo,2362.41,23.38,Media,En observacion,train
+990,Ainara,4366.86,17.37,Baja,En observacion,test
+991,Haydée,4297.96,19.45,Media,Saludable,train
+992,Darío,3931.44,20.04,Media,Saludable,train
+993,Cintia,2452.51,23.63,Media,En observacion,train
+994,Isaías,3565.81,19.47,Media,Saludable,train
+995,Adela,2763.41,20.4,Media,Saludable,test
+996,Juana,1820.54,29.74,Baja,En riesgo,train
+997,José María,4710.6,20.09,Media,Saludable,train
+998,María Fernanda,1978.87,25.15,Media,En observacion,test
+999,Rafa,4825.83,18.65,Baja,En observacion,train
+1000,Florencio,3061.02,22.87,Baja,En observacion,train
+1001,Eloísa,2147.97,24.78,Media,En observacion,train
+1002,Elvira,3396.65,18.47,Baja,En observacion,train
+1003,Mariana,4555.31,17.62,Media,Saludable,train
+1004,Lina,4062.79,18.6,Media,Saludable,train
+1005,Darío,4322.96,20.24,Baja,En observacion,train
+1006,Mayte,3805.74,18.34,Media,Saludable,train
+1007,Olivia,3922.97,19.46,Baja,En observacion,train
+1008,Fernando,4472.18,18.07,Media,Saludable,val
+1009,María,2373.84,22.49,Media,En observacion,train
+1010,Cándido,3212.99,18.84,Baja,En observacion,train
+1011,Cristina,2274.23,24.42,Media,En observacion,train
+1012,Amancio,4956.84,16.09,Baja,En observacion,test
+1013,Úrsula,4804.21,19.38,Baja,En observacion,train
+1014,Mateo,1637.99,28.31,Media,En riesgo,train
+1015,Coral,3969.51,19.44,Media,Saludable,train
+1016,Inés,4738.37,18.16,Media,Saludable,test
+1017,Vilma,2132.01,26.78,Media,En riesgo,train
+1018,Remigio,3487.81,20.25,Baja,En observacion,test
+1019,Régulo,4704.21,17.36,Media,Saludable,train
+1020,Ligia,1618.81,31.55,Media,En riesgo,test
+1021,Heliodoro,3940.97,20.52,Media,Saludable,train
+1022,Carlos,2540.72,24.53,Media,En observacion,train
+1023,Dora,4735.39,18.97,Media,Saludable,val
+1024,Jessica,4898.7,17.6,Media,Saludable,train
+1025,Paulina,4804.93,18.8,Media,Saludable,train
+1026,Eulalia,3159.75,20.62,Media,Saludable,train
+1027,Jose Carlos,4517.15,17.97,Media,Saludable,train
+1028,Cristian,4455.92,17.06,Media,Saludable,train
+1029,Josefina,2616.85,26.06,Media,En riesgo,train
+1030,María Teresa,4401.2,19.85,Media,Saludable,train
+1031,Marcial,1629.53,32.31,Baja,En riesgo,val
+1032,Remedios,3586.94,20.75,Media,Saludable,train
+1033,Isaura,2305.03,22.71,Media,En observacion,test
+1034,Eli,1921.98,25.45,Media,En observacion,test
+1035,Noa,1769.34,28.23,Media,En riesgo,val
+1036,Dionisio,3937.01,17.25,Media,Saludable,val
+1037,Natividad,2689.56,22.29,Media,En observacion,train
+1038,Clarisa,4036.68,17.9,Media,Saludable,val
+1039,Micaela,1728.75,26.63,Media,En riesgo,val
+1040,Ariel,2603.52,23.15,Baja,En observacion,test
+1041,Ovidio,3388.22,20.57,Media,Saludable,val
+1042,Berta,4267.53,18.1,Media,Saludable,test
+1043,Tiburcio,2615.63,20.99,Media,Saludable,test
+1044,Gisela,3690.62,19.1,Baja,En observacion,train
+1045,Raimundo,4600.92,16.04,Media,Saludable,train
+1046,Bruno,3655.52,19.61,Media,Saludable,test
+1047,Antonia,2315.36,24.78,Media,En observacion,train
+1048,Flora,1585.4,31.19,Baja,En riesgo,test
+1049,Néstor,4545.35,18.34,Media,Saludable,test
+1050,Albano,1574.44,29.6,Media,En riesgo,val
+1051,Reina,4561.46,17.38,Media,Saludable,train
+1052,Sosimo,3351.28,22.63,Media,En observacion,train
+1053,Pacífica,4786.74,18.51,Media,Saludable,test
+1054,Amelia,4295.74,21.78,Media,Saludable,train
+1055,Curro,4992.77,17.59,Baja,En observacion,train
+1056,Toribio,2727.49,19.17,Media,Saludable,train
+1057,Porfirio,4185.16,16.73,Media,Saludable,train
+1058,Fabiola,2906.76,23.02,Media,En observacion,train
+1059,Tatiana,3179.56,22.83,Baja,En observacion,val
+1060,Patricia,3696.27,22.41,Baja,En observacion,val
+1061,Ángel,4557.87,19.79,Media,Saludable,test
+1062,Laura,4944.29,17.28,Baja,En observacion,val
+1063,Ezequiel,4188.96,18.77,Baja,En observacion,train
+1064,Trinidad,2962.18,21.41,Baja,En observacion,test
+1065,Gabriel,2974.75,20.49,Media,Saludable,train
+1066,Macarena,4081.54,16.95,Media,Saludable,train
+1067,Azahara,2335.72,27.45,Baja,En riesgo,train
+1068,Florina,1886.66,25.84,Media,En observacion,val
+1069,Julián,2741.18,23.94,Media,En observacion,val
+1070,Encarnación,2505.34,21.22,Baja,En observacion,train
+1071,Nuria,2537.08,24.82,Media,En observacion,train
+1072,Zaira,2317.63,22.86,Baja,En observacion,val
+1073,Bárbara,1647.33,30.77,Baja,En riesgo,train
+1074,Matilde,1562.56,35.49,Media,En riesgo,val
+1075,Alondra,4957.03,17.66,Media,Saludable,train
+1076,Adela,2997.21,21.27,Media,Saludable,val
+1077,Tristán,2845.14,21.04,Media,Saludable,train
+1078,Paola,3878.77,18.49,Baja,En observacion,val
+1079,Lupe,2263.89,23.28,Media,En observacion,train
+1080,Dora,4824.86,18.19,Baja,En observacion,train
+1081,Julio,4252.21,20.24,Media,Saludable,train
+1082,Mohamed,1812.94,27.79,Media,En riesgo,train
+1083,Reyes,2961.53,21.15,Media,Saludable,train
+1084,Jose Luis,4576.91,17.92,Baja,En observacion,train
+1085,Paulina,4806.56,18.66,Baja,En observacion,val
+1086,Chema,3135.91,20.23,Baja,En observacion,val
+1087,León,3646.94,21.25,Baja,En observacion,val
+1088,Socorro,2084.62,26.18,Baja,En riesgo,train
+1089,Virgilio,4969.09,19.08,Media,Saludable,val
+1090,Jose Francisco,2310.85,22.96,Baja,En observacion,train
+1091,Maricela,4799.56,17.87,Baja,En observacion,val
+1092,Abril,3773.76,21.3,Media,Saludable,test
+1093,Clotilde,3627.08,20.02,Baja,En observacion,test
+1094,Emilia,3294.41,21.06,Baja,En observacion,train
+1095,Guiomar,2307.34,25.66,Baja,En observacion,train
+1096,Reynaldo,2117.85,26.26,Baja,En riesgo,val
+1097,Nicodemo,2271.7,24.5,Media,En observacion,train
+1098,Ambrosio,2152.53,27.27,Media,En riesgo,train
+1099,Ana Belén,4228.55,19.98,Media,Saludable,val
+1100,Renata,2725.44,24.33,Media,En observacion,train
+1101,Moreno,1702.45,31.08,Media,En riesgo,val
+1102,Germán,4891.86,17.66,Media,Saludable,test
+1103,Amarilis,4593.25,16.63,Media,Saludable,train
+1104,Ibán,4747.13,18.4,Media,Saludable,train
+1105,Pedro,4982.18,19.79,Media,Saludable,val
+1106,Nayara,2108.63,26.69,Baja,En riesgo,train
+1107,Juan,2886.85,20.97,Media,Saludable,val
+1108,Noé,4153.83,18.64,Baja,En observacion,train
+1109,Lino,3936.07,18.78,Media,Saludable,val
+1110,Silvia,2038.64,26.11,Media,En riesgo,train
+1111,Débora,4355.42,18.36,Media,Saludable,train
+1112,Judith,2285.54,24.52,Media,En observacion,train
+1113,Silvia,2283.36,25.82,Media,En observacion,train
+1114,Leoncio,3379.41,21.4,Media,Saludable,test
+1115,Cayetana,3575.29,20.07,Media,Saludable,test
+1116,Agustín,3530.3,19.84,Media,Saludable,val
+1117,Asunción,1820.2,27.12,Media,En riesgo,train
+1118,Graciano,4571.11,17.9,Media,Saludable,train
+1119,Che,2429.6,25.68,Media,En observacion,train
+1120,Jose Antonio,1953.3,28.25,Media,En riesgo,val
+1121,Lola,4610.62,19.77,Media,Saludable,train
+1122,Santos,4844.78,17.87,Media,Saludable,train
+1123,Amaya,4517.45,19.35,Baja,En observacion,train
+1124,Catalina,4333.31,15.95,Media,Saludable,train
+1125,Marta,3793.35,19.97,Media,Saludable,test
+1126,Jose Angel,3428.0,18.66,Media,Saludable,val
+1127,Jessica,1804.45,26.7,Media,En riesgo,train
+1128,Alba,2929.59,23.39,Media,En observacion,train
+1129,Flavia,2804.41,22.01,Media,En observacion,test
+1130,Leonor,2409.14,25.16,Media,En observacion,train
+1131,Amor,4031.97,20.27,Media,Saludable,train
+1132,Victorino,3235.57,22.49,Baja,En observacion,train
+1133,Mónica,1783.66,28.42,Media,En riesgo,test
+1134,Ale,2270.64,22.46,Media,En observacion,val
+1135,Ciro,3891.41,15.95,Baja,En observacion,test
+1136,Macario,1766.46,28.4,Media,En riesgo,val
+1137,Ismael,4479.22,19.25,Media,Saludable,train
+1138,Sandalio,3233.01,20.16,Media,Saludable,train
+1139,Jesusa,3182.05,21.59,Media,Saludable,test
+1140,Jose Francisco,3573.43,19.29,Baja,En observacion,test
+1141,Mariano,4386.38,18.58,Baja,En observacion,test
+1142,Gracia,2717.33,23.38,Baja,En observacion,test
+1143,Cándida,3873.06,20.52,Media,Saludable,test
+1144,Rafa,3480.06,19.8,Baja,En observacion,train
+1145,Ainara,2434.6,23.8,Media,En observacion,train
+1146,Carolina,4575.2,16.85,Media,Saludable,train
+1147,Bernarda,4290.99,18.37,Media,Saludable,test
+1148,Omar,3804.58,20.86,Media,Saludable,test
+1149,Teodoro,4477.04,19.25,Media,Saludable,train
+1150,Marcia,4535.53,21.05,Media,Saludable,test
+1151,Carmelita,3979.27,19.41,Media,Saludable,test
+1152,Natalio,4429.55,17.74,Media,Saludable,train
+1153,Pastor,3941.15,17.97,Media,Saludable,val
+1154,Julia,3880.49,18.82,Media,Saludable,train
+1155,Wilfredo,3665.14,21.45,Media,Saludable,train
+1156,Kike,4134.51,17.87,Media,Saludable,val
+1157,Mariano,2055.12,28.17,Media,En riesgo,val
+1158,José,4583.05,19.4,Media,Saludable,val
+1159,Jerónimo,4551.45,19.74,Baja,En observacion,test
+1160,Dionisio,1602.37,28.8,Media,En riesgo,train
+1161,Lorena,4390.36,20.98,Baja,En observacion,train
+1162,Guadalupe,1951.04,27.27,Media,En riesgo,train
+1163,Maximiano,2672.92,22.85,Media,En observacion,val
+1164,Dimas,4102.28,18.52,Media,Saludable,train
+1165,Manuelita,2062.66,23.6,Media,En observacion,train
+1166,Blanca,4362.88,17.16,Media,Saludable,val
+1167,María Belén,4412.47,20.53,Media,Saludable,val
+1168,Jenny,3276.14,20.98,Media,Saludable,test
+1169,Gil,1522.35,32.46,Baja,En riesgo,val
+1170,Gregorio,2504.63,23.27,Media,En observacion,train
+1171,Inocencio,3659.24,19.74,Media,Saludable,train
+1172,Mamen,4934.15,17.55,Media,Saludable,val
+1173,Alondra,3711.35,19.59,Media,Saludable,test
+1174,Leonel,2409.31,22.86,Media,En observacion,train
+1175,Lourdes,3719.02,20.5,Baja,En observacion,train
+1176,Dolores,3389.95,19.53,Media,Saludable,val
+1177,Martirio,4229.46,19.07,Baja,En observacion,train
+1178,Beatriz,1874.43,26.89,Media,En riesgo,train
+1179,Edelmira,4163.6,17.95,Baja,En observacion,val
+1180,Lorenzo,3394.43,22.32,Media,En observacion,train
+1181,Cornelio,4870.47,19.83,Media,Saludable,train
+1182,Pepita,2696.55,22.28,Media,En observacion,test
+1183,Guillermo,3714.18,20.01,Baja,En observacion,train
+1184,Manu,4762.1,17.32,Baja,En observacion,val
+1185,Javi,1858.78,28.96,Baja,En riesgo,val
+1186,Poncio,4780.3,20.42,Baja,En observacion,train
+1187,Gastón,3907.6,17.8,Media,Saludable,val
+1188,Marciano,1737.43,33.32,Media,En riesgo,val
+1189,Alberto,2553.37,23.83,Media,En observacion,train
+1190,Leandra,3978.6,18.05,Media,Saludable,val
+1191,Bibiana,1735.73,28.42,Media,En riesgo,train
+1192,Edmundo,3537.6,23.03,Media,En observacion,train
+1193,Leocadio,2710.59,22.77,Media,En observacion,test
+1194,Artemio,3673.2,20.4,Media,Saludable,train
+1195,Baltasar,1660.1,29.81,Baja,En riesgo,test
+1196,Carolina,4550.38,18.2,Media,Saludable,train
+1197,Luís,4907.21,18.38,Baja,En observacion,train
+1198,José,4891.07,16.85,Media,Saludable,val
+1199,Edmundo,4123.78,19.54,Media,Saludable,train
+1200,Felicia,1955.3,27.63,Media,En riesgo,test
+1201,Ruperta,4153.92,19.55,Media,Saludable,train
+1202,Marina,1586.05,26.91,Baja,En riesgo,test
+1203,Amor,1577.43,30.24,Media,En riesgo,test
+1204,Cristian,2632.64,23.11,Media,En observacion,train
+1205,Salud,3210.25,21.06,Baja,En observacion,train
+1206,Albano,4196.43,20.55,Baja,En observacion,val
+1207,Consuela,3891.53,17.69,Media,Saludable,test
+1208,Lucas,3060.66,21.94,Media,Saludable,val
+1209,Adora,2457.69,25.13,Media,En observacion,test
+1210,Alejandra,4989.94,16.28,Media,Saludable,test
+1211,Valero,2991.63,20.66,Media,Saludable,val
+1212,Noé,3079.85,22.02,Media,En observacion,train
+1213,Gerónimo,2072.68,25.45,Media,En observacion,test
+1214,Aurelio,4281.83,19.14,Media,Saludable,train
+1215,José Antonio,3927.89,17.86,Media,Saludable,test
+1216,Rosalva,2272.69,26.85,Baja,En riesgo,train
+1217,Ale,1788.33,27.56,Media,En riesgo,train
+1218,Danilo,3881.75,18.62,Baja,En observacion,val
+1219,Paca,3790.79,22.21,Media,En observacion,train
+1220,Berto,2456.41,24.43,Baja,En observacion,test
+1221,Salvador,4828.02,17.19,Media,Saludable,train
+1222,Amparo,2028.7,27.38,Baja,En riesgo,train
+1223,Candelario,3013.17,21.37,Media,Saludable,test
+1224,Corona,4802.66,18.22,Baja,En observacion,train
+1225,Eva,2969.05,20.66,Media,Saludable,train
+1226,Itziar,3734.84,21.58,Baja,En observacion,train
+1227,Balduino,2891.58,22.56,Media,En observacion,val
+1228,Evaristo,2459.75,20.66,Baja,En observacion,val
+1229,Eustaquio,4943.92,18.4,Baja,En observacion,train
+1230,Obdulia,2932.67,21.82,Media,Saludable,test
+1231,Chus,4629.35,16.74,Baja,En observacion,train
+1232,Marco,2304.84,24.93,Baja,En observacion,train
+1233,Che,2245.87,23.83,Media,En observacion,val
+1234,Jose Ramón,1608.97,29.3,Baja,En riesgo,val
+1235,Diego,3780.83,20.37,Baja,En observacion,test
+1236,Celestina,2789.84,22.72,Media,En observacion,train
+1237,María Cristina,4525.25,18.33,Baja,En observacion,train
+1238,Sigfrido,3156.23,21.0,Media,Saludable,train
+1239,Eloísa,4888.68,17.45,Media,Saludable,test
+1240,Débora,2149.34,27.64,Media,En riesgo,val
+1241,Morena,4540.18,17.64,Baja,En observacion,train
+1242,Esperanza,4218.09,19.49,Media,Saludable,train
+1243,Jaime,4198.23,17.36,Media,Saludable,train
+1244,Maura,4456.74,15.74,Media,Saludable,test
+1245,Azeneth,4163.58,17.86,Media,Saludable,test
+1246,Ricardo,3691.77,21.04,Baja,En observacion,train
+1247,Virgilio,1959.36,28.2,Media,En riesgo,train
+1248,Violeta,1613.84,31.06,Baja,En riesgo,train
+1249,Venceslás,4722.97,19.79,Baja,En observacion,test
+1250,Manuel,3658.28,19.45,Media,Saludable,train
+1251,Rosalina,4287.88,18.02,Media,Saludable,val
+1252,Dionisia,3185.33,20.97,Media,Saludable,train
+1253,Timoteo,1910.58,28.66,Media,En riesgo,train
+1254,Marcos,1938.15,27.1,Media,En riesgo,train
+1255,Cloe,3899.48,16.91,Baja,En observacion,val
+1256,Estela,3006.07,20.72,Baja,En observacion,val
+1257,Benito,2201.84,22.87,Media,En observacion,test
+1258,Emilia,3220.58,21.41,Media,Saludable,test
+1259,Manola,1724.73,27.8,Baja,En riesgo,train
+1260,Conrado,3536.9,20.73,Media,Saludable,train
+1261,María Carmen,2441.48,24.09,Media,En observacion,train
+1262,Hipólito,4291.46,20.06,Baja,En observacion,val
+1263,Eufemia,2586.27,25.12,Media,En observacion,val
+1264,Héctor,3093.27,21.09,Media,Saludable,train
+1265,Juan Luis,1540.67,32.66,Baja,En riesgo,train
+1266,Gertrudis,1753.56,30.38,Media,En riesgo,train
+1267,Ceferino,2873.73,21.9,Media,Saludable,train
+1268,Faustino,3179.79,20.09,Media,Saludable,train
+1269,Jose,3600.07,22.2,Media,En observacion,train
+1270,Fulgencio,2520.82,23.84,Media,En observacion,test
+1271,Carmina,3932.44,19.43,Media,Saludable,train
+1272,Carlito,4510.43,17.13,Media,Saludable,train
+1273,Faustino,4229.48,18.93,Media,Saludable,train
+1274,Abilio,1638.67,34.49,Baja,En riesgo,val
+1275,Sebastian,3181.77,17.08,Baja,En observacion,train
+1276,Virgilio,1867.26,28.51,Media,En riesgo,train
+1277,Jennifer,2347.16,22.96,Baja,En observacion,val
+1278,Dorotea,4953.32,18.37,Baja,En observacion,test
+1279,Adoración,1998.73,24.43,Media,En observacion,train
+1280,Lupe,3246.11,22.33,Media,En observacion,val
+1281,Anacleto,3663.55,17.97,Media,Saludable,train
+1282,Jesús,3958.63,21.58,Media,Saludable,train
+1283,Luis,3458.77,20.03,Media,Saludable,train
+1284,Lara,1534.2,32.06,Baja,En riesgo,train
+1285,Lorenzo,2642.61,22.93,Baja,En observacion,train
+1286,Julia,3311.99,21.47,Media,Saludable,test
+1287,Rosalina,1807.53,29.18,Baja,En riesgo,train
+1288,Wilfredo,2727.19,19.12,Baja,En observacion,train
+1289,Calisto,1616.21,28.22,Media,En riesgo,test
+1290,Jacinta,1775.02,29.11,Media,En riesgo,test
+1291,Joaquín,2889.23,21.99,Media,Saludable,train
+1292,Ámbar,1964.51,25.67,Media,En observacion,train
+1293,Juan Luis,3486.39,19.37,Baja,En observacion,train
+1294,Mirta,3913.13,20.25,Media,Saludable,train
+1295,Máxima,4302.05,18.16,Media,Saludable,train
+1296,Eufemia,2200.53,26.27,Baja,En riesgo,test
+1297,Dolores,2086.19,26.99,Media,En riesgo,train
+1298,Gisela,1865.99,28.18,Media,En riesgo,train
+1299,Nilda,3727.51,20.28,Media,Saludable,train
+1300,Hector,3972.67,18.68,Baja,En observacion,train
+1301,Teodoro,1610.55,31.23,Baja,En riesgo,train
+1302,Darío,4776.74,20.72,Baja,En observacion,train
+1303,Candelas,1681.9,27.55,Media,En riesgo,train
+1304,Jafet,3394.54,20.76,Media,Saludable,test
+1305,Flora,3981.71,21.39,Media,Saludable,test
+1306,Eustaquio,4548.39,17.71,Baja,En observacion,train
+1307,Violeta,3999.3,18.47,Baja,En observacion,train
+1308,Juan Pablo,4306.05,17.62,Baja,En observacion,train
+1309,Pascuala,2688.08,22.53,Media,En observacion,train
+1310,Erasmo,4351.89,18.22,Media,Saludable,train
+1311,Calixto,1780.4,28.66,Media,En riesgo,train
+1312,Benito,4631.86,19.69,Media,Saludable,train
+1313,Fito,3416.57,22.76,Media,En observacion,test
+1314,Mónica,4360.54,18.63,Media,Saludable,train
+1315,Marino,3083.11,24.12,Media,En observacion,val
+1316,Dulce,3752.52,17.73,Media,Saludable,train
+1317,Marianela,3342.41,22.48,Media,En observacion,test
+1318,Paloma,4060.56,17.23,Media,Saludable,test
+1319,Cloe,1785.7,28.18,Media,En riesgo,train
+1320,África,1711.23,29.48,Media,En riesgo,val
+1321,Luis,2364.86,24.53,Media,En observacion,val
+1322,Valentín,2058.41,26.39,Baja,En riesgo,train
+1323,Edelmiro,4551.24,19.69,Baja,En observacion,val
+1324,Adelina,2267.25,25.57,Baja,En observacion,val
+1325,Jennifer,4915.53,17.09,Media,Saludable,val
+1326,Marco,2679.14,23.07,Media,En observacion,test
+1327,Juana,2137.41,27.0,Baja,En riesgo,train
+1328,Samuel,4263.94,17.06,Media,Saludable,train
+1329,Lalo,3805.48,19.03,Baja,En observacion,val
+1330,Angelita,3243.69,21.31,Media,Saludable,train
+1331,Calista,3443.77,20.99,Media,Saludable,test
+1332,Ana,4017.21,16.34,Baja,En observacion,train
+1333,Urbano,2299.59,27.05,Media,En riesgo,test
+1334,Cecilio,4987.17,17.93,Media,Saludable,train
+1335,Elba,4911.78,20.26,Media,Saludable,val
+1336,Aníbal,3776.14,21.69,Media,Saludable,val
+1337,Tamara,2198.4,24.49,Baja,En observacion,train
+1338,Toni,3880.8,19.6,Media,Saludable,train
+1339,Macaria,1752.69,28.49,Baja,En riesgo,test
+1340,Mohamed,1607.28,28.94,Baja,En riesgo,train
+1341,Elisabet,2401.89,24.59,Media,En observacion,val
+1342,Josué,3119.18,23.59,Baja,En observacion,train
+1343,Amancio,4538.95,18.0,Baja,En observacion,train
+1344,Ciriaco,4045.09,19.82,Media,Saludable,val
+1345,Jenaro,4099.47,19.31,Media,Saludable,train
+1346,Ileana,2989.23,21.41,Media,Saludable,val
+1347,Piedad,2710.77,22.26,Baja,En observacion,val
+1348,Rosalinda,2798.64,23.21,Baja,En observacion,train
+1349,Coral,4956.77,18.58,Baja,En observacion,val
+1350,Diana,1640.38,30.31,Baja,En riesgo,test
+1351,Alfonso,4534.61,20.52,Media,Saludable,test
+1352,María Del Carmen,3525.36,21.43,Media,Saludable,train
+1353,Hortensia,3035.15,20.95,Baja,En observacion,test
+1354,Paca,4038.4,18.46,Baja,En observacion,test
+1355,Julio César,3203.34,20.12,Baja,En observacion,train
+1356,Corona,4556.98,19.49,Media,Saludable,val
+1357,Apolinar,4652.46,18.88,Baja,En observacion,train
+1358,María Carmen,2976.02,19.83,Baja,En observacion,val
+1359,Maristela,2468.9,22.21,Media,En observacion,train
+1360,Gabino,3573.23,18.32,Media,Saludable,train
+1361,Adoración,4693.27,19.14,Media,Saludable,test
+1362,Aurelia,2237.32,27.51,Baja,En riesgo,test
+1363,Florinda,3680.38,18.94,Media,Saludable,test
+1364,Vasco,3710.46,19.99,Baja,En observacion,train
+1365,Yésica,4065.9,19.62,Baja,En observacion,val
+1366,Leopoldo,1960.49,27.87,Media,En riesgo,val
+1367,Gerardo,4005.39,20.61,Media,Saludable,train
+1368,Delfina,4681.61,19.21,Media,Saludable,train
+1369,Tristán,2128.89,24.38,Media,En observacion,train
+1370,Fabiola,2331.4,24.6,Baja,En observacion,train
+1371,Odalys,4899.88,19.1,Media,Saludable,test
+1372,Amparo,2133.42,26.61,Media,En riesgo,train
+1373,Ciriaco,4490.35,19.1,Media,Saludable,val
+1374,Adoración,3222.97,22.91,Baja,En observacion,val
+1375,Pablo,2365.31,24.7,Baja,En observacion,val
+1376,Sebastian,4547.62,17.94,Media,Saludable,train
+1377,Nazario,3058.57,22.44,Baja,En observacion,train
+1378,Miguel Ángel,3301.86,22.33,Media,En observacion,train
+1379,Herminia,2757.32,23.64,Media,En observacion,train
+1380,Cruz,3575.33,21.44,Baja,En observacion,val
+1381,Rosa,2072.33,27.11,Media,En riesgo,val
+1382,Felipe,2868.79,23.45,Baja,En observacion,train
+1383,Narciso,4892.94,18.24,Media,Saludable,train
+1384,Sergio,2403.47,23.5,Media,En observacion,val
+1385,Joaquina,3798.58,19.42,Media,Saludable,test
+1386,Ana Sofía,2638.17,24.7,Media,En observacion,val
+1387,Luis,4207.16,18.96,Baja,En observacion,train
+1388,Gloria,1958.06,24.13,Media,En observacion,train
+1389,Salvador,4894.37,17.08,Media,Saludable,train
+1390,Odalys,3088.26,19.18,Baja,En observacion,train
+1391,Martirio,2326.18,27.22,Baja,En riesgo,test
+1392,Carmelita,1757.24,26.01,Media,En riesgo,train
+1393,Angelino,2094.15,22.96,Media,En observacion,train
+1394,Wálter,3319.21,18.26,Media,Saludable,val
+1395,Chus,2679.51,23.19,Baja,En observacion,train
+1396,Maxi,4401.09,19.42,Media,Saludable,val
+1397,José Antonio,3008.11,22.61,Baja,En observacion,test
+1398,Moisés,2370.5,24.66,Baja,En observacion,train
+1399,David,3660.01,19.81,Baja,En observacion,train
+1400,María Teresa,3973.72,19.4,Media,Saludable,train
+1401,Sancho,2084.65,22.97,Media,En observacion,test
+1402,Rosaura,2086.67,21.61,Media,Saludable,val
+1403,Aroa,1628.35,27.4,Media,En riesgo,test
+1404,Paloma,4077.41,18.84,Media,Saludable,test
+1405,Abel,3823.32,20.59,Media,Saludable,val
+1406,Gema,3161.21,23.85,Baja,En observacion,train
+1407,Ruth,4454.6,17.59,Baja,En observacion,val
+1408,Candela,4319.85,19.35,Media,Saludable,train
+1409,Óscar,3548.74,19.21,Media,Saludable,test
+1410,Severiano,4538.95,17.85,Baja,En observacion,train
+1411,Baltasar,2220.44,22.58,Baja,En observacion,test
+1412,Godofredo,1891.72,25.39,Baja,En observacion,test
+1413,Aura,2444.12,23.72,Media,En observacion,val
+1414,Porfirio,1699.8,31.49,Baja,En riesgo,val
+1415,Esther,3359.09,22.43,Media,En observacion,train
+1416,Maristela,4778.12,19.2,Baja,En observacion,train
+1417,Andrea,1637.7,31.36,Media,En riesgo,train
+1418,Eufemia,1927.38,24.91,Media,En observacion,train
+1419,Vasco,3082.7,22.46,Media,En observacion,train
+1420,Martirio,4768.56,17.71,Media,Saludable,val
+1421,Aurelio,2606.55,24.62,Baja,En observacion,train
+1422,Herminio,3275.32,19.71,Media,Saludable,train
+1423,Juanito,1645.51,26.97,Media,En riesgo,val
+1424,Carmela,2019.2,27.26,Media,En riesgo,train
+1425,Eleuterio,4953.21,18.93,Baja,En observacion,train
+1426,Áurea,4877.92,18.04,Media,Saludable,train
+1427,Lucio,1517.29,31.46,Baja,En riesgo,train
+1428,Urbano,4831.34,17.83,Media,Saludable,train
+1429,Silvia,3736.92,20.53,Media,Saludable,train
+1430,Jovita,4537.71,18.17,Media,Saludable,val
+1431,Amada,3091.59,20.22,Baja,En observacion,train
+1432,Domingo,3304.59,16.52,Media,Saludable,val
+1433,Ambrosio,3210.96,19.38,Media,Saludable,train
+1434,Eva María,3834.02,21.96,Media,Saludable,train
+1435,Emelina,1988.78,25.96,Media,En observacion,train
+1436,Nerea,1604.91,29.2,Media,En riesgo,train
+1437,Jose,2577.75,24.0,Baja,En observacion,test
+1438,Leire,3966.38,20.69,Media,Saludable,train
+1439,Federico,2206.49,24.05,Media,En observacion,val
+1440,María,3857.01,19.8,Media,Saludable,train
+1441,Carmen,4894.69,17.81,Media,Saludable,train
+1442,Alberto,1828.65,27.75,Media,En riesgo,test
+1443,Carmina,3854.11,18.66,Baja,En observacion,test
+1444,Saturnino,3053.13,20.92,Media,Saludable,train
+1445,Ciro,4538.5,18.17,Media,Saludable,train
+1446,Jafet,2120.02,24.11,Media,En observacion,test
+1447,Prudencia,3924.19,21.0,Baja,En observacion,test
+1448,Ximena,4433.4,20.73,Media,Saludable,train
+1449,Danilo,4806.15,16.85,Baja,En observacion,train
+1450,Íñigo,3891.37,19.41,Baja,En observacion,train
+1451,Desiderio,3240.11,20.08,Media,Saludable,train
+1452,Flora,3662.47,20.6,Media,Saludable,val
+1453,Pepita,4541.17,18.57,Media,Saludable,train
+1454,Fabio,3497.13,16.99,Media,Saludable,val
+1455,Andrea,1606.35,32.8,Baja,En riesgo,test
+1456,Lilia,4758.32,13.71,Media,Saludable,train
+1457,Lupe,3913.34,20.45,Baja,En observacion,train
+1458,Araceli,3867.8,19.31,Baja,En observacion,train
+1459,Julieta,2254.86,23.08,Media,En observacion,test
+1460,Leandro,3806.1,18.54,Media,Saludable,test
+1461,Severo,2878.53,21.96,Media,Saludable,train
+1462,Perlita,3779.32,19.87,Media,Saludable,train
+1463,Almudena,1873.08,27.21,Media,En riesgo,train
+1464,Agustina,3802.46,21.0,Media,Saludable,train
+1465,Jose Francisco,4997.95,16.81,Media,Saludable,test
+1466,Yago,1668.74,28.38,Baja,En riesgo,val
+1467,Carmen,4920.11,17.4,Media,Saludable,train
+1468,Espiridión,2924.18,21.96,Baja,En observacion,train
+1469,Rodolfo,4547.64,15.42,Baja,En observacion,train
+1470,Graciano,4238.35,18.66,Media,Saludable,train
+1471,África,3484.56,23.12,Baja,En observacion,val
+1472,Elena,4084.57,20.28,Media,Saludable,train
+1473,Apolonia,4574.8,19.37,Media,Saludable,train
+1474,Margarita,2914.49,21.66,Baja,En observacion,test
+1475,Serafina,2644.62,23.85,Baja,En observacion,val
+1476,Elías,3836.58,19.54,Media,Saludable,val
+1477,Rosario,4327.46,19.69,Media,Saludable,train
+1478,Buenaventura,4168.0,20.64,Baja,En observacion,train
+1479,Leoncio,4292.35,18.55,Baja,En observacion,train
+1480,María Teresa,3024.54,21.55,Media,Saludable,test
+1481,Montserrat,4362.42,18.96,Baja,En observacion,test
+1482,Ricarda,1920.73,28.87,Media,En riesgo,val
+1483,Severino,3405.71,19.98,Baja,En observacion,test
+1484,Noé,1520.16,28.85,Baja,En riesgo,train
+1485,Mirta,2636.05,18.49,Media,Saludable,val
+1486,Anunciación,2782.62,23.43,Baja,En observacion,val
+1487,Juanito,2886.6,20.09,Media,Saludable,train
+1488,Otilia,3934.14,19.53,Media,Saludable,train
+1489,Abilio,2859.95,24.86,Media,En observacion,train
+1490,Lorenzo,3070.43,18.87,Media,Saludable,test
+1491,Lucila,2331.4,26.1,Baja,En riesgo,val
+1492,Marc,2806.38,22.56,Media,En observacion,train
+1493,Pilar,2295.44,26.41,Media,En riesgo,train
+1494,Diana,1756.19,24.31,Baja,En observacion,val
+1495,Cruz,3612.07,19.36,Media,Saludable,train
+1496,Georgina,3838.74,21.73,Media,Saludable,train
+1497,Amelia,3668.22,19.79,Baja,En observacion,val
+1498,Rosenda,3122.23,22.3,Media,En observacion,train
+1499,Eustaquio,2829.25,22.73,Media,En observacion,train
+1500,Victoriano,4521.67,19.12,Media,Saludable,train
+1501,Bárbara,3316.79,21.07,Baja,En observacion,train
+1502,Alondra,3177.14,23.28,Media,En observacion,val
+1503,Onofre,1589.75,30.56,Media,En riesgo,val
+1504,Nazaret,2694.37,21.06,Media,Saludable,test
+1505,Carmina,2830.68,22.06,Baja,En observacion,train
+1506,María Carmen,2895.88,22.68,Baja,En observacion,train
+1507,Candelaria,3530.6,20.09,Baja,En observacion,train
+1508,René,3367.61,22.14,Media,En observacion,train
+1509,Xavier,3627.67,20.28,Media,Saludable,train
+1510,Modesto,4177.09,21.37,Media,Saludable,val
+1511,Ruth,4345.45,18.22,Baja,En observacion,train
+1512,Gonzalo,4013.43,20.02,Baja,En observacion,test
+1513,José,4844.33,17.2,Media,Saludable,train
+1514,Jorge,1563.81,31.49,Media,En riesgo,test
+1515,Concha,2185.22,27.11,Baja,En riesgo,val
+1516,Rodolfo,1526.47,29.78,Media,En riesgo,test
+1517,Joaquín,3766.16,18.11,Media,Saludable,train
+1518,Roberta,4643.11,18.82,Media,Saludable,val
+1519,Maura,2352.19,23.15,Baja,En observacion,train
+1520,Segismundo,4744.62,17.47,Baja,En observacion,train
+1521,Armando,1710.94,28.35,Media,En riesgo,train
+1522,Maximino,4770.53,18.69,Baja,En observacion,test
+1523,Marcela,2730.68,23.12,Baja,En observacion,train
+1524,Ainara,1854.97,27.66,Baja,En riesgo,train
+1525,Julieta,3200.55,19.88,Media,Saludable,train
+1526,Xiomara,2398.72,24.14,Media,En observacion,val
+1527,Obdulia,2497.06,23.35,Media,En observacion,test
+1528,Rico,2575.51,25.02,Media,En observacion,test
+1529,Rolando,4310.59,17.0,Baja,En observacion,train
+1530,Gracia,3387.06,22.17,Media,En observacion,train
+1531,Mónica,2589.58,21.15,Media,Saludable,train
+1532,Otilia,3636.17,18.44,Baja,En observacion,train
+1533,Florinda,4006.53,20.61,Media,Saludable,train
+1534,Evaristo,2454.18,24.36,Baja,En observacion,train
+1535,Ana Sofía,2947.42,22.31,Baja,En observacion,test
+1536,Angelino,1926.6,25.15,Baja,En observacion,val
+1537,Edmundo,2134.02,25.55,Media,En observacion,train
+1538,Ani,3883.91,19.51,Media,Saludable,train
+1539,Dominga,2135.03,26.76,Media,En riesgo,test
+1540,Natanael,3338.07,19.92,Media,Saludable,test
+1541,Ruth,3981.66,20.16,Media,Saludable,test
+1542,Cornelio,1874.07,29.15,Media,En riesgo,train
+1543,Sandra,3485.59,20.18,Media,Saludable,train
+1544,Ramona,2397.97,23.32,Media,En observacion,train
+1545,Valerio,4870.24,17.93,Baja,En observacion,train
+1546,Cornelio,3192.41,21.17,Baja,En observacion,val
+1547,Begoña,4320.97,20.92,Media,Saludable,test
+1548,Visitación,3425.79,22.98,Baja,En observacion,train
+1549,Yago,1651.94,27.72,Baja,En riesgo,train
+1550,Albino,3716.03,18.49,Media,Saludable,train
+1551,Lorenza,4829.91,18.77,Media,Saludable,test
+1552,Ernesto,3605.64,18.88,Media,Saludable,test
+1553,Sebastián,4367.16,18.68,Baja,En observacion,val
+1554,Sabina,4594.72,20.04,Media,Saludable,train
+1555,Fátima,2298.28,26.4,Baja,En riesgo,train
+1556,Fabián,2242.16,25.34,Media,En observacion,train
+1557,Carlito,3638.43,17.93,Media,Saludable,val
+1558,Adora,2938.6,21.42,Baja,En observacion,test
+1559,Merche,4439.51,19.07,Media,Saludable,test
+1560,Juan Manuel,4650.08,19.55,Baja,En observacion,val
+1561,Nilo,2736.97,22.27,Media,En observacion,test
+1562,Estrella,2329.05,21.58,Baja,En observacion,test
+1563,Jimena,4231.84,18.65,Media,Saludable,train
+1564,Rómulo,2461.82,23.99,Media,En observacion,val
+1565,Florentina,4379.15,17.77,Media,Saludable,train
+1566,Cecilio,2983.08,21.76,Baja,En observacion,test
+1567,Reyes,3836.42,21.94,Baja,En observacion,val
+1568,Nando,1834.37,28.2,Media,En riesgo,test
+1569,Reyes,3683.51,23.6,Media,En observacion,train
+1570,Ileana,3081.19,21.44,Baja,En observacion,train
+1571,Rosa María,3553.13,18.77,Media,Saludable,train
+1572,Bibiana,2088.05,28.08,Media,En riesgo,train
+1573,Ricardo,4079.06,18.04,Media,Saludable,val
+1574,Maximiliano,4519.79,19.81,Baja,En observacion,train
+1575,Eugenia,2258.59,25.34,Baja,En observacion,train
+1576,Lina,1835.0,27.39,Media,En riesgo,train
+1577,Susana,1582.74,30.08,Baja,En riesgo,train
+1578,Martina,3746.9,20.28,Baja,En observacion,train
+1579,Amarilis,3624.83,19.26,Baja,En observacion,train
+1580,Salud,3413.44,21.24,Media,Saludable,train
+1581,Camila,2311.81,25.14,Baja,En observacion,train
+1582,Andrés Felipe,2868.17,20.94,Baja,En observacion,train
+1583,Esmeralda,3580.67,20.81,Media,Saludable,train
+1584,Bruno,3238.68,22.68,Baja,En observacion,train
+1585,Joel,4957.25,16.0,Baja,En observacion,train
+1586,Evangelina,1977.54,24.2,Baja,En observacion,train
+1587,Isaura,3933.01,18.53,Media,Saludable,train
+1588,África,2915.12,21.52,Media,Saludable,val
+1589,Lucio,2998.7,20.2,Media,Saludable,train
+1590,Javi,4011.59,22.22,Media,En observacion,train
+1591,Margarita,3923.53,20.24,Media,Saludable,train
+1592,Cipriano,4969.4,16.93,Media,Saludable,train
+1593,Toño,1949.38,26.01,Baja,En riesgo,val
+1594,Clímaco,1864.38,27.39,Media,En riesgo,train
+1595,Martirio,4035.19,17.41,Media,Saludable,train
+1596,Evita,3524.35,19.52,Baja,En observacion,train
+1597,Juliana,2459.56,23.18,Media,En observacion,train
+1598,Salud,1777.97,27.96,Baja,En riesgo,val
+1599,Cornelio,1799.8,25.18,Media,En observacion,test
+1600,Vicente,4629.67,18.73,Baja,En observacion,train
+1601,Flavio,2171.54,25.15,Media,En observacion,train
+1602,Joaquina,2631.8,22.85,Baja,En observacion,val
+1603,Marcelino,2293.3,24.06,Media,En observacion,test
+1604,Vera,2742.49,22.23,Media,En observacion,val
+1605,Ambrosio,1742.98,29.38,Baja,En riesgo,test
+1606,Arturo,3316.71,20.09,Baja,En observacion,train
+1607,Moreno,1736.64,25.16,Baja,En observacion,train
+1608,Natividad,4301.25,19.45,Media,Saludable,train
+1609,Basilio,2317.99,24.69,Baja,En observacion,train
+1610,Lázaro,3390.04,20.3,Media,Saludable,train
+1611,Plinio,4580.28,18.1,Media,Saludable,test
+1612,Reinaldo,3778.07,21.75,Media,Saludable,test
+1613,Tomás,3365.35,19.66,Media,Saludable,train
+1614,Esteban,2635.17,20.82,Media,Saludable,test
+1615,Jose Ignacio,2665.51,22.77,Media,En observacion,train
+1616,Bernarda,3843.2,18.8,Media,Saludable,test
+1617,Sergio,4979.49,16.87,Baja,En observacion,train
+1618,Clarisa,3816.44,18.72,Media,Saludable,train
+1619,Isabel,3452.24,20.44,Media,Saludable,test
+1620,Mónica,4057.28,18.4,Media,Saludable,train
+1621,Geraldo,3128.22,21.03,Media,Saludable,val
+1622,Francisco,1710.5,26.38,Media,En riesgo,train
+1623,Gabino,3468.04,20.99,Media,Saludable,val
+1624,Cayetano,4851.69,16.63,Media,Saludable,test
+1625,Emilia,2113.56,22.81,Media,En observacion,train
+1626,Sabina,3915.02,21.54,Media,Saludable,train
+1627,Roberto,2203.27,27.71,Media,En riesgo,train
+1628,Estefanía,3375.4,21.17,Media,Saludable,val
+1629,Isabela,1838.37,27.43,Baja,En riesgo,train
+1630,Jose Angel,3076.3,21.42,Media,Saludable,val
+1631,Anastasia,4146.57,20.0,Media,Saludable,train
+1632,Ximena,2716.5,23.06,Baja,En observacion,train
+1633,Dalila,3827.19,20.69,Media,Saludable,train
+1634,Eric,4284.07,16.66,Media,Saludable,train
+1635,Jesús,4745.12,19.65,Media,Saludable,train
+1636,Íñigo,2321.25,25.13,Media,En observacion,train
+1637,Felicia,2897.61,22.1,Media,En observacion,train
+1638,José Manuel,2033.46,24.8,Media,En observacion,train
+1639,Ángel,4973.69,19.83,Media,Saludable,train
+1640,José Mari,4744.5,16.6,Baja,En observacion,test
+1641,Griselda,3389.85,24.31,Media,En observacion,test
+1642,Agapito,4447.12,17.5,Baja,En observacion,val
+1643,Trini,3323.35,20.06,Media,Saludable,test
+1644,Nilda,3682.55,17.46,Media,Saludable,train
+1645,Adela,1811.94,27.15,Media,En riesgo,test
+1646,Valentina,4143.45,17.85,Media,Saludable,train
+1647,Lucio,1947.0,27.22,Media,En riesgo,train
+1648,Inés,4391.24,20.57,Media,Saludable,train
+1649,Carina,4237.1,16.23,Baja,En observacion,train
+1650,Fausto,3980.61,18.33,Baja,En observacion,train
+1651,Candelario,1626.56,31.08,Baja,En riesgo,train
+1652,Vasco,2560.95,24.38,Baja,En observacion,val
+1653,Onofre,2420.89,22.18,Baja,En observacion,train
+1654,Diana,2760.48,18.31,Baja,En observacion,train
+1655,Marcelino,1806.75,26.53,Media,En riesgo,train
+1656,Feliciana,4779.35,17.9,Media,Saludable,test
+1657,Teobaldo,3438.31,21.6,Media,Saludable,train
+1658,Jenny,2569.34,22.76,Media,En observacion,val
+1659,Josué,2889.44,22.18,Baja,En observacion,val
+1660,Yago,3065.21,20.63,Media,Saludable,test
+1661,Ramona,3602.08,20.57,Media,Saludable,train
+1662,Marciano,3304.88,19.98,Media,Saludable,train
+1663,Heliodoro,4717.87,17.61,Baja,En observacion,train
+1664,Rodrigo,3239.37,21.6,Media,Saludable,test
+1665,Reyna,4972.55,19.6,Media,Saludable,train
+1666,Almudena,4479.99,19.51,Baja,En observacion,test
+1667,Custodio,2229.79,22.91,Baja,En observacion,train
+1668,Jordi,4757.08,16.45,Media,Saludable,train
+1669,Rico,1907.28,28.56,Baja,En riesgo,train
+1670,Concha,4361.07,18.39,Media,Saludable,train
+1671,Plinio,2832.18,21.79,Media,Saludable,test
+1672,Consuelo,4572.91,17.2,Baja,En observacion,train
+1673,Manolo,4538.2,16.67,Media,Saludable,train
+1674,Juana,4320.74,18.88,Baja,En observacion,train
+1675,Manolo,4265.11,19.44,Media,Saludable,train
+1676,Alfredo,2566.38,22.32,Media,En observacion,train
+1677,Paula,1783.22,27.2,Media,En riesgo,train
+1678,Genoveva,2910.43,22.94,Baja,En observacion,test
+1679,Ruy,2107.34,23.55,Media,En observacion,train
+1680,Leonardo,3932.33,20.08,Baja,En observacion,train
+1681,Adán,2711.35,20.86,Baja,En observacion,train
+1682,Clarisa,4914.64,18.77,Media,Saludable,train
+1683,Rosaura,3743.4,17.77,Baja,En observacion,train
+1684,Itziar,4378.68,17.69,Baja,En observacion,train
+1685,Mayte,1963.84,27.07,Baja,En riesgo,test
+1686,Marcela,4517.05,17.48,Baja,En observacion,test
+1687,Augusto,4729.65,17.24,Media,Saludable,train
+1688,Visitación,3204.72,21.57,Media,Saludable,test
+1689,Eloísa,3621.89,23.48,Media,En observacion,train
+1690,Marcia,4176.83,19.18,Media,Saludable,val
+1691,Anabel,2111.94,27.44,Media,En riesgo,val
+1692,Pepita,3258.98,22.93,Media,En observacion,val
+1693,Vera,2895.32,23.98,Media,En observacion,train
+1694,Vanesa,2012.31,23.97,Media,En observacion,train
+1695,Luciano,2786.37,21.41,Baja,En observacion,test
+1696,Maura,1738.6,26.99,Media,En riesgo,val
+1697,Nerea,1590.34,31.16,Baja,En riesgo,train
+1698,Jeremías,1973.08,27.51,Baja,En riesgo,train
+1699,Elvira,4870.9,15.74,Media,Saludable,train
+1700,Nidia,3423.35,21.22,Baja,En observacion,train
+1701,Pastor,4880.38,14.81,Media,Saludable,train
+1702,Isidoro,3013.74,18.73,Media,Saludable,train
+1703,Fanny,2591.36,23.59,Media,En observacion,train
+1704,Goyo,3271.5,19.72,Media,Saludable,train
+1705,Estela,3038.29,23.23,Media,En observacion,train
+1706,Josué,1869.83,27.24,Baja,En riesgo,val
+1707,Irene,3742.89,20.71,Baja,En observacion,val
+1708,Marisol,2256.13,26.83,Media,En riesgo,train
+1709,Lorena,3668.56,19.64,Media,Saludable,train
+1710,María Fernanda,3775.7,20.92,Media,Saludable,test
+1711,Georgina,2032.09,28.57,Media,En riesgo,test
+1712,Isa,1714.72,28.28,Media,En riesgo,train
+1713,Pili,4232.67,19.01,Media,Saludable,train
+1714,Emigdio,3109.3,21.02,Media,Saludable,val
+1715,Eusebia,1703.57,29.51,Baja,En riesgo,test
+1716,Cleto,4982.03,18.38,Media,Saludable,val
+1717,Vera,1702.23,30.33,Media,En riesgo,train
+1718,Eulalia,3932.62,20.51,Media,Saludable,train
+1719,Flavia,4942.88,18.18,Baja,En observacion,train
+1720,Aníbal,2337.13,24.2,Media,En observacion,test
+1721,Martin,1997.87,26.86,Media,En riesgo,train
+1722,Modesta,1924.85,24.14,Media,En observacion,train
+1723,Valero,2561.46,24.21,Media,En observacion,train
+1724,Anastasio,1853.66,28.55,Media,En riesgo,test
+1725,Cruz,3922.56,18.13,Media,Saludable,train
+1726,Pánfilo,1718.02,30.71,Media,En riesgo,train
+1727,Lupita,3282.98,19.57,Media,Saludable,val
+1728,Eleuterio,4988.44,20.39,Media,Saludable,test
+1729,Cipriano,4348.9,15.75,Media,Saludable,train
+1730,Virginia,3653.27,17.74,Media,Saludable,train
+1731,Manolo,2571.89,23.98,Media,En observacion,val
+1732,Nacho,3683.64,16.43,Media,Saludable,val
+1733,Mariana,3344.65,20.33,Media,Saludable,train
+1734,Severo,2991.29,23.46,Media,En observacion,train
+1735,Gabino,1957.49,27.83,Baja,En riesgo,train
+1736,Herberto,4603.11,16.66,Media,Saludable,train
+1737,Eligio,3074.25,19.4,Media,Saludable,train
+1738,Miriam,2181.18,26.75,Media,En riesgo,train
+1739,Calista,2787.16,24.07,Media,En observacion,train
+1740,Sarita,2949.45,19.29,Baja,En observacion,val
+1741,Pío,4396.38,19.03,Media,Saludable,train
+1742,Bernarda,4067.65,17.15,Media,Saludable,train
+1743,Angélica,4192.57,17.85,Media,Saludable,test
+1744,Xiomara,1538.61,27.73,Media,En riesgo,train
+1745,Leandro,2956.54,21.03,Media,Saludable,test
+1746,Paulina,3184.7,18.67,Baja,En observacion,val
+1747,Fidel,1567.17,32.78,Media,En riesgo,train
+1748,José Ángel,2409.35,25.43,Media,En observacion,train
+1749,Xiomara,4161.01,17.52,Media,Saludable,val
+1750,Paloma,1979.88,29.15,Media,En riesgo,train
+1751,Alma,3373.59,19.41,Baja,En observacion,train
+1752,Noelia,2253.21,25.6,Baja,En observacion,test
+1753,Manolo,1542.42,31.53,Media,En riesgo,test
+1754,Margarita,2344.21,25.12,Media,En observacion,train
+1755,Sabina,4915.56,17.8,Media,Saludable,train
+1756,Nilo,4305.38,17.39,Media,Saludable,train
+1757,Nilda,4858.52,19.1,Baja,En observacion,test
+1758,Darío,3207.49,21.05,Media,Saludable,test
+1759,Adelina,1884.08,30.38,Baja,En riesgo,train
+1760,Carlos,3417.86,20.46,Media,Saludable,val
+1761,Epifanio,3090.32,20.58,Media,Saludable,test
+1762,Marisela,4455.25,19.36,Baja,En observacion,train
+1763,Jaime,1843.29,28.34,Baja,En riesgo,train
+1764,Rosalina,3208.84,21.6,Media,Saludable,train
+1765,Inmaculada,2025.17,24.72,Baja,En observacion,train
+1766,Lourdes,2636.37,21.98,Baja,En observacion,val
+1767,Ileana,4080.75,18.58,Media,Saludable,train
+1768,Régulo,3166.06,20.89,Media,Saludable,val
+1769,Raquel,2815.61,22.2,Baja,En observacion,train
+1770,Nilda,2880.67,19.63,Media,Saludable,test
+1771,Cecilia,3108.06,21.83,Baja,En observacion,test
+1772,Pío,4247.56,19.46,Media,Saludable,train
+1773,Cipriano,4622.3,17.03,Media,Saludable,test
+1774,Morena,4843.67,16.32,Media,Saludable,train
+1775,Ruperto,4254.16,19.68,Media,Saludable,val
+1776,Alberto,2603.92,25.76,Baja,En observacion,train
+1777,Juan Luis,3908.47,19.44,Media,Saludable,train
+1778,Brunilda,3031.61,21.9,Media,Saludable,train
+1779,Duilio,2391.35,23.35,Baja,En observacion,train
+1780,Wálter,4443.05,19.86,Media,Saludable,val
+1781,Rafa,1634.49,30.78,Baja,En riesgo,val
+1782,Hortensia,4656.17,17.1,Media,Saludable,train
+1783,Marianela,3115.17,22.96,Media,En observacion,train
+1784,Hortensia,3730.21,19.59,Baja,En observacion,train
+1785,Juan Francisco,3807.74,21.08,Baja,En observacion,train
+1786,Daniela,4632.91,16.16,Media,Saludable,val
+1787,Rico,3728.34,18.68,Baja,En observacion,train
+1788,Pacífica,3648.77,23.36,Media,En observacion,train
+1789,Felicia,1733.28,25.88,Media,En observacion,test
+1790,Ramiro,3314.43,20.83,Media,Saludable,train
+1791,Cándido,2025.59,27.63,Media,En riesgo,val
+1792,Imelda,4081.02,20.3,Baja,En observacion,test
+1793,Joaquín,3292.78,21.53,Media,Saludable,val
+1794,Adriana,3880.8,18.31,Media,Saludable,train
+1795,Amador,1645.86,26.5,Baja,En riesgo,test
+1796,Estefanía,1796.77,29.83,Baja,En riesgo,train
+1797,Soledad,4007.13,19.3,Baja,En observacion,train
+1798,Chelo,1752.3,29.11,Media,En riesgo,val
+1799,Nacio,1749.4,28.66,Media,En riesgo,train
+1800,Yolanda,1542.38,30.07,Baja,En riesgo,train
