@@ -22,11 +22,11 @@ __pycache__/
 notebooks/data/*
 !notebooks/data/.gitkeep
 
-# Archivos de datos a ignorar globalmente
-*.csv
+# Archivos de datos a ignorar globalmente - Se permite subir JSON y CSV para poder intercomunicarse dentro de github
+#*.csv
 *.xlsx
 *.parquet
-*.json
+#*.json
 *.sqlite3
 
 # ==========================================
