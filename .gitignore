@@ -20,7 +20,7 @@ notebooks/models/*
 !notebooks/models/.gitkeep
 
 # Tipos de archivos específicos de datos y modelos a ignorar de manera global
-*.csv
+#*.csv
 *.xlsx
 *.parquet
 *.pkl
