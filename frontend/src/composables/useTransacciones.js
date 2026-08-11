@@ -7,8 +7,14 @@ import {
 import { obtenerUsuario } from '@/services/usuarios'
 import { mensajeErrorApi } from '@/utils/errores'
 
+let nextDemoId = 1000
+
 export function useTransacciones() {
   const store = useUsuarioStore()
+
+  function esDemo() {
+    return store.id == null
+  }
 
   function rangoPorDefecto() {
     const hasta = new Date()
@@ -18,6 +24,8 @@ export function useTransacciones() {
   }
 
   async function listarTransacciones(desde, hasta) {
+    if (esDemo()) return store.transacciones
+
     const rango = desde && hasta ? { desde, hasta } : rangoPorDefecto()
     const transacciones = await obtenerTransaccionesPorRango({ idUsuario: store.id, ...rango })
     store.setTransacciones(transacciones)
@@ -25,7 +33,7 @@ export function useTransacciones() {
   }
 
   async function refrescarUsuario() {
-    if (store.id == null) return
+    if (esDemo()) return store.transacciones
 
     const [usuario, transacciones] = await Promise.all([
       obtenerUsuario(store.id),
@@ -38,6 +46,12 @@ export function useTransacciones() {
   }
 
   async function crearTransaccion(datos) {
+    if (esDemo()) {
+      const nueva = { id: nextDemoId++, ...datos }
+      store.setTransacciones([...store.transacciones, nueva])
+      return nueva
+    }
+
     try {
       await crearTransaccionApi({ ...datos, idUsuario: store.id })
       await refrescarUsuario()
@@ -47,6 +61,12 @@ export function useTransacciones() {
   }
 
   async function editarTransaccion(id, datos) {
+    if (esDemo()) {
+      const lista = store.transacciones.map(t => t.id === id ? { ...t, ...datos } : t)
+      store.setTransacciones(lista)
+      return
+    }
+
     try {
       await actualizarTransaccion(id, datos)
       await refrescarUsuario()
