@@ -4,6 +4,7 @@ import { useRouter } from 'vue-router'
 import { useUsuario } from '@/composables/useUsuario'
 import { useUsuarioStore } from '@/stores/usuario'
 import { useAuthStore } from '@/stores/auth'
+import { useDivisaStore } from '@/stores/divisa'
 import { verificarPassword, passwordEsValida } from '@/utils/password'
 import BaseButton from '@/components/base/BaseButton.vue'
 import BasePasswordStrength from '@/components/base/BasePasswordStrength.vue'
@@ -12,6 +13,7 @@ import BaseTag from '@/components/base/BaseTag.vue'
 const router = useRouter()
 const usuarioStore = useUsuarioStore()
 const auth = useAuthStore()
+const divisaStore = useDivisaStore()
 const { registrarYEntrar, iniciarSesionCredenciales, cargarUsuario, entrarDemo } = useUsuario()
 const modo = ref('registro')
 const cargando = ref(false)
@@ -26,6 +28,7 @@ const form = reactive({
   password: '',
   confirmarPassword: '',
   ingresoMensual: null,
+  monedaIngreso: 'USD',
   emailLogin: '',
   passwordLogin: '',
 })
@@ -47,6 +50,7 @@ function siguientePaso() {
     return
   }
   paso.value = 2
+  divisaStore.cargarTasas()
 }
 
 async function registrar() {
@@ -57,11 +61,15 @@ async function registrar() {
   }
   cargando.value = true
   try {
+    const ingresoEnUSD = form.monedaIngreso !== 'USD'
+      ? divisaStore.convertirMonedaAUSD(form.ingresoMensual, form.monedaIngreso)
+      : form.ingresoMensual
+
     const id = await registrarYEntrar({
       nombre: form.nombre.trim(),
       email: form.email.trim(),
       password: form.password,
-      ingresoMensual: form.ingresoMensual,
+      ingresoMensual: ingresoEnUSD,
     })
     auth.iniciarSesion(id)
     router.push({ name: 'home' })
@@ -238,6 +246,14 @@ function irModoDemo() {
                   step="0.01"
                   placeholder="Ej: 5000"
                 />
+              </label>
+              <label for="moneda-ingreso">
+                Moneda
+                <select id="moneda-ingreso" v-model="form.monedaIngreso">
+                  <option v-for="moneda in divisaStore.monedasDisponibles" :key="moneda" :value="moneda">
+                    {{ moneda }}
+                  </option>
+                </select>
               </label>
               <button
                 type="button"

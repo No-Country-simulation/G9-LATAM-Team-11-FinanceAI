@@ -5,12 +5,13 @@ import { useAuthStore } from '@/stores/auth'
 import { useUsuarioStore } from '@/stores/usuario'
 import { useUsuario } from '@/composables/useUsuario'
 import BaseButton from '@/components/base/BaseButton.vue'
+import SelectorMoneda from '@/components/nav/SelectorMoneda.vue'
 
 const router = useRouter()
 const auth = useAuthStore()
 const usuarioStore = useUsuarioStore()
-const { nombre, tieneSesion } = storeToRefs(usuarioStore)
-const { salir, entrarDemo } = useUsuario()
+const { nombre } = storeToRefs(usuarioStore)
+const { salir } = useUsuario()
 
 const enlaces = [
   { nombre: 'home', etiqueta: 'Dashboard', destino: '/home' },
@@ -41,6 +42,7 @@ function cerrarSesion() {
       >
         {{ enlace.etiqueta }}
       </RouterLink>
+      <SelectorMoneda v-if="auth.sesionActiva" />
     </nav>
 
     <div class="flex items-center gap-2.5">

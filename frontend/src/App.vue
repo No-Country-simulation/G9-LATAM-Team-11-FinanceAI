@@ -4,10 +4,14 @@ import { RouterView, useRoute } from 'vue-router'
 import { useAuthStore } from '@/stores/auth'
 import { useUsuario } from '@/composables/useUsuario'
 import { useUsuarioStore }from '@/stores/usuario'
+import { useDivisaStore } from '@/stores/divisa'
 const route = useRoute()
 const clave = computed(() => route.name || route.path)
 
 onMounted(async () => {
+  // Load exchange rates immediately (fire-and-forget, needed globally)
+  useDivisaStore().cargarTasas()
+
   const auth = useAuthStore()
   const { cargarUsuario, entrarDemo } = useUsuario()
   const usuarioStore = useUsuarioStore()

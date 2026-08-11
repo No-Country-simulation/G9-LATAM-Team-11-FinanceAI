@@ -19,6 +19,7 @@ coverage
 .env.*
 !.env.example
 spec.md
+.kiro
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

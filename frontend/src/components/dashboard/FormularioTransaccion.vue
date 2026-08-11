@@ -2,13 +2,16 @@
 import { reactive, ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useUsuarioStore } from '@/stores/usuario'
+import { useDivisaStore } from '@/stores/divisa'
 import { useTransacciones } from '@/composables/useTransacciones'
 import { CATEGORIAS } from '@/utils/categorias'
 import BaseButton from '@/components/base/BaseButton.vue'
 
 const emit = defineEmits(['creada'])
 const usuarioStore = useUsuarioStore()
+const divisaStore = useDivisaStore()
 const { ingresoDisponible } = storeToRefs(usuarioStore)
+const { monedaActiva } = storeToRefs(divisaStore)
 const { crearTransaccion } = useTransacciones()
 
 const cargando = ref(false)
@@ -30,7 +33,8 @@ function hoy() {
 function validar() {
   if (!form.descripcion.trim()) return 'La descripción es obligatoria.'
   if (!form.monto || form.monto <= 0) return 'Ingresa un monto mayor a 0.'
-  if (form.monto >= ingresoDisponible.value) return 'El monto debe ser menor que tu ingreso disponible.'
+  const limiteEnMonedaActiva = divisaStore.convertirDesdeUSD(ingresoDisponible.value)
+  if (form.monto >= limiteEnMonedaActiva) return 'El monto debe ser menor que tu ingreso disponible.'
   if (!form.categoria) return 'Selecciona una categoría.'
   if (!form.fecha) return 'La fecha es obligatoria.'
   return ''
@@ -54,9 +58,10 @@ async function enviar() {
   }
   cargando.value = true
   try {
+    const montoUSD = divisaStore.convertirAUSD(form.monto)
     await crearTransaccion({
       descripcion: form.descripcion.trim(),
-      monto: form.monto,
+      monto: montoUSD,
       categoria: form.categoria,
       fecha: form.fecha,
     })
@@ -86,6 +91,7 @@ async function enviar() {
       </label>
       <label for="tx-monto">
         Monto
+        <span class="ml-1 text-xs font-mono text-muted">({{ monedaActiva }})</span>
         <input
           id="tx-monto"
           v-model.number="form.monto"

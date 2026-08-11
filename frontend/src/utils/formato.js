@@ -1,9 +1,17 @@
+import { useDivisaStore } from '@/stores/divisa'
+
 export function formatoMoneda(monto, fracciones = 2) {
+  const divisaStore = useDivisaStore()
   const valor = Number(monto) || 0
-  return `$${valor.toLocaleString('es-AR', {
+  const convertido = divisaStore.convertirDesdeUSD(valor)
+  const moneda = divisaStore.monedaActiva
+
+  return new Intl.NumberFormat('es-AR', {
+    style: 'currency',
+    currency: moneda,
     minimumFractionDigits: fracciones,
     maximumFractionDigits: fracciones,
-  })}`
+  }).format(convertido)
 }
 
 export function formatoNumero(valor, fracciones = 0) {
