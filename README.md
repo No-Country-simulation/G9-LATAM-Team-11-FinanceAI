@@ -71,3 +71,21 @@ Se han resuelto los siguientes problemas técnicos críticos en esta rama:
 ### Desactivación de reinicio automático de contenedores al arrancar el sistema
 * **Problema:** La configuración `restart: always` levantaba automáticamente todos los contenedores en segundo plano cuando el desarrollador iniciaba sesión en su computadora, consumiendo memoria RAM y CPU innecesariamente en equipos de recursos limitados.
 * **Solución:** Se actualizó la propiedad a `restart: "no"` en todos los servicios de [docker-compose.yml](./docker-compose.yml). Los contenedores ahora solo se inician con comandos explícitos (`docker compose up`) y no consumen recursos al prender la máquina.
+
+---
+
+## Metodología del Perfilado Financiero (Data Science)
+
+El módulo de perfilado evalúa la salud económica del usuario analizando la relación entre la rigidez de sus costos fijos y su disciplina de ahorro:
+
+### 1. Ratio de Gastos Fijos Ineludibles (Compromiso del Ingreso)
+Mide el porcentaje del salario mensual que el usuario destina a cubrir sus gastos fijos de subsistencia (**Vivienda** y **Servicios Básicos**):
+
+$$\text{Ratio de Gastos Fijos (\%)} = \left( \frac{\text{Gasto Fijo Promedio Mensual}}{\text{Ingreso Mensual}} \right) \times 100$$
+
+* **En Riesgo (> 26%):** Indique alto nivel de rigidez presupuestaria. El usuario compromete una porción excesiva de su ingreso en costos fijos, quedando expuesto a impagos ante imprevistos.
+* **En Observación (22% a 26% o Ahorro 'Ninguno'):** Zona intermedia que requiere monitoreo preventivo de gastos.
+* **Saludable (<= 22% y Ahorro 'Medio' o 'Alto'):** Estructura de costos fijos sostenible con capacidad constante de reserva económica.
+
+### 2. Frecuencia de Ahorro e Inversión
+Evalúa la constancia con la que el usuario realiza transacciones en la categoría **Inversión** (`Ninguna`, `Baja`, `Media`, `Alta`), ponderando la regularidad del hábito por encima de la cuantía individual.
