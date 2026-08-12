@@ -5,3 +5,5 @@ matplotlib
 seaborn
 skl2onnx
 onnxruntime
+faker
+nltk
