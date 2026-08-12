@@ -34,4 +34,6 @@ backup-shs/
 
 # Override local de Docker Compose
 docker-compose.override.yml
-target/
+
+# Ignorando .kiro para evitar versionar archivos de asistentes locales.
+.kiro/

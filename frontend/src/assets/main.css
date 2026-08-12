@@ -1,0 +1,146 @@
+@import './base.css';
+
+#app {
+  position: relative;
+  z-index: 1;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+@media (min-width: 768px) {
+  #app {
+    padding: 2rem 1.5rem;
+  }
+}
+
+@layer components {
+  .formulario,
+  .resultado {
+    @apply flex flex-col gap-4;
+  }
+
+  .formulario h1,
+  .resultado h1 {
+    @apply text-[1.75rem];
+  }
+
+  .resultado h2 {
+    @apply text-lg;
+  }
+
+  @media (min-width: 768px) {
+    .formulario h1,
+    .resultado h1 {
+      @apply text-[2rem];
+    }
+  }
+
+  form {
+    @apply flex flex-col gap-5 rounded-lg border border-edge bg-surface p-6 backdrop-blur-md;
+  }
+
+  fieldset {
+    @apply m-0 flex min-w-0 flex-col gap-5 border-0 p-0;
+  }
+
+  fieldset:disabled {
+    @apply opacity-65;
+  }
+
+  label {
+    @apply flex flex-col gap-2 font-mono text-[11px] font-medium uppercase tracking-[0.16em] text-faint;
+  }
+
+  input,
+  select {
+    @apply w-full appearance-none rounded-md border border-edge-strong bg-coal px-3.5 py-2.5 text-ink transition-colors placeholder:text-dim focus:border-cyan focus:outline-none focus:ring-2 focus:ring-cyan-glow;
+  }
+
+  input[type='number']::-webkit-outer-spin-button,
+  input[type='number']::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type='number'] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+
+  select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2366666e' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.9rem center;
+    padding-right: 2.5rem;
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 1000px var(--color-coal) inset;
+    -webkit-text-fill-color: var(--color-ink);
+    transition: background-color 9999s ease-out;
+  }
+
+  input.campo-invalido,
+  select.campo-invalido {
+    @apply border-danger ring-2 ring-danger/15;
+  }
+
+  .campo-error {
+    @apply -mt-3 text-sm text-danger;
+  }
+
+  .formulario-error {
+    @apply rounded-md border border-danger-edge bg-danger-bg px-3.5 py-2.5 text-sm text-danger;
+  }
+
+  .resultado-perfil,
+  .resultado-gastos,
+  .recomendaciones,
+  .resultado-estado {
+    @apply rounded-lg border border-edge bg-surface p-6 backdrop-blur-md;
+  }
+
+  .resultado-perfil {
+    @apply text-center;
+  }
+
+  .resultado-perfil-nombre {
+    @apply text-[1.75rem] font-bold text-cyan;
+  }
+
+  .resultado-probabilidad {
+    @apply mt-1 text-muted;
+  }
+
+  .resultado-error {
+    @apply text-danger;
+  }
+
+  .recomendaciones ul {
+    @apply mt-3 flex list-disc flex-col gap-2 pl-5;
+  }
+
+  .resultado-estado {
+    @apply text-center;
+  }
+}
+
+@keyframes logo-ai-glow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 0 rgba(0, 229, 255, 0));
+  }
+  50% {
+    filter: drop-shadow(0 0 6px rgba(0, 229, 255, 0.3));
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .logo-ai {
+    display: inline-block;
+    animation: logo-ai-glow 2.4s ease-in-out infinite;
+  }
+}
