@@ -1,6 +1,6 @@
 package G9_LATAM_Team_11_FinanceAI.domain.usuario;
 
-import G9_LATAM_Team_11_FinanceAI.DTO.IngresarUsuarioDTO;
+import G9_LATAM_Team_11_FinanceAI.DTO.UsuarioDTOs.IngresarUsuarioDTO;
 import G9_LATAM_Team_11_FinanceAI.domain.transaccion.Transaccion;
 import jakarta.persistence.*;
 import lombok.*;
