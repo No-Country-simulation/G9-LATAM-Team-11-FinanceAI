@@ -1,0 +1,49 @@
+{
+  "name": "read-package-json-fast",
+  "version": "6.0.0",
+  "description": "Like read-package-json, but faster",
+  "main": "lib/index.js",
+  "author": "GitHub Inc.",
+  "license": "ISC",
+  "scripts": {
+    "test": "tap",
+    "snap": "tap",
+    "lint": "npm run eslint",
+    "postlint": "template-oss-check",
+    "template-oss-apply": "template-oss-apply --force",
+    "lintfix": "npm run eslint -- --fix",
+    "posttest": "npm run lint",
+    "eslint": "eslint \"**/*.{js,cjs,ts,mjs,jsx,tsx}\""
+  },
+  "engines": {
+    "node": "^22.22.2 || ^24.15.0 || >=26.0.0"
+  },
+  "devDependencies": {
+    "@npmcli/eslint-config": "^6.0.0",
+    "@npmcli/template-oss": "5.1.0",
+    "tap": "^16.3.0"
+  },
+  "dependencies": {
+    "json-parse-even-better-errors": "^6.0.0",
+    "npm-normalize-package-bin": "^6.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/npm/read-package-json-fast.git"
+  },
+  "files": [
+    "bin/",
+    "lib/"
+  ],
+  "templateOSS": {
+    "//@npmcli/template-oss": "This file is partially managed by @npmcli/template-oss. Edits may be overwritten.",
+    "version": "5.1.0",
+    "publish": true
+  },
+  "tap": {
+    "nyc-arg": [
+      "--exclude",
+      "tap-snapshots/**"
+    ]
+  }
+}

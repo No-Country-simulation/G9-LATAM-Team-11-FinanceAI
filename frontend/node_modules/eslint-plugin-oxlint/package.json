@@ -1,0 +1,74 @@
+{
+  "name": "eslint-plugin-oxlint",
+  "version": "1.73.0",
+  "description": "Turn off all rules already supported by oxlint",
+  "keywords": [
+    "eslint",
+    "oxc",
+    "oxlint",
+    "rules"
+  ],
+  "homepage": "https://github.com/oxc-project/eslint-plugin-oxlint",
+  "license": "MIT",
+  "author": "Dunqing <dengqing0821@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oxc-project/eslint-plugin-oxlint"
+  },
+  "files": [
+    "dist",
+    "src",
+    "!**/*.snap",
+    "!**/*.spec.ts"
+  ],
+  "type": "module",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs",
+      "default": "./dist/index.mjs"
+    },
+    "./rules-by-category": {
+      "types": "./dist/generated/rules-by-category.d.mts",
+      "import": "./dist/generated/rules-by-category.mjs",
+      "require": "./dist/generated/rules-by-category.cjs",
+      "default": "./dist/generated/rules-by-category.mjs"
+    },
+    "./rules-by-scope": {
+      "types": "./dist/generated/rules-by-scope.d.mts",
+      "import": "./dist/generated/rules-by-scope.mjs",
+      "require": "./dist/generated/rules-by-scope.cjs",
+      "default": "./dist/generated/rules-by-scope.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "prepare": "vp config",
+    "generate": "node --import @oxc-node/core/register ./scripts/generate.ts && pnpm format",
+    "build": "vp pack",
+    "lint": "vp lint",
+    "format": "vp fmt",
+    "test": "vp test --reporter=verbose"
+  },
+  "dependencies": {
+    "jsonc-parser": "^3.3.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@oxc-node/core": "^0.1.0",
+    "@types/node": "^25.5.0",
+    "@vitest/coverage-v8": "^4.1.0",
+    "eslint": "^10.0.3",
+    "eslint-plugin-unicorn": "^69.0.0",
+    "jiti": "^2.6.1",
+    "scule": "^1.3.0",
+    "typescript-eslint": "^8.57.1",
+    "vite-plus": "catalog:"
+  },
+  "peerDependencies": {
+    "oxlint": "~1.73.0"
+  },
+  "packageManager": "pnpm@11.8.0"
+}

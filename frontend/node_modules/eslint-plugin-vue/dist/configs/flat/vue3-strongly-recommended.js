@@ -1,0 +1,40 @@
+const require_configs_flat_vue3_essential = require('./vue3-essential.js');
+
+//#region lib/configs/flat/vue3-strongly-recommended.ts
+var vue3_strongly_recommended_default = [...require_configs_flat_vue3_essential, {
+	name: "vue/strongly-recommended/rules",
+	rules: {
+		"vue/attribute-hyphenation": "warn",
+		"vue/component-definition-name-casing": "warn",
+		"vue/first-attribute-linebreak": "warn",
+		"vue/html-closing-bracket-newline": "warn",
+		"vue/html-closing-bracket-spacing": "warn",
+		"vue/html-end-tags": "warn",
+		"vue/html-indent": "warn",
+		"vue/html-quotes": "warn",
+		"vue/html-self-closing": "warn",
+		"vue/max-attributes-per-line": "warn",
+		"vue/multiline-html-element-content-newline": "warn",
+		"vue/mustache-interpolation-spacing": "warn",
+		"vue/no-multi-spaces": "warn",
+		"vue/no-spaces-around-equal-signs-in-attribute": "warn",
+		"vue/no-template-shadow": "warn",
+		"vue/one-component-per-file": "warn",
+		"vue/prop-name-casing": "warn",
+		"vue/require-default-prop": "warn",
+		"vue/require-explicit-emits": "warn",
+		"vue/require-prop-types": "warn",
+		"vue/singleline-html-element-content-newline": "warn",
+		"vue/v-bind-style": "warn",
+		"vue/v-on-event-hyphenation": [
+			"warn",
+			"always",
+			{ autofix: true }
+		],
+		"vue/v-on-style": "warn",
+		"vue/v-slot-style": "warn"
+	}
+}];
+
+//#endregion
+module.exports = vue3_strongly_recommended_default;
