@@ -1,0 +1,52 @@
+Pasar el texto a analizar por el siguiente código JAVA.
+
+Razón: Modelo entrenado con strip_accents='unicode' no soportado por defecto en ONNX.
+
+``````
+import java.text.Normalizer;
+
+public class PreprocesamientoTexto {
+    
+    // Este método emula exactamente el comportamiento de strip_accents='unicode'
+    public static String quitarAcentos(String textoOriginal) {
+        if (textoOriginal == null) return null;
+        
+        // 1. Normaliza el texto separando los caracteres de sus tildes/acentos
+        String textoNormalizado = Normalizer.normalize(textoOriginal, Normalizer.Form.NFD);
+        
+        // 2. Elimina los símbolos de acentuación usando una expresión regular
+        return textoNormalizado.replaceAll("\\p{M}", "");
+    }
+}
+``````
+
+* Flujo de ejecución:
+
+1 - Spring Boot recibe un texto con acentos
+2 - Spring Boot pasa el texto por la función quitarAcentos
+3 - Spring Boot envía ese texto limpio al archivo .onnx
+
+* ¿Cómo?:
+
+> Dependencia: Deben agregar la librería onnxruntime en su archivo pom.xml (Maven) o build.gradle (Gradle).
+> Input: El modelo espera recibir un array bidimensional de Strings (matriz de N x 1).
+         <<En Java, esto se traduce a mandar un array del tipo String[][].>>
+> Output: El modelo de ONNX les devolverá dos cosas por cada predicción:
+*La etiqueta predicha (la clase ganadora).
+*Un mapa de probabilidades (un diccionario/map en Java con las probabilidades numéricas de cada clase).
+
+***El modelo devuelve números (categoría codificada)***
+
+diccionario_categorias =
+{
+    "0": "Alimentacion",
+    "1": "Educacion",
+    "2": "Electrodomesticos",
+    "3": "Inversion",
+    "4": "Ocio",
+    "5": "Salud",
+    "6": "Servicios",
+    "7": "Transporte",
+    "8": "Vestimenta",
+    "9": "Vivienda"
+}
