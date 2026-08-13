@@ -6,23 +6,63 @@ target/
 .idea/
 
 # ==========================================
-# Archivos de Jupyter y Data Science
+# Archivos de Jupyter y desarrollo local
 # ==========================================
 .ipynb_checkpoints/
 */.ipynb_checkpoints/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
 
-# Permite subir la carpeta notebooks/data pero ignora todos sus archivos de datos locales
+# ==========================================
+# Estructura de datos (datasets)
+# ==========================================
+# Permite subir la carpeta notebooks/data pero ignora su contenido de datos locales
 notebooks/data/*
 !notebooks/data/.gitkeep
 
-# Permite subir la carpeta notebooks/models pero ignora todos los archivos binarios de modelos locales
-notebooks/models/*
-!notebooks/models/.gitkeep
-
-# Tipos de archivos específicos de datos y modelos a ignorar de manera global
+# Archivos de datos a ignorar globalmente - Se permite subir JSON y CSV para poder intercomunicarse dentro de github
 #*.csv
 *.xlsx
 *.parquet
+#*.json
+*.sqlite3
+
+# ==========================================
+# Modelos y artefactos de entrenamiento
+# ==========================================
+# Permite subir la carpeta local de modelos del notebook pero ignora sus binarios
+notebooks/models/*
+!notebooks/models/.gitkeep
+
+# Permite subir la carpeta de modelos compartidos (para backend) pero ignora sus binarios
+shared-models/*
+!shared-models/.gitkeep
+
+# Extensiones de modelos y checkpoints a ignorar globalmente
 *.pkl
 *.joblib
 *.onnx
+*.pb
+*.h5
+*.pt
+*.pth
+
+# ==========================================
+# Configuración y credenciales locales
+# ==========================================
+.env
+*.env
+.env.local
+.env.*.local
+secrets/
+
+# ==========================================
+# Archivos de IDE y sistema operativo
+# ==========================================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log

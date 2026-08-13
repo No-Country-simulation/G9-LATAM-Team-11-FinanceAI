@@ -1,3 +1,3 @@
 
 #### En este directorio debe ir la versión final/preliminar
-#### En los subdirectorios con nombres personales van los archivos de desarrollo previo a producción y se van actualizando conforme avance el proyecto.
+#### En los subdirectorios con nombres personales van los archivos de desarrollo, previo a producción, y se van actualizando conforme avance el proyecto.
