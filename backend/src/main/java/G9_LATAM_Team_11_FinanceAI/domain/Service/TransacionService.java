@@ -37,9 +37,23 @@ public class TransacionService {
 
         validarTransaccionDuplicada(datos);
 
-        BigDecimal ingreso = usuario.getIngresoMensual();
+        BigDecimal ingresoFijoMensual = usuario.getIngresoMensual();
 
-        if(ingreso == null || ingreso.compareTo(datos.monto()) <= 0 ){
+        if (ingresoFijoMensual == null) {
+            throw new ValidationException("El usuario no tiene un ingreso mensual asignado.");
+        }
+        // 1. Obtenemos mes y año de la fecha que viene en la transacción
+        int mes = datos.fecha().getMonthValue();
+        int anio = datos.fecha().getYear();
+
+        // 2. Calculamos lo gastado únicamente en ese mes y año
+        BigDecimal gastadoEnElMes = transaccionRepository.obtenerTotalGastadoEnMes(usuario.getId(), mes, anio);
+
+        // 3. Calculamos cuánto le queda disponible para este mes
+        BigDecimal saldoDisponible = ingresoFijoMensual.subtract(gastadoEnElMes);
+
+        // 4. Validamos si la nueva transacción supera lo disponible
+        if (saldoDisponible.compareTo(datos.monto()) < 0) {
             throw new ValidationException("No tiene suficiente ingreso para hacer esta transferencia.");
         }
 
@@ -50,7 +64,8 @@ public class TransacionService {
         //crea la transaccion con la categoria
         var transaccion  = crearTransaccion(datos, usuario, categoriaObtenida);
 
-        descontarMontoDelIngresoMensual(usuario, datos);
+        //borra
+        //descontarMontoDelIngresoMensual(usuario, datos);
         return transaccionRepository.save(transaccion);
     }
 
@@ -87,6 +102,7 @@ public class TransacionService {
 
     }
 
+    /*
     public void descontarMontoDelIngresoMensual(Usuario usuario, IngresarTransaccionDTO datos){
 
         if (usuario.getIngresoMensual() == null || datos.monto() == null) {
@@ -94,6 +110,8 @@ public class TransacionService {
         }
         usuario.setIngresoMensual(usuario.getIngresoMensual().subtract(datos.monto()));
     }
+
+     */
 
     // Metodo para filtrar transacciones de usuarios por rangos de fechas
     public List<DetallesTransaccionFiltradaDTO> obtenerTransaccionesPorRango(TransaccionFiltradaDTO datos) {
