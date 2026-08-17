@@ -27,11 +27,6 @@ const router = createRouter({
           component: () => import('../views/AnalisisView.vue'),
         },
         {
-          path: 'formulario',
-          name: 'formulario',
-          component: () => import('../views/FormularioView.vue'),
-        },
-        {
           path: 'resultado',
           name: 'resultado',
           component: () => import('../views/ResultadoView.vue'),

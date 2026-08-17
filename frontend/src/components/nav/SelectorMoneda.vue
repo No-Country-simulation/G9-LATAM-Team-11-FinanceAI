@@ -16,7 +16,7 @@ function cambiar(event) {
     id="selector-moneda"
     :value="monedaActiva"
     :disabled="cargando"
-    class="rounded border border-edge bg-surface px-2 py-1 text-xs font-mono text-muted"
+    class="!w-auto !bg-surface !py-1 !pl-2 !pr-7 !text-xs cursor-pointer"
     @change="cambiar"
   >
     <option v-if="cargando" value="USD">USD</option>

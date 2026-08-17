@@ -10,8 +10,8 @@ const router = useRouter()
 const store = useAnalisisFinancieroStore()
 const { resultado, loading, error } = storeToRefs(store)
 
-function irAlFormulario() {
-  router.push({ name: 'formulario' })
+function irAlAnalisis() {
+  router.push({ name: 'analisis' })
 }
 
 function formatoProbabilidad(probabilidad) {
@@ -27,7 +27,7 @@ function formatoProbabilidad(probabilidad) {
 
     <section v-else-if="error && !resultado" class="resultado-estado">
       <p class="resultado-error">{{ error }}</p>
-      <BaseButton variante="secundario" @click="irAlFormulario">
+      <BaseButton variante="secundario" @click="irAlAnalisis">
         Volver e intentar de nuevo
       </BaseButton>
     </section>
@@ -49,15 +49,15 @@ function formatoProbabilidad(probabilidad) {
 
       <RecomendacionesLista :recomendaciones="resultado.recomendaciones" />
 
-      <BaseButton variante="secundario" @click="irAlFormulario">
-        Editar mis datos
+      <BaseButton variante="secundario" @click="irAlAnalisis">
+        Volver al análisis
       </BaseButton>
     </template>
 
     <section v-else class="resultado-sin-datos">
-      <p>No hay resultados todavía. Completa el formulario para analizar tus finanzas.</p>
-      <BaseButton variante="secundario" @click="irAlFormulario">
-        Ir al formulario
+      <p>No hay resultados todavía. Analiza tus finanzas para ver tu perfil.</p>
+      <BaseButton variante="secundario" @click="irAlAnalisis">
+        Ir al análisis
       </BaseButton>
     </section>
   </main>
