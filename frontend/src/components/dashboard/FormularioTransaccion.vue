@@ -70,7 +70,9 @@ async function enviar() {
     }
     exito.value = true
     limpiar()
-    emit('creada')
+    // Emitir 'creada' con delay para que el toast sea visible antes de que
+    // el padre cierre el formulario (TransaccionesView pone mostrarFormulario=false)
+    setTimeout(() => { emit('creada') }, 1500)
     setTimeout(() => { exito.value = false }, 3000)
   } catch (err) {
     error.value = err.message
