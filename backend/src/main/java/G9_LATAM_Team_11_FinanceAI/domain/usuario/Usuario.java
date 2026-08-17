@@ -1,6 +1,7 @@
 package G9_LATAM_Team_11_FinanceAI.domain.usuario;
 
 import G9_LATAM_Team_11_FinanceAI.DTO.UsuarioDTOs.IngresarUsuarioDTO;
+import G9_LATAM_Team_11_FinanceAI.analisis_financiero.AnalisisFinanciero;
 import G9_LATAM_Team_11_FinanceAI.domain.transaccion.Transaccion;
 import jakarta.persistence.*;
 import lombok.*;
@@ -31,15 +32,22 @@ public class Usuario {
     @OneToMany(mappedBy = "usuario")
     private List<Transaccion> transacciones;
 
-    //constructor para los datos del DTO
-    public Usuario(IngresarUsuarioDTO datos) {
+
+    @OneToMany(mappedBy = "usuario")
+    private List<AnalisisFinanciero> analisisFinancieros;
+
+    //constructor para los datos del DTO con contraseña ya cifrada
+    public Usuario(IngresarUsuarioDTO datos, String encodedPassword) {
         this.nombre = datos.nombre();
         this.email = datos.email();
-        this.password = datos.password();
+        this.password = encodedPassword != null ? encodedPassword : datos.password();
         this.ingresoMensual = datos.ingresoMensual();
         this.fechaCreacion = LocalDate.now();
         this.activo = true;
+    }
 
+    public Usuario(IngresarUsuarioDTO datos) {
+        this(datos, datos.password());
     }
 
     public void eliminarUsuario(){

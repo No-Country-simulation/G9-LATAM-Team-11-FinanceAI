@@ -4,7 +4,6 @@ import { storeToRefs } from 'pinia'
 import { useUsuarioStore } from '@/stores/usuario'
 import { useDivisaStore } from '@/stores/divisa'
 import { useTransacciones } from '@/composables/useTransacciones'
-import { CATEGORIAS } from '@/utils/categorias'
 import BaseButton from '@/components/base/BaseButton.vue'
 
 const emit = defineEmits(['creada'])
@@ -17,11 +16,11 @@ const { crearTransaccion } = useTransacciones()
 const cargando = ref(false)
 const error = ref('')
 const exito = ref(false)
+const mensajeExito = ref('')
 
 const form = reactive({
   descripcion: '',
   monto: null,
-  categoria: '',
   fecha: hoy(),
 })
 
@@ -35,7 +34,6 @@ function validar() {
   if (!form.monto || form.monto <= 0) return 'Ingresa un monto mayor a 0.'
   const limiteEnMonedaActiva = divisaStore.convertirDesdeUSD(ingresoDisponible.value)
   if (form.monto >= limiteEnMonedaActiva) return 'El monto debe ser menor que tu ingreso disponible.'
-  if (!form.categoria) return 'Selecciona una categoría.'
   if (!form.fecha) return 'La fecha es obligatoria.'
   return ''
 }
@@ -43,7 +41,6 @@ function validar() {
 function limpiar() {
   form.descripcion = ''
   form.monto = null
-  form.categoria = ''
   form.fecha = hoy()
   error.value = ''
 }
@@ -51,6 +48,7 @@ function limpiar() {
 async function enviar() {
   error.value = ''
   exito.value = false
+  mensajeExito.value = ''
   const mensaje = validar()
   if (mensaje) {
     error.value = mensaje
@@ -59,15 +57,22 @@ async function enviar() {
   cargando.value = true
   try {
     const montoUSD = divisaStore.convertirAUSD(form.monto)
-    await crearTransaccion({
+    const resultado = await crearTransaccion({
       descripcion: form.descripcion.trim(),
       monto: montoUSD,
-      categoria: form.categoria,
       fecha: form.fecha,
     })
+    const categoriaAsignada = resultado?.categoria
+    if (categoriaAsignada) {
+      mensajeExito.value = `Registrado. Categoría: ${categoriaAsignada}`
+    } else {
+      mensajeExito.value = 'Transacción registrada correctamente.'
+    }
     exito.value = true
     limpiar()
-    emit('creada')
+    // Emitir 'creada' con delay para que el toast sea visible antes de que
+    // el padre cierre el formulario (TransaccionesView pone mostrarFormulario=false)
+    setTimeout(() => { emit('creada') }, 1500)
     setTimeout(() => { exito.value = false }, 3000)
   } catch (err) {
     error.value = err.message
@@ -91,27 +96,22 @@ async function enviar() {
       </label>
       <label for="tx-monto">
         Monto
-        <span class="ml-1 text-xs font-mono text-muted">({{ monedaActiva }})</span>
-        <input
-          id="tx-monto"
-          v-model.number="form.monto"
-          type="number"
-          step="0.01"
-          placeholder="Ej: 500"
-        />
+        <div class="relative">
+          <input
+            id="tx-monto"
+            v-model.number="form.monto"
+            type="number"
+            step="0.01"
+            placeholder="Ej: 500"
+            class="pr-14"
+          />
+          <span class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 font-mono text-xs text-muted">
+            {{ monedaActiva }}
+          </span>
+        </div>
       </label>
     </div>
     <div class="grid gap-4 sm:grid-cols-2">
-      <label for="tx-categoria">
-        Categoría
-        <!-- TODO: categoría será asignada por DS en el futuro -->
-        <select id="tx-categoria" v-model="form.categoria">
-          <option value="" disabled>Selecciona</option>
-          <option v-for="(info, clave) in CATEGORIAS" :key="clave" :value="clave">
-            {{ info.etiqueta }}
-          </option>
-        </select>
-      </label>
       <label for="tx-fecha">
         Fecha
         <input
@@ -127,7 +127,7 @@ async function enviar() {
     </p>
 
     <p v-if="exito" class="rounded-md border border-success/30 bg-success/10 px-3 py-2 text-sm text-success" role="status">
-      Transacción registrada correctamente.
+      {{ mensajeExito }}
     </p>
 
     <div class="flex gap-3">

@@ -47,14 +47,15 @@ export function useTransacciones() {
 
   async function crearTransaccion(datos) {
     if (esDemo()) {
-      const nueva = { id: nextDemoId++, ...datos }
+      const nueva = { id: nextDemoId++, ...datos, categoria: 'otro' }
       store.setTransacciones([...store.transacciones, nueva])
       return nueva
     }
 
     try {
-      await crearTransaccionApi({ ...datos, idUsuario: store.id })
+      const respuesta = await crearTransaccionApi({ ...datos, idUsuario: store.id })
       await refrescarUsuario()
+      return respuesta
     } catch (error) {
       throw new Error(mensajeErrorApi(error), { cause: error })
     }

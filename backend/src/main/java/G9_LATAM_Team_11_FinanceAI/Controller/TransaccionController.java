@@ -36,6 +36,8 @@ public class TransaccionController {
 
         return ResponseEntity.status(HttpStatus.CREATED).body(respuesta);
     }
+
+
     @Transactional
     @PostMapping("/rangos")
     public ResponseEntity<List<DetallesTransaccionFiltradaDTO>> obtenerTransaccionPorFechas(@RequestBody TransaccionFiltradaDTO datos) {

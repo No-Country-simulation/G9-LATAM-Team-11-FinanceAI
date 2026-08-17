@@ -13,8 +13,8 @@ import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.ValidationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 @Service
@@ -29,39 +29,28 @@ public class TransacionService {
     @Autowired
     private DataScienceModelService dataScienceService;
 
-    public Transaccion ingresarTransaccion(IngresarTransaccionDTO datos){
-
+    @Transactional
+    public Transaccion ingresarTransaccion(IngresarTransaccionDTO datos) {
         Usuario usuario = obtenerUsuarioPorId(datos.idUsuario());
-
         validarUsuarioActivo(usuario);
-
         validarTransaccionDuplicada(datos);
 
-        BigDecimal ingreso = usuario.getIngresoMensual();
-
-        if(ingreso == null || ingreso.compareTo(datos.monto()) <= 0 ){
-            throw new ValidationException("No tiene suficiente ingreso para hacer esta transferencia.");
-        }
-
-        //obtener la categoria
+        // Obtener la categoría mediante inferencia ONNX NLP
         SolicitudCategoriaDTO solicitud = new SolicitudCategoriaDTO(datos);
         String categoriaObtenida = dataScienceService.obtenerCategoria(solicitud);
 
-        //crea la transaccion con la categoria
-        var transaccion  = crearTransaccion(datos, usuario, categoriaObtenida);
-
-        descontarMontoDelIngresoMensual(usuario, datos);
+        // Crear la transacción con la categoría inferida
+        Transaccion transaccion = new Transaccion(datos, usuario, categoriaObtenida);
         return transaccionRepository.save(transaccion);
     }
 
-    //Validación para que un mismo usuario no pueda ingresar transacciones con los datos repetidos.
+    // Validación para que un mismo usuario no ingrese transacciones duplicadas idénticas
     public void validarTransaccionDuplicada(IngresarTransaccionDTO datos) {
         boolean existeDuplicidad = transaccionRepository.existsByUsuarioIdAndDescripcionAndMontoAndFecha(
                 datos.idUsuario(),
                 datos.descripcion(),
                 datos.monto(),
                 datos.fecha()
-
         );
 
         if (existeDuplicidad) {
@@ -69,39 +58,26 @@ public class TransacionService {
         }
     }
 
-    public Usuario obtenerUsuarioPorId(Long id){
+    @Transactional(readOnly = true)
+    public Usuario obtenerUsuarioPorId(Long id) {
         return usuarioRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Usuario no existe"));
+                .orElseThrow(() -> new EntityNotFoundException("Usuario no encontrado con ID: " + id));
     }
 
-    private Transaccion crearTransaccion(IngresarTransaccionDTO datos, Usuario usuario, String categoria) {
-        return new Transaccion(datos, usuario, categoria);
-    }
-
-
-    public void validarUsuarioActivo(Usuario usuario){
-
-        if(!Boolean.TRUE.equals(usuario.getActivo())){
-            throw new ValidationException("Usuario inactivo no puede hacer transferencia.");
+    public void validarUsuarioActivo(Usuario usuario) {
+        if (!Boolean.TRUE.equals(usuario.getActivo())) {
+            throw new ValidationException("El usuario se encuentra inactivo.");
         }
-
     }
 
-    public void descontarMontoDelIngresoMensual(Usuario usuario, IngresarTransaccionDTO datos){
-
-        if (usuario.getIngresoMensual() == null || datos.monto() == null) {
-            throw new ValidationException("Ingreso mensual o monto de transacción no puede ser nulo.");
-        }
-        usuario.setIngresoMensual(usuario.getIngresoMensual().subtract(datos.monto()));
-    }
-
-    // Metodo para filtrar transacciones de usuarios por rangos de fechas
+    // Método para filtrar transacciones de usuarios por rangos de fechas
+    @Transactional(readOnly = true)
     public List<DetallesTransaccionFiltradaDTO> obtenerTransaccionesPorRango(TransaccionFiltradaDTO datos) {
-                Usuario usuario = usuarioRepository.findById(datos.idUsuario())
+        Usuario usuario = usuarioRepository.findById(datos.idUsuario())
                 .orElseThrow(() -> new IllegalArgumentException("No se encontró la información solicitada para los parámetros ingresados."));
 
         if (!Boolean.TRUE.equals(usuario.getActivo())) {
-            throw new IllegalStateException("No se logró realizar la acción solicitada.");
+            throw new IllegalStateException("El usuario solicitado se encuentra inactivo.");
         }
 
         List<Transaccion> listadoTransacciones = transaccionRepository
@@ -112,16 +88,15 @@ public class TransacionService {
                 .toList();
     }
 
-
-    public void actualizarTransferencia(Long id, ActualizarTransaccionDTO actualizar){
-
+    @Transactional
+    public Transaccion actualizarTransferencia(Long id, ActualizarTransaccionDTO actualizar) {
         Transaccion transaccion = obtenerTransaccionPorId(id);
 
-        if (actualizar.categoria() != null) {
+        if (actualizar.categoria() != null && !actualizar.categoria().isBlank()) {
             transaccion.setCategoria(actualizar.categoria());
         }
 
-        if (actualizar.descripcion() != null) {
+        if (actualizar.descripcion() != null && !actualizar.descripcion().isBlank()) {
             transaccion.setDescripcion(actualizar.descripcion());
         }
 
@@ -132,9 +107,13 @@ public class TransacionService {
         if (actualizar.monto() != null) {
             transaccion.setMonto(actualizar.monto());
         }
+
+        return transaccionRepository.save(transaccion);
     }
-    private Transaccion obtenerTransaccionPorId(Long id){
+
+    @Transactional(readOnly = true)
+    public Transaccion obtenerTransaccionPorId(Long id) {
         return transaccionRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("usuario no encontrado"));
+                .orElseThrow(() -> new EntityNotFoundException("Transacción no encontrada con ID: " + id));
     }
 }

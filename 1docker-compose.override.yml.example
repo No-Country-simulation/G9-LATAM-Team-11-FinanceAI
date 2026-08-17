@@ -1,0 +1,91 @@
+services:
+  # 1. Base de Datos MySQL
+  db:
+    image: mysql:8.0
+    container_name: financeai_db
+    environment:
+      MYSQL_DATABASE: FinanceAI
+      MYSQL_USER: dev_user
+      MYSQL_PASSWORD: dev_password
+      MYSQL_ROOT_PASSWORD: root_password
+    ports:
+      - "127.0.0.1:3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    restart: no
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 1024M
+
+  # 2. Back-End: API REST (Java / Spring Boot)
+  backend:
+    image: maven:3.9.6-eclipse-temurin-17
+    container_name: financeai_backend
+    ports:
+      - "127.0.0.1:8081:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+      - DB_HOST=db
+      - DB_USER_M=${DB_USER_M:-dev_user}
+      - DB_PASSWORD=${DB_PASSWORD:-dev_password}
+      - OCI_STORAGE_BUCKET=${OCI_STORAGE_BUCKET:-financeai-bucket}
+      - TOKEN_SECRETO=${TOKEN_SECRETO:-FinanceAI_Secret_Key_Super_Segura_2026_JWT_Token_HS256_Min$}
+      - SHARED_MODELS_PATH=/app/models
+      - MAVEN_OPTS=-Xmx1024m -Xms512m
+    volumes:
+      - ./backend:/app
+      - ./shared-models:/app/models
+    working_dir: /app
+    command: mvn spring-boot:run
+    depends_on:
+      - db
+    restart: no
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 2048M
+
+  # 3. Front-End: Interfaz de Usuario (Vue 3 + Vite)
+  frontend:
+    image: node:22-alpine
+    container_name: financeai_frontend
+    ports:
+      - "127.0.0.1:8082:3000"
+    environment:
+      - VITE_BACKEND_URL=http://backend:8080
+    volumes:
+      - ./frontend:/app
+    working_dir: /app
+    command: sh -c "npm install && npm run dev" 
+    restart: no
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
+
+  # 4. Ciencia de Datos: Entorno de Entrenamiento y Serialización
+  data-science:
+    build:
+      context: ./notebooks
+      dockerfile: Dockerfile
+    container_name: financeai_datascience
+    ports:
+      - "127.0.0.1:8888:8888"
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+    volumes:
+      - ./notebooks:/home/jovyan/work
+      - ./shared-models:/home/jovyan/work/models
+    restart: no
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 2048M
+
+volumes:
+  mysql_data:

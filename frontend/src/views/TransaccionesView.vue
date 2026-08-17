@@ -14,7 +14,7 @@ import FormularioTransaccion from '@/components/dashboard/FormularioTransaccion.
 
 const usuarioStore = useUsuarioStore()
 const { transacciones } = storeToRefs(usuarioStore)
-const { gastoMes, ahorroMes, ingreso } = useDashboard()
+const { gastoMes, ahorroMes } = useDashboard()
 const { listarTransacciones } = useTransacciones()
 
 const mostrarFormulario = ref(false)

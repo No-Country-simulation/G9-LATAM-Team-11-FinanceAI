@@ -6,6 +6,13 @@ function mismoMes(fecha, anio, mes) {
   return d.getFullYear() === anio && d.getMonth() === mes
 }
 
+function normalizarCategoria(categoria) {
+  return String(categoria || 'otro')
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+}
+
 export function useDashboard() {
   const store = useUsuarioStore()
   const ahora = new Date()
@@ -30,7 +37,7 @@ export function useDashboard() {
   const porCategoria = computed(() => {
     const mapa = new Map()
     for (const transaccion of store.transacciones) {
-      const clave = transaccion.categoria || 'otros'
+      const clave = normalizarCategoria(transaccion.categoria)
       mapa.set(clave, (mapa.get(clave) || 0) + Number(transaccion.monto || 0))
     }
     return [...mapa.entries()].sort((a, b) => b[1] - a[1])

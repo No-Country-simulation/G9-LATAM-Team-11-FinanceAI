@@ -1,11 +1,8 @@
 import { useUsuarioStore } from '@/stores/usuario'
-import { registrarUsuario, obtenerUsuario } from '@/services/usuarios'
+import { registrarUsuario, obtenerUsuario, loginUsuario } from '@/services/usuarios'
 import { useTransacciones } from '@/composables/useTransacciones'
 import { mensajeErrorApi } from '@/utils/errores'
 import { datosDemo } from '@/data/demo'
-
-// TODO: mock temporal de credenciales — el backend no expone POST /login.
-// Se guardan en el navegador las cuentas creadas para poder volver a entrar.
 
 const CLAVE_CUENTAS = 'financeai:cuentas'
 
@@ -25,16 +22,20 @@ function guardarCuenta(datos, id) {
   localStorage.setItem(CLAVE_CUENTAS, JSON.stringify(cuentas))
 }
 
-// TODO: reemplazar por llamada real a POST /login cuando backend lo implemente
-
 async function iniciarSesionCredenciales(email, password) {
-  const cuenta = obtenerCuentasGuardadas().find(
-    (c) => c.email.toLowerCase() === String(email).trim().toLowerCase(),
-  )
-  if (!cuenta || cuenta.password !== password) {
-    throw new Error('Email o contraseña incorrectos.')
+  try {
+    const respuesta = await loginUsuario(email, password)
+    return { id: respuesta.id, nombre: respuesta.nombre }
+  } catch (error) {
+    // Fallback local si el backend estuviera inaccesible en pruebas
+    const cuenta = obtenerCuentasGuardadas().find(
+      (c) => c.email.toLowerCase() === String(email).trim().toLowerCase(),
+    )
+    if (cuenta && cuenta.password === password) {
+      return { id: cuenta.id, nombre: cuenta.nombre }
+    }
+    throw new Error(mensajeErrorApi(error) || 'Email o contraseña incorrectos.')
   }
-  return { id: cuenta.id, nombre: cuenta.nombre }
 }
 
 export function useUsuario() {
@@ -90,5 +91,3 @@ export function useUsuario() {
 
   return { cargarUsuario, registrarYEntrar, iniciarSesionCredenciales, salir, entrarDemo }
 }
-
-

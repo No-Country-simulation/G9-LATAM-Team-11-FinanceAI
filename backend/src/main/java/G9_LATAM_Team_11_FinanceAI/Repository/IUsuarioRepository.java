@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface IUsuarioRepository extends JpaRepository<Usuario, Long> {
 
@@ -13,4 +14,6 @@ public interface IUsuarioRepository extends JpaRepository<Usuario, Long> {
     List<Usuario> findAllUsuariosActivosConTransaccionesPorMesAnio(@Param("mes") int mes, @Param("anio") int anio);
 
     boolean existsByEmail(String email);
+
+    Optional<Usuario> findByEmail(String email);
 }
