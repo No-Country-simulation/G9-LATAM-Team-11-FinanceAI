@@ -1,0 +1,32 @@
+========================================================================
+📂 SERVICIO: notebooks (Área de Ciencia de Datos / JupyterLab)
+========================================================================
+
+¿QUÉ ES ESTA CARPETA?
+Es el entorno de trabajo del equipo de Data Science. Cuenta con JupyterLab
+y librerías científicas instaladas bajo Python.
+
+¿PARA QUÉ SIRVE?
+Aquí se realiza la experimentación de Machine Learning, el análisis exploratorio
+de datos (EDA), y el entrenamiento de los clasificadores para luego exportar
+los resultados (.onnx) hacia 'shared-models/'.
+
+ROLES INVOLUCRADOS Y CÓMO USARLA:
+
+🧠 DATA SCIENTIST:
+- Trabaja creando sus notebooks de Jupyter (.ipynb) y scripts en esta carpeta.
+- El contenedor de Docker se levanta con 'docker compose up -d data-science'
+  y se accede a través del puerto '8888'.
+- IMPORTANTE: La carpeta interna 'data/' contiene los datasets sintéticos semilla
+  (usuarios.json y transacciones.json) que generaremos. Son indispensables
+  para que el Backend los tome y pueble la base de datos por primera vez.
+
+⚙️ BACKEND DEVELOPER / ANALISTA DE DATOS:
+- Puedes ir a la carpeta 'data/' para tomar los archivos CSV y JSON e integrarlos
+  al sistema de pruebas o tableros de Business Intelligence.
+
+⚠️ REGLAS DE SEGURIDAD (MLOps):
+- La instalación de librerías Python adicionales se realiza editando el archivo
+  'requirements.txt' y reconstruyendo el contenedor ('docker compose build data-science').
+- No utilices %pip install o !pip install dinámicos en los notebooks para
+  evitar brechas de seguridad y falta de consistencia en el equipo.

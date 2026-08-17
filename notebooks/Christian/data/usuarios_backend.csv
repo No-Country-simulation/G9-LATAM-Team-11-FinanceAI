@@ -1,0 +1,1801 @@
+id,nombre,ingreso_mensual,nivel_endeudamiento,frecuencia_ahorro,perfil_financiero
+1,Feliciana,2810.89,22.18,Baja,En observacion
+2,Dani,4827.5,19.42,Media,Saludable
+3,Amador,4061.98,19.05,Media,Saludable
+4,Manuela,3595.3,19.69,Media,Saludable
+5,Leonardo,2046.07,26.09,Baja,En riesgo
+6,Jose Ignacio,2045.98,28.09,Baja,En riesgo
+7,Jacinto,1703.29,29.87,Media,En riesgo
+8,Emilio,4531.62,19.74,Media,Saludable
+9,Maite,3603.9,20.7,Media,Saludable
+10,Cristian,3978.25,20.27,Media,Saludable
+11,Inmaculada,1572.05,30.18,Media,En riesgo
+12,Manu,4894.68,18.56,Baja,En observacion
+13,Tecla,4413.55,21.3,Baja,En observacion
+14,Caridad,2243.19,26.84,Baja,En riesgo
+15,Chucho,2136.39,27.42,Media,En riesgo
+16,Dominga,2141.92,25.78,Media,En observacion
+17,Telmo,2564.85,24.96,Media,En observacion
+18,Amílcar,3336.65,20.01,Baja,En observacion
+19,Amor,3011.81,23.79,Media,En observacion
+20,Ciro,2519.3,22.88,Baja,En observacion
+21,Isaías,3641.49,21.49,Baja,En observacion
+22,Joan,1988.23,28.65,Media,En riesgo
+23,Anselma,2522.51,22.33,Baja,En observacion
+24,Eligia,2782.27,23.37,Media,En observacion
+25,Amando,3096.24,21.31,Media,Saludable
+26,Chelo,4248.12,19.2,Baja,En observacion
+27,Heliodoro,2198.86,26.0,Baja,En observacion
+28,Lilia,3299.82,20.44,Media,Saludable
+29,Florentina,3573.45,22.07,Media,En observacion
+30,Judith,1662.58,29.84,Media,En riesgo
+31,Caridad,3626.41,20.03,Media,Saludable
+32,Simón,2096.83,27.45,Media,En riesgo
+33,Isidro,1727.68,29.23,Media,En riesgo
+34,Vidal,4821.1,17.22,Baja,En observacion
+35,Dolores,4879.71,18.86,Media,Saludable
+36,Leopoldo,4329.39,17.57,Baja,En observacion
+37,Nydia,2566.15,24.52,Baja,En observacion
+38,Ruth,1841.85,28.35,Baja,En riesgo
+39,Adolfo,3894.82,20.19,Baja,En observacion
+40,Martina,3040.53,22.65,Baja,En observacion
+41,Noelia,1927.13,26.98,Media,En riesgo
+42,Feliciano,3233.12,20.33,Media,Saludable
+43,José,1620.36,31.54,Media,En riesgo
+44,Telmo,4682.62,18.95,Media,Saludable
+45,Noé,2405.73,25.02,Media,En observacion
+46,Leopoldo,3818.83,21.06,Media,Saludable
+47,Fabricio,2590.99,25.38,Baja,En observacion
+48,Ildefonso,3320.24,22.19,Media,En observacion
+49,María Carmen,3413.49,21.0,Media,Saludable
+50,Nicodemo,2146.99,26.94,Media,En riesgo
+51,Cristian,4893.55,17.91,Media,Saludable
+52,Cirino,4212.96,18.71,Media,Saludable
+53,Ricardo,4788.25,17.77,Baja,En observacion
+54,Cleto,4631.9,16.48,Media,Saludable
+55,Plinio,3592.65,19.38,Media,Saludable
+56,Rebeca,4726.56,20.33,Media,Saludable
+57,Omar,1809.72,28.42,Media,En riesgo
+58,Elisabet,2185.94,26.33,Media,En riesgo
+59,Juan Luis,1658.3,30.8,Baja,En riesgo
+60,Noemí,2638.66,25.27,Baja,En observacion
+61,Armando,2860.37,23.41,Baja,En observacion
+62,Luna,2449.72,23.73,Media,En observacion
+63,Ángel,4400.58,21.27,Baja,En observacion
+64,Brunilda,2748.64,21.13,Media,Saludable
+65,Edelmiro,2483.27,24.75,Baja,En observacion
+66,Ágata,3399.44,21.47,Baja,En observacion
+67,Reyes,1993.23,24.59,Media,En observacion
+68,Cayetano,4307.69,21.36,Media,Saludable
+69,Carmina,1760.93,29.96,Baja,En riesgo
+70,Lázaro,4954.1,18.52,Media,Saludable
+71,Paula,4202.86,19.35,Baja,En observacion
+72,Eusebia,2195.5,26.02,Media,En riesgo
+73,Esperanza,1519.33,31.94,Baja,En riesgo
+74,Sonia,4354.11,17.31,Baja,En observacion
+75,Rosalva,3974.0,19.23,Media,Saludable
+76,Porfirio,4051.53,20.47,Media,Saludable
+77,Crescencia,4199.45,19.05,Media,Saludable
+78,Gregorio,1759.16,29.33,Media,En riesgo
+79,Julie,2754.63,24.64,Media,En observacion
+80,Buenaventura,1905.54,30.98,Media,En riesgo
+81,Artemio,4520.86,19.24,Media,Saludable
+82,Gisela,3681.54,18.9,Media,Saludable
+83,Javier,2658.14,23.71,Media,En observacion
+84,María Teresa,1722.45,28.9,Media,En riesgo
+85,Luis Miguel,2588.44,24.26,Media,En observacion
+86,Cebrián,2638.14,22.88,Media,En observacion
+87,Rita,4053.62,19.56,Media,Saludable
+88,Joan,3731.45,21.61,Media,Saludable
+89,Roxana,4605.24,18.58,Media,Saludable
+90,Cosme,3152.75,23.04,Baja,En observacion
+91,Ricardo,1918.58,26.81,Media,En riesgo
+92,Leopoldo,3996.36,18.81,Media,Saludable
+93,Wilfredo,4162.75,18.7,Media,Saludable
+94,Fabiola,3464.47,21.11,Baja,En observacion
+95,Perlita,4198.39,21.16,Baja,En observacion
+96,Pánfilo,3228.28,21.03,Media,Saludable
+97,Fermín,3329.56,22.07,Media,En observacion
+98,Raimundo,2996.39,23.09,Media,En observacion
+99,Pedro,1588.97,32.78,Media,En riesgo
+100,Hugo,1877.62,29.39,Media,En riesgo
+101,Herminia,1610.0,26.98,Media,En riesgo
+102,Juanito,3727.44,20.28,Baja,En observacion
+103,Judith,2600.25,23.21,Media,En observacion
+104,Isabela,3280.0,21.27,Baja,En observacion
+105,Flora,4676.48,19.77,Baja,En observacion
+106,Calixto,2372.52,25.71,Baja,En observacion
+107,Emelina,2936.34,24.12,Media,En observacion
+108,Fabiola,4144.43,19.8,Media,Saludable
+109,Francisco Javier,2300.79,24.74,Media,En observacion
+110,Bibiana,1769.43,29.89,Media,En riesgo
+111,Luisina,2514.13,24.64,Media,En observacion
+112,Jose Ignacio,2064.27,27.41,Media,En riesgo
+113,Fernando,4753.94,18.68,Baja,En observacion
+114,Óscar,4328.42,19.07,Media,Saludable
+115,Reynaldo,3716.91,20.03,Media,Saludable
+116,Julián,4550.11,19.53,Baja,En observacion
+117,Ángela,4312.85,17.46,Media,Saludable
+118,Felicidad,2153.0,25.16,Media,En observacion
+119,Javiera,4623.96,20.53,Media,Saludable
+120,Cecilia,3387.7,22.77,Media,En observacion
+121,Isidoro,4326.04,18.93,Baja,En observacion
+122,Isidora,4636.32,19.26,Media,Saludable
+123,Moreno,2613.01,24.4,Baja,En observacion
+124,Pía,1885.18,30.22,Media,En riesgo
+125,María Jesús,2297.77,23.75,Media,En observacion
+126,Maura,2994.88,23.03,Baja,En observacion
+127,Basilio,4363.05,19.58,Media,Saludable
+128,Jenaro,4512.56,18.92,Baja,En observacion
+129,Paca,1524.33,32.93,Media,En riesgo
+130,Amílcar,3287.62,22.88,Baja,En observacion
+131,Noa,2960.94,23.59,Baja,En observacion
+132,Maximiano,2277.38,25.61,Baja,En observacion
+133,Salvador,1919.53,27.8,Media,En riesgo
+134,Julio,2681.65,24.06,Media,En observacion
+135,Blas,4800.18,20.34,Media,Saludable
+136,Héctor,2631.21,23.62,Media,En observacion
+137,Xiomara,3315.77,20.66,Baja,En observacion
+138,Claudia,3960.57,18.68,Baja,En observacion
+139,Sarita,2772.7,23.21,Media,En observacion
+140,Lina,4901.24,18.76,Baja,En observacion
+141,Maxi,4868.57,17.79,Media,Saludable
+142,Ibán,2381.24,25.49,Media,En observacion
+143,Gabriela,3240.37,20.73,Media,Saludable
+144,Angelina,2553.07,25.07,Baja,En observacion
+145,Ruy,2496.94,25.66,Baja,En observacion
+146,Soledad,1629.1,33.7,Media,En riesgo
+147,Yaiza,3633.48,21.29,Media,Saludable
+148,Fernanda,3259.38,20.26,Media,Saludable
+149,Álvaro,1680.18,30.39,Baja,En riesgo
+150,Eric,2475.26,25.53,Baja,En observacion
+151,Juan Manuel,4678.93,19.87,Media,Saludable
+152,Emilio,2338.47,26.61,Media,En riesgo
+153,Jose Manuel,2007.13,25.7,Baja,En observacion
+154,Marcela,3213.08,22.09,Baja,En observacion
+155,Chelo,4949.78,17.66,Baja,En observacion
+156,Bárbara,2347.19,24.0,Media,En observacion
+157,Juan José,3852.47,19.52,Baja,En observacion
+158,Margarita,4165.67,16.48,Media,Saludable
+159,Daniela,2331.73,27.29,Media,En riesgo
+160,Tiburcio,4048.76,18.95,Media,Saludable
+161,Tomasa,2787.24,24.45,Media,En observacion
+162,Dalila,3713.07,21.0,Media,Saludable
+163,Sabas,3717.35,20.78,Baja,En observacion
+164,Porfirio,3375.21,21.8,Media,Saludable
+165,Isidoro,1816.01,29.28,Media,En riesgo
+166,Emiliano,4423.56,18.44,Media,Saludable
+167,Araceli,2622.73,25.47,Media,En observacion
+168,Ana,2152.81,26.34,Media,En riesgo
+169,Ciriaco,1642.71,30.7,Baja,En riesgo
+170,Marisol,3568.13,20.05,Media,Saludable
+171,Asdrubal,3871.48,18.56,Media,Saludable
+172,Rosalinda,1558.06,32.43,Media,En riesgo
+173,Damián,3292.33,21.79,Media,Saludable
+174,Ezequiel,2292.74,25.6,Media,En observacion
+175,Eulalia,3758.1,20.18,Media,Saludable
+176,Feliciano,2110.28,26.69,Media,En riesgo
+177,Mónica,3918.28,21.56,Media,Saludable
+178,Irma,2853.57,24.33,Baja,En observacion
+179,Telmo,4778.55,19.04,Media,Saludable
+180,Débora,1981.32,27.39,Media,En riesgo
+181,Bernardo,2693.73,24.43,Baja,En observacion
+182,Rogelio,1897.16,28.01,Media,En riesgo
+183,Rico,4736.43,19.13,Media,Saludable
+184,Débora,4570.69,20.81,Media,Saludable
+185,Adelina,2402.8,25.07,Media,En observacion
+186,Benigna,3809.94,20.98,Media,Saludable
+187,José,4360.28,19.09,Baja,En observacion
+188,Carolina,3443.2,20.12,Baja,En observacion
+189,Rosalinda,3353.78,21.69,Media,Saludable
+190,Aitor,2346.48,23.81,Media,En observacion
+191,Irma,1825.86,29.65,Baja,En riesgo
+192,Lorena,4640.26,17.3,Media,Saludable
+193,Darío,4651.46,17.66,Media,Saludable
+194,Isabel,3715.86,21.78,Media,Saludable
+195,Sonia,2686.6,23.97,Baja,En observacion
+196,Brunilda,2722.23,22.4,Media,En observacion
+197,Maricela,4040.84,20.61,Media,Saludable
+198,Juanito,4639.89,17.85,Media,Saludable
+199,María José,4604.8,17.88,Baja,En observacion
+200,Felipa,4229.56,18.5,Media,Saludable
+201,Noé,3747.11,19.52,Media,Saludable
+202,Dani,1794.49,29.48,Media,En riesgo
+203,Lázaro,2065.7,25.89,Media,En observacion
+204,Trinidad,4644.94,16.94,Baja,En observacion
+205,Fausto,3622.5,20.26,Media,Saludable
+206,Wilfredo,1532.19,33.2,Media,En riesgo
+207,Abraham,1855.15,29.02,Media,En riesgo
+208,Lorenza,3822.26,19.98,Media,Saludable
+209,Sara,1517.72,33.24,Media,En riesgo
+210,Loida,2062.83,25.55,Media,En observacion
+211,Juan José,3420.57,20.32,Baja,En observacion
+212,Angelita,3921.63,21.44,Baja,En observacion
+213,María Belén,3781.86,20.25,Media,Saludable
+214,Gaspar,2284.94,26.52,Media,En riesgo
+215,Anunciación,3992.63,20.55,Media,Saludable
+216,Ximena,2330.37,25.62,Media,En observacion
+217,Curro,2638.9,24.02,Media,En observacion
+218,Sabina,4112.72,21.18,Media,Saludable
+219,Eufemia,3773.72,20.18,Media,Saludable
+220,Marc,4472.28,18.39,Media,Saludable
+221,Prudencia,3801.65,21.27,Baja,En observacion
+222,Feliciana,3489.08,21.42,Baja,En observacion
+223,Anunciación,1827.86,29.55,Baja,En riesgo
+224,Emelina,2787.01,24.11,Baja,En observacion
+225,Heliodoro,2428.21,25.76,Baja,En observacion
+226,Ezequiel,2353.96,26.56,Media,En riesgo
+227,Raúl,4905.54,18.12,Media,Saludable
+228,María Belén,2875.84,23.41,Baja,En observacion
+229,Felix,4622.16,19.2,Media,Saludable
+230,Calista,3708.99,19.87,Media,Saludable
+231,Melania,4281.84,18.81,Baja,En observacion
+232,Ágata,3259.23,20.77,Baja,En observacion
+233,Bernarda,3519.16,21.42,Baja,En observacion
+234,Zaida,3223.81,23.42,Media,En observacion
+235,Aarón,2183.35,27.13,Media,En riesgo
+236,Elena,4028.58,17.53,Baja,En observacion
+237,Moisés,2482.7,24.24,Baja,En observacion
+238,Amaya,1585.11,29.56,Baja,En riesgo
+239,Alejo,3759.15,18.61,Media,Saludable
+240,Dani,2119.89,26.26,Baja,En riesgo
+241,Úrsula,4791.61,20.99,Baja,En observacion
+242,Primitivo,4838.75,16.71,Media,Saludable
+243,Selena,4702.03,17.29,Media,Saludable
+244,Paz,2795.56,22.38,Media,En observacion
+245,Noemí,1554.1,31.42,Media,En riesgo
+246,Marino,4749.11,18.08,Baja,En observacion
+247,Jose,2998.64,22.56,Baja,En observacion
+248,Bautista,4883.29,18.91,Baja,En observacion
+249,Jose Angel,4872.67,18.6,Media,Saludable
+250,Selena,4485.53,16.86,Media,Saludable
+251,Claudia,2530.57,27.15,Baja,En riesgo
+252,Cayetano,2847.84,21.68,Baja,En observacion
+253,Che,4478.98,18.34,Media,Saludable
+254,Lupita,2609.23,24.57,Media,En observacion
+255,Amalia,2093.22,26.94,Media,En riesgo
+256,Olalla,3448.8,20.02,Media,Saludable
+257,Bruno,4776.54,19.47,Media,Saludable
+258,Martirio,3936.1,19.54,Baja,En observacion
+259,Berta,3495.21,19.6,Media,Saludable
+260,María Dolores,1840.12,27.48,Baja,En riesgo
+261,Edgardo,3652.53,21.63,Media,Saludable
+262,Eduardo,4965.19,18.99,Media,Saludable
+263,Georgina,1990.29,26.66,Media,En riesgo
+264,Aitana,3314.15,21.92,Baja,En observacion
+265,Carmela,4570.81,18.74,Baja,En observacion
+266,Fito,4092.69,20.52,Media,Saludable
+267,Juan Manuel,3939.56,21.08,Baja,En observacion
+268,Belén,3958.69,20.82,Media,Saludable
+269,Salud,2758.22,22.45,Media,En observacion
+270,Elvira,2527.57,23.24,Media,En observacion
+271,Teo,4332.76,20.31,Media,Saludable
+272,Héctor,4335.4,19.46,Baja,En observacion
+273,Úrsula,4534.75,20.5,Baja,En observacion
+274,Calista,4696.34,18.31,Baja,En observacion
+275,Marisol,3289.7,19.41,Media,Saludable
+276,Luna,3255.31,21.61,Baja,En observacion
+277,Jenny,4294.03,18.0,Media,Saludable
+278,Herberto,3774.87,19.92,Baja,En observacion
+279,Leyre,3956.88,19.11,Media,Saludable
+280,Mateo,4285.27,18.13,Media,Saludable
+281,Sabas,4615.02,19.66,Baja,En observacion
+282,Hilda,2682.98,25.82,Media,En observacion
+283,Florentina,2814.54,24.81,Media,En observacion
+284,Raúl,1828.94,31.13,Media,En riesgo
+285,Urbano,3523.98,20.91,Media,Saludable
+286,Trinidad,1625.8,30.46,Baja,En riesgo
+287,Asunción,3129.59,22.18,Media,En observacion
+288,Vito,3399.26,20.88,Media,Saludable
+289,Dionisio,2502.89,26.63,Media,En riesgo
+290,Jose Miguel,3567.92,22.33,Media,En observacion
+291,Jafet,1606.75,30.48,Media,En riesgo
+292,Bernardo,1630.72,27.29,Baja,En riesgo
+293,Nilo,4379.1,17.42,Media,Saludable
+294,Alfonso,2760.67,20.11,Media,Saludable
+295,Dionisia,1944.71,28.54,Baja,En riesgo
+296,Casandra,3327.85,21.11,Media,Saludable
+297,Jeremías,4194.98,20.83,Baja,En observacion
+298,Dionisia,2255.37,23.19,Baja,En observacion
+299,Isidro,3680.12,21.83,Media,Saludable
+300,Adrián,1798.72,28.67,Baja,En riesgo
+301,Calisto,1680.89,31.1,Media,En riesgo
+302,Laura,3359.74,21.19,Media,Saludable
+303,Evangelina,3392.22,19.39,Baja,En observacion
+304,Benigno,3731.0,19.01,Media,Saludable
+305,Jenaro,4041.32,19.12,Media,Saludable
+306,Borja,4915.48,18.01,Media,Saludable
+307,Vicenta,3307.05,21.92,Media,Saludable
+308,Amílcar,2630.35,21.75,Media,Saludable
+309,Rosalina,4283.15,18.97,Media,Saludable
+310,Natalio,2447.91,23.55,Baja,En observacion
+311,Calisto,3036.4,22.76,Baja,En observacion
+312,Aroa,1774.6,27.2,Baja,En riesgo
+313,Jordán,1588.73,30.77,Media,En riesgo
+314,León,4869.27,19.77,Baja,En observacion
+315,Haydée,4425.93,18.96,Media,Saludable
+316,Amalia,3935.91,18.29,Baja,En observacion
+317,Iker,2931.34,21.79,Media,Saludable
+318,Calista,2106.53,25.87,Media,En observacion
+319,Eligio,2047.53,28.69,Baja,En riesgo
+320,Loreto,2375.85,26.91,Media,En riesgo
+321,Sofía,3422.29,23.02,Media,En observacion
+322,Concepción,4001.09,19.34,Baja,En observacion
+323,Corona,3810.69,19.23,Baja,En observacion
+324,Ainara,2479.77,23.75,Media,En observacion
+325,Jose Carlos,4842.03,18.6,Media,Saludable
+326,Milagros,4082.64,19.71,Baja,En observacion
+327,Ainara,3440.24,23.3,Baja,En observacion
+328,Noemí,3641.02,20.35,Baja,En observacion
+329,Santos,2968.6,22.39,Media,En observacion
+330,Goyo,2367.06,25.67,Media,En observacion
+331,Ciríaco,2745.9,22.29,Media,En observacion
+332,Cleto,4152.46,21.23,Baja,En observacion
+333,Genoveva,1550.38,31.13,Media,En riesgo
+334,Tomás,1906.25,27.16,Media,En riesgo
+335,Paulino,1661.01,30.19,Baja,En riesgo
+336,Teo,1642.55,31.73,Media,En riesgo
+337,Segismundo,4494.11,19.01,Baja,En observacion
+338,Adelia,3962.8,20.87,Media,Saludable
+339,Rosario,3159.61,22.42,Baja,En observacion
+340,Luisina,1842.42,30.03,Baja,En riesgo
+341,Baltasar,3220.66,23.59,Media,En observacion
+342,Ignacia,3157.15,21.78,Baja,En observacion
+343,Francisca,2106.21,28.63,Baja,En riesgo
+344,Flavia,3018.48,21.23,Media,Saludable
+345,Clímaco,2894.77,20.59,Media,Saludable
+346,Benjamín,3655.48,21.43,Media,Saludable
+347,Samuel,3722.83,21.53,Baja,En observacion
+348,Luisa,1658.56,31.27,Media,En riesgo
+349,Norberto,2811.14,24.36,Media,En observacion
+350,Nereida,3690.51,19.31,Baja,En observacion
+351,Rosalva,3260.98,20.52,Media,Saludable
+352,César,4497.71,19.5,Media,Saludable
+353,Jose Ramón,3805.43,18.47,Media,Saludable
+354,Gregorio,2070.27,26.57,Baja,En riesgo
+355,Goyo,1746.99,29.27,Media,En riesgo
+356,Brunilda,3748.47,19.87,Media,Saludable
+357,Vidal,1592.79,30.36,Media,En riesgo
+358,Enrique,3550.21,19.12,Media,Saludable
+359,Telmo,4790.81,20.02,Baja,En observacion
+360,Gervasio,3514.16,20.97,Media,Saludable
+361,León,2858.59,22.95,Media,En observacion
+362,Óscar,3751.51,20.25,Baja,En observacion
+363,Josep,3103.89,20.86,Media,Saludable
+364,Sandra,3409.66,21.33,Baja,En observacion
+365,Águeda,4795.13,18.44,Media,Saludable
+366,Carlos,2851.36,24.04,Media,En observacion
+367,Venceslás,4864.17,19.71,Media,Saludable
+368,Nuria,4668.73,17.96,Media,Saludable
+369,Rosalva,2185.27,26.51,Media,En riesgo
+370,Roberta,1742.76,30.55,Baja,En riesgo
+371,Carmelita,1852.72,29.01,Baja,En riesgo
+372,Clímaco,1563.78,30.35,Media,En riesgo
+373,Aureliano,1830.55,27.94,Baja,En riesgo
+374,Florinda,3890.52,20.55,Media,Saludable
+375,Calixta,1749.16,28.2,Media,En riesgo
+376,Piedad,2616.41,23.61,Media,En observacion
+377,Albino,4457.06,19.51,Media,Saludable
+378,Ciro,1581.45,33.56,Media,En riesgo
+379,Ángeles,4350.64,19.04,Media,Saludable
+380,Marisa,2486.49,24.3,Baja,En observacion
+381,Reina,1913.58,30.55,Media,En riesgo
+382,Jordi,3938.58,19.78,Media,Saludable
+383,Flavio,3701.3,19.1,Media,Saludable
+384,Santos,4571.15,17.27,Baja,En observacion
+385,Amalia,4072.75,19.75,Media,Saludable
+386,Alicia,4312.18,18.31,Media,Saludable
+387,Ignacio,2487.12,23.73,Baja,En observacion
+388,Rosaura,2121.04,26.26,Media,En riesgo
+389,Salvador,4127.15,23.12,Baja,En observacion
+390,Vanesa,4323.92,18.85,Media,Saludable
+391,Benigno,4966.77,17.98,Baja,En observacion
+392,Fidel,2944.16,23.24,Baja,En observacion
+393,Reynaldo,2802.06,23.37,Media,En observacion
+394,Abilio,4217.45,20.83,Media,Saludable
+395,Rosario,2692.81,24.22,Baja,En observacion
+396,Juan Manuel,4757.65,18.46,Media,Saludable
+397,Ángeles,4504.44,19.92,Media,Saludable
+398,Miguela,3001.48,21.24,Baja,En observacion
+399,Milagros,4128.05,19.65,Media,Saludable
+400,Wálter,4140.9,18.92,Baja,En observacion
+401,Lucho,1860.93,29.61,Baja,En riesgo
+402,Teo,4658.94,19.36,Media,Saludable
+403,Josefina,3268.38,21.14,Media,Saludable
+404,Lupe,4392.6,19.95,Media,Saludable
+405,Miguela,2620.17,22.74,Media,En observacion
+406,Cayetana,4634.33,17.23,Baja,En observacion
+407,Gisela,2862.21,21.56,Media,Saludable
+408,Lina,1537.93,32.56,Baja,En riesgo
+409,Amanda,4668.84,19.66,Baja,En observacion
+410,Fabián,1819.5,28.35,Media,En riesgo
+411,Goyo,2617.6,23.37,Baja,En observacion
+412,Manu,4825.22,17.43,Media,Saludable
+413,Isaac,4827.13,18.41,Baja,En observacion
+414,Bautista,3507.03,21.46,Baja,En observacion
+415,Cruz,3711.43,20.17,Media,Saludable
+416,Magdalena,3069.56,22.93,Media,En observacion
+417,Candela,2526.24,24.0,Media,En observacion
+418,Benjamín,2650.33,23.81,Media,En observacion
+419,Mariana,3853.81,19.39,Baja,En observacion
+420,Mauricio,4133.31,19.27,Media,Saludable
+421,Baudelio,4270.53,19.43,Baja,En observacion
+422,Aureliano,4263.66,19.13,Media,Saludable
+423,Daniela,1819.22,28.52,Media,En riesgo
+424,Albina,3230.47,21.15,Media,Saludable
+425,Ani,1701.46,30.54,Media,En riesgo
+426,Zaira,3423.35,20.1,Baja,En observacion
+427,Reyna,3045.36,21.78,Media,Saludable
+428,Bernarda,4606.96,18.37,Baja,En observacion
+429,Fausto,2728.2,22.22,Baja,En observacion
+430,Baudelio,1909.73,29.19,Media,En riesgo
+431,Apolonia,2000.47,29.28,Media,En riesgo
+432,Cecilio,4165.29,20.4,Media,Saludable
+433,Renata,3663.76,20.99,Media,Saludable
+434,Gilberto,1853.93,28.49,Media,En riesgo
+435,Bruno,1794.37,27.05,Media,En riesgo
+436,Dulce,3953.39,20.9,Baja,En observacion
+437,Borja,1754.67,30.9,Media,En riesgo
+438,Imelda,4376.51,17.84,Baja,En observacion
+439,Rosalva,3971.85,20.91,Media,Saludable
+440,Joel,1784.72,30.41,Media,En riesgo
+441,Sancho,1796.93,32.03,Media,En riesgo
+442,Dimas,4953.24,19.72,Media,Saludable
+443,Tania,2809.95,25.45,Media,En observacion
+444,Clotilde,2797.25,22.03,Baja,En observacion
+445,Jose Manuel,4344.8,19.15,Media,Saludable
+446,Cristina,4815.37,18.33,Baja,En observacion
+447,Dorotea,4951.0,18.5,Baja,En observacion
+448,Aníbal,4136.82,18.83,Media,Saludable
+449,Estefanía,2816.91,22.94,Media,En observacion
+450,Ceferino,1792.25,27.78,Media,En riesgo
+451,Simón,4220.01,19.57,Baja,En observacion
+452,Gema,3454.41,22.39,Baja,En observacion
+453,Dalila,2984.78,20.73,Media,Saludable
+454,Clara,4672.24,18.8,Media,Saludable
+455,Azeneth,1889.19,26.71,Baja,En riesgo
+456,Maximiano,3224.19,21.07,Baja,En observacion
+457,Juan Carlos,1539.74,31.44,Baja,En riesgo
+458,Hernando,3140.31,22.97,Media,En observacion
+459,Haydée,1697.06,28.57,Media,En riesgo
+460,Lilia,1915.86,28.93,Media,En riesgo
+461,Mauricio,1911.34,27.08,Baja,En riesgo
+462,Jorge,3772.24,20.28,Media,Saludable
+463,Juan Manuel,4111.16,19.82,Media,Saludable
+464,Ruy,3541.79,20.45,Media,Saludable
+465,Eleuterio,4867.6,19.64,Media,Saludable
+466,Hilda,2812.05,23.53,Media,En observacion
+467,Filomena,2499.99,23.09,Baja,En observacion
+468,Marcelo,4540.1,19.72,Media,Saludable
+469,Zacarías,2282.59,26.53,Media,En riesgo
+470,Maximiano,4871.28,19.52,Media,Saludable
+471,Úrsula,1542.54,31.37,Media,En riesgo
+472,Maricruz,4894.58,18.47,Media,Saludable
+473,Camilo,1651.06,31.78,Baja,En riesgo
+474,Agapito,4619.0,19.63,Media,Saludable
+475,Álvaro,3346.95,19.86,Baja,En observacion
+476,Ester,4975.38,19.63,Media,Saludable
+477,Chus,1758.29,29.4,Baja,En riesgo
+478,Cornelio,3438.49,20.84,Baja,En observacion
+479,Candelario,4892.56,19.01,Media,Saludable
+480,Brígida,3330.84,21.4,Media,Saludable
+481,Ignacio,3702.9,21.15,Media,Saludable
+482,Antonia,3935.12,20.59,Media,Saludable
+483,Juan Manuel,3090.89,22.56,Media,En observacion
+484,Eligio,3696.45,21.51,Baja,En observacion
+485,Paco,3545.1,22.34,Baja,En observacion
+486,Socorro,4654.05,17.01,Media,Saludable
+487,Bruno,1659.06,31.5,Media,En riesgo
+488,Serafina,2483.37,24.67,Media,En observacion
+489,Jose Ignacio,4826.44,17.53,Baja,En observacion
+490,Rafael,4615.92,17.17,Media,Saludable
+491,Lucas,3094.8,22.47,Media,En observacion
+492,Fausto,3670.46,21.17,Baja,En observacion
+493,Urbano,2470.83,24.74,Media,En observacion
+494,Perla,2158.42,27.43,Baja,En riesgo
+495,Candelaria,3122.94,21.52,Media,Saludable
+496,Juliana,2736.73,25.62,Baja,En observacion
+497,Marciano,3542.8,20.27,Media,Saludable
+498,Emma,1772.07,29.46,Media,En riesgo
+499,Noemí,4910.38,18.23,Baja,En observacion
+500,Francisca,4951.74,19.92,Media,Saludable
+501,Benigna,3943.57,20.27,Baja,En observacion
+502,Adán,3376.34,20.23,Baja,En observacion
+503,Guadalupe,2583.35,22.56,Media,En observacion
+504,Olga,4348.28,19.4,Media,Saludable
+505,Casandra,3896.56,20.32,Media,Saludable
+506,Marcelino,2069.16,26.0,Media,En observacion
+507,Gracia,4688.25,20.34,Baja,En observacion
+508,Cristóbal,4378.88,19.66,Baja,En observacion
+509,Selena,4824.3,19.45,Media,Saludable
+510,Eloy,4040.02,19.75,Media,Saludable
+511,Juan Luis,3646.95,20.94,Media,Saludable
+512,David,2963.85,22.25,Media,En observacion
+513,Tania,4764.55,19.56,Baja,En observacion
+514,Custodio,4531.22,19.23,Media,Saludable
+515,Manuelita,1658.27,32.93,Media,En riesgo
+516,Carolina,1592.28,32.36,Media,En riesgo
+517,Fabricio,2817.62,22.08,Media,En observacion
+518,Lalo,4336.94,20.25,Baja,En observacion
+519,Lope,4955.47,18.68,Media,Saludable
+520,Elodia,2026.46,26.28,Media,En riesgo
+521,Humberto,3579.46,20.77,Media,Saludable
+522,Liliana,2833.12,23.49,Media,En observacion
+523,Olegario,4894.7,18.66,Media,Saludable
+524,Herminio,4447.42,19.67,Baja,En observacion
+525,Jacinta,4434.15,18.7,Baja,En observacion
+526,Fabiana,3140.43,22.55,Baja,En observacion
+527,Reyna,2951.87,24.13,Baja,En observacion
+528,Juan Luis,2456.92,24.39,Baja,En observacion
+529,Anselma,1697.31,31.81,Media,En riesgo
+530,Amaya,4526.53,19.32,Media,Saludable
+531,José,4345.15,19.42,Media,Saludable
+532,Vicenta,4999.01,19.92,Media,Saludable
+533,Vilma,4988.23,17.53,Media,Saludable
+534,Raquel,3444.01,21.8,Media,Saludable
+535,Aurelio,4191.46,20.19,Baja,En observacion
+536,Cirino,4806.68,17.82,Baja,En observacion
+537,Fabiana,4473.77,18.91,Media,Saludable
+538,Teo,2365.72,24.39,Media,En observacion
+539,Paula,3076.9,22.18,Baja,En observacion
+540,Leonel,1952.06,30.3,Media,En riesgo
+541,Arsenio,4839.18,19.66,Media,Saludable
+542,Abraham,3621.61,21.55,Media,Saludable
+543,Nazario,2300.25,22.66,Baja,En observacion
+544,María Manuela,3850.95,20.56,Media,Saludable
+545,Eladio,3663.45,22.75,Media,En observacion
+546,Febe,2753.57,21.9,Media,Saludable
+547,Juan Francisco,1897.45,28.02,Baja,En riesgo
+548,Felix,3850.51,19.05,Baja,En observacion
+549,Manuela,3321.08,21.92,Baja,En observacion
+550,Vasco,4203.11,18.01,Media,Saludable
+551,Carmen,3320.57,20.86,Media,Saludable
+552,Julieta,4482.64,18.52,Baja,En observacion
+553,Teófilo,3431.67,21.52,Media,Saludable
+554,Chelo,3463.28,20.59,Baja,En observacion
+555,Agapito,4568.29,19.0,Media,Saludable
+556,Dani,2912.19,22.94,Media,En observacion
+557,Carlos,1969.05,27.11,Baja,En riesgo
+558,Sol,1600.74,31.64,Media,En riesgo
+559,Jessica,4142.98,19.64,Baja,En observacion
+560,Vera,3671.08,19.46,Media,Saludable
+561,Eustaquio,3964.28,20.83,Baja,En observacion
+562,Caridad,2245.37,23.9,Baja,En observacion
+563,Andrés Felipe,1977.3,27.13,Media,En riesgo
+564,Perlita,1550.91,30.49,Media,En riesgo
+565,Rafael,2727.06,24.22,Baja,En observacion
+566,Dafne,3564.71,21.37,Baja,En observacion
+567,Carmina,2872.85,23.11,Media,En observacion
+568,Eusebio,3031.16,23.42,Media,En observacion
+569,Tito,4664.56,18.72,Media,Saludable
+570,Edu,2718.89,21.88,Baja,En observacion
+571,Ariel,3298.96,21.85,Media,Saludable
+572,Mario,4242.79,18.78,Media,Saludable
+573,Pánfilo,2887.9,21.82,Media,Saludable
+574,Trini,3677.3,19.98,Baja,En observacion
+575,Natividad,4518.27,19.13,Media,Saludable
+576,Rosalinda,4823.32,18.93,Baja,En observacion
+577,Aníbal,2014.76,26.49,Media,En riesgo
+578,Trini,4743.06,17.51,Media,Saludable
+579,Pepito,3222.41,21.1,Media,Saludable
+580,Humberto,2403.86,25.6,Media,En observacion
+581,Isabel,3106.98,22.23,Media,En observacion
+582,Josep,4930.11,18.2,Media,Saludable
+583,Griselda,3224.16,22.15,Media,En observacion
+584,Cristian,2650.63,21.7,Media,Saludable
+585,Paulino,3716.9,22.08,Media,En observacion
+586,Melisa,2340.51,25.36,Media,En observacion
+587,Charo,1765.52,30.3,Media,En riesgo
+588,Soledad,1951.08,28.48,Media,En riesgo
+589,Sandra,1948.16,29.56,Baja,En riesgo
+590,Santos,2031.66,26.86,Media,En riesgo
+591,Estela,1985.9,28.85,Media,En riesgo
+592,Maribel,3743.06,20.26,Media,Saludable
+593,Fabián,2136.58,26.06,Baja,En riesgo
+594,Ángela,2709.84,24.22,Baja,En observacion
+595,Jordi,4638.76,20.45,Baja,En observacion
+596,Rosaura,3158.87,21.74,Baja,En observacion
+597,Fermín,3836.45,21.61,Baja,En observacion
+598,Nereida,2103.12,25.72,Media,En observacion
+599,Obdulia,2173.01,28.18,Media,En riesgo
+600,Galo,1643.04,31.29,Baja,En riesgo
+601,Socorro,2091.27,29.29,Media,En riesgo
+602,Seve,2475.07,23.55,Baja,En observacion
+603,Amador,2119.54,26.03,Media,En riesgo
+604,Gastón,1810.46,29.16,Baja,En riesgo
+605,Maite,1922.23,28.52,Media,En riesgo
+606,Ámbar,3112.73,20.05,Baja,En observacion
+607,Nazaret,2222.17,25.23,Media,En observacion
+608,Micaela,2774.94,23.32,Media,En observacion
+609,Sergio,3261.96,21.38,Baja,En observacion
+610,Nidia,3916.38,21.22,Media,Saludable
+611,Haydée,1637.59,30.99,Media,En riesgo
+612,Rosario,4297.94,18.97,Media,Saludable
+613,Macaria,3697.65,19.47,Baja,En observacion
+614,Obdulia,1786.16,30.28,Media,En riesgo
+615,Jose Ramón,4557.53,18.6,Media,Saludable
+616,Juanito,4723.05,19.31,Baja,En observacion
+617,Feliciano,1713.77,29.61,Baja,En riesgo
+618,Mirta,2469.07,23.47,Media,En observacion
+619,Judith,4321.7,19.69,Media,Saludable
+620,Cándido,4118.91,20.76,Media,Saludable
+621,Roberto,2145.82,25.62,Media,En observacion
+622,Salud,2232.72,25.46,Baja,En observacion
+623,Antonio,2796.65,21.3,Media,Saludable
+624,Rosa María,3195.83,21.86,Media,Saludable
+625,Adoración,3663.89,20.65,Media,Saludable
+626,Iván,2791.2,21.57,Media,Saludable
+627,Heraclio,3118.87,21.7,Media,Saludable
+628,Olga,4116.15,19.26,Media,Saludable
+629,Zaida,1628.39,30.45,Media,En riesgo
+630,Édgar,2383.53,25.12,Media,En observacion
+631,Pancho,3996.72,20.65,Media,Saludable
+632,Marcos,4633.22,19.5,Baja,En observacion
+633,Otilia,3290.87,20.97,Media,Saludable
+634,Natalia,3362.4,19.42,Baja,En observacion
+635,Salomé,1875.1,29.44,Baja,En riesgo
+636,Javier,3065.94,22.85,Baja,En observacion
+637,Jacinto,3364.16,20.47,Baja,En observacion
+638,Amado,2348.65,26.25,Baja,En riesgo
+639,Georgina,2442.35,25.1,Media,En observacion
+640,Guadalupe,2820.49,19.97,Baja,En observacion
+641,Sabas,1570.25,28.6,Baja,En riesgo
+642,Nando,2627.28,24.23,Media,En observacion
+643,León,2240.07,25.46,Media,En observacion
+644,Rosaura,2646.24,23.28,Baja,En observacion
+645,Buenaventura,1919.17,28.23,Media,En riesgo
+646,María Teresa,4616.85,17.64,Media,Saludable
+647,León,3577.57,20.52,Media,Saludable
+648,Pascual,3876.86,18.22,Media,Saludable
+649,Felipa,4262.1,17.97,Media,Saludable
+650,Araceli,3244.55,21.83,Baja,En observacion
+651,Salomón,1804.22,29.79,Baja,En riesgo
+652,Iris,3379.87,22.59,Media,En observacion
+653,Pía,3553.94,21.25,Media,Saludable
+654,Brunilda,4109.04,20.14,Media,Saludable
+655,Natanael,3010.81,22.92,Media,En observacion
+656,Amaro,1946.53,28.56,Media,En riesgo
+657,David,2493.22,23.51,Media,En observacion
+658,Saturnina,2770.79,22.26,Media,En observacion
+659,Juan Carlos,3760.71,22.62,Baja,En observacion
+660,Gaspar,3497.72,20.85,Baja,En observacion
+661,Custodia,2746.34,24.46,Media,En observacion
+662,Juan Manuel,4952.8,18.54,Media,Saludable
+663,Antonio,3620.21,21.72,Baja,En observacion
+664,César,2330.29,25.59,Baja,En observacion
+665,Débora,1856.24,29.45,Media,En riesgo
+666,Toño,2035.01,28.53,Media,En riesgo
+667,Onofre,2360.85,25.59,Baja,En observacion
+668,Luisina,2062.38,26.57,Baja,En riesgo
+669,Miriam,2152.98,27.93,Baja,En riesgo
+670,Mauricio,2497.83,25.01,Media,En observacion
+671,Tristán,2106.81,26.31,Media,En riesgo
+672,Eloísa,4638.68,19.45,Media,Saludable
+673,Ariadna,1780.82,30.29,Baja,En riesgo
+674,David,3335.79,21.61,Media,Saludable
+675,Rogelio,2936.39,21.16,Media,Saludable
+676,Trinidad,4938.33,18.93,Media,Saludable
+677,Corona,1892.14,28.95,Baja,En riesgo
+678,Goyo,2892.49,23.42,Baja,En observacion
+679,José Manuel,4893.15,17.01,Media,Saludable
+680,Arsenio,4529.27,19.07,Media,Saludable
+681,Leandra,4359.75,20.03,Media,Saludable
+682,Tristán,2402.66,24.67,Media,En observacion
+683,Abel,2098.11,27.72,Media,En riesgo
+684,Aurora,3840.25,19.71,Baja,En observacion
+685,Ángela,4752.82,18.95,Media,Saludable
+686,Noelia,3448.67,19.65,Media,Saludable
+687,Bárbara,3500.64,19.2,Baja,En observacion
+688,Jacinta,2479.93,23.77,Media,En observacion
+689,Loida,4193.23,17.74,Media,Saludable
+690,Manuela,2154.65,27.05,Media,En riesgo
+691,Maite,2632.88,22.61,Media,En observacion
+692,Herminia,2989.03,21.93,Baja,En observacion
+693,Haroldo,3276.64,21.47,Media,Saludable
+694,Prudencio,2348.43,24.3,Baja,En observacion
+695,Tomás,1901.93,28.11,Media,En riesgo
+696,Buenaventura,3637.17,20.04,Media,Saludable
+697,Graciana,2510.21,24.52,Media,En observacion
+698,Zoraida,3534.33,20.8,Media,Saludable
+699,Natalio,2040.27,26.68,Baja,En riesgo
+700,Estrella,3183.99,21.68,Media,Saludable
+701,Mauricio,3364.06,22.62,Media,En observacion
+702,Gracia,1681.38,29.57,Media,En riesgo
+703,Regina,2678.11,24.09,Media,En observacion
+704,Edelmiro,1970.45,28.34,Media,En riesgo
+705,Lola,1721.81,29.84,Baja,En riesgo
+706,Trinidad,4964.86,19.32,Media,Saludable
+707,Marcelo,2628.24,23.96,Media,En observacion
+708,Anunciación,4334.56,18.92,Media,Saludable
+709,Martin,2391.24,24.59,Media,En observacion
+710,Griselda,3885.26,18.35,Media,Saludable
+711,Sebastian,4160.8,17.04,Media,Saludable
+712,Nacho,3584.74,20.42,Baja,En observacion
+713,Samuel,3150.52,20.74,Baja,En observacion
+714,Josefina,2941.44,21.2,Media,Saludable
+715,Manolo,2721.04,22.09,Baja,En observacion
+716,Casandra,4753.35,18.99,Media,Saludable
+717,Edu,4407.17,19.85,Media,Saludable
+718,Gregorio,4877.59,18.73,Baja,En observacion
+719,Sosimo,1935.04,28.24,Media,En riesgo
+720,Graciana,4058.04,19.32,Media,Saludable
+721,Reynaldo,4784.19,18.41,Media,Saludable
+722,Inés,2134.32,24.38,Media,En observacion
+723,Marianela,1732.74,30.68,Baja,En riesgo
+724,Vanesa,4093.92,21.95,Baja,En observacion
+725,Félix,3510.66,20.41,Media,Saludable
+726,Encarnación,4446.4,19.66,Baja,En observacion
+727,Cloe,1989.2,26.85,Media,En riesgo
+728,Marcial,4283.44,19.1,Baja,En observacion
+729,Santiago,2205.7,25.09,Baja,En observacion
+730,Carlota,2072.8,27.5,Baja,En riesgo
+731,Perla,2074.93,27.81,Baja,En riesgo
+732,Aarón,4351.01,19.49,Media,Saludable
+733,Marco,3828.19,20.66,Media,Saludable
+734,Luciano,3330.73,19.53,Baja,En observacion
+735,Humberto,2755.91,22.22,Baja,En observacion
+736,Tito,4570.2,19.56,Baja,En observacion
+737,Mireia,2873.56,21.06,Media,Saludable
+738,Cruz,4358.1,17.96,Media,Saludable
+739,Elvira,3036.97,22.46,Media,En observacion
+740,Fátima,2819.31,23.07,Baja,En observacion
+741,Modesto,3119.38,21.83,Media,Saludable
+742,Adela,2554.82,22.71,Media,En observacion
+743,Vasco,4116.63,18.1,Media,Saludable
+744,Vasco,3259.52,21.95,Media,Saludable
+745,Imelda,2312.74,27.44,Media,En riesgo
+746,Ignacio,4648.51,19.31,Media,Saludable
+747,Ariadna,2843.62,21.53,Media,Saludable
+748,Ainara,3402.44,19.9,Baja,En observacion
+749,Nadia,4672.65,18.41,Media,Saludable
+750,Valentina,3684.83,19.53,Media,Saludable
+751,Natividad,1909.14,28.48,Baja,En riesgo
+752,Magdalena,4789.41,18.56,Baja,En observacion
+753,Fortunato,3696.98,19.75,Baja,En observacion
+754,Genoveva,2672.17,24.59,Media,En observacion
+755,Cesar,1987.45,26.98,Media,En riesgo
+756,Loreto,4279.09,19.55,Media,Saludable
+757,Aránzazu,3670.25,19.79,Media,Saludable
+758,Gracia,3367.11,21.59,Media,Saludable
+759,Evita,4628.62,18.39,Media,Saludable
+760,Estefanía,4260.09,20.95,Media,Saludable
+761,Nico,2030.86,27.05,Baja,En riesgo
+762,Ciro,2591.03,21.13,Media,Saludable
+763,Olivia,2369.71,24.61,Media,En observacion
+764,Maricruz,4103.81,20.62,Media,Saludable
+765,Joel,1617.36,30.65,Media,En riesgo
+766,Hortensia,3494.61,20.78,Media,Saludable
+767,Martín,4168.61,18.25,Media,Saludable
+768,Jafet,4568.68,18.15,Media,Saludable
+769,Noelia,2697.29,25.31,Media,En observacion
+770,Heliodoro,4374.4,18.68,Media,Saludable
+771,Eugenio,1887.21,27.55,Baja,En riesgo
+772,Amador,4462.58,19.72,Media,Saludable
+773,Arturo,1946.21,26.69,Media,En riesgo
+774,Jose Ignacio,2890.51,24.3,Baja,En observacion
+775,Aitana,4290.53,19.66,Media,Saludable
+776,Emiliana,2024.71,27.96,Media,En riesgo
+777,Remedios,2302.38,26.53,Media,En riesgo
+778,María Jesús,4027.88,19.79,Media,Saludable
+779,Camilo,4020.13,18.25,Baja,En observacion
+780,Xavier,3744.02,20.17,Baja,En observacion
+781,Severino,3928.82,20.59,Media,Saludable
+782,Soraya,3399.54,20.01,Media,Saludable
+783,Eva,2381.3,24.72,Baja,En observacion
+784,Coral,2709.94,23.56,Media,En observacion
+785,Guiomar,2135.59,27.68,Media,En riesgo
+786,Lina,4679.58,18.36,Baja,En observacion
+787,Josefina,3541.87,20.11,Media,Saludable
+788,Rodrigo,2902.98,21.76,Media,Saludable
+789,Ana Belén,3117.02,23.86,Baja,En observacion
+790,Salomón,4815.49,18.17,Media,Saludable
+791,Jose Francisco,2036.73,25.58,Media,En observacion
+792,Eusebio,3551.8,19.93,Baja,En observacion
+793,Gabriela,3270.61,21.77,Media,Saludable
+794,Javiera,3640.09,18.6,Baja,En observacion
+795,Adelardo,1563.39,32.0,Baja,En riesgo
+796,Teodora,4552.43,17.3,Media,Saludable
+797,Maricela,4762.41,18.74,Baja,En observacion
+798,Rosalinda,3477.97,20.6,Baja,En observacion
+799,María Luisa,3938.28,20.47,Baja,En observacion
+800,Sonia,4728.75,18.43,Baja,En observacion
+801,Custodio,3975.34,20.4,Media,Saludable
+802,Melania,2033.89,27.04,Baja,En riesgo
+803,Teodoro,3517.01,22.42,Baja,En observacion
+804,Isidoro,3623.5,22.51,Baja,En observacion
+805,Gabriel,2984.46,21.62,Media,Saludable
+806,Nilda,4077.55,19.83,Media,Saludable
+807,Josefa,4770.28,19.63,Media,Saludable
+808,Aura,4739.49,18.74,Media,Saludable
+809,Abril,3077.94,21.98,Media,Saludable
+810,Aureliano,1896.33,29.17,Media,En riesgo
+811,Cecilia,4946.94,17.93,Media,Saludable
+812,Josep,4436.14,20.07,Baja,En observacion
+813,Yéssica,1936.32,30.18,Baja,En riesgo
+814,Regina,4722.95,18.82,Media,Saludable
+815,Domingo,4544.64,17.68,Baja,En observacion
+816,Yago,3315.93,20.92,Baja,En observacion
+817,Eliseo,3569.46,19.53,Media,Saludable
+818,Nicolasa,2896.51,22.74,Media,En observacion
+819,Abril,1691.67,29.59,Media,En riesgo
+820,Guadalupe,2673.19,23.71,Baja,En observacion
+821,Bernarda,4309.99,19.13,Media,Saludable
+822,Celia,1516.21,32.48,Baja,En riesgo
+823,Dulce,2667.25,22.98,Baja,En observacion
+824,Maximiliano,2893.59,22.22,Media,En observacion
+825,Marisol,3380.88,22.56,Media,En observacion
+826,Tatiana,4719.49,18.01,Media,Saludable
+827,Venceslás,2712.21,25.8,Baja,En observacion
+828,Emperatriz,2714.34,24.55,Media,En observacion
+829,Ofelia,4081.25,20.32,Media,Saludable
+830,Loida,3082.76,21.3,Media,Saludable
+831,Tecla,2286.12,25.66,Baja,En observacion
+832,Anna,3083.54,20.86,Baja,En observacion
+833,Teodosio,1993.0,28.5,Baja,En riesgo
+834,Paulina,2117.35,27.91,Media,En riesgo
+835,Victoria,3244.29,21.85,Media,Saludable
+836,Carlota,2966.24,21.96,Baja,En observacion
+837,Victor Manuel,4701.96,19.22,Baja,En observacion
+838,Teófila,2768.38,23.82,Media,En observacion
+839,Federico,3532.06,22.7,Media,En observacion
+840,Mar,3712.93,19.7,Media,Saludable
+841,Rosalva,1545.83,32.81,Media,En riesgo
+842,Aitana,3822.38,20.54,Media,Saludable
+843,Vinicio,2123.13,27.06,Baja,En riesgo
+844,Juan Antonio,4863.75,19.23,Media,Saludable
+845,Maricruz,2020.32,26.06,Media,En riesgo
+846,Jose Miguel,2951.18,23.1,Media,En observacion
+847,Priscila,1798.72,27.89,Baja,En riesgo
+848,Febe,4989.06,16.09,Baja,En observacion
+849,Leonel,3257.68,22.41,Media,En observacion
+850,María Dolores,3583.85,20.42,Baja,En observacion
+851,Mayte,1734.77,30.81,Media,En riesgo
+852,Azahar,4124.86,19.44,Media,Saludable
+853,Amada,2234.67,27.02,Media,En riesgo
+854,Eugenia,4643.19,18.8,Media,Saludable
+855,Jorge,2217.99,27.84,Media,En riesgo
+856,Leonardo,2167.41,27.07,Baja,En riesgo
+857,Valerio,1627.92,31.42,Baja,En riesgo
+858,Casemiro,3152.23,21.7,Media,Saludable
+859,Leyre,3476.94,20.71,Media,Saludable
+860,Lucho,1729.98,29.07,Baja,En riesgo
+861,Joel,4214.35,22.16,Media,En observacion
+862,Lalo,3086.51,22.44,Media,En observacion
+863,Nico,3335.37,20.48,Media,Saludable
+864,Miguel,3042.67,22.04,Media,En observacion
+865,Teodora,2902.67,23.51,Media,En observacion
+866,Calixta,3458.74,20.99,Baja,En observacion
+867,Cecilio,2043.34,27.31,Baja,En riesgo
+868,Emiliano,2136.75,25.06,Media,En observacion
+869,Eutropio,4516.25,19.69,Media,Saludable
+870,Jerónimo,4811.4,17.51,Media,Saludable
+871,Rodolfo,2806.58,24.58,Media,En observacion
+872,Joaquina,2447.61,24.75,Media,En observacion
+873,Ezequiel,3754.0,21.75,Media,Saludable
+874,Lara,2930.57,23.39,Media,En observacion
+875,Iker,1588.85,29.52,Media,En riesgo
+876,Bernardo,2046.53,27.82,Media,En riesgo
+877,Severino,4005.9,20.14,Media,Saludable
+878,Saturnino,3806.23,20.07,Media,Saludable
+879,Natalio,1594.84,29.71,Media,En riesgo
+880,Candela,2276.9,25.63,Media,En observacion
+881,Adelaida,2308.76,24.14,Media,En observacion
+882,Severo,3851.62,18.68,Media,Saludable
+883,Bernabé,1568.99,32.68,Media,En riesgo
+884,Hilario,1864.38,29.24,Media,En riesgo
+885,Pepita,4299.71,19.82,Media,Saludable
+886,Sosimo,2124.91,26.97,Media,En riesgo
+887,Roque,3784.61,19.94,Baja,En observacion
+888,Verónica,2333.64,26.6,Media,En riesgo
+889,María Luisa,1848.04,26.43,Media,En riesgo
+890,Daniela,2351.1,26.42,Media,En riesgo
+891,Josefa,4027.93,19.0,Media,Saludable
+892,Alex,4494.94,18.79,Media,Saludable
+893,Rocío,4405.77,18.41,Media,Saludable
+894,Silvia,2890.14,21.79,Baja,En observacion
+895,María Del Carmen,3838.3,19.33,Media,Saludable
+896,Coral,2217.45,26.01,Media,En riesgo
+897,Ricardo,2526.02,24.88,Baja,En observacion
+898,Albina,4637.18,18.77,Baja,En observacion
+899,Adolfo,1545.51,33.01,Media,En riesgo
+900,Pastor,1799.28,29.11,Media,En riesgo
+901,Marc,2227.6,26.23,Media,En riesgo
+902,Marisa,1592.86,29.88,Media,En riesgo
+903,Rosario,2135.02,25.85,Baja,En observacion
+904,Reyna,3540.65,21.37,Media,Saludable
+905,Tecla,2974.99,21.05,Media,Saludable
+906,Petrona,4624.35,18.74,Media,Saludable
+907,Simón,4361.05,18.19,Media,Saludable
+908,Bárbara,2696.36,24.22,Media,En observacion
+909,Mariana,2407.98,22.78,Baja,En observacion
+910,Macaria,2828.92,23.55,Baja,En observacion
+911,Carina,3566.03,20.19,Baja,En observacion
+912,Nereida,2438.22,25.88,Media,En observacion
+913,Elisa,3684.52,19.89,Baja,En observacion
+914,Tomasa,2932.94,23.69,Baja,En observacion
+915,Isidro,3432.17,21.84,Baja,En observacion
+916,Amarilis,3026.44,23.79,Media,En observacion
+917,Isidoro,2530.63,25.56,Media,En observacion
+918,Leandro,4819.59,18.7,Baja,En observacion
+919,Tristán,4172.62,19.54,Media,Saludable
+920,Amalia,1990.4,25.95,Baja,En observacion
+921,Ambrosio,4539.64,18.91,Media,Saludable
+922,Roque,3206.01,20.13,Media,Saludable
+923,Nicodemo,4630.93,18.07,Media,Saludable
+924,Guiomar,4299.49,19.25,Media,Saludable
+925,Iris,2988.25,22.88,Media,En observacion
+926,Nazaret,1578.64,31.9,Baja,En riesgo
+927,Sandalio,2440.37,25.13,Media,En observacion
+928,Lourdes,3395.72,18.46,Baja,En observacion
+929,Fito,3717.17,21.11,Baja,En observacion
+930,Priscila,2402.61,24.76,Media,En observacion
+931,Adelia,1987.75,26.57,Media,En riesgo
+932,Zaira,4422.26,20.54,Baja,En observacion
+933,Edu,4945.41,19.0,Baja,En observacion
+934,Esther,3339.92,21.44,Media,Saludable
+935,Bibiana,2100.88,26.0,Media,En observacion
+936,Amando,2453.08,24.36,Media,En observacion
+937,Victoria,1564.37,30.16,Media,En riesgo
+938,Rufino,4700.05,18.38,Baja,En observacion
+939,Dora,1912.13,28.94,Media,En riesgo
+940,Cintia,3517.81,21.12,Media,Saludable
+941,Gloria,2459.19,25.26,Baja,En observacion
+942,Amando,3439.62,22.44,Media,En observacion
+943,Celso,3779.97,18.91,Media,Saludable
+944,Fernanda,4404.1,19.09,Baja,En observacion
+945,Tiburcio,2222.47,25.91,Baja,En observacion
+946,Elpidio,1538.49,30.73,Baja,En riesgo
+947,Roxana,1979.1,27.24,Media,En riesgo
+948,Íñigo,4650.07,18.55,Media,Saludable
+949,Germán,4558.62,18.82,Media,Saludable
+950,Aureliano,3590.95,20.05,Baja,En observacion
+951,Juan Bautista,3601.81,21.89,Media,Saludable
+952,Reynaldo,3827.63,18.88,Media,Saludable
+953,Nacio,2113.8,24.14,Baja,En observacion
+954,Héctor,4700.44,18.97,Media,Saludable
+955,Wálter,2965.7,21.95,Baja,En observacion
+956,Nacho,2840.98,21.74,Baja,En observacion
+957,Nicolás,3316.21,21.05,Baja,En observacion
+958,María,1664.38,31.17,Baja,En riesgo
+959,Serafina,2081.99,27.31,Baja,En riesgo
+960,Reynaldo,4083.12,18.01,Media,Saludable
+961,Leopoldo,1789.8,28.53,Media,En riesgo
+962,Marina,3611.03,21.24,Baja,En observacion
+963,Paz,2358.72,26.11,Media,En riesgo
+964,Tadeo,2862.53,22.26,Baja,En observacion
+965,José Antonio,2510.43,24.77,Media,En observacion
+966,Perlita,2744.85,23.92,Media,En observacion
+967,Ceferino,4016.66,20.45,Media,Saludable
+968,Adoración,2539.93,23.75,Media,En observacion
+969,Alejo,3482.42,20.74,Media,Saludable
+970,Maribel,3166.18,20.78,Media,Saludable
+971,Calista,3822.85,21.97,Baja,En observacion
+972,Baldomero,4778.9,17.87,Media,Saludable
+973,Pancho,4064.0,17.67,Media,Saludable
+974,Jacobo,2252.29,25.17,Media,En observacion
+975,Florentina,1609.14,31.2,Baja,En riesgo
+976,Bruno,2417.92,25.09,Media,En observacion
+977,Mercedes,3582.77,21.31,Baja,En observacion
+978,Florinda,1679.99,33.25,Baja,En riesgo
+979,Apolinar,3237.28,20.86,Media,Saludable
+980,Marisela,3588.95,21.04,Media,Saludable
+981,Américo,2669.85,23.29,Media,En observacion
+982,Jose Miguel,4198.19,19.87,Baja,En observacion
+983,Heraclio,1873.09,27.66,Media,En riesgo
+984,Primitiva,1762.98,30.82,Baja,En riesgo
+985,Alex,4048.66,19.51,Media,Saludable
+986,Ester,3234.22,19.31,Media,Saludable
+987,Ezequiel,3909.41,20.67,Media,Saludable
+988,Jorge,3021.9,20.53,Media,Saludable
+989,Edmundo,2362.41,23.56,Media,En observacion
+990,Ainara,4366.86,19.62,Baja,En observacion
+991,Haydée,4297.96,18.68,Media,Saludable
+992,Darío,3931.44,19.77,Media,Saludable
+993,Cintia,2452.51,22.65,Media,En observacion
+994,Isaías,3565.81,21.21,Media,Saludable
+995,Adela,2763.41,22.04,Media,En observacion
+996,Juana,1820.54,28.61,Baja,En riesgo
+997,José María,4710.6,18.57,Media,Saludable
+998,María Fernanda,1978.87,28.14,Media,En riesgo
+999,Rafa,4825.83,17.99,Baja,En observacion
+1000,Florencio,3061.02,21.17,Baja,En observacion
+1001,Eloísa,2147.97,27.22,Media,En riesgo
+1002,Elvira,3396.65,20.4,Baja,En observacion
+1003,Mariana,4555.31,18.12,Media,Saludable
+1004,Lina,4062.79,19.49,Media,Saludable
+1005,Darío,4322.96,18.9,Baja,En observacion
+1006,Mayte,3805.74,19.66,Baja,En observacion
+1007,Olivia,3922.97,21.35,Baja,En observacion
+1008,Fernando,4472.18,20.33,Media,Saludable
+1009,María,2373.84,24.3,Media,En observacion
+1010,Cándido,3212.99,22.91,Baja,En observacion
+1011,Cristina,2274.23,25.61,Media,En observacion
+1012,Amancio,4956.84,18.37,Baja,En observacion
+1013,Úrsula,4804.21,18.62,Baja,En observacion
+1014,Mateo,1637.99,30.13,Media,En riesgo
+1015,Coral,3969.51,20.75,Media,Saludable
+1016,Inés,4738.37,18.57,Media,Saludable
+1017,Vilma,2132.01,26.15,Media,En riesgo
+1018,Remigio,3487.81,21.56,Baja,En observacion
+1019,Régulo,4704.21,16.67,Baja,En observacion
+1020,Ligia,1618.81,30.71,Media,En riesgo
+1021,Heliodoro,3940.97,19.03,Media,Saludable
+1022,Carlos,2540.72,24.45,Media,En observacion
+1023,Dora,4735.39,18.87,Baja,En observacion
+1024,Jessica,4898.7,17.22,Media,Saludable
+1025,Paulina,4804.93,17.57,Media,Saludable
+1026,Eulalia,3159.75,20.29,Media,Saludable
+1027,Jose Carlos,4517.15,18.96,Media,Saludable
+1028,Cristian,4455.92,19.83,Media,Saludable
+1029,Josefina,2616.85,23.59,Media,En observacion
+1030,María Teresa,4401.2,18.68,Media,Saludable
+1031,Marcial,1629.53,30.33,Baja,En riesgo
+1032,Remedios,3586.94,20.27,Media,Saludable
+1033,Isaura,2305.03,26.79,Media,En riesgo
+1034,Eli,1921.98,28.64,Media,En riesgo
+1035,Noa,1769.34,29.67,Media,En riesgo
+1036,Dionisio,3937.01,19.8,Media,Saludable
+1037,Natividad,2689.56,21.86,Media,Saludable
+1038,Clarisa,4036.68,20.92,Media,Saludable
+1039,Micaela,1728.75,29.29,Media,En riesgo
+1040,Ariel,2603.52,25.99,Media,En observacion
+1041,Ovidio,3388.22,19.73,Media,Saludable
+1042,Berta,4267.53,18.98,Media,Saludable
+1043,Tiburcio,2615.63,26.43,Media,En riesgo
+1044,Gisela,3690.62,19.6,Media,Saludable
+1045,Raimundo,4600.92,18.93,Media,Saludable
+1046,Bruno,3655.52,20.03,Media,Saludable
+1047,Antonia,2315.36,23.76,Media,En observacion
+1048,Flora,1585.4,28.63,Baja,En riesgo
+1049,Néstor,4545.35,17.5,Media,Saludable
+1050,Albano,1574.44,30.25,Media,En riesgo
+1051,Reina,4561.46,19.72,Media,Saludable
+1052,Sosimo,3351.28,22.5,Baja,En observacion
+1053,Pacífica,4786.74,19.16,Media,Saludable
+1054,Amelia,4295.74,20.71,Media,Saludable
+1055,Curro,4992.77,18.1,Baja,En observacion
+1056,Toribio,2727.49,23.47,Media,En observacion
+1057,Porfirio,4185.16,18.9,Baja,En observacion
+1058,Fabiola,2906.76,22.14,Media,En observacion
+1059,Tatiana,3179.56,21.09,Baja,En observacion
+1060,Patricia,3696.27,20.42,Baja,En observacion
+1061,Ángel,4557.87,19.92,Media,Saludable
+1062,Laura,4944.29,17.64,Baja,En observacion
+1063,Ezequiel,4188.96,18.83,Baja,En observacion
+1064,Trinidad,2962.18,23.14,Baja,En observacion
+1065,Gabriel,2974.75,22.89,Baja,En observacion
+1066,Macarena,4081.54,20.5,Media,Saludable
+1067,Azahara,2335.72,24.91,Baja,En observacion
+1068,Florina,1886.66,29.02,Media,En riesgo
+1069,Julián,2741.18,22.75,Media,En observacion
+1070,Encarnación,2505.34,22.99,Media,En observacion
+1071,Nuria,2537.08,23.24,Baja,En observacion
+1072,Zaira,2317.63,25.37,Baja,En observacion
+1073,Bárbara,1647.33,31.03,Media,En riesgo
+1074,Matilde,1562.56,32.92,Media,En riesgo
+1075,Alondra,4957.03,19.57,Media,Saludable
+1076,Adela,2997.21,23.18,Media,En observacion
+1077,Tristán,2845.14,21.39,Media,Saludable
+1078,Paola,3878.77,20.43,Baja,En observacion
+1079,Lupe,2263.89,27.47,Media,En riesgo
+1080,Dora,4824.86,18.81,Baja,En observacion
+1081,Julio,4252.21,18.92,Media,Saludable
+1082,Mohamed,1812.94,30.99,Media,En riesgo
+1083,Reyes,2961.53,22.87,Media,En observacion
+1084,Jose Luis,4576.91,18.13,Media,Saludable
+1085,Paulina,4806.56,17.57,Baja,En observacion
+1086,Chema,3135.91,22.15,Baja,En observacion
+1087,León,3646.94,20.38,Baja,En observacion
+1088,Socorro,2084.62,25.05,Baja,En observacion
+1089,Virgilio,4969.09,19.01,Media,Saludable
+1090,Jose Francisco,2310.85,25.29,Baja,En observacion
+1091,Maricela,4799.56,18.53,Baja,En observacion
+1092,Abril,3773.76,20.74,Media,Saludable
+1093,Clotilde,3627.08,20.74,Baja,En observacion
+1094,Emilia,3294.41,21.29,Baja,En observacion
+1095,Guiomar,2307.34,25.43,Media,En observacion
+1096,Reynaldo,2117.85,26.45,Media,En riesgo
+1097,Nicodemo,2271.7,25.89,Media,En observacion
+1098,Ambrosio,2152.53,24.72,Media,En observacion
+1099,Ana Belén,4228.55,19.63,Media,Saludable
+1100,Renata,2725.44,22.82,Media,En observacion
+1101,Moreno,1702.45,30.92,Media,En riesgo
+1102,Germán,4891.86,17.07,Media,Saludable
+1103,Amarilis,4593.25,18.19,Media,Saludable
+1104,Ibán,4747.13,19.07,Media,Saludable
+1105,Pedro,4982.18,17.87,Media,Saludable
+1106,Nayara,2108.63,25.94,Baja,En observacion
+1107,Juan,2886.85,21.88,Media,Saludable
+1108,Noé,4153.83,20.55,Baja,En observacion
+1109,Lino,3936.07,19.59,Media,Saludable
+1110,Silvia,2038.64,27.51,Media,En riesgo
+1111,Débora,4355.42,19.56,Media,Saludable
+1112,Judith,2285.54,22.99,Media,En observacion
+1113,Silvia,2283.36,25.98,Media,En observacion
+1114,Leoncio,3379.41,20.03,Media,Saludable
+1115,Cayetana,3575.29,18.76,Media,Saludable
+1116,Agustín,3530.3,23.0,Media,En observacion
+1117,Asunción,1820.2,28.28,Media,En riesgo
+1118,Graciano,4571.11,17.56,Media,Saludable
+1119,Che,2429.6,24.32,Baja,En observacion
+1120,Jose Antonio,1953.3,27.9,Media,En riesgo
+1121,Lola,4610.62,19.3,Media,Saludable
+1122,Santos,4844.78,18.32,Media,Saludable
+1123,Amaya,4517.45,18.53,Baja,En observacion
+1124,Catalina,4333.31,20.08,Media,Saludable
+1125,Marta,3793.35,19.51,Media,Saludable
+1126,Jose Angel,3428.0,21.52,Media,Saludable
+1127,Jessica,1804.45,29.44,Media,En riesgo
+1128,Alba,2929.59,22.87,Media,En observacion
+1129,Flavia,2804.41,22.71,Media,En observacion
+1130,Leonor,2409.14,26.31,Media,En riesgo
+1131,Amor,4031.97,19.63,Media,Saludable
+1132,Victorino,3235.57,21.89,Baja,En observacion
+1133,Mónica,1783.66,26.6,Media,En riesgo
+1134,Ale,2270.64,25.0,Baja,En observacion
+1135,Ciro,3891.41,17.95,Baja,En observacion
+1136,Macario,1766.46,29.46,Media,En riesgo
+1137,Ismael,4479.22,20.1,Media,Saludable
+1138,Sandalio,3233.01,21.58,Media,Saludable
+1139,Jesusa,3182.05,22.26,Media,En observacion
+1140,Jose Francisco,3573.43,21.64,Baja,En observacion
+1141,Mariano,4386.38,19.83,Baja,En observacion
+1142,Gracia,2717.33,25.44,Baja,En observacion
+1143,Cándida,3873.06,19.63,Media,Saludable
+1144,Rafa,3480.06,20.69,Baja,En observacion
+1145,Ainara,2434.6,22.73,Media,En observacion
+1146,Carolina,4575.2,18.96,Baja,En observacion
+1147,Bernarda,4290.99,19.37,Media,Saludable
+1148,Omar,3804.58,21.08,Media,Saludable
+1149,Teodoro,4477.04,20.7,Media,Saludable
+1150,Marcia,4535.53,19.3,Media,Saludable
+1151,Carmelita,3979.27,20.87,Media,Saludable
+1152,Natalio,4429.55,19.14,Media,Saludable
+1153,Pastor,3941.15,20.28,Media,Saludable
+1154,Julia,3880.49,19.09,Media,Saludable
+1155,Wilfredo,3665.14,20.33,Media,Saludable
+1156,Kike,4134.51,20.28,Media,Saludable
+1157,Mariano,2055.12,25.56,Media,En observacion
+1158,José,4583.05,17.53,Media,Saludable
+1159,Jerónimo,4551.45,19.85,Baja,En observacion
+1160,Dionisio,1602.37,31.53,Media,En riesgo
+1161,Lorena,4390.36,20.24,Baja,En observacion
+1162,Guadalupe,1951.04,28.56,Baja,En riesgo
+1163,Maximiano,2672.92,22.94,Media,En observacion
+1164,Dimas,4102.28,19.28,Media,Saludable
+1165,Manuelita,2062.66,27.43,Media,En riesgo
+1166,Blanca,4362.88,19.79,Media,Saludable
+1167,María Belén,4412.47,19.65,Media,Saludable
+1168,Jenny,3276.14,20.86,Baja,En observacion
+1169,Gil,1522.35,29.61,Baja,En riesgo
+1170,Gregorio,2504.63,25.52,Media,En observacion
+1171,Inocencio,3659.24,20.16,Media,Saludable
+1172,Mamen,4934.15,18.17,Media,Saludable
+1173,Alondra,3711.35,19.46,Media,Saludable
+1174,Leonel,2409.31,25.26,Media,En observacion
+1175,Lourdes,3719.02,21.58,Baja,En observacion
+1176,Dolores,3389.95,20.57,Media,Saludable
+1177,Martirio,4229.46,19.74,Media,Saludable
+1178,Beatriz,1874.43,28.27,Media,En riesgo
+1179,Edelmira,4163.6,19.8,Baja,En observacion
+1180,Lorenzo,3394.43,21.82,Media,Saludable
+1181,Cornelio,4870.47,17.33,Media,Saludable
+1182,Pepita,2696.55,22.54,Media,En observacion
+1183,Guillermo,3714.18,21.71,Baja,En observacion
+1184,Manu,4762.1,18.78,Baja,En observacion
+1185,Javi,1858.78,27.09,Baja,En riesgo
+1186,Poncio,4780.3,18.69,Baja,En observacion
+1187,Gastón,3907.6,21.28,Media,Saludable
+1188,Marciano,1737.43,32.49,Media,En riesgo
+1189,Alberto,2553.37,24.63,Media,En observacion
+1190,Leandra,3978.6,19.59,Media,Saludable
+1191,Bibiana,1735.73,29.8,Media,En riesgo
+1192,Edmundo,3537.6,21.2,Media,Saludable
+1193,Leocadio,2710.59,24.29,Media,En observacion
+1194,Artemio,3673.2,21.06,Media,Saludable
+1195,Baltasar,1660.1,31.62,Baja,En riesgo
+1196,Carolina,4550.38,18.37,Media,Saludable
+1197,Luís,4907.21,18.27,Baja,En observacion
+1198,José,4891.07,17.4,Media,Saludable
+1199,Edmundo,4123.78,20.07,Baja,En observacion
+1200,Felicia,1955.3,29.51,Media,En riesgo
+1201,Ruperta,4153.92,20.05,Media,Saludable
+1202,Marina,1586.05,32.5,Baja,En riesgo
+1203,Amor,1577.43,31.46,Baja,En riesgo
+1204,Cristian,2632.64,23.55,Baja,En observacion
+1205,Salud,3210.25,22.01,Baja,En observacion
+1206,Albano,4196.43,19.25,Baja,En observacion
+1207,Consuela,3891.53,18.03,Baja,En observacion
+1208,Lucas,3060.66,22.53,Media,En observacion
+1209,Adora,2457.69,23.49,Media,En observacion
+1210,Alejandra,4989.94,17.84,Media,Saludable
+1211,Valero,2991.63,22.0,Media,Saludable
+1212,Noé,3079.85,20.82,Media,Saludable
+1213,Gerónimo,2072.68,24.69,Media,En observacion
+1214,Aurelio,4281.83,19.78,Media,Saludable
+1215,José Antonio,3927.89,21.05,Media,Saludable
+1216,Rosalva,2272.69,25.16,Baja,En observacion
+1217,Ale,1788.33,30.41,Media,En riesgo
+1218,Danilo,3881.75,19.48,Baja,En observacion
+1219,Paca,3790.79,20.17,Media,Saludable
+1220,Berto,2456.41,24.67,Baja,En observacion
+1221,Salvador,4828.02,18.35,Media,Saludable
+1222,Amparo,2028.7,27.47,Baja,En riesgo
+1223,Candelario,3013.17,22.9,Media,En observacion
+1224,Corona,4802.66,17.42,Baja,En observacion
+1225,Eva,2969.05,24.03,Media,En observacion
+1226,Itziar,3734.84,19.6,Media,Saludable
+1227,Balduino,2891.58,22.51,Media,En observacion
+1228,Evaristo,2459.75,24.43,Baja,En observacion
+1229,Eustaquio,4943.92,18.86,Baja,En observacion
+1230,Obdulia,2932.67,21.0,Media,Saludable
+1231,Chus,4629.35,18.52,Baja,En observacion
+1232,Marco,2304.84,26.17,Baja,En riesgo
+1233,Che,2245.87,22.62,Media,En observacion
+1234,Jose Ramón,1608.97,32.26,Baja,En riesgo
+1235,Diego,3780.83,19.63,Baja,En observacion
+1236,Celestina,2789.84,24.1,Media,En observacion
+1237,María Cristina,4525.25,19.18,Media,Saludable
+1238,Sigfrido,3156.23,21.0,Media,Saludable
+1239,Eloísa,4888.68,18.62,Media,Saludable
+1240,Débora,2149.34,26.28,Media,En riesgo
+1241,Morena,4540.18,17.65,Baja,En observacion
+1242,Esperanza,4218.09,19.03,Media,Saludable
+1243,Jaime,4198.23,20.76,Media,Saludable
+1244,Maura,4456.74,18.75,Baja,En observacion
+1245,Azeneth,4163.58,19.7,Media,Saludable
+1246,Ricardo,3691.77,20.76,Media,Saludable
+1247,Virgilio,1959.36,28.43,Media,En riesgo
+1248,Violeta,1613.84,31.66,Media,En riesgo
+1249,Venceslás,4722.97,18.8,Baja,En observacion
+1250,Manuel,3658.28,20.2,Media,Saludable
+1251,Rosalina,4287.88,20.12,Media,Saludable
+1252,Dionisia,3185.33,22.69,Media,En observacion
+1253,Timoteo,1910.58,29.12,Media,En riesgo
+1254,Marcos,1938.15,27.23,Media,En riesgo
+1255,Cloe,3899.48,19.79,Baja,En observacion
+1256,Estela,3006.07,22.95,Baja,En observacion
+1257,Benito,2201.84,26.07,Media,En riesgo
+1258,Emilia,3220.58,22.18,Baja,En observacion
+1259,Manola,1724.73,29.37,Baja,En riesgo
+1260,Conrado,3536.9,20.23,Media,Saludable
+1261,María Carmen,2441.48,23.9,Media,En observacion
+1262,Hipólito,4291.46,16.2,Baja,En observacion
+1263,Eufemia,2586.27,23.71,Media,En observacion
+1264,Héctor,3093.27,20.74,Media,Saludable
+1265,Juan Luis,1540.67,32.66,Baja,En riesgo
+1266,Gertrudis,1753.56,29.87,Media,En riesgo
+1267,Ceferino,2873.73,21.68,Media,Saludable
+1268,Faustino,3179.79,22.57,Media,En observacion
+1269,Jose,3600.07,21.14,Media,Saludable
+1270,Fulgencio,2520.82,25.33,Media,En observacion
+1271,Carmina,3932.44,20.45,Media,Saludable
+1272,Carlito,4510.43,19.26,Media,Saludable
+1273,Faustino,4229.48,20.92,Media,Saludable
+1274,Abilio,1638.67,32.19,Baja,En riesgo
+1275,Sebastian,3181.77,17.85,Media,Saludable
+1276,Virgilio,1867.26,31.0,Media,En riesgo
+1277,Jennifer,2347.16,23.66,Baja,En observacion
+1278,Dorotea,4953.32,18.32,Baja,En observacion
+1279,Adoración,1998.73,25.31,Media,En observacion
+1280,Lupe,3246.11,20.99,Media,Saludable
+1281,Anacleto,3663.55,22.0,Media,Saludable
+1282,Jesús,3958.63,20.15,Media,Saludable
+1283,Luis,3458.77,20.62,Media,Saludable
+1284,Lara,1534.2,30.28,Media,En riesgo
+1285,Lorenzo,2642.61,23.23,Baja,En observacion
+1286,Julia,3311.99,20.84,Media,Saludable
+1287,Rosalina,1807.53,28.8,Baja,En riesgo
+1288,Wilfredo,2727.19,21.45,Baja,En observacion
+1289,Calisto,1616.21,30.71,Media,En riesgo
+1290,Jacinta,1775.02,30.34,Media,En riesgo
+1291,Joaquín,2889.23,21.18,Baja,En observacion
+1292,Ámbar,1964.51,25.74,Media,En observacion
+1293,Juan Luis,3486.39,21.55,Media,Saludable
+1294,Mirta,3913.13,20.2,Media,Saludable
+1295,Máxima,4302.05,19.66,Media,Saludable
+1296,Eufemia,2200.53,26.3,Baja,En riesgo
+1297,Dolores,2086.19,27.05,Media,En riesgo
+1298,Gisela,1865.99,27.07,Media,En riesgo
+1299,Nilda,3727.51,21.36,Media,Saludable
+1300,Hector,3972.67,20.82,Baja,En observacion
+1301,Teodoro,1610.55,31.87,Baja,En riesgo
+1302,Darío,4776.74,19.45,Media,Saludable
+1303,Candelas,1681.9,29.55,Media,En riesgo
+1304,Jafet,3394.54,20.93,Media,Saludable
+1305,Flora,3981.71,19.83,Baja,En observacion
+1306,Eustaquio,4548.39,19.61,Baja,En observacion
+1307,Violeta,3999.3,19.18,Media,Saludable
+1308,Juan Pablo,4306.05,19.01,Baja,En observacion
+1309,Pascuala,2688.08,25.59,Media,En observacion
+1310,Erasmo,4351.89,17.99,Media,Saludable
+1311,Calixto,1780.4,29.78,Media,En riesgo
+1312,Benito,4631.86,18.78,Media,Saludable
+1313,Fito,3416.57,20.65,Media,Saludable
+1314,Mónica,4360.54,18.26,Media,Saludable
+1315,Marino,3083.11,21.78,Baja,En observacion
+1316,Dulce,3752.52,20.15,Media,Saludable
+1317,Marianela,3342.41,22.01,Media,En observacion
+1318,Paloma,4060.56,21.53,Media,Saludable
+1319,Cloe,1785.7,29.15,Media,En riesgo
+1320,África,1711.23,31.55,Media,En riesgo
+1321,Luis,2364.86,25.01,Baja,En observacion
+1322,Valentín,2058.41,26.44,Media,En riesgo
+1323,Edelmiro,4551.24,17.32,Baja,En observacion
+1324,Adelina,2267.25,26.98,Media,En riesgo
+1325,Jennifer,4915.53,19.36,Baja,En observacion
+1326,Marco,2679.14,22.34,Media,En observacion
+1327,Juana,2137.41,26.68,Baja,En riesgo
+1328,Samuel,4263.94,19.82,Media,Saludable
+1329,Lalo,3805.48,20.66,Baja,En observacion
+1330,Angelita,3243.69,21.41,Media,Saludable
+1331,Calista,3443.77,21.71,Media,Saludable
+1332,Ana,4017.21,18.32,Baja,En observacion
+1333,Urbano,2299.59,25.13,Media,En observacion
+1334,Cecilio,4987.17,17.76,Media,Saludable
+1335,Elba,4911.78,17.97,Media,Saludable
+1336,Aníbal,3776.14,20.46,Media,Saludable
+1337,Tamara,2198.4,25.06,Baja,En observacion
+1338,Toni,3880.8,21.36,Media,Saludable
+1339,Macaria,1752.69,29.86,Baja,En riesgo
+1340,Mohamed,1607.28,32.2,Baja,En riesgo
+1341,Elisabet,2401.89,24.59,Media,En observacion
+1342,Josué,3119.18,21.94,Baja,En observacion
+1343,Amancio,4538.95,20.31,Media,Saludable
+1344,Ciriaco,4045.09,18.13,Media,Saludable
+1345,Jenaro,4099.47,19.25,Media,Saludable
+1346,Ileana,2989.23,21.87,Media,Saludable
+1347,Piedad,2710.77,24.2,Baja,En observacion
+1348,Rosalinda,2798.64,22.24,Baja,En observacion
+1349,Coral,4956.77,18.26,Baja,En observacion
+1350,Diana,1640.38,30.34,Baja,En riesgo
+1351,Alfonso,4534.61,20.17,Media,Saludable
+1352,María Del Carmen,3525.36,19.51,Media,Saludable
+1353,Hortensia,3035.15,22.28,Baja,En observacion
+1354,Paca,4038.4,19.71,Baja,En observacion
+1355,Julio César,3203.34,21.85,Baja,En observacion
+1356,Corona,4556.98,16.86,Media,Saludable
+1357,Apolinar,4652.46,18.94,Media,Saludable
+1358,María Carmen,2976.02,23.84,Baja,En observacion
+1359,Maristela,2468.9,24.95,Media,En observacion
+1360,Gabino,3573.23,19.71,Media,Saludable
+1361,Adoración,4693.27,17.66,Media,Saludable
+1362,Aurelia,2237.32,26.31,Baja,En riesgo
+1363,Florinda,3680.38,23.65,Media,En observacion
+1364,Vasco,3710.46,20.78,Baja,En observacion
+1365,Yésica,4065.9,19.46,Baja,En observacion
+1366,Leopoldo,1960.49,29.16,Media,En riesgo
+1367,Gerardo,4005.39,18.76,Media,Saludable
+1368,Delfina,4681.61,18.33,Baja,En observacion
+1369,Tristán,2128.89,26.36,Media,En riesgo
+1370,Fabiola,2331.4,24.2,Baja,En observacion
+1371,Odalys,4899.88,18.24,Media,Saludable
+1372,Amparo,2133.42,27.27,Media,En riesgo
+1373,Ciriaco,4490.35,19.77,Media,Saludable
+1374,Adoración,3222.97,22.41,Media,En observacion
+1375,Pablo,2365.31,24.4,Media,En observacion
+1376,Sebastian,4547.62,19.41,Media,Saludable
+1377,Nazario,3058.57,21.8,Baja,En observacion
+1378,Miguel Ángel,3301.86,21.1,Media,Saludable
+1379,Herminia,2757.32,24.84,Baja,En observacion
+1380,Cruz,3575.33,20.87,Baja,En observacion
+1381,Rosa,2072.33,26.6,Media,En riesgo
+1382,Felipe,2868.79,23.57,Baja,En observacion
+1383,Narciso,4892.94,19.51,Media,Saludable
+1384,Sergio,2403.47,24.41,Media,En observacion
+1385,Joaquina,3798.58,19.74,Media,Saludable
+1386,Ana Sofía,2638.17,23.8,Media,En observacion
+1387,Luis,4207.16,19.37,Media,Saludable
+1388,Gloria,1958.06,25.85,Media,En observacion
+1389,Salvador,4894.37,17.11,Media,Saludable
+1390,Odalys,3088.26,21.71,Baja,En observacion
+1391,Martirio,2326.18,25.29,Baja,En observacion
+1392,Carmelita,1757.24,29.9,Media,En riesgo
+1393,Angelino,2094.15,28.09,Media,En riesgo
+1394,Wálter,3319.21,22.91,Media,En observacion
+1395,Chus,2679.51,23.75,Baja,En observacion
+1396,Maxi,4401.09,19.82,Baja,En observacion
+1397,José Antonio,3008.11,24.55,Baja,En observacion
+1398,Moisés,2370.5,24.07,Baja,En observacion
+1399,David,3660.01,20.72,Baja,En observacion
+1400,María Teresa,3973.72,20.07,Media,Saludable
+1401,Sancho,2084.65,24.88,Media,En observacion
+1402,Rosaura,2086.67,25.63,Media,En observacion
+1403,Aroa,1628.35,31.04,Media,En riesgo
+1404,Paloma,4077.41,20.27,Media,Saludable
+1405,Abel,3823.32,20.2,Media,Saludable
+1406,Gema,3161.21,22.89,Baja,En observacion
+1407,Ruth,4454.6,19.13,Media,Saludable
+1408,Candela,4319.85,19.18,Media,Saludable
+1409,Óscar,3548.74,19.34,Media,Saludable
+1410,Severiano,4538.95,18.54,Baja,En observacion
+1411,Baltasar,2220.44,27.42,Baja,En riesgo
+1412,Godofredo,1891.72,27.86,Baja,En riesgo
+1413,Aura,2444.12,25.24,Media,En observacion
+1414,Porfirio,1699.8,31.4,Baja,En riesgo
+1415,Esther,3359.09,20.85,Media,Saludable
+1416,Maristela,4778.12,18.25,Media,Saludable
+1417,Andrea,1637.7,29.2,Baja,En riesgo
+1418,Eufemia,1927.38,27.22,Media,En riesgo
+1419,Vasco,3082.7,23.03,Media,En observacion
+1420,Martirio,4768.56,20.63,Media,Saludable
+1421,Aurelio,2606.55,24.55,Baja,En observacion
+1422,Herminio,3275.32,22.54,Media,En observacion
+1423,Juanito,1645.51,30.56,Media,En riesgo
+1424,Carmela,2019.2,27.93,Media,En riesgo
+1425,Eleuterio,4953.21,17.73,Media,Saludable
+1426,Áurea,4877.92,18.88,Media,Saludable
+1427,Lucio,1517.29,31.85,Baja,En riesgo
+1428,Urbano,4831.34,18.49,Media,Saludable
+1429,Silvia,3736.92,20.76,Media,Saludable
+1430,Jovita,4537.71,18.33,Media,Saludable
+1431,Amada,3091.59,22.5,Baja,En observacion
+1432,Domingo,3304.59,21.1,Media,Saludable
+1433,Ambrosio,3210.96,21.03,Media,Saludable
+1434,Eva María,3834.02,19.8,Media,Saludable
+1435,Emelina,1988.78,26.28,Media,En riesgo
+1436,Nerea,1604.91,31.01,Media,En riesgo
+1437,Jose,2577.75,23.73,Baja,En observacion
+1438,Leire,3966.38,19.31,Media,Saludable
+1439,Federico,2206.49,26.36,Media,En riesgo
+1440,María,3857.01,21.3,Baja,En observacion
+1441,Carmen,4894.69,19.26,Baja,En observacion
+1442,Alberto,1828.65,26.54,Media,En riesgo
+1443,Carmina,3854.11,20.74,Media,Saludable
+1444,Saturnino,3053.13,23.89,Media,En observacion
+1445,Ciro,4538.5,19.91,Media,Saludable
+1446,Jafet,2120.02,26.56,Media,En riesgo
+1447,Prudencia,3924.19,19.31,Baja,En observacion
+1448,Ximena,4433.4,20.54,Media,Saludable
+1449,Danilo,4806.15,20.66,Media,Saludable
+1450,Íñigo,3891.37,19.73,Baja,En observacion
+1451,Desiderio,3240.11,21.77,Media,Saludable
+1452,Flora,3662.47,20.31,Media,Saludable
+1453,Pepita,4541.17,19.02,Media,Saludable
+1454,Fabio,3497.13,17.33,Media,Saludable
+1455,Andrea,1606.35,32.65,Baja,En riesgo
+1456,Lilia,4758.32,18.16,Media,Saludable
+1457,Lupe,3913.34,20.03,Baja,En observacion
+1458,Araceli,3867.8,21.65,Baja,En observacion
+1459,Julieta,2254.86,23.5,Media,En observacion
+1460,Leandro,3806.1,19.77,Media,Saludable
+1461,Severo,2878.53,22.05,Media,En observacion
+1462,Perlita,3779.32,20.56,Media,Saludable
+1463,Almudena,1873.08,27.98,Media,En riesgo
+1464,Agustina,3802.46,18.78,Media,Saludable
+1465,Jose Francisco,4997.95,16.68,Baja,En observacion
+1466,Yago,1668.74,29.63,Baja,En riesgo
+1467,Carmen,4920.11,16.94,Media,Saludable
+1468,Espiridión,2924.18,24.44,Baja,En observacion
+1469,Rodolfo,4547.64,17.3,Media,Saludable
+1470,Graciano,4238.35,20.44,Media,Saludable
+1471,África,3484.56,21.47,Baja,En observacion
+1472,Elena,4084.57,21.15,Media,Saludable
+1473,Apolonia,4574.8,18.88,Media,Saludable
+1474,Margarita,2914.49,22.77,Baja,En observacion
+1475,Serafina,2644.62,25.06,Media,En observacion
+1476,Elías,3836.58,21.1,Media,Saludable
+1477,Rosario,4327.46,19.11,Media,Saludable
+1478,Buenaventura,4168.0,20.24,Media,Saludable
+1479,Leoncio,4292.35,18.68,Media,Saludable
+1480,María Teresa,3024.54,20.08,Media,Saludable
+1481,Montserrat,4362.42,19.9,Baja,En observacion
+1482,Ricarda,1920.73,27.5,Media,En riesgo
+1483,Severino,3405.71,22.74,Baja,En observacion
+1484,Noé,1520.16,33.58,Baja,En riesgo
+1485,Mirta,2636.05,21.83,Media,Saludable
+1486,Anunciación,2782.62,20.95,Baja,En observacion
+1487,Juanito,2886.6,23.63,Media,En observacion
+1488,Otilia,3934.14,19.26,Media,Saludable
+1489,Abilio,2859.95,23.8,Media,En observacion
+1490,Lorenzo,3070.43,23.4,Media,En observacion
+1491,Lucila,2331.4,26.44,Baja,En riesgo
+1492,Marc,2806.38,22.91,Media,En observacion
+1493,Pilar,2295.44,24.44,Media,En observacion
+1494,Diana,1756.19,29.07,Baja,En riesgo
+1495,Cruz,3612.07,20.35,Media,Saludable
+1496,Georgina,3838.74,19.61,Media,Saludable
+1497,Amelia,3668.22,21.0,Baja,En observacion
+1498,Rosenda,3122.23,21.31,Media,Saludable
+1499,Eustaquio,2829.25,21.59,Media,Saludable
+1500,Victoriano,4521.67,18.41,Media,Saludable
+1501,Bárbara,3316.79,21.45,Baja,En observacion
+1502,Alondra,3177.14,22.6,Baja,En observacion
+1503,Onofre,1589.75,30.59,Media,En riesgo
+1504,Nazaret,2694.37,22.36,Media,En observacion
+1505,Carmina,2830.68,23.18,Media,En observacion
+1506,María Carmen,2895.88,23.6,Baja,En observacion
+1507,Candelaria,3530.6,20.25,Baja,En observacion
+1508,René,3367.61,20.54,Media,Saludable
+1509,Xavier,3627.67,21.62,Media,Saludable
+1510,Modesto,4177.09,19.72,Media,Saludable
+1511,Ruth,4345.45,18.38,Media,Saludable
+1512,Gonzalo,4013.43,19.15,Media,Saludable
+1513,José,4844.33,18.81,Media,Saludable
+1514,Jorge,1563.81,30.64,Media,En riesgo
+1515,Concha,2185.22,24.53,Media,En observacion
+1516,Rodolfo,1526.47,33.57,Media,En riesgo
+1517,Joaquín,3766.16,20.1,Media,Saludable
+1518,Roberta,4643.11,18.17,Media,Saludable
+1519,Maura,2352.19,24.17,Baja,En observacion
+1520,Segismundo,4744.62,18.47,Baja,En observacion
+1521,Armando,1710.94,28.4,Media,En riesgo
+1522,Maximino,4770.53,17.42,Baja,En observacion
+1523,Marcela,2730.68,23.97,Baja,En observacion
+1524,Ainara,1854.97,27.77,Baja,En riesgo
+1525,Julieta,3200.55,23.05,Media,En observacion
+1526,Xiomara,2398.72,25.56,Media,En observacion
+1527,Obdulia,2497.06,26.17,Baja,En riesgo
+1528,Rico,2575.51,21.46,Media,Saludable
+1529,Rolando,4310.59,18.47,Baja,En observacion
+1530,Gracia,3387.06,22.2,Media,En observacion
+1531,Mónica,2589.58,24.34,Media,En observacion
+1532,Otilia,3636.17,21.21,Baja,En observacion
+1533,Florinda,4006.53,20.69,Media,Saludable
+1534,Evaristo,2454.18,22.88,Baja,En observacion
+1535,Ana Sofía,2947.42,23.25,Baja,En observacion
+1536,Angelino,1926.6,27.34,Baja,En riesgo
+1537,Edmundo,2134.02,25.52,Media,En observacion
+1538,Ani,3883.91,21.29,Baja,En observacion
+1539,Dominga,2135.03,24.47,Media,En observacion
+1540,Natanael,3338.07,21.36,Media,Saludable
+1541,Ruth,3981.66,20.89,Media,Saludable
+1542,Cornelio,1874.07,28.71,Media,En riesgo
+1543,Sandra,3485.59,20.23,Media,Saludable
+1544,Ramona,2397.97,25.19,Media,En observacion
+1545,Valerio,4870.24,19.08,Baja,En observacion
+1546,Cornelio,3192.41,23.11,Baja,En observacion
+1547,Begoña,4320.97,17.93,Media,Saludable
+1548,Visitación,3425.79,22.95,Baja,En observacion
+1549,Yago,1651.94,29.87,Baja,En riesgo
+1550,Albino,3716.03,21.2,Media,Saludable
+1551,Lorenza,4829.91,19.92,Media,Saludable
+1552,Ernesto,3605.64,20.96,Media,Saludable
+1553,Sebastián,4367.16,18.97,Baja,En observacion
+1554,Sabina,4594.72,18.44,Media,Saludable
+1555,Fátima,2298.28,24.64,Baja,En observacion
+1556,Fabián,2242.16,24.7,Media,En observacion
+1557,Carlito,3638.43,18.87,Baja,En observacion
+1558,Adora,2938.6,21.98,Baja,En observacion
+1559,Merche,4439.51,17.06,Media,Saludable
+1560,Juan Manuel,4650.08,18.83,Baja,En observacion
+1561,Nilo,2736.97,23.09,Media,En observacion
+1562,Estrella,2329.05,23.64,Media,En observacion
+1563,Jimena,4231.84,18.59,Media,Saludable
+1564,Rómulo,2461.82,24.2,Media,En observacion
+1565,Florentina,4379.15,19.0,Media,Saludable
+1566,Cecilio,2983.08,22.54,Media,En observacion
+1567,Reyes,3836.42,21.44,Media,Saludable
+1568,Nando,1834.37,28.74,Media,En riesgo
+1569,Reyes,3683.51,19.27,Media,Saludable
+1570,Ileana,3081.19,23.08,Baja,En observacion
+1571,Rosa María,3553.13,20.01,Media,Saludable
+1572,Bibiana,2088.05,27.22,Media,En riesgo
+1573,Ricardo,4079.06,18.96,Media,Saludable
+1574,Maximiliano,4519.79,18.41,Media,Saludable
+1575,Eugenia,2258.59,26.0,Baja,En observacion
+1576,Lina,1835.0,28.13,Media,En riesgo
+1577,Susana,1582.74,30.05,Baja,En riesgo
+1578,Martina,3746.9,19.88,Baja,En observacion
+1579,Amarilis,3624.83,18.86,Baja,En observacion
+1580,Salud,3413.44,22.59,Media,En observacion
+1581,Camila,2311.81,24.1,Baja,En observacion
+1582,Andrés Felipe,2868.17,19.44,Baja,En observacion
+1583,Esmeralda,3580.67,20.82,Media,Saludable
+1584,Bruno,3238.68,20.71,Baja,En observacion
+1585,Joel,4957.25,19.58,Baja,En observacion
+1586,Evangelina,1977.54,27.85,Media,En riesgo
+1587,Isaura,3933.01,18.63,Media,Saludable
+1588,África,2915.12,23.69,Media,En observacion
+1589,Lucio,2998.7,21.44,Media,Saludable
+1590,Javi,4011.59,19.71,Media,Saludable
+1591,Margarita,3923.53,18.36,Media,Saludable
+1592,Cipriano,4969.4,17.36,Media,Saludable
+1593,Toño,1949.38,27.67,Baja,En riesgo
+1594,Clímaco,1864.38,28.81,Media,En riesgo
+1595,Martirio,4035.19,20.53,Media,Saludable
+1596,Evita,3524.35,20.23,Media,Saludable
+1597,Juliana,2459.56,23.58,Media,En observacion
+1598,Salud,1777.97,28.97,Baja,En riesgo
+1599,Cornelio,1799.8,31.07,Media,En riesgo
+1600,Vicente,4629.67,19.93,Baja,En observacion
+1601,Flavio,2171.54,26.05,Baja,En riesgo
+1602,Joaquina,2631.8,24.84,Baja,En observacion
+1603,Marcelino,2293.3,26.17,Media,En riesgo
+1604,Vera,2742.49,23.07,Media,En observacion
+1605,Ambrosio,1742.98,30.48,Media,En riesgo
+1606,Arturo,3316.71,20.56,Baja,En observacion
+1607,Moreno,1736.64,32.55,Media,En riesgo
+1608,Natividad,4301.25,19.7,Media,Saludable
+1609,Basilio,2317.99,24.14,Baja,En observacion
+1610,Lázaro,3390.04,21.57,Media,Saludable
+1611,Plinio,4580.28,19.53,Media,Saludable
+1612,Reinaldo,3778.07,19.83,Media,Saludable
+1613,Tomás,3365.35,20.2,Media,Saludable
+1614,Esteban,2635.17,23.47,Media,En observacion
+1615,Jose Ignacio,2665.51,23.19,Media,En observacion
+1616,Bernarda,3843.2,20.06,Media,Saludable
+1617,Sergio,4979.49,17.01,Media,Saludable
+1618,Clarisa,3816.44,20.06,Media,Saludable
+1619,Isabel,3452.24,21.33,Media,Saludable
+1620,Mónica,4057.28,17.81,Media,Saludable
+1621,Geraldo,3128.22,22.75,Media,En observacion
+1622,Francisco,1710.5,30.34,Baja,En riesgo
+1623,Gabino,3468.04,21.19,Media,Saludable
+1624,Cayetano,4851.69,18.73,Media,Saludable
+1625,Emilia,2113.56,27.0,Media,En riesgo
+1626,Sabina,3915.02,19.19,Baja,En observacion
+1627,Roberto,2203.27,26.5,Media,En riesgo
+1628,Estefanía,3375.4,19.29,Media,Saludable
+1629,Isabela,1838.37,30.31,Media,En riesgo
+1630,Jose Angel,3076.3,22.21,Media,En observacion
+1631,Anastasia,4146.57,20.9,Media,Saludable
+1632,Ximena,2716.5,21.46,Media,Saludable
+1633,Dalila,3827.19,19.69,Media,Saludable
+1634,Eric,4284.07,18.2,Media,Saludable
+1635,Jesús,4745.12,19.33,Media,Saludable
+1636,Íñigo,2321.25,27.06,Media,En riesgo
+1637,Felicia,2897.61,24.74,Media,En observacion
+1638,José Manuel,2033.46,26.58,Media,En riesgo
+1639,Ángel,4973.69,20.36,Media,Saludable
+1640,José Mari,4744.5,18.51,Media,Saludable
+1641,Griselda,3389.85,22.23,Media,En observacion
+1642,Agapito,4447.12,19.36,Baja,En observacion
+1643,Trini,3323.35,22.29,Media,En observacion
+1644,Nilda,3682.55,21.44,Media,Saludable
+1645,Adela,1811.94,29.14,Media,En riesgo
+1646,Valentina,4143.45,19.71,Media,Saludable
+1647,Lucio,1947.0,26.1,Media,En riesgo
+1648,Inés,4391.24,19.18,Media,Saludable
+1649,Carina,4237.1,18.03,Media,Saludable
+1650,Fausto,3980.61,19.05,Baja,En observacion
+1651,Candelario,1626.56,33.46,Baja,En riesgo
+1652,Vasco,2560.95,22.47,Baja,En observacion
+1653,Onofre,2420.89,25.36,Media,En observacion
+1654,Diana,2760.48,24.91,Baja,En observacion
+1655,Marcelino,1806.75,28.61,Media,En riesgo
+1656,Feliciana,4779.35,18.37,Media,Saludable
+1657,Teobaldo,3438.31,19.18,Media,Saludable
+1658,Jenny,2569.34,22.85,Media,En observacion
+1659,Josué,2889.44,22.06,Baja,En observacion
+1660,Yago,3065.21,21.63,Media,Saludable
+1661,Ramona,3602.08,20.69,Baja,En observacion
+1662,Marciano,3304.88,20.61,Media,Saludable
+1663,Heliodoro,4717.87,19.63,Baja,En observacion
+1664,Rodrigo,3239.37,21.86,Media,Saludable
+1665,Reyna,4972.55,18.34,Media,Saludable
+1666,Almudena,4479.99,17.69,Baja,En observacion
+1667,Custodio,2229.79,24.89,Baja,En observacion
+1668,Jordi,4757.08,19.15,Media,Saludable
+1669,Rico,1907.28,26.9,Baja,En riesgo
+1670,Concha,4361.07,19.23,Media,Saludable
+1671,Plinio,2832.18,21.83,Media,Saludable
+1672,Consuelo,4572.91,19.35,Baja,En observacion
+1673,Manolo,4538.2,20.27,Media,Saludable
+1674,Juana,4320.74,19.17,Baja,En observacion
+1675,Manolo,4265.11,18.99,Media,Saludable
+1676,Alfredo,2566.38,22.86,Media,En observacion
+1677,Paula,1783.22,29.68,Media,En riesgo
+1678,Genoveva,2910.43,23.73,Baja,En observacion
+1679,Ruy,2107.34,28.54,Media,En riesgo
+1680,Leonardo,3932.33,17.65,Baja,En observacion
+1681,Adán,2711.35,23.63,Baja,En observacion
+1682,Clarisa,4914.64,19.67,Media,Saludable
+1683,Rosaura,3743.4,20.11,Baja,En observacion
+1684,Itziar,4378.68,18.68,Baja,En observacion
+1685,Mayte,1963.84,28.5,Media,En riesgo
+1686,Marcela,4517.05,19.3,Media,Saludable
+1687,Augusto,4729.65,18.93,Media,Saludable
+1688,Visitación,3204.72,23.88,Media,En observacion
+1689,Eloísa,3621.89,21.17,Media,Saludable
+1690,Marcia,4176.83,20.08,Media,Saludable
+1691,Anabel,2111.94,26.67,Media,En riesgo
+1692,Pepita,3258.98,22.75,Media,En observacion
+1693,Vera,2895.32,21.48,Media,Saludable
+1694,Vanesa,2012.31,25.03,Media,En observacion
+1695,Luciano,2786.37,23.45,Baja,En observacion
+1696,Maura,1738.6,29.59,Media,En riesgo
+1697,Nerea,1590.34,31.81,Baja,En riesgo
+1698,Jeremías,1973.08,26.25,Baja,En riesgo
+1699,Elvira,4870.9,18.85,Media,Saludable
+1700,Nidia,3423.35,22.46,Baja,En observacion
+1701,Pastor,4880.38,19.53,Media,Saludable
+1702,Isidoro,3013.74,22.71,Media,En observacion
+1703,Fanny,2591.36,22.01,Media,En observacion
+1704,Goyo,3271.5,22.17,Media,En observacion
+1705,Estela,3038.29,21.85,Media,Saludable
+1706,Josué,1869.83,28.91,Media,En riesgo
+1707,Irene,3742.89,19.45,Baja,En observacion
+1708,Marisol,2256.13,27.34,Media,En riesgo
+1709,Lorena,3668.56,20.09,Media,Saludable
+1710,María Fernanda,3775.7,22.08,Media,En observacion
+1711,Georgina,2032.09,27.57,Media,En riesgo
+1712,Isa,1714.72,29.45,Baja,En riesgo
+1713,Pili,4232.67,19.27,Media,Saludable
+1714,Emigdio,3109.3,20.71,Media,Saludable
+1715,Eusebia,1703.57,27.37,Baja,En riesgo
+1716,Cleto,4982.03,20.4,Media,Saludable
+1717,Vera,1702.23,29.37,Media,En riesgo
+1718,Eulalia,3932.62,18.5,Media,Saludable
+1719,Flavia,4942.88,18.67,Media,Saludable
+1720,Aníbal,2337.13,26.1,Media,En riesgo
+1721,Martin,1997.87,27.44,Media,En riesgo
+1722,Modesta,1924.85,29.33,Media,En riesgo
+1723,Valero,2561.46,23.6,Media,En observacion
+1724,Anastasio,1853.66,29.12,Media,En riesgo
+1725,Cruz,3922.56,19.47,Media,Saludable
+1726,Pánfilo,1718.02,31.94,Media,En riesgo
+1727,Lupita,3282.98,24.29,Media,En observacion
+1728,Eleuterio,4988.44,17.82,Media,Saludable
+1729,Cipriano,4348.9,19.58,Media,Saludable
+1730,Virginia,3653.27,19.85,Media,Saludable
+1731,Manolo,2571.89,23.55,Media,En observacion
+1732,Nacho,3683.64,20.81,Media,Saludable
+1733,Mariana,3344.65,21.06,Media,Saludable
+1734,Severo,2991.29,22.48,Media,En observacion
+1735,Gabino,1957.49,27.84,Baja,En riesgo
+1736,Herberto,4603.11,17.02,Media,Saludable
+1737,Eligio,3074.25,24.04,Media,En observacion
+1738,Miriam,2181.18,25.62,Media,En observacion
+1739,Calista,2787.16,23.95,Baja,En observacion
+1740,Sarita,2949.45,23.94,Baja,En observacion
+1741,Pío,4396.38,19.09,Media,Saludable
+1742,Bernarda,4067.65,20.03,Media,Saludable
+1743,Angélica,4192.57,17.32,Media,Saludable
+1744,Xiomara,1538.61,31.92,Media,En riesgo
+1745,Leandro,2956.54,21.4,Media,Saludable
+1746,Paulina,3184.7,21.66,Baja,En observacion
+1747,Fidel,1567.17,30.14,Media,En riesgo
+1748,José Ángel,2409.35,24.37,Media,En observacion
+1749,Xiomara,4161.01,20.12,Media,Saludable
+1750,Paloma,1979.88,27.92,Media,En riesgo
+1751,Alma,3373.59,21.33,Baja,En observacion
+1752,Noelia,2253.21,26.22,Baja,En riesgo
+1753,Manolo,1542.42,32.87,Media,En riesgo
+1754,Margarita,2344.21,24.69,Media,En observacion
+1755,Sabina,4915.56,19.92,Media,Saludable
+1756,Nilo,4305.38,18.95,Media,Saludable
+1757,Nilda,4858.52,16.22,Baja,En observacion
+1758,Darío,3207.49,22.04,Media,En observacion
+1759,Adelina,1884.08,28.24,Baja,En riesgo
+1760,Carlos,3417.86,20.95,Media,Saludable
+1761,Epifanio,3090.32,24.0,Baja,En observacion
+1762,Marisela,4455.25,20.07,Baja,En observacion
+1763,Jaime,1843.29,28.09,Baja,En riesgo
+1764,Rosalina,3208.84,21.69,Media,Saludable
+1765,Inmaculada,2025.17,26.95,Baja,En riesgo
+1766,Lourdes,2636.37,22.98,Baja,En observacion
+1767,Ileana,4080.75,20.83,Media,Saludable
+1768,Régulo,3166.06,21.23,Media,Saludable
+1769,Raquel,2815.61,21.64,Baja,En observacion
+1770,Nilda,2880.67,21.55,Media,Saludable
+1771,Cecilia,3108.06,22.89,Baja,En observacion
+1772,Pío,4247.56,20.54,Media,Saludable
+1773,Cipriano,4622.3,17.91,Media,Saludable
+1774,Morena,4843.67,17.69,Baja,En observacion
+1775,Ruperto,4254.16,19.74,Media,Saludable
+1776,Alberto,2603.92,23.06,Baja,En observacion
+1777,Juan Luis,3908.47,19.66,Media,Saludable
+1778,Brunilda,3031.61,21.28,Media,Saludable
+1779,Duilio,2391.35,24.57,Baja,En observacion
+1780,Wálter,4443.05,18.9,Media,Saludable
+1781,Rafa,1634.49,29.49,Baja,En riesgo
+1782,Hortensia,4656.17,18.86,Baja,En observacion
+1783,Marianela,3115.17,22.11,Media,En observacion
+1784,Hortensia,3730.21,19.54,Media,Saludable
+1785,Juan Francisco,3807.74,21.1,Baja,En observacion
+1786,Daniela,4632.91,19.36,Media,Saludable
+1787,Rico,3728.34,20.62,Baja,En observacion
+1788,Pacífica,3648.77,19.06,Media,Saludable
+1789,Felicia,1733.28,32.19,Media,En riesgo
+1790,Ramiro,3314.43,20.08,Media,Saludable
+1791,Cándido,2025.59,26.03,Media,En riesgo
+1792,Imelda,4081.02,20.24,Baja,En observacion
+1793,Joaquín,3292.78,21.02,Media,Saludable
+1794,Adriana,3880.8,18.47,Media,Saludable
+1795,Amador,1645.86,30.08,Baja,En riesgo
+1796,Estefanía,1796.77,29.26,Media,En riesgo
+1797,Soledad,4007.13,20.75,Baja,En observacion
+1798,Chelo,1752.3,30.22,Media,En riesgo
+1799,Nacio,1749.4,29.78,Media,En riesgo
+1800,Yolanda,1542.38,32.25,Baja,En riesgo

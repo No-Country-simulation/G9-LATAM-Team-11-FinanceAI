@@ -1,0 +1,43 @@
+# --- Control de Versiones y Editores ---
+.git
+.gitignore
+.github
+.vscode
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+.DS_Store
+
+# --- Entorno de Ciencia de Datos (Python) ---
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+**/*.pyd
+.ipynb_checkpoints
+.pytest_cache
+.tox
+.env
+
+# --- Front-End (Node.js / Vue) ---
+**/node_modules/
+**/dist/
+**/npm-debug.log*
+**/yarn-debug.log*
+**/yarn-error.log*
+.eslintcache
+
+# --- Back-End (Java / Spring Boot) ---
+**/target/
+**/.gradle/
+**/build/
+**/*.jar
+**/*.war
+
+# --- Datos Locales y Docker ---
+.dockerignore
+docker-compose.yaml
+docker-compose.yml
+pgdata/

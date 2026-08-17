@@ -30,13 +30,12 @@ public class Transaccion {
     private Usuario usuario;
 
 
-    public Transaccion(IngresarTransaccionDTO datos, Usuario usuario) {
+    public Transaccion(IngresarTransaccionDTO datos, Usuario usuario, String categoriaDS) {
         this.descripcion = datos.descripcion();
         this.monto = datos.monto();
-        this.categoria = datos.categoria(); //traer categoria de DS
+        this.categoria = categoriaDS; //obtendra la categoria desde el onnx de DS
         this.fecha = datos.fecha();
 
         this.usuario = usuario;
-
     }
 }

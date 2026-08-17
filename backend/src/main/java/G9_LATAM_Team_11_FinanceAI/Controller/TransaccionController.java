@@ -1,10 +1,12 @@
 package G9_LATAM_Team_11_FinanceAI.Controller;
 
+import G9_LATAM_Team_11_FinanceAI.DTO.CategoriaDTOs.RespuestaCategoriaDTO;
 import G9_LATAM_Team_11_FinanceAI.DTO.TransaccionDTOs.ActualizarTransaccionDTO;
 import G9_LATAM_Team_11_FinanceAI.DTO.TransaccionDTOs.DetallesTransaccionFiltradaDTO;
 import G9_LATAM_Team_11_FinanceAI.DTO.TransaccionDTOs.IngresarTransaccionDTO;
 import G9_LATAM_Team_11_FinanceAI.DTO.TransaccionDTOs.TransaccionFiltradaDTO;
 import G9_LATAM_Team_11_FinanceAI.domain.Service.TransacionService;
+import G9_LATAM_Team_11_FinanceAI.domain.transaccion.Transaccion;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -28,9 +30,11 @@ public class TransaccionController {
     @PostMapping
     public ResponseEntity<?> ingresarTransaccion(@RequestBody @Valid IngresarTransaccionDTO datos){
 
-        transaccionService.ingresarTransaccion(datos);
+        Transaccion transaccionGuardada = transaccionService.ingresarTransaccion(datos);
 
-        return ResponseEntity.status(HttpStatus.CREATED).body(datos);
+        var respuesta = new RespuestaCategoriaDTO(transaccionGuardada);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(respuesta);
     }
     @Transactional
     @PostMapping("/rangos")

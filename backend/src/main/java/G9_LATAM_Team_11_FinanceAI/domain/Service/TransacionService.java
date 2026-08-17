@@ -1,5 +1,6 @@
 package G9_LATAM_Team_11_FinanceAI.domain.Service;
 
+import G9_LATAM_Team_11_FinanceAI.DTO.CategoriaDTOs.SolicitudCategoriaDTO;
 import G9_LATAM_Team_11_FinanceAI.DTO.TransaccionDTOs.ActualizarTransaccionDTO;
 import G9_LATAM_Team_11_FinanceAI.DTO.TransaccionDTOs.DetallesTransaccionFiltradaDTO;
 import G9_LATAM_Team_11_FinanceAI.DTO.TransaccionDTOs.IngresarTransaccionDTO;
@@ -25,6 +26,8 @@ public class TransacionService {
     @Autowired
     private IUsuarioRepository usuarioRepository;
 
+    @Autowired
+    private DataScienceModelService dataScienceService;
 
     public Transaccion ingresarTransaccion(IngresarTransaccionDTO datos){
 
@@ -40,14 +43,15 @@ public class TransacionService {
             throw new ValidationException("No tiene suficiente ingreso para hacer esta transferencia.");
         }
 
-        var transaccion  = crearTransaccion(datos, usuario);
+        //obtener la categoria
+        SolicitudCategoriaDTO solicitud = new SolicitudCategoriaDTO(datos);
+        String categoriaObtenida = dataScienceService.obtenerCategoria(solicitud);
 
+        //crea la transaccion con la categoria
+        var transaccion  = crearTransaccion(datos, usuario, categoriaObtenida);
 
         descontarMontoDelIngresoMensual(usuario, datos);
-
-
         return transaccionRepository.save(transaccion);
-
     }
 
     //Validación para que un mismo usuario no pueda ingresar transacciones con los datos repetidos.
@@ -70,8 +74,8 @@ public class TransacionService {
                 .orElseThrow(() -> new EntityNotFoundException("Usuario no existe"));
     }
 
-    private Transaccion crearTransaccion(IngresarTransaccionDTO datos, Usuario usuario) {
-        return new Transaccion(datos, usuario);
+    private Transaccion crearTransaccion(IngresarTransaccionDTO datos, Usuario usuario, String categoria) {
+        return new Transaccion(datos, usuario, categoria);
     }
 
 
