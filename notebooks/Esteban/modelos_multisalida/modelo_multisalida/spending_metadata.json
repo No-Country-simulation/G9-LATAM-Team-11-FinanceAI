@@ -1,0 +1,49 @@
+{
+  "model_name": "multi_output_spending_model",
+  "model_version": "1.0.0",
+  "input_features": [
+    "Alimentacion",
+    "Educacion",
+    "Electrodomesticos",
+    "Inversion",
+    "Ocio",
+    "Salud",
+    "Servicios",
+    "Transporte",
+    "Vestimenta",
+    "Vivienda"
+  ],
+  "target_categories": [
+    "Alimentacion",
+    "Educacion",
+    "Electrodomesticos",
+    "Inversion",
+    "Ocio",
+    "Salud",
+    "Servicios",
+    "Transporte",
+    "Vestimenta",
+    "Vivienda"
+  ],
+  "onnx_config": {
+    "input_name": "float_input",
+    "output_name": "variable",
+    "input_shape": [
+      null,
+      10
+    ],
+    "data_type": "float32"
+  },
+  "category_mapping": {
+    "0": "Alimentacion",
+    "1": "Educacion",
+    "2": "Electrodomesticos",
+    "3": "Inversion",
+    "4": "Ocio",
+    "5": "Salud",
+    "6": "Servicios",
+    "7": "Transporte",
+    "8": "Vestimenta",
+    "9": "Vivienda"
+  }
+}
