@@ -1,0 +1,27 @@
+
+================================================================================
+INFORME TÉCNICO: EVALUACIÓN DE MODELADO MULTI-OUTPUT PARA GASTOS FINANCIEROS
+================================================================================
+
+1. RESUMEN DEL DATASET:
+   - Usuarios: 540,000 (Generados con Faker)
+   - Transacciones simuladas: 72,000,000 (CSV segmentado)
+   - Subset de entrenamiento/evaluación: 100,000 registros
+   - Target: Ranking de prioridad (0-9) en 10 categorías de gasto.
+
+2. ARQUITECTURAS EVALUADAS:
+   - Baselines Lineales: Regresión Lineal y Ridge (R² ~0.68). Limitadas por la no linealidad.
+   - Modelos Espaciales: KNN (R² ~0.76). Alta precisión pero alto costo computacional.
+   - Árboles y Ensambles: Decision Tree, Random Forest (R² ~0.77). Estables ante ruido.
+   - Boosting (Estado del Arte): Gradient Boosting y XGBoost.
+
+3. RESULTADOS DEL MODELO FINAL (XGBoost):
+   - Métrica R²: 0.9660 (Excelente ajuste a la varianza).
+   - Error Absoluto Medio (MAE): 0.20 posiciones de ranking.
+   - Tiempo de Entrenamiento: ~17 segundos (Optimización por histogramas).
+   - Estabilidad: Desviación estándar en Cross-Validation de 0.000297.
+
+4. CONCLUSIÓN TÉCNICA:
+   La arquitectura XGBoost con MultiOutputRegressor es la solución óptima, combinando 
+   la máxima precisión detectada con una eficiencia temporal superior.
+================================================================================
