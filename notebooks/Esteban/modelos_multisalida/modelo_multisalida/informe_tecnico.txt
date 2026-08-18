@@ -1,0 +1,29 @@
+===========================================================
+INFORME TÉCNICO DE IMPLEMENTACIÓN - MODELO DE GASTOS
+===========================================================
+
+Proyecto: Identificación y Priorización de Categorías de Gasto
+Algoritmo: XGBoost (MultiOutputRegressor)
+
+DESCRIPCIÓN DE ARTEFACTOS GENERADOS:
+
+1. multi_output_spending_model.onnx:
+   - Formato: ONNX (Open Neural Network Exchange)
+   - Entrada: 'float_input' (Tensor Float32, forma [None, 10])
+   - Salida: 'variable' (Tensor Float32, forma [None, 10])
+   - Propósito: Inferencia de alta velocidad para Backend (Java/Spring Boot).
+
+2. spending_metadata.json:
+   - Propósito: Contrato de datos que mapea los índices numéricos de salida
+     con las categorías reales (Alimentación, Educación, etc.).
+   - Clave crítica: 'category_mapping'.
+
+MÉTRICAS DE RENDIMIENTO:
+- R² Score (Precisión): 0.9669 (96.7%)
+- Error Absoluto Medio (MAE): ~0.20 posiciones.
+
+INSTRUCCIONES DE INTEGRACIÓN:
+- El backend debe usar la librería Microsoft ONNX Runtime.
+- Se debe cargar el JSON para interpretar dinámicamente el orden de las categorías
+  sin depender de cambios manuales en el código Java.
+===========================================================
