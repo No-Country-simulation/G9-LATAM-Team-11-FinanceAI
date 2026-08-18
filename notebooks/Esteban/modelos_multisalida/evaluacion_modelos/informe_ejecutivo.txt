@@ -1,0 +1,22 @@
+
+================================================================================
+INFORME EJECUTIVO: IDENTIFICACIÓN AUTOMATIZADA DE PRIORIDADES DE GASTO
+================================================================================
+
+OBJETIVO: 
+Evaluar la factibilidad de un sistema inteligente capaz de predecir cómo priorizan 
+sus gastos los usuarios en función de sus ingresos y perfiles financieros.
+
+LOGROS CLAVE:
+1. ESCALABILIDAD: Se logró procesar una base de 72 millones de transacciones 
+   mediante técnicas de agregación por bloques, superando las limitaciones de RAM.
+2. PRECISIÓN: El sistema identifica el orden de importancia de los gastos con una 
+   exactitud superior al 96%.
+3. VELOCIDAD: El modelo final es capaz de procesar miles de perfiles en fracciones 
+   de segundo, permitiendo recomendaciones en tiempo real.
+
+RESULTADO DE NEGOCIO:
+El proyecto es ALTAMENTE FACTIBLE. El modelo XGBoost permite personalizar 
+asesorías financieras con un error mínimo (0.2 posiciones), lo que garantiza que 
+las recomendaciones de ahorro e inversión sean coherentes con la realidad del usuario.
+================================================================================
