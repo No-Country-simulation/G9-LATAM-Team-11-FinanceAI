@@ -1,5 +1,6 @@
 package G9_LATAM_Team_11_FinanceAI.domain.Service;
 
+import G9_LATAM_Team_11_FinanceAI.DTO.CategoriaDTOs.SolicitudCategoriaDTO;
 import G9_LATAM_Team_11_FinanceAI.DTO.TransaccionDTOs.ActualizarTransaccionDTO;
 import G9_LATAM_Team_11_FinanceAI.DTO.TransaccionDTOs.DetallesTransaccionFiltradaDTO;
 import G9_LATAM_Team_11_FinanceAI.DTO.TransaccionDTOs.IngresarTransaccionDTO;
@@ -25,6 +26,8 @@ public class TransacionService {
     @Autowired
     private IUsuarioRepository usuarioRepository;
 
+    @Autowired
+    private DataScienceModelService dataScienceService;
 
     public Transaccion ingresarTransaccion(IngresarTransaccionDTO datos){
 
@@ -34,20 +37,36 @@ public class TransacionService {
 
         validarTransaccionDuplicada(datos);
 
-        BigDecimal ingreso = usuario.getIngresoMensual();
+        BigDecimal ingresoFijoMensual = usuario.getIngresoMensual();
 
-        if(ingreso == null || ingreso.compareTo(datos.monto()) <= 0 ){
+        if (ingresoFijoMensual == null) {
+            throw new ValidationException("El usuario no tiene un ingreso mensual asignado.");
+        }
+        // 1. Obtenemos mes y año de la fecha que viene en la transacción
+        int mes = datos.fecha().getMonthValue();
+        int anio = datos.fecha().getYear();
+
+        // 2. Calculamos lo gastado únicamente en ese mes y año
+        BigDecimal gastadoEnElMes = transaccionRepository.obtenerTotalGastadoEnMes(usuario.getId(), mes, anio);
+
+        // 3. Calculamos cuánto le queda disponible para este mes
+        BigDecimal saldoDisponible = ingresoFijoMensual.subtract(gastadoEnElMes);
+
+        // 4. Validamos si la nueva transacción supera lo disponible
+        if (saldoDisponible.compareTo(datos.monto()) < 0) {
             throw new ValidationException("No tiene suficiente ingreso para hacer esta transferencia.");
         }
 
-        var transaccion  = crearTransaccion(datos, usuario);
+        //obtener la categoria
+        SolicitudCategoriaDTO solicitud = new SolicitudCategoriaDTO(datos);
+        String categoriaObtenida = dataScienceService.obtenerCategoria(solicitud);
 
+        //crea la transaccion con la categoria
+        var transaccion  = crearTransaccion(datos, usuario, categoriaObtenida);
 
-        descontarMontoDelIngresoMensual(usuario, datos);
-
-
+        //borra
+        //descontarMontoDelIngresoMensual(usuario, datos);
         return transaccionRepository.save(transaccion);
-
     }
 
     //Validación para que un mismo usuario no pueda ingresar transacciones con los datos repetidos.
@@ -70,8 +89,8 @@ public class TransacionService {
                 .orElseThrow(() -> new EntityNotFoundException("Usuario no existe"));
     }
 
-    private Transaccion crearTransaccion(IngresarTransaccionDTO datos, Usuario usuario) {
-        return new Transaccion(datos, usuario);
+    private Transaccion crearTransaccion(IngresarTransaccionDTO datos, Usuario usuario, String categoria) {
+        return new Transaccion(datos, usuario, categoria);
     }
 
 
@@ -83,6 +102,7 @@ public class TransacionService {
 
     }
 
+    /*
     public void descontarMontoDelIngresoMensual(Usuario usuario, IngresarTransaccionDTO datos){
 
         if (usuario.getIngresoMensual() == null || datos.monto() == null) {
@@ -91,17 +111,20 @@ public class TransacionService {
         usuario.setIngresoMensual(usuario.getIngresoMensual().subtract(datos.monto()));
     }
 
+     */
+
     // Metodo para filtrar transacciones de usuarios por rangos de fechas
     public List<DetallesTransaccionFiltradaDTO> obtenerTransaccionesPorRango(TransaccionFiltradaDTO datos) {
-                Usuario usuario = usuarioRepository.findById(datos.idUsuario())
-                .orElseThrow(() -> new IllegalArgumentException("No se encontró la información solicitada para los parámetros ingresados."));
-
-        if (!Boolean.TRUE.equals(usuario.getActivo())) {
+        if (!usuarioRepository.existsByIdAndActivoTrue(datos.idUsuario())) {
             throw new IllegalStateException("No se logró realizar la acción solicitada.");
         }
 
         List<Transaccion> listadoTransacciones = transaccionRepository
                 .findByUsuarioIdAndFechaBetween(datos.idUsuario(), datos.desde(), datos.hasta());
+
+        if (listadoTransacciones.isEmpty()) {
+            throw new IllegalArgumentException("No se encontró la información solicitada para los parámetros ingresados.");
+        }
 
         return listadoTransacciones.stream()
                 .map(DetallesTransaccionFiltradaDTO::new)
