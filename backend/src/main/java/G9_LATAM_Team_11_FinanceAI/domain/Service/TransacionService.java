@@ -122,10 +122,6 @@ public class TransacionService {
         List<Transaccion> listadoTransacciones = transaccionRepository
                 .findByUsuarioIdAndFechaBetween(datos.idUsuario(), datos.desde(), datos.hasta());
 
-        if (listadoTransacciones.isEmpty()) {
-            throw new IllegalArgumentException("No se encontró la información solicitada para los parámetros ingresados.");
-        }
-
         return listadoTransacciones.stream()
                 .map(DetallesTransaccionFiltradaDTO::new)
                 .toList();
