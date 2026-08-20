@@ -35,8 +35,6 @@ public class TransacionService {
 
         validarUsuarioActivo(usuario);
 
-        validarTransaccionDuplicada(datos);
-
         BigDecimal ingresoFijoMensual = usuario.getIngresoMensual();
 
         if (ingresoFijoMensual == null) {
@@ -69,20 +67,6 @@ public class TransacionService {
         return transaccionRepository.save(transaccion);
     }
 
-    //Validación para que un mismo usuario no pueda ingresar transacciones con los datos repetidos.
-    public void validarTransaccionDuplicada(IngresarTransaccionDTO datos) {
-        boolean existeDuplicidad = transaccionRepository.existsByUsuarioIdAndDescripcionAndMontoAndFecha(
-                datos.idUsuario(),
-                datos.descripcion(),
-                datos.monto(),
-                datos.fecha()
-
-        );
-
-        if (existeDuplicidad) {
-            throw new ValidationException("Esta transacción ya fue ingresada al sistema.");
-        }
-    }
 
     public Usuario obtenerUsuarioPorId(Long id){
         return usuarioRepository.findById(id)
@@ -102,16 +86,6 @@ public class TransacionService {
 
     }
 
-    /*
-    public void descontarMontoDelIngresoMensual(Usuario usuario, IngresarTransaccionDTO datos){
-
-        if (usuario.getIngresoMensual() == null || datos.monto() == null) {
-            throw new ValidationException("Ingreso mensual o monto de transacción no puede ser nulo.");
-        }
-        usuario.setIngresoMensual(usuario.getIngresoMensual().subtract(datos.monto()));
-    }
-
-     */
 
     // Metodo para filtrar transacciones de usuarios por rangos de fechas
     public List<DetallesTransaccionFiltradaDTO> obtenerTransaccionesPorRango(TransaccionFiltradaDTO datos) {

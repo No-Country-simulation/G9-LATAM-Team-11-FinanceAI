@@ -2,15 +2,18 @@ package G9_LATAM_Team_11_FinanceAI.DTO.AnalisisFinancieroDTO;
 
 import G9_LATAM_Team_11_FinanceAI.domain.Models.FrecuenciaAhorro;
 import G9_LATAM_Team_11_FinanceAI.domain.analisis_financiero.AnalisisFinanciero;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public record RespuestaAnalisisFinancieroDTO(
 
         Long id,
-        LocalDate fechaDeAnalisis,
+        @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+        LocalDateTime fechaDeAnalisis,
         String fechaDeMesesAnalisis,
         String perfilFinanciero,
         BigDecimal nivelDeEndeudamiento,
