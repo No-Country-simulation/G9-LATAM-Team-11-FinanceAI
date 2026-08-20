@@ -87,16 +87,17 @@
 * **Resiliencia en carga de metadatos (`DataScienceModelService`)**:
   * *Motivo*: El servicio buscaba `root.has("categorias")` en español, mientras que `metadata.json` define la clave `"categories"`.
   * *Ajuste*: Se implementó soporte dual para leer `"categories"` o `"categorias"`.
-* **Corrección en `application.properties`**:
-  * *Motivo*: Se corrigió la errata `spring.datasource.drive-class-name` por `spring.datasource.driver-class-name` y se añadió un valor por defecto seguro a `api.security.secret`.
+* **Corrección en `application.properties` y gestión de `TOKEN_SECRETO`**:
+  * *Motivo*: Se corrigió la errata `spring.datasource.drive-class-name` por `spring.datasource.driver-class-name`. Asimismo, `TokenService.java` dependía obligatoriamente de la variable de entorno `${TOKEN_SECRETO}`, lo que provocaba que la aplicación fallara en local si el desarrollador no ejecutaba previamente `export TOKEN_SECRETO=...`.
+  * *Ajuste*: Se configuró en `application.properties` y `TokenService.java` un valor por defecto seguro de más de 32 bytes (`api.security.secret=${TOKEN_SECRETO:FinanceAI_Secret_Key_Super_Segura_2026_JWT_Token_HS256_Min}`). De esta manera, si la variable está presente en el entorno o en Docker se utiliza, y si no se encuentra, la aplicación inicia sin errores.
 * **Configuración de CORS y filtros en `ConfiguracionesDeSeguridad`**:
   * *Motivo*: Los orígenes CORS estaban restringidos a URLs rígidas de desarrollo local, lo que bloquearía el acceso desde `127.0.0.1` o IPs públicas en OCI.
   * *Ajuste*: Se configuró `setAllowedOriginPatterns`, se agregaron los métodos `PATCH` y `OPTIONS`, y se permitió explícitamente el acceso a `/error` para evitar conversiones indebidas a `403 Forbidden`.
 * **Protección del filtro `SecurityFilter`**:
   * *Motivo*: Evitar que un token expirado o un usuario inexistente genere un error interno `500` no capturado en la cadena de filtros.
-* **Consistencia de migraciones Flyway (`V4` y `V5`)**:
-  * *Motivo*: En la rama entrante se había modificado el script histórico `V4__creacion-tabla-analisisfinanciero.sql`. Modificar una migración ya ejecutada genera un error irrecuperable de `FlywayChecksumValidateException`.
-  * *Ajuste*: Se preservó `V4` en su forma original (`nivel_ahorro VARCHAR(50) NOT NULL`), que concuerda con la anotación `@Enumerated(EnumType.STRING)` de JPA, y se mantuvo `V5` para compatibilidad.
+* **Formalización de migración Flyway (`V5`) y consistencia con `V4`**:
+  * *Motivo*: El campo `nivel_ahorro` de `analisis_financiero` debe ser texto (`VARCHAR(50)`) para mapear el Enum `FrecuenciaAhorro` de Java. Si en una base de datos previa quedó como numérico (`DECIMAL`), requiere alteración. En lugar de ejecutar el comando `ALTER TABLE` a mano, debe gestionarse como migración versionada. Además, modificar retrospectivamente el archivo histórico `V4` rompe el *checksum* de Flyway en bases de datos ya inicializadas.
+  * *Ajuste*: Se formalizó la instrucción `ALTER TABLE analisis_financiero MODIFY COLUMN nivel_ahorro VARCHAR(50);` en el script versionado `V5__alter-campo-nivel-ahorro-de-analisisfinanciero.sql`, preservando `V4` intacto en su definición original (`VARCHAR(50)`). De esta forma, bases de datos nuevas y existentes se actualizan automáticamente sin intervención manual.
 * **Compatibilidad de rutas REST (`AnalisisFinancieroController`)**:
   * *Ajuste*: Se mapeó `@RequestMapping({"/analisisfinanciero", "/analisis-financiero"})` para responder a ambas convenciones de URL.
 * **Limpieza de código obsoleto**:
