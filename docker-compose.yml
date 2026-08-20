@@ -32,6 +32,7 @@ services:
       - DB_PASSWORD=${DB_PASSWORD:-dev_password}
       - SHARED_MODELS_PATH=/app/models
       - OCI_STORAGE_BUCKET=${OCI_STORAGE_BUCKET:-financeai-bucket}
+      - TOKEN_SECRETO=${TOKEN_SECRETO:-FinanceAI_Secret_Key_Super_Segura_2026_JWT_Token_HS256_Min}
       - MAVEN_OPTS=-Xmx1024m -Xms512m
     volumes:
       - ./backend:/app

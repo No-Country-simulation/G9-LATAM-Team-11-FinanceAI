@@ -1,4 +1,5 @@
 <script setup>
+import { computed } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useRouter } from 'vue-router'
 import { useAnalisisFinancieroStore } from '@/stores/analisisFinanciero'
@@ -9,6 +10,14 @@ import RecomendacionesLista from '@/components/result/RecomendacionesLista.vue'
 const router = useRouter()
 const store = useAnalisisFinancieroStore()
 const { resultado, loading, error } = storeToRefs(store)
+
+const periodoTexto = computed(() => {
+  const ahora = new Date()
+  const inicio = new Date(ahora.getFullYear(), ahora.getMonth(), 1)
+  const desde = inicio.toLocaleDateString('es-AR', { day: 'numeric', month: 'short', year: 'numeric' })
+  const hasta = ahora.toLocaleDateString('es-AR', { day: 'numeric', month: 'short', year: 'numeric' })
+  return `${desde} — ${hasta}`
+})
 
 function irAlAnalisis() {
   router.push({ name: 'analisis' })
@@ -34,6 +43,9 @@ function formatoProbabilidad(probabilidad) {
 
     <template v-else-if="resultado">
       <h1>Tu perfil financiero</h1>
+      <p class="mt-1 font-mono text-[11px] uppercase tracking-[0.12em] text-dim">
+        Período: {{ periodoTexto }}
+      </p>
 
       <section class="resultado-perfil">
         <p class="resultado-perfil-nombre">{{ resultado.perfil_financiero }}</p>
