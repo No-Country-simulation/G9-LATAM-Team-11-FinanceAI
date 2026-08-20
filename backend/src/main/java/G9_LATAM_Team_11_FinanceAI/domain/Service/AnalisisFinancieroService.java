@@ -3,9 +3,7 @@ package G9_LATAM_Team_11_FinanceAI.domain.Service;
 import G9_LATAM_Team_11_FinanceAI.DTO.AnalisisFinancieroDTO.IngresarAnalisisFinancieroDTO;
 import G9_LATAM_Team_11_FinanceAI.DTO.AnalisisFinancieroDTO.RespuestaAnalisisFinancieroDTO;
 import G9_LATAM_Team_11_FinanceAI.Repository.IAnalisisFinanciero;
-import G9_LATAM_Team_11_FinanceAI.Repository.ITransaccionRepository;
 import G9_LATAM_Team_11_FinanceAI.Repository.IUsuarioRepository;
-import G9_LATAM_Team_11_FinanceAI.domain.transaccion.Transaccion;
 import G9_LATAM_Team_11_FinanceAI.domain.Models.FrecuenciaAhorro;
 import G9_LATAM_Team_11_FinanceAI.domain.analisis_financiero.AnalisisFinanciero;
 import G9_LATAM_Team_11_FinanceAI.domain.usuario.Usuario;
@@ -15,14 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
-
-import java.math.RoundingMode;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 import java.time.LocalDate;
 import java.util.List;
