@@ -1,0 +1,82 @@
+{
+  "name": "pidtree",
+  "version": "1.0.0",
+  "description": "Cross platform children list of a PID",
+  "license": "MIT",
+  "homepage": "http://github.com/simonepri/pidtree#readme",
+  "repository": "github:simonepri/pidtree",
+  "bugs": {
+    "url": "https://github.com/simonepri/pidtree/issues",
+    "email": "simonepri@outlook.com"
+  },
+  "author": "Simone Primarosa <simonepri@outlook.com> (https://github.com/simonepri)",
+  "contributors": [
+    "Simone Primarosa <simonepri@outlook.com> (https://github.com/simonepri)"
+  ],
+  "keywords": [
+    "ps-tree",
+    "ps",
+    "tree",
+    "ppid",
+    "pid",
+    "pidtree",
+    "pgrep",
+    "list",
+    "all",
+    "system",
+    "process",
+    "processes"
+  ],
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./index.js"
+    }
+  },
+  "main": "index.js",
+  "types": "index.d.ts",
+  "bin": {
+    "pidtree": "./bin/pidtree.js"
+  },
+  "files": [
+    "bin",
+    "lib",
+    "index.js",
+    "index.d.ts"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node ./bin/pidtree.js",
+    "lint": "xo",
+    "test": "c8 ava -m \"!*benchmark*\"",
+    "types": "tsd",
+    "bench": "ava -m \"*benchmark*\""
+  },
+  "devDependencies": {
+    "ava": "^6.4.1",
+    "c8": "^10.1.3",
+    "time-span": "^5.1.0",
+    "tree-kill": "^1.2.2",
+    "tsd": "^0.33.0",
+    "xo": "^2.0.2"
+  },
+  "c8": {
+    "reporter": [
+      "lcov",
+      "text"
+    ]
+  },
+  "xo": {
+    "prettier": true,
+    "space": true,
+    "rules": {
+      "n/prefer-global/process": "off",
+      "n/prefer-global/buffer": "off",
+      "require-unicode-regexp": "off",
+      "unicorn/prefer-top-level-await": "off"
+    }
+  }
+}

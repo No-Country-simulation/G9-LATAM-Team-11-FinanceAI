@@ -1,0 +1,49 @@
+import type { Linter } from 'eslint';
+
+export const oxlintConfigMeta = Symbol('eslint-plugin-oxlint config metadata');
+
+export type BuildFromOxlintConfigOptions = {
+  withNursery?: boolean;
+  typeAware?: boolean;
+};
+
+export type OxlintConfigExtendsPath = string;
+export type OxlintConfigExtendsResolved = OxlintConfig;
+export type OxlintConfigExtends = (OxlintConfigExtendsPath | OxlintConfigExtendsResolved)[];
+
+export type OxlintConfigPlugins = string[];
+
+export type OxlintConfigCategories = Record<string, unknown>;
+
+export type OxlintConfigRules = Record<string, unknown>;
+
+export type OxlintConfigIgnorePatterns = string[];
+
+export type OxlintOptions = {
+  typeAware?: boolean;
+  typeCheck?: boolean;
+};
+
+export type EslintPluginOxlintConfig = Linter.Config<Record<string, 'off'>>;
+
+export type OxlintConfigOverride = {
+  files: string[];
+  plugins?: OxlintConfigPlugins;
+  rules?: OxlintConfigRules;
+};
+
+export type OxlintConfig = {
+  [key: string]: unknown;
+  extends?: OxlintConfigExtends;
+  plugins?: OxlintConfigPlugins;
+  categories?: OxlintConfigCategories;
+  rules?: OxlintConfigRules;
+  ignorePatterns?: OxlintConfigIgnorePatterns;
+  options?: OxlintOptions;
+
+  // extra properties only used by `eslint-plugin-oxlint`
+  [oxlintConfigMeta]?: {
+    // absolute path to the config file
+    filePath: string;
+  };
+};

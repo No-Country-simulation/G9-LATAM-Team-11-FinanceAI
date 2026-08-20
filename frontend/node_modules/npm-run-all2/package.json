@@ -1,0 +1,105 @@
+{
+  "name": "npm-run-all2",
+  "type": "module",
+  "version": "9.0.3",
+  "description": "A CLI tool to run multiple npm-scripts in parallel or sequential. (Maintenance fork)",
+  "bin": {
+    "run-p": "bin/run-p/index.js",
+    "run-s": "bin/run-s/index.js",
+    "npm-run-all": "bin/npm-run-all/index.js",
+    "npm-run-all2": "bin/npm-run-all/index.js"
+  },
+  "main": "./lib/index.js",
+  "imports": {
+    "#lib": "./lib/index.js",
+    "#lib/*": "./lib/*",
+    "#bin/common/*": "./bin/common/*"
+  },
+  "types": "./lib/index.d.ts",
+  "engines": {
+    "node": "^22.22.2 || ^24.15.0 || >=26.0.0",
+    "npm": ">= 10"
+  },
+  "scripts": {
+    "clean": "npm run clean:declarations-lib && rm -rf coverage jsdoc \"test-workspace/{build,test.txt}\"",
+    "docs": "jsdoc -c jsdoc.json",
+    "check:installed-check": "installed-check --ignore-dev",
+    "check:eslint": "eslint",
+    "check:knip": "knip",
+    "check:tsc": "tsc",
+    "precheck": "node scripts/make-slink.js",
+    "check": "node ./bin/run-p/index.js check:*",
+    "test": "node ./bin/run-s/index.js test:*",
+    "test:check": "npm run check",
+    "test:node-test": "node scripts/make-slink.js && node --test --test-reporter spec --test-concurrency=1 --test-timeout=240000 --experimental-test-coverage",
+    "watch": "node --watch --test",
+    "version": "releasearoni version",
+    "build": "npm run build:declaration",
+    "build:declaration": "tsc -p declaration.tsconfig.json",
+    "clean:declarations-lib": "find lib -type f -name '*.d.*' -delete",
+    "prepublishOnly": "releasearoni",
+    "postpublish": "npm run clean"
+  },
+  "dependencies": {
+    "ansi-styles": "^7.0.0",
+    "cross-spawn": "^7.0.6",
+    "memorystream": "^0.3.1",
+    "picomatch": "^4.0.2",
+    "pidtree": "^1.0.0",
+    "read-package-json-fast": "^6.0.0",
+    "shell-quote": "^1.8.4",
+    "which": "^7.0.0"
+  },
+  "devDependencies": {
+    "@types/cross-spawn": "^6.0.6",
+    "@types/memorystream": "^0.3.4",
+    "@types/node": "^26.0.0",
+    "@types/picomatch": "^4.0.3",
+    "@voxpelli/tsconfig": "^16.0.0",
+    "eslint": "^9.6.0",
+    "installed-check": "^10.0.1",
+    "jsdoc": "^4.0.0",
+    "knip": "^6.0.0",
+    "neostandard": "^0.13.0",
+    "releasearoni": "^0.2.0",
+    "typescript": "^6.0.3",
+    "yarn": "^1.12.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bcomnes/npm-run-all2.git"
+  },
+  "keywords": [
+    "cli",
+    "command",
+    "commandline",
+    "tool",
+    "npm",
+    "npm-scripts",
+    "run",
+    "sequential",
+    "serial",
+    "parallel",
+    "task"
+  ],
+  "author": {
+    "name": "Toru Nagashima"
+  },
+  "contributors": [
+    {
+      "name": "Bret Comnes",
+      "email": "bcomnes@gmail.com",
+      "url": "https://bret.io"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bcomnes/npm-run-all2/issues"
+  },
+  "files": [
+    "bin",
+    "lib",
+    "types"
+  ],
+  "homepage": "https://github.com/bcomnes/npm-run-all2"
+}
