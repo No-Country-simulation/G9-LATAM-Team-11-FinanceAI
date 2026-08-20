@@ -1,4 +1,5 @@
 <script setup>
+import { computed, ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useRouter } from 'vue-router'
 import { useUsuarioStore } from '@/stores/usuario'
@@ -14,16 +15,60 @@ import ListaTransacciones from '@/components/dashboard/ListaTransacciones.vue'
 
 const router = useRouter()
 const usuarioStore = useUsuarioStore()
-const { nombre } = storeToRefs(usuarioStore)
+const { nombre, transacciones } = storeToRefs(usuarioStore)
 const {
   gastoMes,
   ingreso,
   ahorroMes,
   endeudamiento,
   porCategoria,
-  evolucionMensual,
   ultimasTransacciones,
 } = useDashboard()
+
+const rangoEvolucion = ref(6)
+
+const evolucionFiltrada = computed(() => {
+  const ahora = new Date()
+  const anio = ahora.getFullYear()
+  const mes = ahora.getMonth()
+  const cantidad = rangoEvolucion.value
+
+  // Para 1 mes: mostrar evolución por semana del mes actual
+  if (cantidad === 1) {
+    const lista = []
+    for (let semana = 0; semana < 4; semana++) {
+      const inicioSemana = semana * 7 + 1
+      const finSemana = Math.min((semana + 1) * 7, new Date(anio, mes + 1, 0).getDate())
+      const total = transacciones.value
+        .filter((t) => {
+          if (!t.fecha) return false
+          const f = new Date(`${t.fecha}T00:00:00`)
+          if (f.getFullYear() !== anio || f.getMonth() !== mes) return false
+          const dia = f.getDate()
+          return dia >= inicioSemana && dia <= finSemana
+        })
+        .reduce((suma, t) => suma + Number(t.monto || 0), 0)
+      // Usamos el primer día de cada semana como referencia para la etiqueta
+      lista.push({ mes: new Date(anio, mes, inicioSemana), total, etiqueta: `Sem ${semana + 1}` })
+    }
+    return lista
+  }
+
+  // Para 6M y 12M: evolución por mes
+  const lista = []
+  for (let i = cantidad - 1; i >= 0; i--) {
+    const d = new Date(anio, mes - i, 1)
+    const total = transacciones.value
+      .filter((t) => {
+        if (!t.fecha) return false
+        const f = new Date(`${t.fecha}T00:00:00`)
+        return f.getFullYear() === d.getFullYear() && f.getMonth() === d.getMonth()
+      })
+      .reduce((suma, t) => suma + Number(t.monto || 0), 0)
+    lista.push({ mes: d, total })
+  }
+  return lista
+})
 </script>
 
 <template>
@@ -79,9 +124,34 @@ const {
       <BaseCard>
         <div class="mb-4 flex items-center justify-between">
           <h2 class="text-sm font-semibold text-ink">Evolución de gastos</h2>
-          <BaseTag plano>últimos 6 meses</BaseTag>
+          <div class="flex gap-1">
+            <button
+              type="button"
+              class="rounded-md px-2 py-1 text-[11px] font-semibold transition-colors"
+              :class="rangoEvolucion === 1 ? 'bg-cyan/15 text-cyan' : 'text-muted hover:text-white'"
+              @click="rangoEvolucion = 1"
+            >
+              1M
+            </button>
+            <button
+              type="button"
+              class="rounded-md px-2 py-1 text-[11px] font-semibold transition-colors"
+              :class="rangoEvolucion === 6 ? 'bg-cyan/15 text-cyan' : 'text-muted hover:text-white'"
+              @click="rangoEvolucion = 6"
+            >
+              6M
+            </button>
+            <button
+              type="button"
+              class="rounded-md px-2 py-1 text-[11px] font-semibold transition-colors"
+              :class="rangoEvolucion === 12 ? 'bg-cyan/15 text-cyan' : 'text-muted hover:text-white'"
+              @click="rangoEvolucion = 12"
+            >
+              1A
+            </button>
+          </div>
         </div>
-        <GraficoEvolucion :datos="evolucionMensual" />
+        <GraficoEvolucion :key="rangoEvolucion" :datos="evolucionFiltrada" />
       </BaseCard>
 
       <BaseCard>

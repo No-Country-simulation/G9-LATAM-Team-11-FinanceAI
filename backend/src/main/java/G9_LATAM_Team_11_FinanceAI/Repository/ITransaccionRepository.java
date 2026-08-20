@@ -29,4 +29,38 @@ public interface ITransaccionRepository extends JpaRepository<Transaccion, Long>
             @Param("anio") int anio
     );
 
+    List<Transaccion> findByUsuarioId(Long id);
+
+    // cuenta cuantas transacciones inversion, pasando por argumetros el ID y CATEGORIA, "en el mes"
+    @Query("""
+        SELECT COUNT(t) 
+        FROM Transaccion t 
+        WHERE t.usuario.id = :idUsuario 
+          AND LOWER(t.categoria) = LOWER(:categoria) 
+          AND t.fecha >= :fechaInicio 
+          AND t.fecha <= :fechaFin
+    """)
+    long countInversionesEnRango(
+            @Param("idUsuario") Long idUsuario,
+            @Param("categoria") String categoria,
+            @Param("fechaInicio") LocalDate fechaInicio,
+            @Param("fechaFin") LocalDate fechaFin
+    );
+
+    //calcular los gastos fijos entre fechas //coalesce:la consulta devuelva 0 en lugar de null
+    @Query("""
+        SELECT COALESCE(SUM(t.monto), 0) 
+        FROM Transaccion t 
+        WHERE t.usuario.id = :idUsuario 
+          AND LOWER(t.categoria) IN :categorias 
+          AND t.fecha >= :fechaInicio 
+          AND t.fecha <= :fechaFin
+    """)
+    BigDecimal sumarGastosPorCategoriasEnRango(
+            @Param("idUsuario") Long idUsuario,
+            @Param("categorias") List<String> categorias,
+            @Param("fechaInicio") LocalDate fechaInicio,
+            @Param("fechaFin") LocalDate fechaFin
+    );
+
 }

@@ -35,6 +35,6 @@ defineProps({
   100% { transform: translateX(100%); }
 }
 .animate-loading-bar {
-  animation: loading-bar 1.2s ease-in-out infinite;
+  animation: loading-bar 0.8s ease-in-out infinite;
 }
 </style>

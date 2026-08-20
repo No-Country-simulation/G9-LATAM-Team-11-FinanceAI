@@ -29,12 +29,18 @@ function hoy() {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
 }
 
+function primerDiaDelMes() {
+  const d = new Date()
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-01`
+}
+
 function validar() {
   if (!form.descripcion.trim()) return 'La descripción es obligatoria.'
   if (!form.monto || form.monto <= 0) return 'Ingresa un monto mayor a 0.'
   const limiteEnMonedaActiva = divisaStore.convertirDesdeUSD(ingresoDisponible.value)
   if (form.monto >= limiteEnMonedaActiva) return 'El monto debe ser menor que tu ingreso disponible.'
   if (!form.fecha) return 'La fecha es obligatoria.'
+  if (form.fecha < primerDiaDelMes() || form.fecha > hoy()) return 'La fecha debe estar dentro del mes actual.'
   return ''
 }
 
@@ -119,6 +125,7 @@ async function enviar() {
           v-model="form.fecha"
           type="date"
         />
+        <span class="mt-1 block text-xs text-muted">Solo fechas del mes actual</span>
       </label>
     </div>
 

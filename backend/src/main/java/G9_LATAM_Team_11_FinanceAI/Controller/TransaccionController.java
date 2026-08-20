@@ -19,7 +19,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/transaccion")
-@CrossOrigin(origins = {"http://localhost:8082", "http://localhost:3000"})
 
 public class TransaccionController {
 

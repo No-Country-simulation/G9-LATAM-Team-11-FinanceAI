@@ -2,21 +2,29 @@ import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 
 const CLAVE_SESION = 'financeai:sessid'
+const CLAVE_TOKEN = 'financeai:token'
 
 export const useAuthStore = defineStore('auth', () => {
   const usuarioId = ref(Number(localStorage.getItem(CLAVE_SESION)) || null)
+  const token = ref(localStorage.getItem(CLAVE_TOKEN) || null)
 
   const sesionActiva = computed(() => usuarioId.value !== null)
 
-  function iniciarSesion(id) {
+  function iniciarSesion(id, jwt = null) {
     usuarioId.value = id
     localStorage.setItem(CLAVE_SESION, String(id))
+    if (jwt) {
+      token.value = jwt
+      localStorage.setItem(CLAVE_TOKEN, jwt)
+    }
   }
 
   function cerrarSesion() {
     usuarioId.value = null
+    token.value = null
     localStorage.removeItem(CLAVE_SESION)
+    localStorage.removeItem(CLAVE_TOKEN)
   }
 
-  return { usuarioId, sesionActiva, iniciarSesion, cerrarSesion }
+  return { usuarioId, token, sesionActiva, iniciarSesion, cerrarSesion }
 })

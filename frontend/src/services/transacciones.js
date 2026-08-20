@@ -11,6 +11,14 @@ export async function actualizarTransaccion(id, datos) {
 }
 
 export async function obtenerTransaccionesPorRango({ idUsuario, desde, hasta }) {
-  const { data } = await http.post('/transaccion/rangos', { idUsuario, desde, hasta })
-  return data
+  try {
+    const { data } = await http.post('/transaccion/rangos', { idUsuario, desde, hasta })
+    return data
+  } catch (error) {
+    // El backend devuelve 404 cuando no hay transacciones en el rango (en lugar de array vacío)
+    if (error.response && error.response.status === 404) {
+      return []
+    }
+    throw error
+  }
 }

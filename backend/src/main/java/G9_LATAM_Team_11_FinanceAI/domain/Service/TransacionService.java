@@ -13,8 +13,8 @@ import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.ValidationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Service
@@ -29,28 +29,54 @@ public class TransacionService {
     @Autowired
     private DataScienceModelService dataScienceService;
 
-    @Transactional
-    public Transaccion ingresarTransaccion(IngresarTransaccionDTO datos) {
+    public Transaccion ingresarTransaccion(IngresarTransaccionDTO datos){
+
         Usuario usuario = obtenerUsuarioPorId(datos.idUsuario());
+
         validarUsuarioActivo(usuario);
+
         validarTransaccionDuplicada(datos);
 
-        // Obtener la categoría mediante inferencia ONNX NLP
+        BigDecimal ingresoFijoMensual = usuario.getIngresoMensual();
+
+        if (ingresoFijoMensual == null) {
+            throw new ValidationException("El usuario no tiene un ingreso mensual asignado.");
+        }
+        // 1. Obtenemos mes y año de la fecha que viene en la transacción
+        int mes = datos.fecha().getMonthValue();
+        int anio = datos.fecha().getYear();
+
+        // 2. Calculamos lo gastado únicamente en ese mes y año
+        BigDecimal gastadoEnElMes = transaccionRepository.obtenerTotalGastadoEnMes(usuario.getId(), mes, anio);
+
+        // 3. Calculamos cuánto le queda disponible para este mes
+        BigDecimal saldoDisponible = ingresoFijoMensual.subtract(gastadoEnElMes);
+
+        // 4. Validamos si la nueva transacción supera lo disponible
+        if (saldoDisponible.compareTo(datos.monto()) < 0) {
+            throw new ValidationException("No tiene suficiente ingreso para hacer esta transferencia.");
+        }
+
+        //obtener la categoria
         SolicitudCategoriaDTO solicitud = new SolicitudCategoriaDTO(datos);
         String categoriaObtenida = dataScienceService.obtenerCategoria(solicitud);
 
-        // Crear la transacción con la categoría inferida
-        Transaccion transaccion = new Transaccion(datos, usuario, categoriaObtenida);
+        //crea la transaccion con la categoria
+        var transaccion  = crearTransaccion(datos, usuario, categoriaObtenida);
+
+        //borra
+        //descontarMontoDelIngresoMensual(usuario, datos);
         return transaccionRepository.save(transaccion);
     }
 
-    // Validación para que un mismo usuario no ingrese transacciones duplicadas idénticas
+    //Validación para que un mismo usuario no pueda ingresar transacciones con los datos repetidos.
     public void validarTransaccionDuplicada(IngresarTransaccionDTO datos) {
         boolean existeDuplicidad = transaccionRepository.existsByUsuarioIdAndDescripcionAndMontoAndFecha(
                 datos.idUsuario(),
                 datos.descripcion(),
                 datos.monto(),
                 datos.fecha()
+
         );
 
         if (existeDuplicidad) {
@@ -58,45 +84,63 @@ public class TransacionService {
         }
     }
 
-    @Transactional(readOnly = true)
-    public Usuario obtenerUsuarioPorId(Long id) {
+    public Usuario obtenerUsuarioPorId(Long id){
         return usuarioRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Usuario no encontrado con ID: " + id));
+                .orElseThrow(() -> new EntityNotFoundException("Usuario no existe"));
     }
 
-    public void validarUsuarioActivo(Usuario usuario) {
-        if (!Boolean.TRUE.equals(usuario.getActivo())) {
-            throw new ValidationException("El usuario se encuentra inactivo.");
+    private Transaccion crearTransaccion(IngresarTransaccionDTO datos, Usuario usuario, String categoria) {
+        return new Transaccion(datos, usuario, categoria);
+    }
+
+
+    public void validarUsuarioActivo(Usuario usuario){
+
+        if(!Boolean.TRUE.equals(usuario.getActivo())){
+            throw new ValidationException("Usuario inactivo no puede hacer transferencia.");
         }
+
     }
 
-    // Método para filtrar transacciones de usuarios por rangos de fechas
-    @Transactional(readOnly = true)
-    public List<DetallesTransaccionFiltradaDTO> obtenerTransaccionesPorRango(TransaccionFiltradaDTO datos) {
-        Usuario usuario = usuarioRepository.findById(datos.idUsuario())
-                .orElseThrow(() -> new IllegalArgumentException("No se encontró la información solicitada para los parámetros ingresados."));
+    /*
+    public void descontarMontoDelIngresoMensual(Usuario usuario, IngresarTransaccionDTO datos){
 
-        if (!Boolean.TRUE.equals(usuario.getActivo())) {
-            throw new IllegalStateException("El usuario solicitado se encuentra inactivo.");
+        if (usuario.getIngresoMensual() == null || datos.monto() == null) {
+            throw new ValidationException("Ingreso mensual o monto de transacción no puede ser nulo.");
+        }
+        usuario.setIngresoMensual(usuario.getIngresoMensual().subtract(datos.monto()));
+    }
+
+     */
+
+    // Metodo para filtrar transacciones de usuarios por rangos de fechas
+    public List<DetallesTransaccionFiltradaDTO> obtenerTransaccionesPorRango(TransaccionFiltradaDTO datos) {
+        if (!usuarioRepository.existsByIdAndActivoTrue(datos.idUsuario())) {
+            throw new IllegalStateException("No se logró realizar la acción solicitada.");
         }
 
         List<Transaccion> listadoTransacciones = transaccionRepository
                 .findByUsuarioIdAndFechaBetween(datos.idUsuario(), datos.desde(), datos.hasta());
+
+        if (listadoTransacciones.isEmpty()) {
+            throw new IllegalArgumentException("No se encontró la información solicitada para los parámetros ingresados.");
+        }
 
         return listadoTransacciones.stream()
                 .map(DetallesTransaccionFiltradaDTO::new)
                 .toList();
     }
 
-    @Transactional
-    public Transaccion actualizarTransferencia(Long id, ActualizarTransaccionDTO actualizar) {
+
+    public void actualizarTransferencia(Long id, ActualizarTransaccionDTO actualizar){
+
         Transaccion transaccion = obtenerTransaccionPorId(id);
 
-        if (actualizar.categoria() != null && !actualizar.categoria().isBlank()) {
+        if (actualizar.categoria() != null) {
             transaccion.setCategoria(actualizar.categoria());
         }
 
-        if (actualizar.descripcion() != null && !actualizar.descripcion().isBlank()) {
+        if (actualizar.descripcion() != null) {
             transaccion.setDescripcion(actualizar.descripcion());
         }
 
@@ -107,13 +151,9 @@ public class TransacionService {
         if (actualizar.monto() != null) {
             transaccion.setMonto(actualizar.monto());
         }
-
-        return transaccionRepository.save(transaccion);
     }
-
-    @Transactional(readOnly = true)
-    public Transaccion obtenerTransaccionPorId(Long id) {
+    private Transaccion obtenerTransaccionPorId(Long id){
         return transaccionRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Transacción no encontrada con ID: " + id));
+                .orElseThrow(() -> new EntityNotFoundException("usuario no encontrado"));
     }
 }

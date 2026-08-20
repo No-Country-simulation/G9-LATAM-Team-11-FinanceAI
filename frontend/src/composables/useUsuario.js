@@ -1,45 +1,13 @@
 import { useUsuarioStore } from '@/stores/usuario'
+import { useAuthStore } from '@/stores/auth'
 import { registrarUsuario, obtenerUsuario, loginUsuario } from '@/services/usuarios'
 import { useTransacciones } from '@/composables/useTransacciones'
 import { mensajeErrorApi } from '@/utils/errores'
 import { datosDemo } from '@/data/demo'
 
-const CLAVE_CUENTAS = 'financeai:cuentas'
-
-function obtenerCuentasGuardadas() {
-  try {
-    return JSON.parse(localStorage.getItem(CLAVE_CUENTAS)) ?? []
-  } catch {
-    return []
-  }
-}
-
-function guardarCuenta(datos, id) {
-  const cuentas = obtenerCuentasGuardadas().filter(
-    (cuenta) => cuenta.email.toLowerCase() !== String(datos.email).toLowerCase(),
-  )
-  cuentas.push({ email: datos.email, password: datos.password, nombre: datos.nombre, id })
-  localStorage.setItem(CLAVE_CUENTAS, JSON.stringify(cuentas))
-}
-
-async function iniciarSesionCredenciales(email, password) {
-  try {
-    const respuesta = await loginUsuario(email, password)
-    return { id: respuesta.id, nombre: respuesta.nombre }
-  } catch (error) {
-    // Fallback local si el backend estuviera inaccesible en pruebas
-    const cuenta = obtenerCuentasGuardadas().find(
-      (c) => c.email.toLowerCase() === String(email).trim().toLowerCase(),
-    )
-    if (cuenta && cuenta.password === password) {
-      return { id: cuenta.id, nombre: cuenta.nombre }
-    }
-    throw new Error(mensajeErrorApi(error) || 'Email o contraseña incorrectos.')
-  }
-}
-
 export function useUsuario() {
   const store = useUsuarioStore()
+  const auth = useAuthStore()
   const { listarTransacciones } = useTransacciones()
 
   async function cargarUsuario(id) {
@@ -62,11 +30,17 @@ export function useUsuario() {
     store.setCargando(true)
     store.setError('')
     try {
-      const { id } = await registrarUsuario(datos)
-      guardarCuenta(datos, id)
-      await cargarUsuario(id)
-      store.setUsuario({ id, nombre: datos.nombre })
-      return id
+      // 1. Registrar usuario en el backend
+      await registrarUsuario(datos)
+
+      // 2. Hacer login para obtener el token JWT
+      const loginResp = await loginUsuario(datos.email, datos.password)
+      auth.iniciarSesion(loginResp.idUsuario, loginResp.token)
+
+      // 3. Cargar datos del usuario
+      await cargarUsuario(loginResp.idUsuario)
+      store.setUsuario({ id: loginResp.idUsuario, nombre: loginResp.nombre || datos.nombre })
+      return loginResp.idUsuario
     } catch (error) {
       store.setError(mensajeErrorApi(error))
       throw new Error(mensajeErrorApi(error), { cause: error })
@@ -75,11 +49,18 @@ export function useUsuario() {
     }
   }
 
-  function salir() {
-    store.limpiar()
+  async function iniciarSesionCredenciales(email, password) {
+    const loginResp = await loginUsuario(email, password)
+    auth.iniciarSesion(loginResp.idUsuario, loginResp.token)
+    return { id: loginResp.idUsuario, nombre: loginResp.nombre }
   }
 
-  // Modo demo: sin sesión, con datos de ejemplo para ver el dashboard.
+  function salir() {
+    store.limpiar()
+    auth.cerrarSesion()
+  }
+
+  // Modo demo: sin sesión real, con datos de ejemplo para ver el dashboard.
   function entrarDemo() {
     store.setUsuario({
       id: null,

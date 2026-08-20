@@ -1,0 +1,1 @@
+ALTER TABLE analisis_financiero MODIFY COLUMN nivel_ahorro VARCHAR(50);

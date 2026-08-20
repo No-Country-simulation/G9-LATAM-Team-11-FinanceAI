@@ -25,7 +25,7 @@ const chartData = computed(() => {
   gradiente.addColorStop(1, 'rgba(0, 229, 255, 0)')
 
   return {
-    labels: props.datos.map(({ mes }) => etiquetaMes(mes)),
+    labels: props.datos.map((d) => d.etiqueta || etiquetaMes(d.mes)),
     datasets: [
       {
         label: 'Gastos',

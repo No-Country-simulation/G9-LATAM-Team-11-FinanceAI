@@ -65,13 +65,12 @@ async function registrar() {
       ? divisaStore.convertirMonedaAUSD(form.ingresoMensual, form.monedaIngreso)
       : form.ingresoMensual
 
-    const id = await registrarYEntrar({
+    await registrarYEntrar({
       nombre: form.nombre.trim(),
       email: form.email.trim(),
       password: form.password,
       ingresoMensual: ingresoEnUSD,
     })
-    auth.iniciarSesion(id)
     router.push({ name: 'home' })
   } catch (err) {
     error.value = err.message
@@ -91,7 +90,6 @@ async function ingresar() {
     const { id, nombre } = await iniciarSesionCredenciales(form.emailLogin, form.passwordLogin)
     await cargarUsuario(id)
     usuarioStore.setUsuario({ id, nombre })
-    auth.iniciarSesion(id)
     router.push({ name: 'home' })
   } catch (err) {
     error.value = err.message
