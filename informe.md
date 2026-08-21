@@ -136,3 +136,39 @@
    - **Consolidación de servicios ONNX**: Actualmente existen `DataScienceModelService` (utilizado por los controladores para predicción de categorías y perfil) y `OnnxInferenceService` (preservado a solicitud). Se sugiere evaluar si en una siguiente iteración conviene unificarlos en un único servicio.
 2. **Equipo de Frontend & Backend**:
    - **Formato de recomendaciones**: Favor de revisar si prefieren que la API devuelva las recomendaciones como una lista de strings (`List<String>`) en lugar de un único string consolidado (`String`), o si la adaptación polimórfica actual en el frontend satisface los requerimientos del equipo.
+
+---
+
+## 7. Informe de Estabilización, Población Idempotente y Licenciamiento (21 de agosto de 2026)
+
+**Destinatarios:** Equipo de Desarrollo (Backend, Frontend, Data Science, DevOps)  
+**Objetivo:** Consolidar los ajustes aplicados para la población definitiva de datos 2025-2026, soporte dual de endpoints en Backend, correcciones de CORS/Preflight y formalización de la licencia MIT.
+
+---
+
+### A. Población Idempotente y Migración Flyway `V6`
+* **Dataset móvil de 365 días (2025-2026)**: Se actualizó el pipeline en `notebooks/poblar_db.ipynb` y `notebooks/data/poblar_datos.sql` con 10 usuarios y 6.000 transacciones con fechas del 22 de agosto de 2025 al 21 de agosto de 2026.
+* **Formalización en Flyway (`V6__poblar_datos_prueba.sql`)**: Se incorporó el semillero oficial en la migración `V6` utilizando cláusulas `INSERT IGNORE INTO` para asegurar su ejecución idempotente sin fallos por duplicidad de claves primarias.
+* **Cifrado de contraseñas de prueba**: Se corrigió el hash estático simulado de `poblar_db.ipynb` por un hash real generado con BCrypt (`$2a$10$kJio4J2CJgvbQPtXPLW2Mu2bsmJaTlG1Vij9Hy2jnRok6qTVz/W7a`), permitiendo que todos los usuarios de prueba inicien sesión con la contraseña `password123`.
+
+---
+
+### B. Módulo Backend & Endpoints REST
+* **Soporte dual en `/transaccion/rangos`**: En `TransaccionController.java`, se incorporó soporte tanto para `POST` (con `@RequestBody` JSON) como para `GET` (con `@ModelAttribute`), evitando el error `405 Method Not Allowed` durante la carga inicial del usuario en el frontend.
+* **Completitud del CRUD de transacciones (`DELETE /transaccion/{id}`)**: Se integraron los métodos `@DeleteMapping("/{id}")` en `TransaccionController.java` y `eliminaTransaciones` / `eliminarTransaccion` en `TransacionService.java` para dar soporte al modal de confirmación de borrado en el frontend.
+* **Permisos Preflight CORS (`OPTIONS`)**: En `ConfiguracionesDeSeguridad.java`, se habilitó explícitamente `.requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()` y patrones de origen amplios (`http://localhost:*`, `http://127.0.0.1:*`) para asegurar la negociación de cabeceras en navegadores.
+
+---
+
+### C. Módulo Frontend (Vue 3 / Vite)
+* **Configuración del servidor de desarrollo (`vite.config.js`)**: Se reactivó `server.allowedHosts: true` para permitir peticiones dentro de redes de contenedores Docker.
+* **Componentes y vistas actualizadas**:
+  * `TransaccionesView.vue`: CRUD completo con paginación de 15 registros por página, modales de edición (con conversor de divisa en tiempo real) y borrado.
+  * `ResultadoView.vue` y `GaugeChart.vue`: Visualización de indicadores semicirculares (*Gauges*) para endeudamiento, ahorro y gasto/ingreso, junto a la tarjeta de mayor gasto y recomendaciones personalizadas.
+  * `DashboardView.vue`: Tarjetas de KPI reactivas, reloj en vivo y conmutador temporal (1M, 6M, 1A).
+
+---
+
+### D. Gobernanza y Licenciamiento
+* **Licencia MIT**: Se creó el archivo formal `LICENSE` en la raíz del repositorio con los derechos de autor para el año 2026 a nombre de `FinanceAI Team - G9 LATAM Team 11` y se añadió el identificador `"license": "MIT"` en `frontend/package.json`.
+

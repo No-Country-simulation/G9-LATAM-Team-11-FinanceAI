@@ -7,6 +7,7 @@ import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.nio.charset.StandardCharsets;
 import java.security.Key;
 import java.util.Date;
 
@@ -19,7 +20,7 @@ public class TokenService {
     private static final long EXPIRATION_TIME = 86_400_000; // 24 horas en milisegundos
 
     private Key getSigningKey() {
-        return Keys.hmacShaKeyFor(secreto.getBytes());
+        return Keys.hmacShaKeyFor(secreto.getBytes(StandardCharsets.UTF_8));
     }
 
     public String generarToken(String email) {

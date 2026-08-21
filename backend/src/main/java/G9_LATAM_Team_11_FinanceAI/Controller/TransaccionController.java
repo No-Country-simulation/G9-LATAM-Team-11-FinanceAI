@@ -37,9 +37,16 @@ public class TransaccionController {
     }
 
 
-    @Transactional
+    @Transactional(readOnly = true)
     @PostMapping("/rangos")
-    public ResponseEntity<List<DetallesTransaccionFiltradaDTO>> obtenerTransaccionPorFechas(@RequestBody TransaccionFiltradaDTO datos) {
+    public ResponseEntity<List<DetallesTransaccionFiltradaDTO>> obtenerTransaccionPorFechasPost(@RequestBody @Valid TransaccionFiltradaDTO datos) {
+        List<DetallesTransaccionFiltradaDTO> transacciones = transaccionService.obtenerTransaccionesPorRango(datos);
+        return ResponseEntity.ok(transacciones);
+    }
+
+    @Transactional(readOnly = true)
+    @GetMapping("/rangos")
+    public ResponseEntity<List<DetallesTransaccionFiltradaDTO>> obtenerTransaccionPorFechasGet(@ModelAttribute @Valid TransaccionFiltradaDTO datos) {
         List<DetallesTransaccionFiltradaDTO> transacciones = transaccionService.obtenerTransaccionesPorRango(datos);
         return ResponseEntity.ok(transacciones);
     }
@@ -52,6 +59,13 @@ public class TransaccionController {
         transaccionService.actualizarTransferencia(id, datos);
 
         return ResponseEntity.ok().build();
+    }
+
+    @Transactional
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> eliminarTransaccion (@PathVariable Long id){
+        boolean eliminar = transaccionService.eliminaTransaciones(id);
+        return eliminar ? ResponseEntity.ok().build() : ResponseEntity.noContent().build();
     }
 
     

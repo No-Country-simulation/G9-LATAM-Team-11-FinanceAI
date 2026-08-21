@@ -1,5 +1,5 @@
 <script setup>
-import { computed, ref } from 'vue'
+import { computed, ref, onMounted, onUnmounted } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useRouter } from 'vue-router'
 import { useUsuarioStore } from '@/stores/usuario'
@@ -26,6 +26,19 @@ const {
 } = useDashboard()
 
 const rangoEvolucion = ref(6)
+
+const horaLocal = ref(new Date().toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit' }))
+let intervaloHora = null
+
+onMounted(() => {
+  intervaloHora = setInterval(() => {
+    horaLocal.value = new Date().toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit' })
+  }, 1000)
+})
+
+onUnmounted(() => {
+  clearInterval(intervaloHora)
+})
 
 const evolucionFiltrada = computed(() => {
   const ahora = new Date()
@@ -75,7 +88,13 @@ const evolucionFiltrada = computed(() => {
   <div class="flex flex-col gap-6">
     <section class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
       <div>
-        <BaseTag punto>En vivo</BaseTag>
+        <div class="group inline-flex cursor-default items-center gap-1.5 rounded-full border border-edge bg-surface px-2.5 py-1 transition-all duration-300 ease-out">
+          <span class="h-1.5 w-1.5 rounded-full bg-cyan animate-pulse"></span>
+          <span class="text-xs font-semibold text-muted">En vivo</span>
+          <span class="inline-flex max-w-0 overflow-hidden whitespace-nowrap font-mono text-xs text-cyan opacity-0 transition-all duration-300 ease-out group-hover:max-w-[5rem] group-hover:ml-1 group-hover:opacity-100">
+            {{ horaLocal }}
+          </span>
+        </div>
         <h1 class="mt-4 text-2xl font-bold tracking-tight md:text-3xl">
           Hola, <span class="text-cyan">{{ nombre }}</span>
         </h1>
@@ -157,7 +176,7 @@ const evolucionFiltrada = computed(() => {
       <BaseCard>
         <div class="mb-4 flex items-center justify-between">
           <h2 class="text-sm font-semibold text-ink">Gastos por categoría</h2>
-          <BaseTag plano>total</BaseTag>
+          <BaseTag plano>{{ porCategoria.length }} categorías</BaseTag>
         </div>
         <GraficoCategorias :datos="porCategoria" />
       </BaseCard>

@@ -3,9 +3,7 @@ package G9_LATAM_Team_11_FinanceAI.domain.Service;
 import G9_LATAM_Team_11_FinanceAI.DTO.AnalisisFinancieroDTO.IngresarAnalisisFinancieroDTO;
 import G9_LATAM_Team_11_FinanceAI.DTO.AnalisisFinancieroDTO.RespuestaAnalisisFinancieroDTO;
 import G9_LATAM_Team_11_FinanceAI.Repository.IAnalisisFinanciero;
-import G9_LATAM_Team_11_FinanceAI.Repository.ITransaccionRepository;
 import G9_LATAM_Team_11_FinanceAI.Repository.IUsuarioRepository;
-import G9_LATAM_Team_11_FinanceAI.domain.transaccion.Transaccion;
 import G9_LATAM_Team_11_FinanceAI.domain.Models.FrecuenciaAhorro;
 import G9_LATAM_Team_11_FinanceAI.domain.analisis_financiero.AnalisisFinanciero;
 import G9_LATAM_Team_11_FinanceAI.domain.usuario.Usuario;
@@ -16,15 +14,8 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 
-import java.math.RoundingMode;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
-
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 
@@ -58,27 +49,27 @@ public class AnalisisFinancieroService {
         Usuario usuario = usuarioRepository.findById(idUsuario)
                 .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
 
-        // 1. Definir rango de fechas (01 de agosto a hoy)
+        // rango de fechas (01 de agosto a hoy)
         LocalDate fechaActual = LocalDate.now();
         LocalDate fechaInicio = fechaActual.withDayOfMonth(1);
 
-        // 2. Obtener métricas calculadas
+        // calculo endeudamiento y frecuencia de ahorro
         BigDecimal endeudamiento = perfilFinancieroService.calcularPorcentajeEndeudamiento(idUsuario);
         FrecuenciaAhorro nivelAhorro = perfilFinancieroService.calcularFrecuenciaAhorro(idUsuario);
 
-        // 3. Ejecutar predicción ONNX
+        // predicción ONNX
         String perfilFinanciero = dataScienceModelService.predecirPerfilFinanciero(
                 usuario.getIngresoMensual(),
                 endeudamiento,
                 nivelAhorro
         );
 
-        // 4. Generar sugerencias personalizadas
+        // genera sugerencias personalizadas
         String recomendaciones = generarRecomendacion(endeudamiento, nivelAhorro, perfilFinanciero);
 
-        // 5. Crear objeto y guardar en base de datos
-        AnalisisFinanciero analisis = new AnalisisFinanciero(
-                usuario,
+        IngresarAnalisisFinancieroDTO datosDTO = new IngresarAnalisisFinancieroDTO(
+                usuario.getId(),
+                LocalDateTime.now(),
                 fechaInicio,
                 fechaActual,
                 perfilFinanciero,
@@ -86,6 +77,8 @@ public class AnalisisFinancieroService {
                 nivelAhorro,
                 recomendaciones
         );
+
+        AnalisisFinanciero analisis = new AnalisisFinanciero(datosDTO, usuario);
 
         return iAnalisisFinanciero.save(analisis);
     }
@@ -116,15 +109,14 @@ public class AnalisisFinancieroService {
 
     //Mostra los analisis financieron guardados
     public List<RespuestaAnalisisFinancieroDTO> obtenerHistorialAnalisis(Long idUsuario) {
-        // 1. Validar que el usuario exista
         if (!usuarioRepository.existsById(idUsuario)) {
             throw new RuntimeException("Usuario no encontrado");
         }
 
-        // 2. Consultar el historial ordenado de más reciente a más antiguo
+        // el historial ordenado de más reciente a más antiguo
         List<AnalisisFinanciero> historial = iAnalisisFinanciero.findByUsuarioIdOrderByFechaAnalisisDesc(idUsuario);
 
-        // 3. Convertir la lista de entidades a lista de DTOs
+        // convertir la lista de entidades a lista de DTOs
         return historial.stream()
                 .map(RespuestaAnalisisFinancieroDTO::new)
                 .toList();

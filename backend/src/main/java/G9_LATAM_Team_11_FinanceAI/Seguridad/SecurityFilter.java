@@ -32,24 +32,17 @@ public class SecurityFilter extends OncePerRequestFilter {
         String autenticacion = request.getHeader("Authorization");
 
         if (autenticacion != null && autenticacion.startsWith("Bearer ")) {
-            String token = autenticacion.replace("Bearer ", "").trim();
+            String token = autenticacion.substring(7).trim();
 
-            try {
-                if (tokenService.esTokenValido(token)) {
-                    String email = tokenService.getSubject(token);
-                    if (email != null && SecurityContextHolder.getContext().getAuthentication() == null) {
-                        UserDetails userDetails = userDetailsService.loadUserByUsername(email);
+            if (tokenService.esTokenValido(token)) {
+                String email = tokenService.getSubject(token);
+                UserDetails userDetails = userDetailsService.loadUserByUsername(email);
 
-                        var autorizacion = new UsernamePasswordAuthenticationToken(
-                                userDetails, null, userDetails.getAuthorities()
-                        );
+                var autorizacion = new UsernamePasswordAuthenticationToken(
+                        userDetails, null, userDetails.getAuthorities()
+                );
 
-                        SecurityContextHolder.getContext().setAuthentication(autorizacion);
-                    }
-                }
-            } catch (Exception e) {
-                // Token inválido o usuario no encontrado: se ignora para que Spring Security maneje la falta de auth
-                SecurityContextHolder.clearContext();
+                SecurityContextHolder.getContext().setAuthentication(autorizacion);
             }
         }
 

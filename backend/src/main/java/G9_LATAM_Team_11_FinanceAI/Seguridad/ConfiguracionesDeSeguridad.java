@@ -47,8 +47,6 @@ public class ConfiguracionesDeSeguridad {
         configuracion.setAllowedOriginPatterns(List.of(
                 "http://localhost:*",
                 "http://127.0.0.1:*",
-                "http://*.oraclecloud.com:*",
-                "https://*.oraclecloud.com:*",
                 "*"
         ));
         configuracion.setAllowedMethods(List.of("POST", "GET", "PUT", "PATCH", "DELETE", "OPTIONS"));

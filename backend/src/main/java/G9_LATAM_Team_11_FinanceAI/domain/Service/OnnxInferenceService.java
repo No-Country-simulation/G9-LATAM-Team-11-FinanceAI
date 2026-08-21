@@ -13,7 +13,6 @@ import jakarta.annotation.PreDestroy;
 import java.io.File;
 import java.nio.FloatBuffer;
 import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.*;
 
 @Service
@@ -26,11 +25,11 @@ public class OnnxInferenceService {
     private OrtSession session;
 
     @PostConstruct
-    public void init() throws Exception {
+    public void init() {
         try {
             this.env = OrtEnvironment.getEnvironment();
 
-            File modelFile = Paths.get(sharedModelsPath, "modelo_perfil.onnx").toFile();
+            File modelFile = new File(sharedModelsPath, "modelo_perfil.onnx");
 
             if (!modelFile.exists()) {
                 modelFile = new File("shared-models/modelo_perfil.onnx");
@@ -38,16 +37,17 @@ public class OnnxInferenceService {
             if (!modelFile.exists()) {
                 modelFile = new File("../shared-models/modelo_perfil.onnx");
             }
-
             if (!modelFile.exists()) {
-                System.err.println("Advertencia [OnnxInferenceService]: No se encontró modelo_perfil.onnx en: " + modelFile.getAbsolutePath());
-                return;
+                modelFile = new File("/app/models/modelo_perfil.onnx");
             }
 
-            byte[] modelBytes = Files.readAllBytes(modelFile.toPath());
-            this.session = env.createSession(modelBytes, new OrtSession.SessionOptions());
-
-            System.out.println("Modelo ONNX cargado correctamente desde: " + modelFile.getAbsolutePath());
+            if (modelFile.exists()) {
+                byte[] modelBytes = Files.readAllBytes(modelFile.toPath());
+                this.session = env.createSession(modelBytes, new OrtSession.SessionOptions());
+                System.out.println("Modelo ONNX cargado correctamente desde: " + modelFile.getAbsolutePath());
+            } else {
+                System.err.println("Advertencia: No se encontró modelo_perfil.onnx en las rutas buscadas");
+            }
 
         } catch (Exception e) {
             System.err.println("Advertencia al inicializar OnnxInferenceService: " + e.getMessage());

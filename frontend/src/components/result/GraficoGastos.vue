@@ -10,6 +10,7 @@ import {
   LinearScale,
 } from 'chart.js'
 import { Bar } from 'vue-chartjs'
+import { etiquetaCategoria, colorCategoria } from '@/utils/categorias'
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
@@ -20,24 +21,15 @@ const props = defineProps({
   },
 })
 
-const colores = [
-  '#00e5ff',
-  'rgba(0, 229, 255, 0.72)',
-  'rgba(0, 229, 255, 0.5)',
-  'rgba(0, 229, 255, 0.35)',
-  'rgba(0, 229, 255, 0.22)',
-  '#9aa3ad',
-]
-
 const chartData = computed(() => {
   const entradas = Object.entries(props.gastos)
   return {
-    labels: entradas.map(([nombre]) => nombre.charAt(0).toUpperCase() + nombre.slice(1)),
+    labels: entradas.map(([categoria]) => etiquetaCategoria(categoria)),
     datasets: [
       {
         label: 'Gastos',
         data: entradas.map(([, valor]) => valor),
-        backgroundColor: entradas.map((_, indice) => colores[indice % colores.length]),
+        backgroundColor: entradas.map(([categoria]) => colorCategoria(categoria)),
         borderRadius: 6,
         maxBarThickness: 48,
       },

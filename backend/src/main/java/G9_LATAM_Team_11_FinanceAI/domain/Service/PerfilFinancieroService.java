@@ -30,7 +30,7 @@ public class PerfilFinancieroService {
         LocalDate primerDiaDelMes = fechaActual.withDayOfMonth(1);// necesito mes actual: desde el primer dia del mes
 
         long cantidadInversiones = transaccionRepository.countInversionesEnRango(idUsuario,
-                "Inversion", primerDiaDelMes, fechaActual);
+                "Inversión", primerDiaDelMes, fechaActual);
 
         // evaluacion por cantidad de inversion, no por monto
         if (cantidadInversiones == 0) {

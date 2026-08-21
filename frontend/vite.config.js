@@ -13,10 +13,9 @@ export default defineConfig({
     allowedHosts: true,
     proxy: {
       '/api': {
-        target: process.env.VITE_BACKEND_URL || 'http://backend:8080',
+        target: process.env.VITE_BACKEND_URL || 'http://backend:8080', // eslint-disable-line no-undef
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
-        headers: { Origin: 'http://localhost:8082' },
       },
     },
   },

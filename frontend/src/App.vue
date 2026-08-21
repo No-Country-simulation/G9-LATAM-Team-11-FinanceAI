@@ -41,10 +41,9 @@ onMounted(async () => {
   if (auth.sesionActiva) {
     try {
       await cargarUsuario(auth.usuarioId)
-      const cuentas = JSON.parse(localStorage.getItem('financeai:cuentas') || '[]')
-      const cuenta = cuentas.find(c => c.id === auth.usuarioId)
-      if (cuenta?.nombre) {
-        usuarioStore.setUsuario({ id: auth.usuarioId, nombre: cuenta.nombre })
+      const nombreGuardado = localStorage.getItem('financeai:nombre')
+      if (nombreGuardado) {
+        usuarioStore.setUsuario({ id: auth.usuarioId, nombre: nombreGuardado })
       }
     } catch {
       entrarDemo()

@@ -39,10 +39,9 @@ public class DataScienceModelService {
             if (archivoMetadata.exists()) {
                 JsonNode root = objectMapper.readTree(archivoMetadata);
 
-                // Cargar lista de categorías válidas (soporta 'categories' o 'categorias')
-                JsonNode categoriesNode = root.has("categories") ? root.get("categories") : root.get("categorias");
-                if (categoriesNode != null && categoriesNode.isArray()) {
-                    for (JsonNode cat : categoriesNode) {
+                // Opción A: Si metadata.json contiene una lista de categorías válidas
+                if (root.has("categorias")) {
+                    for (JsonNode cat : root.get("categorias")) {
                         categoriasValidas.add(cat.asText().toLowerCase());
                     }
                 }
