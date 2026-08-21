@@ -19,7 +19,7 @@ import java.util.List;
 
 public class UsuarioController {
 
-// Prueba de commit para ver si funciona
+
     @Autowired
     private UsuarioService usuarioService;
 

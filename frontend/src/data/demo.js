@@ -1,0 +1,33 @@
+// TODO: datos de demostración — se reemplazan por los datos reales del backend
+// cuando el usuario inicia sesión o se registra.
+export const datosDemo = {
+  nombre: 'Usuario Demo',
+  ingresoDisponible: 4200,
+  transacciones: [
+    { descripcion: 'Alquiler', categoria: 'vivienda', monto: 850, fecha: '2026-03-02', tipo: 'GASTO' },
+    { descripcion: 'Supermercado', categoria: 'alimentacion', monto: 620, fecha: '2026-03-08', tipo: 'GASTO' },
+    { descripcion: 'Luz y agua', categoria: 'servicios', monto: 140, fecha: '2026-03-15', tipo: 'GASTO' },
+    { descripcion: 'Nafta', categoria: 'transporte', monto: 180, fecha: '2026-03-22', tipo: 'GASTO' },
+    { descripcion: 'Alquiler', categoria: 'vivienda', monto: 850, fecha: '2026-04-02', tipo: 'GASTO' },
+    { descripcion: 'Supermercado', categoria: 'alimentacion', monto: 700, fecha: '2026-04-10', tipo: 'GASTO' },
+    { descripcion: 'Farmacia', categoria: 'salud', monto: 240, fecha: '2026-04-16', tipo: 'GASTO' },
+    { descripcion: 'Cine', categoria: 'ocio', monto: 120, fecha: '2026-04-27', tipo: 'GASTO' },
+    { descripcion: 'Alquiler', categoria: 'vivienda', monto: 850, fecha: '2026-05-02', tipo: 'GASTO' },
+    { descripcion: 'Supermercado', categoria: 'alimentacion', monto: 660, fecha: '2026-05-09', tipo: 'GASTO' },
+    { descripcion: 'Internet', categoria: 'servicios', monto: 130, fecha: '2026-05-14', tipo: 'GASTO' },
+    { descripcion: 'Uber', categoria: 'transporte', monto: 210, fecha: '2026-05-20', tipo: 'GASTO' },
+    { descripcion: 'Curso online', categoria: 'educacion', monto: 300, fecha: '2026-05-25', tipo: 'GASTO' },
+    { descripcion: 'Alquiler', categoria: 'vivienda', monto: 850, fecha: '2026-06-02', tipo: 'GASTO' },
+    { descripcion: 'Supermercado', categoria: 'alimentacion', monto: 730, fecha: '2026-06-11', tipo: 'GASTO' },
+    { descripcion: 'Cuota tarjeta', categoria: 'deudas', monto: 400, fecha: '2026-06-18', tipo: 'GASTO' },
+    { descripcion: 'Concierto', categoria: 'ocio', monto: 160, fecha: '2026-06-28', tipo: 'GASTO' },
+    { descripcion: 'Alquiler', categoria: 'vivienda', monto: 850, fecha: '2026-07-02', tipo: 'GASTO' },
+    { descripcion: 'Supermercado', categoria: 'alimentacion', monto: 690, fecha: '2026-07-08', tipo: 'GASTO' },
+    { descripcion: 'Nafta', categoria: 'transporte', monto: 195, fecha: '2026-07-19', tipo: 'GASTO' },
+    { descripcion: 'Luz y agua', categoria: 'servicios', monto: 145, fecha: '2026-07-24', tipo: 'GASTO' },
+    { descripcion: 'Internet', categoria: 'servicios', monto: 75, fecha: '2026-08-01', tipo: 'GASTO' },
+    { descripcion: 'Nafta', categoria: 'transporte', monto: 90, fecha: '2026-08-02', tipo: 'GASTO' },
+    { descripcion: 'Supermercado', categoria: 'alimentacion', monto: 320, fecha: '2026-08-03', tipo: 'GASTO' },
+    { descripcion: 'Café', categoria: 'ocio', monto: 60, fecha: '2026-08-04', tipo: 'GASTO' },
+  ],
+}

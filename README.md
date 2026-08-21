@@ -1,126 +1,91 @@
-# 💡 FinanceAI — Asistente Inteligente de Salud Financiera
+# FinanceAI — Entorno de Testing y Orquestación Docker
 
-Una solución inteligente para analizar el comportamiento y la salud financiera de usuarios a partir de sus transacciones, hábitos de consumo e indicadores financieros, transformando datos brutos en conocimiento claro y accionable.
+Esta rama está dedicada exclusivamente a la configuración, testing y estabilización de la infraestructura local multiplataforma utilizando Docker y Docker Compose en la fase de desarrollo.
 
----
+Cada contenedor está pensado y estructurado para que funcione y esté listo para que cada rol/sector del proyecto no tenga que preocuparse por docker, pero sí por sus tareas. Cualquier sugerencia es bien recibida.
 
-##  1. Funcionalidades del MVP (Features)
-
-- 🏷️ **Clasificación Automática de Gastos**: Categorización inteligente de transacciones en categorías clave (*Alimentación, Transporte, Salud, Vivienda, Educación, Ocio, Servicios, Ahorros, Deudas*).
-- 📊 **Evaluación del Perfil Financiero**: Catalogación del nivel de riesgo e higiene financiera del usuario en tres perfiles: **Saludable**, **En observación** o **En riesgo**, con cálculo de probabilidad.
-- 💡 **Recomendaciones Personalizadas**: Generación automática de consejos simples y accionables para reducir gastos excesivos y mejorar la capacidad de ahorro.
+Los contenedores se detendrán entre un inicio de sesión y el siguiente, de manera que deben arrancarse manualmente en cada reinicio (docker compose up -d). Esto está hecho así para evitar consumir recursos cuando no corresponda.
 
 ---
 
-##  2. Stack Tecnológico
+##  Estructura de Contenedores y Puertos
 
-- **Ciencia de Datos**: Python, Pandas, Scikit-Learn (Random Forest & NLP TF-IDF), ONNX (`skl2onnx`).
-- **Back-End**: Java 17, Spring Boot, ONNX Runtime (`onnxruntime`), PostgreSQL (Spring Data JPA).
-- **Front-End**: Vue 3, Vite, HTML5, CSS3.
-- **Cloud & Infraestructura**: Oracle Cloud Infrastructure (OCI), Docker & Docker Compose.
+El entorno local levanta 4 servicios interconectados dentro de la misma red de Docker:
 
----
-
-## 📁 3. Estructura Simplificada del Proyecto
-
-```
-Test/
-├── backend/                  # API REST en Java Spring Boot
-├── frontend/                 # Interfaz Web en Vue 3 + Vite
-├── notebooks/                # Experimentos, EDA y entrenamiento ML en Python
-│   ├── data/                 # Datasets sintéticos en español
-│   ├── eda.ipynb             # Exploración y visualización de datos
-│   └── training.ipynb        # Entrenamiento y exportación ONNX
-├── shared-models/            # Modelos serializados .onnx y metadatos JSON
-├── docker-compose.yml        # Orquestación de contenedores locales
-├── .gitignore                # Reglas de exclusión de archivos pesados/temporales
-└── README.md                 # Documentación principal del proyecto
-```
+* 🎨 **Front-End (Vue.js 3 + Vite)**: [http://localhost:8082](http://localhost:8082) (interno puerto `3000`)
+* ⚙️ **Back-End (Spring Boot)**: [http://localhost:8081](http://localhost:8081) (interno puerto `8080`)
+* 🗄️ **Base de Datos (MySQL 8.0)**: Mapeado localmente al puerto `3307` (interno puerto `3306`)
+* 📊 **Ciencia de Datos (Jupyter Lab)**: [http://localhost:8888](http://localhost:8888) (puente a `shared-models/`)
 
 ---
 
-##  4. Endpoint Principal (`POST /analisis-financiero`)
+## Guía de Configuración y Arranque Rápido
 
-### Entrada (Request Payload):
-```json
-{
-  "ingreso_mensual": 4500,
-  "nivel_endeudamiento": 25,
-  "frecuencia_ahorro": "Media",
-  "transacciones": [
-    { "descripcion": "Supermercado", "valor": 420 },
-    { "descripcion": "Combustible", "valor": 300 },
-    { "descripcion": "Streaming", "valor": 40 }
-  ]
-}
-```
+Sigue estos pasos en orden para levantar el entorno local:
 
-###  Salida (Response Payload):
-```json
-{
-  "perfil_financiero": "En observación",
-  "probabilidad": 0.82,
-  "resumen_gastos": {
-    "alimentacion": 420,
-    "transporte": 300,
-    "entretenimiento": 40
-  },
-  "recomendaciones": [
-    "Monitorear los gastos recurrentes de entretenimiento",
-    "Aumentar la reserva financiera mensual"
-  ]
-}
-```
+### Paso 1: Configurar archivos locales a partir de las plantillas
+Dado que las credenciales y las configuraciones de desarrollo local no se suben a GitHub por seguridad, debés duplicar y renombrar los archivos plantilla en la raíz del proyecto (podés hacerlo visualmente desde tu explorador de archivos o con la terminal):
 
----
+* **Variables de entorno:** Copiar `.env.example` y renombrarlo como `.env`
+* **Overrides de Docker:** Copiar `docker-compose.override.yml.example` y renombrarlo como `docker-compose.override.yml`
 
-## 5. Guía de Ejecución Rápida con Docker
 
-### Requisitos previos:
-- Tener instalado **Docker Desktop** (o Docker Engine en Linux).
-
-### Iniciar el proyecto completo:
+### Paso 2: Construir y levantar los contenedores
+Ejecuta el comando estándar de Docker Compose para compilar e iniciar los servicios en segundo plano:
 ```bash
-# 1. Clonar el repositorio y posicionarse en la carpeta del proyecto
-git clone <URL_REPOSISTORIO>
-
-# 2. Levantar todos los servicios en segundo plano
 docker compose up -d
 ```
 
-### Acceso a los servicios:
-- 🎨 **Front-End (Vue.js)**: `http://localhost:8082`
-- ⚙️ **Back-End (Spring Boot)**: `http://localhost:8081`
-- 📊 **Data Science (Jupyter Notebook)**: `http://localhost:8888`
-- 🗄️ **Base de Datos (PostgreSQL)**: `localhost:5433`
+### Opcional: Monitorear el estado del Backend
+Podés verificar que el servidor de Java Spring Boot compile y se conecte a MySQL leyendo sus logs:
+```bash
+docker compose logs -f backend
+```
 
 ---
 
-##  6. Equipo y Roles
+## Historial de Fixes Aplicados (Bitácora de DevOps)
 
-| Nombre     | Rol |
-| ---------- | -------------- |
-| Gabriel Estrada | Backend developer |
-| Cesar Maximiliano Chanan Romero | Backend developer |
-| Joel Israel Escalante Garcia | Backend developer |
-| Nicole Fernandez | Frontend |
-| Christian Quidel | Data scientist |
-| Esteban David Galdames | Data scientist |
-| Starlyn Manuel Duarte Guzman | Data analyst |
-| Oscar Alderete | Data engineer |
+Se han resuelto los siguientes problemas técnicos críticos en esta rama:
+
+### Error de permisos con el Maven Wrapper (`./mvnw: Permission denied`)
+* **Problema:** En sistemas locales que montan volúmenes compartidos, el script `./mvnw` carecía de permisos de ejecución (`+x`), provocando un bucle de reinicios (Exit Code `126`) en el contenedor.
+* **Solución:** Se modificó el archivo `docker-compose.override.yml.example` para utilizar el comando **`mvn`** global provisto nativamente por la imagen de Docker, el cual tiene permisos de ejecución nativos y es totalmente independiente de los archivos locales.
+
+### Optimización de velocidad en el arranque del Backend
+* **Problema:** El backend utilizaba la imagen de JDK pura `eclipse-temurin:17-jdk` e instalaba Maven de forma dinámica en cada arranque, demorando de 1 a 3 minutos.
+* **Solución:** Se actualizó la imagen base en `docker-compose.yml` a **`maven:3.9.6-eclipse-temurin-17`** (que incluye Maven preinstalado), reduciendo el arranque a segundos.
+
+### Homologación MySQL vs PostgreSQL y variables del `.env`
+* **Problema:** Había confusión técnica en la documentación y archivos de configuración (se mencionaba Postgres y puertos locales 5433).
+* **Solución:** Se estandarizó todo a MySQL 8.0, mapeando el puerto del host a `3307` para evitar colisiones y actualizando las variables en la plantilla `.env.example` a `DB_USER_M` y `DB_PASSWORD`.
+
+### Conectividad interna de Red y contraseña en `application.properties`
+* **Problema:** El backend apuntaba a `localhost` (lo que falla en contenedores separados) y usaba la variable incorrecta `${DB_PASS}`.
+* **Solución:** Se reconfiguró `application.properties` para apuntar a la red interna de Docker (`${DB_HOST}`) y mapear la contraseña con `${DB_PASSWORD}` de forma alineada con Docker Compose.
+
+### Consumo de recursos
+* **Problema:** Al levantar el stack completo, la compilación de Java (Maven) y la base de datos MySQL pueden generar picos de consumo de CPU y consumir mucha memoria del sistema.
+* **Solución:** Se agregaron límites estrictos de CPU y memoria en todos los servicios de [docker-compose.yml](./docker-compose.yml) (`deploy.resources.limits`) y se limitó la memoria interna de la JVM con `MAVEN_OPTS=-Xmx1024m -Xms512m` en el backend.
+
+### Desactivación de reinicio automático de contenedores al arrancar el sistema
+* **Problema:** La configuración `restart: always` levantaba automáticamente todos los contenedores en segundo plano cuando el desarrollador iniciaba sesión en su computadora, consumiendo memoria RAM y CPU innecesariamente en equipos de recursos limitados.
+* **Solución:** Se actualizó la propiedad a `restart: "no"` en todos los servicios de [docker-compose.yml](./docker-compose.yml). Los contenedores ahora solo se inician con comandos explícitos (`docker compose up`) y no consumen recursos al prender la máquina.
 
 ---
 
-## 🗺️ 7. Roadmap del Proyecto
+## Metodología del Perfilado Financiero (Data Science)
 
-- [x] **Fase 1: Planeamiento & Arquitectura**: Definición del MVP, esquema de JSON e infraestructura Docker Compose.
-- [ ] **Fase 2: Ciencia de Datos**: Dataset sintético, EDA (`eda.ipynb`) y exportación a `.onnx`.
-- [ ] **Fase 3: Desarrollo de API & UI**: Implementación de endpoints REST en Spring Boot e interfaz web en Vue.
-- [ ] **Fase 4: Despliegue en OCI**: Configuración de servicios en Oracle Cloud Infrastructure (Object Storage / Compute).
-- [ ] **Fase 5: Verificación & Demo Day**: Pruebas integradas de 3 escenarios reales y presentación final.
+El módulo de perfilado evalúa la salud económica del usuario analizando la relación entre la rigidez de sus costos fijos y su disciplina de ahorro:
 
----
+### 1. Ratio de Gastos Fijos Ineludibles (Compromiso del Ingreso)
+Mide el porcentaje del salario mensual que el usuario destina a cubrir sus gastos fijos de subsistencia (**Vivienda** y **Servicios Básicos**):
 
-## 📄 8. Licencia
+$$\text{Ratio de Gastos Fijos (\%)} = \left( \frac{\text{Gasto Fijo Promedio Mensual}}{\text{Ingreso Mensual}} \right) \times 100$$
 
-Este proyecto se distribuye bajo la licencia **MIT**. Consulta el archivo `LICENSE` para más información.
+* **En Riesgo (> 26%):** Indique alto nivel de rigidez presupuestaria. El usuario compromete una porción excesiva de su ingreso en costos fijos, quedando expuesto a impagos ante imprevistos.
+* **En Observación (22% a 26% o Ahorro 'Ninguno'):** Zona intermedia que requiere monitoreo preventivo de gastos.
+* **Saludable (<= 22% y Ahorro 'Medio' o 'Alto'):** Estructura de costos fijos sostenible con capacidad constante de reserva económica.
+
+### 2. Frecuencia de Ahorro e Inversión
+Evalúa la constancia con la que el usuario realiza transacciones en la categoría **Inversión** (`Ninguna`, `Baja`, `Media`, `Alta`), ponderando la regularidad del hábito por encima de la cuantía individual.
