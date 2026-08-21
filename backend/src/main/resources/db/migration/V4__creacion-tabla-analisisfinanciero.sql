@@ -6,7 +6,7 @@ CREATE TABLE analisis_financiero (
     fecha_final DATE NULL,
     perfil_financiero VARCHAR(50) NOT NULL,
     nivel_endeudamiento DECIMAL(10, 2) NOT NULL,
-    nivel_ahorro DECIMAL(10, 2) NOT NULL,
+    nivel_ahorro VARCHAR(50) NOT NULL,
     recomendaciones TEXT NULL,
 
     PRIMARY KEY (id),

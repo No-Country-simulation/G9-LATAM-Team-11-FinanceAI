@@ -38,12 +38,16 @@ public class TransaccionController {
 
 
     @Transactional(readOnly = true)
-    @GetMapping("/rangos")
-    public ResponseEntity<List<DetallesTransaccionFiltradaDTO>> obtenerTransaccionPorFechas(@ModelAttribute @Valid TransaccionFiltradaDTO datos) {
+    @PostMapping("/rangos")
+    public ResponseEntity<List<DetallesTransaccionFiltradaDTO>> obtenerTransaccionPorFechasPost(@RequestBody @Valid TransaccionFiltradaDTO datos) {
         List<DetallesTransaccionFiltradaDTO> transacciones = transaccionService.obtenerTransaccionesPorRango(datos);
-        if (transacciones.isEmpty()){
-            return ResponseEntity.noContent().build();
-        }
+        return ResponseEntity.ok(transacciones);
+    }
+
+    @Transactional(readOnly = true)
+    @GetMapping("/rangos")
+    public ResponseEntity<List<DetallesTransaccionFiltradaDTO>> obtenerTransaccionPorFechasGet(@ModelAttribute @Valid TransaccionFiltradaDTO datos) {
+        List<DetallesTransaccionFiltradaDTO> transacciones = transaccionService.obtenerTransaccionesPorRango(datos);
         return ResponseEntity.ok(transacciones);
     }
 

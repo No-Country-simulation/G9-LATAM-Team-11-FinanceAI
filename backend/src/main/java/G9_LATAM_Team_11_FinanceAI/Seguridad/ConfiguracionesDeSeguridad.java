@@ -30,8 +30,10 @@ public class ConfiguracionesDeSeguridad {
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(req -> req
+                        .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+                        .requestMatchers("/error").permitAll()
                         .requestMatchers(HttpMethod.POST, "/login").permitAll()
-                        .requestMatchers(HttpMethod.POST,"/usuario").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/usuario").permitAll()
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
@@ -42,11 +44,15 @@ public class ConfiguracionesDeSeguridad {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuracion = new CorsConfiguration();
 
-        configuracion.setAllowedOrigins(List.of("http://localhost:8082", "http://localhost:3000"));
-        configuracion.setAllowedMethods(List.of("POST", "GET", "PUT", "PATCH", "DELETE"));
+        configuracion.setAllowedOriginPatterns(List.of(
+                "http://localhost:*",
+                "http://127.0.0.1:*",
+                "*"
+        ));
+        configuracion.setAllowedMethods(List.of("POST", "GET", "PUT", "PATCH", "DELETE", "OPTIONS"));
         configuracion.setAllowedHeaders(List.of("*"));
         configuracion.setAllowCredentials(true);
-        configuracion.setMaxAge(300L);
+        configuracion.setMaxAge(3600L);
         UrlBasedCorsConfigurationSource corsSource = new UrlBasedCorsConfigurationSource();
         corsSource.registerCorsConfiguration("/**", configuracion);
 
