@@ -57,6 +57,13 @@ public class TransaccionController {
         return ResponseEntity.ok().build();
     }
 
+    @Transactional
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> eliminarTransaccion (@PathVariable Long id){
+        boolean eliminar = transaccionService.eliminaTransaciones(id);
+        return eliminar ? ResponseEntity.ok().build() : ResponseEntity.noContent().build();
+    }
+
     
 
 }
