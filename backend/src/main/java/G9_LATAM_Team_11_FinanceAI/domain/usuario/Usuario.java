@@ -1,8 +1,9 @@
 package G9_LATAM_Team_11_FinanceAI.domain.usuario;
 
 import G9_LATAM_Team_11_FinanceAI.DTO.UsuarioDTOs.IngresarUsuarioDTO;
-import G9_LATAM_Team_11_FinanceAI.analisis_financiero.AnalisisFinanciero;
+import G9_LATAM_Team_11_FinanceAI.domain.analisis_financiero.AnalisisFinanciero;
 import G9_LATAM_Team_11_FinanceAI.domain.transaccion.Transaccion;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
@@ -34,10 +35,12 @@ public class Usuario implements UserDetails {
     private Boolean activo;
 
     @OneToMany(mappedBy = "usuario")
+    @JsonIgnore //evita bucle infinito en listar analisis financiero
     private List<Transaccion> transacciones;
 
 
     @OneToMany(mappedBy = "usuario")
+    @JsonIgnore
     private List<AnalisisFinanciero> analisisFinancieros;
 
     //constructor para los datos del DTO
