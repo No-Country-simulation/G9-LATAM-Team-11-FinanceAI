@@ -2,6 +2,7 @@ import { useUsuarioStore } from '@/stores/usuario'
 import {
   crearTransaccion as crearTransaccionApi,
   actualizarTransaccion,
+  eliminarTransaccion as eliminarTransaccionApi,
   obtenerTransaccionesPorRango,
 } from '@/services/transacciones'
 import { obtenerUsuario } from '@/services/usuarios'
@@ -76,11 +77,26 @@ export function useTransacciones() {
     }
   }
 
+  async function borrarTransaccion(id) {
+    if (esDemo()) {
+      store.setTransacciones(store.transacciones.filter(t => t.id !== id))
+      return
+    }
+
+    try {
+      await eliminarTransaccionApi(id)
+      await refrescarUsuario()
+    } catch (error) {
+      throw new Error(mensajeErrorApi(error), { cause: error })
+    }
+  }
+
   return {
     listarTransacciones,
     refrescarUsuario,
     crearTransaccion,
     editarTransaccion,
+    borrarTransaccion,
     rangoPorDefecto,
   }
 }
