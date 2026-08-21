@@ -39,7 +39,11 @@ export function useUsuario() {
 
       // 3. Cargar datos del usuario
       await cargarUsuario(loginResp.idUsuario)
-      store.setUsuario({ id: loginResp.idUsuario, nombre: loginResp.nombre || datos.nombre })
+      const nombreUsuario = loginResp.nombre || datos.nombre
+      store.setUsuario({ id: loginResp.idUsuario, nombre: nombreUsuario })
+      if (nombreUsuario) {
+        localStorage.setItem('financeai:nombre', nombreUsuario)
+      }
       return loginResp.idUsuario
     } catch (error) {
       store.setError(mensajeErrorApi(error))
@@ -52,12 +56,17 @@ export function useUsuario() {
   async function iniciarSesionCredenciales(email, password) {
     const loginResp = await loginUsuario(email, password)
     auth.iniciarSesion(loginResp.idUsuario, loginResp.token)
+    // Guardar nombre en localStorage para recuperar al recargar la página
+    if (loginResp.nombre) {
+      localStorage.setItem('financeai:nombre', loginResp.nombre)
+    }
     return { id: loginResp.idUsuario, nombre: loginResp.nombre }
   }
 
   function salir() {
     store.limpiar()
     auth.cerrarSesion()
+    localStorage.removeItem('financeai:nombre')
   }
 
   // Modo demo: sin sesión real, con datos de ejemplo para ver el dashboard.

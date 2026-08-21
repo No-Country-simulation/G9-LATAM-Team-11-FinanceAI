@@ -129,11 +129,18 @@ function generarAnalisisMock(transacciones, ingreso, endeudamiento, frecuenciaAh
   const perfil = determinarPerfil(endeudamiento, frecuenciaAhorro)
   const recomendaciones = generarRecomendaciones(resumenGastos, ingreso, endeudamiento, frecuenciaAhorro)
 
+  const totalGastos = transacciones.reduce((sum, t) => sum + Number(t.monto || 0), 0)
+  const ratioGastoIngreso = ingreso > 0 ? Math.min(100, Math.round((totalGastos / ingreso) * 100)) : 0
+  const frecuenciaAhorroNumero = frecuenciaAhorro === 'Alta' ? 85 : frecuenciaAhorro === 'Media' ? 55 : 25
+
   return {
     perfil_financiero: perfil.nombre,
     probabilidad: perfil.probabilidad,
     resumen_gastos: resumenGastos,
     recomendaciones,
+    nivel_endeudamiento: endeudamiento,
+    frecuencia_ahorro: frecuenciaAhorroNumero,
+    ratio_gasto_ingreso: ratioGastoIngreso,
   }
 }
 

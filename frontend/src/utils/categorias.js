@@ -1,17 +1,17 @@
 export const CATEGORIAS = {
-  alimentacion: { etiqueta: 'Alimentación', color: '#f59e0b' },
-  transporte: { etiqueta: 'Transporte', color: '#22d3ee' },
-  salud: { etiqueta: 'Salud', color: '#80dd4eff' },
-  vivienda: { etiqueta: 'Vivienda', color: '#8b5cf6' },
-  educacion: { etiqueta: 'Educación', color: '#3b82f6' },
-  ocio: { etiqueta: 'Ocio', color: '#ec4899' },
-  servicios: { etiqueta: 'Servicios', color: '#8c3a90ff' },
-  electrodomesticos: { etiqueta: 'Electrodomésticos', color: '#6366f1' },
-  inversion: { etiqueta: 'Inversión', color: '#34d399' },
-  vestimenta: { etiqueta: 'Vestimenta', color: '#f472b6' },
-  ahorros: { etiqueta: 'Ahorros', color: '#10b981' },
-  deudas: { etiqueta: 'Deudas', color: '#ef4444' },
-  otro: { etiqueta: 'Otro', color: '#8b95a7' },
+  alimentacion: { etiqueta: 'Alimentación', color: '#f97316' },   // naranja — apetito, energía vital
+  transporte: { etiqueta: 'Transporte', color: '#64748b' },       // gris azulado — movimiento, industria
+  salud: { etiqueta: 'Salud', color: '#14b8a6' },                 // teal — bienestar, frescura
+  vivienda: { etiqueta: 'Vivienda', color: '#a16207' },           // terracota/ámbar — hogar, estabilidad
+  educacion: { etiqueta: 'Educación', color: '#6366f1' },         // índigo — conocimiento, profundidad
+  ocio: { etiqueta: 'Ocio', color: '#a855f7' },                   // violeta — creatividad, diversión
+  servicios: { etiqueta: 'Servicios', color: '#0ea5e9' },         // celeste — utilidad, infraestructura
+  electrodomesticos: { etiqueta: 'Electrodomésticos', color: '#eab308' }, // amarillo — tecnología, energía
+  inversion: { etiqueta: 'Inversión', color: '#10b981' },         // esmeralda — crecimiento, prosperidad
+  vestimenta: { etiqueta: 'Vestimenta', color: '#f43f5e' },       // rosa intenso — estilo, expresión
+  ahorros: { etiqueta: 'Ahorros', color: '#059669' },             // verde jade — seguridad, acumulación
+  deudas: { etiqueta: 'Deudas', color: '#dc2626' },               // rojo — urgencia, alerta
+  otro: { etiqueta: 'Otro', color: '#94a3b8' },                   // gris neutro
 }
 
 function normalizar(texto) {
@@ -26,5 +26,5 @@ export function etiquetaCategoria(categoria) {
 }
 
 export function colorCategoria(categoria) {
-  return CATEGORIAS[normalizar(categoria)]?.color ?? '#8b95a7'
+  return CATEGORIAS[normalizar(categoria)]?.color ?? '#94a3b8'
 }

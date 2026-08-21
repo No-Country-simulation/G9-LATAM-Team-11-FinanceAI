@@ -22,3 +22,7 @@ export async function obtenerTransaccionesPorRango({ idUsuario, desde, hasta }) 
     throw error
   }
 }
+
+export async function eliminarTransaccion(id) {
+  await http.delete(`/transaccion/${id}`)
+}

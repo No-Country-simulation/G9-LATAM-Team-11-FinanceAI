@@ -21,6 +21,7 @@ const error = ref('')
 const paso = ref(1)
 const mostrarPassword = ref(false)
 const mostrarConfirmar = ref(false)
+const mostrarPasswordLogin = ref(false)
 
 const form = reactive({
   nombre: '',
@@ -283,16 +284,35 @@ function irModoDemo() {
                 autocomplete="email"
               />
             </label>
-            <label for="password-login">
-              Contraseña
-              <input
-                id="password-login"
-                v-model="form.passwordLogin"
-                type="password"
-                placeholder="Tu contraseña"
-                autocomplete="current-password"
-              />
-            </label>
+            <div>
+              <label for="password-login">Contraseña</label>
+              <div class="relative">
+                <input
+                  id="password-login"
+                  v-model="form.passwordLogin"
+                  :type="mostrarPasswordLogin ? 'text' : 'password'"
+                  placeholder="Tu contraseña"
+                  autocomplete="current-password"
+                />
+                <button
+                  type="button"
+                  class="absolute right-3 top-1/2 -translate-y-1/2 text-muted hover:text-white cursor-pointer"
+                  :aria-label="mostrarPasswordLogin ? 'Ocultar contraseña' : 'Mostrar contraseña'"
+                  @click="mostrarPasswordLogin = !mostrarPasswordLogin"
+                >
+                  <svg v-if="!mostrarPasswordLogin" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                    <circle cx="12" cy="12" r="3"/>
+                  </svg>
+                  <svg v-else width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/>
+                    <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/>
+                    <path d="M1 1l22 22"/>
+                    <path d="M14.12 14.12a3 3 0 1 1-4.24-4.24"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
 
             <p v-if="error" class="rounded-md border border-danger-edge bg-danger-bg px-3 py-2 text-sm text-danger" role="alert">
               {{ error }}
