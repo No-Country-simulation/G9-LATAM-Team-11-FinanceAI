@@ -12,6 +12,7 @@ import G9_LATAM_Team_11_FinanceAI.domain.usuario.Usuario;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.ValidationException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -125,5 +126,15 @@ public class TransacionService {
     private Transaccion obtenerTransaccionPorId(Long id){
         return transaccionRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("usuario no encontrado"));
+    }
+
+
+    public boolean eliminaTransaciones(Long id) {
+        try {
+            transaccionRepository.deleteById(id);
+            return true;
+        }catch (EmptyResultDataAccessException e){
+            return false;
+        }
     }
 }
