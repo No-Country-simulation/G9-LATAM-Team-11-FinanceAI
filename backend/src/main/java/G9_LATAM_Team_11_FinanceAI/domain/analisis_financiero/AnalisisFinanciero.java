@@ -11,6 +11,8 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 @Entity(name = "AnalisisFinanciero")
 @Table(name = "analisis_financiero")
 @Getter
@@ -22,15 +24,10 @@ public class AnalisisFinanciero {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    private LocalDate fechaAnalisis;
-
+    private LocalDateTime fechaAnalisis;
     private LocalDate fechaInicio;
-
     private LocalDate fechaFinal;
-
     private String perfilFinanciero;
-
     private BigDecimal nivelEndeudamiento;
 
     @Enumerated(EnumType.STRING)
@@ -44,7 +41,7 @@ public class AnalisisFinanciero {
     private Usuario usuario;
 
     public AnalisisFinanciero(IngresarAnalisisFinancieroDTO datos, Usuario usuario) {
-        this.fechaAnalisis = datos.fechaAnalisis();
+        this.fechaAnalisis = LocalDateTime.now();
         this.fechaInicio = datos.fechaInicio();
         this.fechaFinal = datos.fechaFinal();
         this.perfilFinanciero = datos.perfilFinanciero();
@@ -52,18 +49,5 @@ public class AnalisisFinanciero {
         this.nivelAhorro = datos.nivelAhorro();
         this.recomendaciones = datos.recomendaciones();
         this.usuario = usuario;
-    }
-
-    public AnalisisFinanciero(Usuario usuario, LocalDate fechaInicio, LocalDate fechaFinal,
-                              String perfilFinanciero, BigDecimal nivelEndeudamiento,
-                              FrecuenciaAhorro nivelAhorro, String recomendaciones) {
-        this.usuario = usuario;
-        this.fechaAnalisis = fechaFinal;
-        this.fechaInicio = fechaInicio;
-        this.fechaFinal = fechaFinal;
-        this.perfilFinanciero = perfilFinanciero;
-        this.nivelEndeudamiento = nivelEndeudamiento;
-        this.nivelAhorro = nivelAhorro;
-        this.recomendaciones = recomendaciones;
     }
 }
