@@ -1,10 +1,13 @@
 package G9_LATAM_Team_11_FinanceAI.Controller;
 
+import G9_LATAM_Team_11_FinanceAI.DTO.HistorialSueldoDTO.ActualizarSueldoDTO;
+import G9_LATAM_Team_11_FinanceAI.DTO.HistorialSueldoDTO.HistorialSueldoDTO;
 import G9_LATAM_Team_11_FinanceAI.DTO.UsuarioDTOs.IngresarUsuarioDTO;
 import G9_LATAM_Team_11_FinanceAI.DTO.UsuarioDTOs.ListadoUsuarioDTO;
 import G9_LATAM_Team_11_FinanceAI.DTO.UsuarioDTOs.RespuestaUsuarioDTO;
 import G9_LATAM_Team_11_FinanceAI.domain.Service.UsuarioService;
 import G9_LATAM_Team_11_FinanceAI.domain.usuario.Usuario;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,13 +15,13 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 
 @RestController
 @RequestMapping("/usuario")
 
 public class UsuarioController {
-
 
     @Autowired
     private UsuarioService usuarioService;
@@ -65,6 +68,21 @@ public class UsuarioController {
                 .toList();
 
         return ResponseEntity.ok(dtoList);
+    }
+
+    @PutMapping("/{id}/sueldo")
+    public ResponseEntity<Map<String, String>> actualizarSueldo(
+            @PathVariable Long id,
+            @RequestBody @Valid ActualizarSueldoDTO dto) {
+
+        usuarioService.actualizarSueldoUsuario(id, dto.nuevoSueldo());
+        return ResponseEntity.ok(Map.of("mensaje", "Sueldo actualizado"));
+    }
+
+    @GetMapping("/{id}/historial-sueldo")
+    public ResponseEntity<List<HistorialSueldoDTO>> obtenerHistorialSueldo(@PathVariable Long id) {
+        List<HistorialSueldoDTO> historial = usuarioService.obtenerHistorialSueldo(id);
+        return ResponseEntity.ok(historial);
     }
 }
 
