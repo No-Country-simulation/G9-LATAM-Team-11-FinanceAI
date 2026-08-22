@@ -5,8 +5,10 @@ import G9_LATAM_Team_11_FinanceAI.DTO.TransaccionDTOs.ActualizarTransaccionDTO;
 import G9_LATAM_Team_11_FinanceAI.DTO.TransaccionDTOs.DetallesTransaccionFiltradaDTO;
 import G9_LATAM_Team_11_FinanceAI.DTO.TransaccionDTOs.IngresarTransaccionDTO;
 import G9_LATAM_Team_11_FinanceAI.DTO.TransaccionDTOs.TransaccionFiltradaDTO;
+import G9_LATAM_Team_11_FinanceAI.Repository.IResumenMensualRepository;
 import G9_LATAM_Team_11_FinanceAI.Repository.ITransaccionRepository;
 import G9_LATAM_Team_11_FinanceAI.Repository.IUsuarioRepository;
+import G9_LATAM_Team_11_FinanceAI.domain.resumenmensual.ResumenMensual;
 import G9_LATAM_Team_11_FinanceAI.domain.transaccion.Transaccion;
 import G9_LATAM_Team_11_FinanceAI.domain.usuario.Usuario;
 import jakarta.persistence.EntityNotFoundException;
@@ -29,6 +31,8 @@ public class TransacionService {
 
     @Autowired
     private DataScienceModelService dataScienceService;
+
+    private IResumenMensualRepository resumenMensualRepository;
 
     public Transaccion ingresarTransaccion(IngresarTransaccionDTO datos){
 
@@ -137,4 +141,33 @@ public class TransacionService {
             return false;
         }
     }
+
+
+    public BigDecimal calcularSaldoDisponibleReal(Long usuarioId, int mesActual, int anioActual) {
+        Usuario usuario = obtenerUsuarioPorId(usuarioId);
+
+        // sueldo Fijo/Modificado actual
+        BigDecimal sueldoBase = usuario.getIngresoMensual();
+
+        // obtener el sobrante del mes inmediatamente anterior (si existe)
+        int mesAnterior = (mesActual == 1) ? 12 : mesActual - 1;
+        int anioAnterior = (mesActual == 1) ? anioActual - 1 : anioActual;
+
+        BigDecimal sobranteMesAnterior = resumenMensualRepository
+                .findByUsuarioIdAndAnioAndMes(usuarioId, anioAnterior, mesAnterior)
+                .map(ResumenMensual::getSobranteFinal)
+                .orElse(BigDecimal.ZERO);
+
+        // gastos realizados en el mes actual
+        BigDecimal gastadoEnElMes = transaccionRepository
+                .obtenerTotalGastadoEnMes(usuarioId, mesActual, anioActual);
+
+        if (gastadoEnElMes == null) {
+            gastadoEnElMes = BigDecimal.ZERO;
+        }
+
+        // calculo: (Sueldo Fijo + Sobrante Mes Anterior) - Gastos Mes Actual
+        return sueldoBase.add(sobranteMesAnterior).subtract(gastadoEnElMes);
+    }
+
 }
