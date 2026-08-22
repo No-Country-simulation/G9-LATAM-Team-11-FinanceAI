@@ -15,7 +15,14 @@ export function useUsuario() {
     store.setError('')
     try {
       const usuario = await obtenerUsuario(id)
-      store.setUsuario({ id: usuario.id, ingresoDisponible: usuario.ingresoMensual })
+      // ingresoMensual del backend es el saldo disponible actual
+      // Lo guardamos como ingresoOriginal solo si no tenemos uno previo
+      const ingresoOriginalPrevio = store.ingresoOriginal
+      store.setUsuario({
+        id: usuario.id,
+        ingresoDisponible: usuario.ingresoMensual,
+        ingresoOriginal: ingresoOriginalPrevio || usuario.ingresoMensual,
+      })
       await listarTransacciones()
       return usuario
     } catch (error) {
@@ -40,7 +47,12 @@ export function useUsuario() {
       // 3. Cargar datos del usuario
       await cargarUsuario(loginResp.idUsuario)
       const nombreUsuario = loginResp.nombre || datos.nombre
-      store.setUsuario({ id: loginResp.idUsuario, nombre: nombreUsuario })
+      store.setUsuario({
+        id: loginResp.idUsuario,
+        nombre: nombreUsuario,
+        // Al registrar sabemos el ingreso original desde el formulario
+        ingresoOriginal: datos.ingresoMensual,
+      })
       if (nombreUsuario) {
         localStorage.setItem('financeai:nombre', nombreUsuario)
       }
@@ -54,13 +66,17 @@ export function useUsuario() {
   }
 
   async function iniciarSesionCredenciales(email, password) {
-    const loginResp = await loginUsuario(email, password)
-    auth.iniciarSesion(loginResp.idUsuario, loginResp.token)
-    // Guardar nombre en localStorage para recuperar al recargar la página
-    if (loginResp.nombre) {
-      localStorage.setItem('financeai:nombre', loginResp.nombre)
+    try {
+      const loginResp = await loginUsuario(email, password)
+      auth.iniciarSesion(loginResp.idUsuario, loginResp.token)
+      // Guardar nombre en localStorage para recuperar al recargar la página
+      if (loginResp.nombre) {
+        localStorage.setItem('financeai:nombre', loginResp.nombre)
+      }
+      return { id: loginResp.idUsuario, nombre: loginResp.nombre }
+    } catch (error) {
+      throw new Error(mensajeErrorApi(error), { cause: error })
     }
-    return { id: loginResp.idUsuario, nombre: loginResp.nombre }
   }
 
   function salir() {

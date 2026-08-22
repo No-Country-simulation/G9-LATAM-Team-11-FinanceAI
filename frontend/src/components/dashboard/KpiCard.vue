@@ -14,6 +14,7 @@ let raf = null
 
 const tonoClases = {
   success: 'text-success',
+  warning: 'text-warning',
   danger: 'text-danger',
   cyan: 'text-cyan',
 }

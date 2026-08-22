@@ -10,7 +10,6 @@ export async function obtenerUsuario(id) {
   return data
 }
 
-// TODO: activar cuando backend implemente POST /login
 export async function loginUsuario(email, password) {
   const { data } = await http.post('/login', { email, password })
   return data

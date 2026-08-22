@@ -19,24 +19,42 @@ export function useDashboard() {
   const anio = ahora.getFullYear()
   const mes = ahora.getMonth()
 
+  const transaccionesArray = computed(() => Array.isArray(store.transacciones) ? store.transacciones : [])
+
   const gastoMes = computed(() =>
-    store.transacciones
+    transaccionesArray.value
       .filter((transaccion) => mismoMes(transaccion.fecha, anio, mes))
       .reduce((total, transaccion) => total + Number(transaccion.monto || 0), 0),
   )
 
   const ingreso = computed(() => Number(store.ingresoDisponible || 0))
 
-  const ahorroMes = computed(() => Math.max(0, ingreso.value - gastoMes.value))
+  const ingresoOriginal = computed(() => Number(store.ingresoOriginal || store.ingresoDisponible || 0))
+
+  // Saldo disponible = ingreso original - gasto del mes actual
+  const saldoDisponible = computed(() => Math.max(0, ingresoOriginal.value - gastoMes.value))
+
+  // Ahorro = transacciones de categoría "ahorros" del mes actual
+  // (preparado para incluir remanente del mes anterior cuando backend lo implemente)
+  const ahorroMes = computed(() => {
+    const ahorroTransacciones = transaccionesArray.value
+      .filter((t) => mismoMes(t.fecha, anio, mes) && normalizarCategoria(t.categoria) === 'ahorros')
+      .reduce((sum, t) => sum + Number(t.monto || 0), 0)
+    // TODO: sumar remanente mes anterior cuando backend exponga ese dato
+    return ahorroTransacciones
+  })
 
   const endeudamiento = computed(() => {
-    if (!ingreso.value) return 0
-    return Math.min(100, Math.round((gastoMes.value / ingreso.value) * 100))
+    // Usamos ingresoOriginal para el % de endeudamiento (base fija, no se descuenta)
+    // Si no hay ingresoOriginal, caemos a ingresoDisponible
+    const base = Number(store.ingresoOriginal || store.ingresoDisponible || 0)
+    if (!base) return 0
+    return Math.min(100, Math.round((gastoMes.value / base) * 100))
   })
 
   const porCategoria = computed(() => {
     const mapa = new Map()
-    for (const transaccion of store.transacciones) {
+    for (const transaccion of transaccionesArray.value) {
       const clave = normalizarCategoria(transaccion.categoria)
       mapa.set(clave, (mapa.get(clave) || 0) + Number(transaccion.monto || 0))
     }
@@ -47,7 +65,7 @@ export function useDashboard() {
     const lista = []
     for (let i = 5; i >= 0; i--) {
       const d = new Date(anio, mes - i, 1)
-      const total = store.transacciones
+      const total = transaccionesArray.value
         .filter((transaccion) => mismoMes(transaccion.fecha, d.getFullYear(), d.getMonth()))
         .reduce((suma, transaccion) => suma + Number(transaccion.monto || 0), 0)
       lista.push({ mes: d, total })
@@ -56,15 +74,25 @@ export function useDashboard() {
   })
 
   const ultimasTransacciones = computed(() =>
-    [...store.transacciones]
+    [...transaccionesArray.value]
       .sort((a, b) => new Date(`${b.fecha}T00:00:00`) - new Date(`${a.fecha}T00:00:00`))
       .slice(0, 5),
+  )
+
+  // Inversión = transacciones de categoría "inversion" del mes actual
+  const inversionMes = computed(() =>
+    transaccionesArray.value
+      .filter((t) => mismoMes(t.fecha, anio, mes) && normalizarCategoria(t.categoria) === 'inversion')
+      .reduce((sum, t) => sum + Number(t.monto || 0), 0),
   )
 
   return {
     gastoMes,
     ingreso,
+    ingresoOriginal,
+    saldoDisponible,
     ahorroMes,
+    inversionMes,
     endeudamiento,
     porCategoria,
     evolucionMensual,

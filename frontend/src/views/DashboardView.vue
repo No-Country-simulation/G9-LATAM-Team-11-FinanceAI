@@ -18,8 +18,10 @@ const usuarioStore = useUsuarioStore()
 const { nombre, transacciones } = storeToRefs(usuarioStore)
 const {
   gastoMes,
-  ingreso,
+  ingresoOriginal,
+  saldoDisponible,
   ahorroMes,
+  inversionMes,
   endeudamiento,
   porCategoria,
   ultimasTransacciones,
@@ -46,13 +48,15 @@ const evolucionFiltrada = computed(() => {
   const mes = ahora.getMonth()
   const cantidad = rangoEvolucion.value
 
+  const listaTransacciones = Array.isArray(transacciones.value) ? transacciones.value : []
+
   // Para 1 mes: mostrar evolución por semana del mes actual
   if (cantidad === 1) {
     const lista = []
     for (let semana = 0; semana < 4; semana++) {
       const inicioSemana = semana * 7 + 1
       const finSemana = Math.min((semana + 1) * 7, new Date(anio, mes + 1, 0).getDate())
-      const total = transacciones.value
+      const total = listaTransacciones
         .filter((t) => {
           if (!t.fecha) return false
           const f = new Date(`${t.fecha}T00:00:00`)
@@ -71,7 +75,7 @@ const evolucionFiltrada = computed(() => {
   const lista = []
   for (let i = cantidad - 1; i >= 0; i--) {
     const d = new Date(anio, mes - i, 1)
-    const total = transacciones.value
+    const total = listaTransacciones
       .filter((t) => {
         if (!t.fecha) return false
         const f = new Date(`${t.fecha}T00:00:00`)
@@ -81,6 +85,24 @@ const evolucionFiltrada = computed(() => {
     lista.push({ mes: d, total })
   }
   return lista
+})
+
+const tonoGasto = computed(() => {
+  if (endeudamiento.value >= 80) return 'danger'
+  if (endeudamiento.value >= 60) return 'warning'
+  return 'cyan'
+})
+
+const tieneAhorro = computed(() => ahorroMes.value > 0)
+const tieneInversion = computed(() => inversionMes.value > 0)
+
+const gridColsKpis = computed(() => {
+  let count = 2 // Saldo disponible + Gasto del mes
+  if (tieneAhorro.value) count++
+  if (tieneInversion.value) count++
+  if (count === 4) return 'grid-cols-2 md:grid-cols-4'
+  if (count === 3) return 'grid-cols-1 sm:grid-cols-3'
+  return 'grid-cols-1 sm:grid-cols-2'
 })
 </script>
 
@@ -99,7 +121,7 @@ const evolucionFiltrada = computed(() => {
           Hola, <span class="text-cyan">{{ nombre }}</span>
         </h1>
         <p class="mt-1 text-sm text-muted">
-          Gasto de este mes: <span class="font-semibold text-ink">−{{ formatoMoneda(gastoMes) }}</span>
+          Ingreso mensual: <span class="font-semibold text-ink">{{ formatoMoneda(ingresoOriginal) }}</span>
         </p>
       </div>
       <div class="flex gap-3">
@@ -110,32 +132,34 @@ const evolucionFiltrada = computed(() => {
       </div>
     </section>
 
-    <section class="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4" aria-label="Indicadores">
+    <section :class="['grid gap-3 md:gap-4', gridColsKpis]" aria-label="Indicadores">
       <KpiCard
-        etiqueta="Ingreso disponible"
-        :valor="ingreso"
+        etiqueta="Saldo disponible"
+        :valor="saldoDisponible"
         :formato="(n) => formatoMoneda(n)"
       />
       <KpiCard
         etiqueta="Gasto del mes"
         :valor="gastoMes"
         :formato="(n) => formatoMoneda(n)"
-        delta="total mensual"
-        tono="cyan"
+        :delta="`${formatoNumero(endeudamiento)}% del ingreso`"
+        :tono="tonoGasto"
       />
       <KpiCard
+        v-if="tieneAhorro"
         etiqueta="Ahorro"
         :valor="ahorroMes"
         :formato="(n) => formatoMoneda(n)"
-        delta="ingreso − gastos"
+        delta="transacciones de ahorro"
         tono="success"
       />
       <KpiCard
-        etiqueta="Endeudamiento"
-        :valor="endeudamiento"
-        :formato="(n) => `${formatoNumero(n)}%`"
-        :delta="endeudamiento < 30 ? 'saludable' : 'en riesgo'"
-        :tono="endeudamiento < 30 ? 'success' : 'danger'"
+        v-if="tieneInversion"
+        etiqueta="Inversión"
+        :valor="inversionMes"
+        :formato="(n) => formatoMoneda(n)"
+        delta="rendimiento & activos"
+        tono="success"
       />
     </section>
 
