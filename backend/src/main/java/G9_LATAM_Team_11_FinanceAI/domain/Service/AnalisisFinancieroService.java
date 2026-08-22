@@ -35,10 +35,16 @@ public class AnalisisFinancieroService {
     @Autowired
     private DataScienceModelService dataScienceModelService;
 
+
+    public Usuario obtenerUsuarioPorId(Long id){
+        return usuarioRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("No se encontró un usuario con el ID: " + id));
+    }
+
+
     public AnalisisFinanciero ingresarAnalisisFinanciero(IngresarAnalisisFinancieroDTO datos){
 
-        var usuario = usuarioRepository.findById(datos.idUsuario())
-                .orElseThrow(() -> new EntityNotFoundException("Usuario no existe"));
+        var usuario = obtenerUsuarioPorId(datos.idUsuario());
 
         var analisisfinanciero = new AnalisisFinanciero(datos, usuario);
 
@@ -46,8 +52,7 @@ public class AnalisisFinancieroService {
     }
 
     public AnalisisFinanciero generarYGuardarAnalisis(Long idUsuario) {
-        Usuario usuario = usuarioRepository.findById(idUsuario)
-                .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+        Usuario usuario = obtenerUsuarioPorId(idUsuario);
 
         // rango de fechas (01 de agosto a hoy)
         LocalDate fechaActual = LocalDate.now();
@@ -109,9 +114,7 @@ public class AnalisisFinancieroService {
 
     //Mostra los analisis financieron guardados
     public List<RespuestaAnalisisFinancieroDTO> obtenerHistorialAnalisis(Long idUsuario) {
-        if (!usuarioRepository.existsById(idUsuario)) {
-            throw new RuntimeException("Usuario no encontrado");
-        }
+        obtenerUsuarioPorId(idUsuario);
 
         // el historial ordenado de más reciente a más antiguo
         List<AnalisisFinanciero> historial = iAnalisisFinanciero.findByUsuarioIdOrderByFechaAnalisisDesc(idUsuario);

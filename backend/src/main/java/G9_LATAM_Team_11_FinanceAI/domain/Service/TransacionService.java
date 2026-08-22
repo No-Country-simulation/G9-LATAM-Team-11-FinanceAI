@@ -71,7 +71,7 @@ public class TransacionService {
 
     public Usuario obtenerUsuarioPorId(Long id){
         return usuarioRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Usuario no existe"));
+                .orElseThrow(() -> new EntityNotFoundException("No se encontró un usuario con el ID: " + id));
     }
 
     private Transaccion crearTransaccion(IngresarTransaccionDTO datos, Usuario usuario, String categoria) {
@@ -91,7 +91,7 @@ public class TransacionService {
     // Metodo para filtrar transacciones de usuarios por rangos de fechas
     public List<DetallesTransaccionFiltradaDTO> obtenerTransaccionesPorRango(TransaccionFiltradaDTO datos) {
         if (!usuarioRepository.existsByIdAndActivoTrue(datos.idUsuario())) {
-            throw new IllegalStateException("No se logró realizar la acción solicitada.");
+            throw new IllegalStateException("El usuario con ID " + datos.idUsuario() + " se encuentra inactivo.");
         }
 
         List<Transaccion> listadoTransacciones = transaccionRepository

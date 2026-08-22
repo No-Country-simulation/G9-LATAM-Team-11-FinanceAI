@@ -4,6 +4,7 @@ import G9_LATAM_Team_11_FinanceAI.Repository.ITransaccionRepository;
 import G9_LATAM_Team_11_FinanceAI.Repository.IUsuarioRepository;
 import G9_LATAM_Team_11_FinanceAI.domain.Models.FrecuenciaAhorro;
 import G9_LATAM_Team_11_FinanceAI.domain.usuario.Usuario;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +25,11 @@ public class PerfilFinancieroService {
     @Autowired
     private DataScienceModelService dataScienceModelService;
 
+    public Usuario obtenerUsuarioPorId(Long id){
+        return usuarioRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("No se encontró un usuario con el ID: " + id));
+    }
+
     public FrecuenciaAhorro calcularFrecuenciaAhorro(Long idUsuario) {
         LocalDate fechaActual = LocalDate.now(); //fecha de hoy
 
@@ -33,21 +39,21 @@ public class PerfilFinancieroService {
                 "Inversión", primerDiaDelMes, fechaActual);
 
         // evaluacion por cantidad de inversion, no por monto
-        if (cantidadInversiones == 0) {
-            return FrecuenciaAhorro.NINGUNA;
-        } else if (cantidadInversiones == 1) {
-            return FrecuenciaAhorro.BAJA;
-        } else if (cantidadInversiones == 2) {
-            return FrecuenciaAhorro.MEDIA;
-        } else {
-            return FrecuenciaAhorro.ALTA; // 3 o mas inversiones
-        }
+        return determinarFrecuenciaPorCantidad(cantidadInversiones);
+    }
+
+    private FrecuenciaAhorro determinarFrecuenciaPorCantidad(long cantidadInversiones) {
+        return switch ((int) cantidadInversiones) {
+            case 0 -> FrecuenciaAhorro.NINGUNA;
+            case 1 -> FrecuenciaAhorro.BAJA;
+            case 2 -> FrecuenciaAhorro.MEDIA;
+            default -> FrecuenciaAhorro.ALTA;
+        };
     }
 
     public BigDecimal calcularPorcentajeEndeudamiento(Long idUsuario) {
 
-        Usuario usuario = usuarioRepository.findById(idUsuario)
-                .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+        Usuario usuario = obtenerUsuarioPorId(idUsuario);
 
         BigDecimal ingresoMensual = usuario.getIngresoMensual();
 
