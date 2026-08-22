@@ -172,3 +172,54 @@
 ### D. Gobernanza y Licenciamiento
 * **Licencia MIT**: Se creó el archivo formal `LICENSE` en la raíz del repositorio con los derechos de autor para el año 2026 a nombre de `FinanceAI Team - G9 LATAM Team 11` y se añadió el identificador `"license": "MIT"` en `frontend/package.json`.
 
+---
+
+## 8. Informe de Optimización de Recursos y Blindaje de Producción para OCI Free Tier (21 de agosto de 2026)
+
+**Destinatarios:** Equipo de Desarrollo (DevOps, Backend, Frontend, Data Science)  
+**Objetivo:** Consolidar la arquitectura de producción contenerizada, el blindaje de seguridad (*hardening*) y el informe de consumo de recursos adaptado a las restricciones de Oracle Cloud Infrastructure (OCI Always Free).
+
+---
+
+### A. Arquitectura Multi-Etapa y Despliegue de Producción (DevOps)
+* **Contenerización Multi-Etapa (*Multi-stage Builds*)**:
+  * `backend/Dockerfile`: Compilación en primera fase con Maven (`maven:3.9.6-eclipse-temurin-17`) y empaquetado final sobre una imagen mínima JRE (`eclipse-temurin:17-jre-alpine`). Se configuró la ejecución bajo un usuario de sistema sin privilegios (`appuser`).
+  * `frontend/Dockerfile`: Compilación de la SPA con `node:22-alpine` y despliegue de los estáticos resultantes sobre un servidor web ligero `nginx:alpine`.
+* **Proxy Inverso Nginx (`frontend/nginx.conf`)**:
+  * Nginx sirve los estáticos de Vue en el puerto 80 y actúa como proxy inverso hacia el backend (`location /api/ -> http://backend:8080/`), eliminando la necesidad de habilitar CORS en la API y unificando el punto de acceso.
+* **Orquestador Productivo (`docker-compose.prod.yml`)**:
+  * Se retiró la exposición del puerto 3306 de MySQL hacia Internet, manteniendo la base de datos completamente aislada dentro de la red interna de Docker.
+  * Se establecieron límites estrictos de CPU y memoria RAM por contenedor para garantizar estabilidad en instancias de 1 GB de RAM.
+  * Se creó la plantilla `.env.prod.example` para gestionar secretos en el servidor sin versionarlos en Git.
+
+---
+
+### B. Blindaje de Seguridad y Perfil de Producción (Backend)
+* **Perfil estricto de Spring Boot (`application-prod.properties`)**:
+  * Se eliminó el valor por defecto (*fallback*) público de la clave JWT (`api.security.secret=${TOKEN_SECRETO}`), forzando a que la aplicación falle en el arranque si no se inyecta una variable de entorno segura en el servidor.
+  * Se desactivó la impresión de consultas SQL (`spring.jpa.show-sql=false`) y se ajustaron los niveles de registro (`logging.level.org.springframework=WARN`, `logging.level.G9_LATAM_Team_11_FinanceAI=INFO`) para prevenir la fuga de credenciales e información financiera en logs.
+* **Cabeceras de Seguridad HTTP (Nginx)**:
+  * Se integraron los encabezados `X-Frame-Options: SAMEORIGIN`, `X-Content-Type-Options: nosniff`, `X-XSS-Protection: 1; mode=block` y `Referrer-Policy: no-referrer-when-downgrade` en `nginx.conf`.
+
+---
+
+### C. Medición Empírica de Recursos (Benchmark en Tiempo Real)
+Se ejecutó un análisis en vivo de la infraestructura de producción mediante `docker stats`:
+
+* **Consumo de Memoria RAM:**
+  * **Frontend (Nginx Alpine):** ~18 MB (Límite: 100 MB).
+  * **Backend (Spring Boot JRE 17):** ~196 MB (Límite: 600 MB).
+  * **Base de Datos (MySQL 8.0):** ~365 MB (Límite: 400 MB).
+  * **Total activo:** **~580 MB** (dejando más de 400 MB libres para el sistema operativo en una instancia de 1.024 MB).
+* **Consumo de CPU:** ~0% a 2% en estado de reposo, con picos de 10% a 30% en inferencias y 100% durante los primeros 5-8 segundos de inicialización de Hibernate/Flyway.
+* **Espacio en Disco:** ~2.1 GB requeridos entre imágenes y volúmenes (apenas un 1% de los 200 GB asignados por OCI Always Free).
+
+---
+
+### D. Auditoría y Benchmark de Modelos de Lenguaje (Data Science)
+* Se evaluaron de forma aislada los modelos ONNX generados mediante baterías de pruebas ciegas:
+  * **Modelo B (Elegido):** 93.9% de exactitud en casos cotidianos, 58 KB de peso y un vocabulario hiper-optimizado de 762 términos clave.
+  * **Modelo A:** 78.8% de exactitud y 320 KB.
+  * **Modelo C:** 75.8% de exactitud y 235 KB (degradado por sobreajuste léxico debido a ruido estocástico en identificadores numéricos).
+
+
