@@ -34,6 +34,12 @@ function primerDiaDelMes() {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-01`
 }
 
+function prevenirTeclasInvalidas(e) {
+  if (['-', '+', 'e', 'E'].includes(e.key)) {
+    e.preventDefault()
+  }
+}
+
 function validar() {
   if (!form.descripcion.trim()) return 'La descripción es obligatoria.'
   if (!form.monto || form.monto <= 0) return 'Ingresa un monto mayor a 0.'
@@ -111,8 +117,10 @@ async function enviar() {
             v-model.number="form.monto"
             type="number"
             step="0.01"
+            min="0.01"
             placeholder="Ej: 500"
             class="pr-14"
+            @keypress="prevenirTeclasInvalidas"
           />
           <span class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 font-mono text-xs text-muted">
             {{ monedaActiva }}

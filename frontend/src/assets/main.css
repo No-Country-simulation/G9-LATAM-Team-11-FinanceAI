@@ -57,6 +57,13 @@
     @apply w-full appearance-none rounded-md border border-edge-strong bg-coal px-3.5 py-2.5 text-ink transition-colors placeholder:text-dim focus:border-cyan focus:outline-none focus:ring-2 focus:ring-cyan-glow;
   }
 
+  input::placeholder,
+  select::placeholder {
+    font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+    font-size: 14.5px;
+    font-weight: 400;
+  }
+
   input[type='number']::-webkit-outer-spin-button,
   input[type='number']::-webkit-inner-spin-button {
     -webkit-appearance: none;

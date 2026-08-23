@@ -103,13 +103,43 @@ function formatoFecha(fechaStr) {
 
           <div
             :class="[
-              'inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 font-semibold text-[11px]',
+              'inline-flex items-center gap-1 rounded-full px-2 py-0.5 font-semibold text-[10px] tracking-wide uppercase',
               Number(item.sueldoNuevo) >= Number(item.sueldoAnterior)
                 ? 'bg-success/15 text-success'
                 : 'bg-danger/15 text-danger',
             ]"
           >
-            <span>{{ Number(item.sueldoNuevo) >= Number(item.sueldoAnterior) ? '▲ Aumento' : '▼ Reducción' }}</span>
+            <!-- Aumento SVG -->
+            <svg
+              v-if="Number(item.sueldoNuevo) >= Number(item.sueldoAnterior)"
+              width="10"
+              height="10"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+            <!-- Reducción SVG -->
+            <svg
+              v-else
+              width="10"
+              height="10"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="17" y1="7" x2="7" y2="17"></line>
+              <polyline points="17 17 7 17 7 7"></polyline>
+            </svg>
+            <span>{{ Number(item.sueldoNuevo) >= Number(item.sueldoAnterior) ? 'Aumento' : 'Reducción' }}</span>
           </div>
         </div>
       </div>

@@ -5,7 +5,12 @@ const CLAVE_SESION = 'financeai:sessid'
 const CLAVE_TOKEN = 'financeai:token'
 
 export const useAuthStore = defineStore('auth', () => {
-  const usuarioId = ref(Number(localStorage.getItem(CLAVE_SESION)) || null)
+  const storedSession = localStorage.getItem(CLAVE_SESION)
+  const usuarioId = ref(
+    storedSession !== null && storedSession !== '' && storedSession !== 'null' && storedSession !== 'undefined'
+      ? Number(storedSession)
+      : null
+  )
   const token = ref(localStorage.getItem(CLAVE_TOKEN) || null)
 
   const sesionActiva = computed(() => usuarioId.value !== null)

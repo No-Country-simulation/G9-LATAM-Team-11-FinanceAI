@@ -10,6 +10,7 @@ export const useUsuarioStore = defineStore('usuario', () => {
   // Ingreso mensual original declarado al registrarse (no varía con los gastos)
   const ingresoOriginal = ref(Number(localStorage.getItem(CLAVE_INGRESO)) || null)
   const transacciones = ref([])
+  const resumenesMensuales = ref([])
   const cargando = ref(false)
   const error = ref('')
 
@@ -34,6 +35,10 @@ export const useUsuarioStore = defineStore('usuario', () => {
     transacciones.value = Array.isArray(lista) ? lista : []
   }
 
+  function setResumenesMensuales(lista) {
+    resumenesMensuales.value = Array.isArray(lista) ? lista : []
+  }
+
   function setCargando(estado) {
     cargando.value = estado
   }
@@ -48,6 +53,7 @@ export const useUsuarioStore = defineStore('usuario', () => {
     ingresoDisponible.value = null
     ingresoOriginal.value = null
     transacciones.value = []
+    resumenesMensuales.value = []
     cargando.value = false
     error.value = ''
     localStorage.removeItem(CLAVE_INGRESO)
@@ -59,6 +65,7 @@ export const useUsuarioStore = defineStore('usuario', () => {
     ingresoDisponible,
     ingresoOriginal,
     transacciones,
+    resumenesMensuales,
     cargando,
     error,
     tieneSesion,
@@ -66,6 +73,7 @@ export const useUsuarioStore = defineStore('usuario', () => {
     setUsuario,
     setIngresoDisponible,
     setTransacciones,
+    setResumenesMensuales,
     setCargando,
     setError,
     limpiar,

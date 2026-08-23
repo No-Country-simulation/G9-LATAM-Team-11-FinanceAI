@@ -46,17 +46,22 @@ onUnmounted(() => cancelAnimationFrame(raf))
 </script>
 
 <template>
-  <div class="min-w-[150px] rounded-lg border border-edge bg-surface p-4">
-    <span class="font-mono text-[10.5px] uppercase tracking-[0.16em] text-faint">{{ etiqueta }}</span>
-    <strong class="mt-1.5 block text-xl font-bold tabular-nums tracking-tight text-white">
-      {{ formato(mostrado) }}
-    </strong>
-    <span
-      v-if="delta"
-      class="mt-1 block font-mono text-xs"
-      :class="tonoClases[tono] ?? 'text-cyan'"
-    >
-      {{ delta }}
-    </span>
+  <div class="min-w-[150px] rounded-lg border border-edge bg-surface p-4 flex items-center justify-between">
+    <div class="flex-1 min-w-0">
+      <span class="font-mono text-[10.5px] uppercase tracking-[0.16em] text-faint">{{ etiqueta }}</span>
+      <strong class="mt-1.5 block text-xl font-bold tabular-nums tracking-tight text-white truncate">
+        {{ formato(mostrado) }}
+      </strong>
+      <span
+        v-if="delta"
+        class="mt-1 block font-mono text-xs truncate"
+        :class="tonoClases[tono] ?? 'text-cyan'"
+      >
+        {{ delta }}
+      </span>
+    </div>
+    <div v-if="$slots.icono" class="ml-3 shrink-0 flex items-center justify-center">
+      <slot name="icono" />
+    </div>
   </div>
 </template>

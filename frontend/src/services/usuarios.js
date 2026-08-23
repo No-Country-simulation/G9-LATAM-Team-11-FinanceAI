@@ -25,7 +25,13 @@ export async function obtenerHistorialSueldo(id) {
   return data
 }
 
+export async function obtenerResumenMensual(id) {
+  const { data } = await http.get(`/usuario/${id}/resumen-mensual`)
+  return data
+}
+
 export async function eliminarCuenta(id) {
   await http.delete(`/usuario/${id}`)
 }
+
 

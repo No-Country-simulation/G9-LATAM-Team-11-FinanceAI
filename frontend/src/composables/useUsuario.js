@@ -1,7 +1,7 @@
 import { useUsuarioStore } from '@/stores/usuario'
 import { useAuthStore } from '@/stores/auth'
 import { useAnalisisFinancieroStore } from '@/stores/analisisFinanciero'
-import { registrarUsuario, obtenerUsuario, loginUsuario, actualizarSueldo, eliminarCuenta } from '@/services/usuarios'
+import { registrarUsuario, obtenerUsuario, loginUsuario, actualizarSueldo, obtenerResumenMensual, eliminarCuenta } from '@/services/usuarios'
 import { useTransacciones } from '@/composables/useTransacciones'
 import { mensajeErrorApi } from '@/utils/errores'
 import { datosDemo } from '@/data/demo'
@@ -25,6 +25,16 @@ export function useUsuario() {
         ingresoDisponible: usuario.ingresoMensual,
         ingresoOriginal: ingresoOriginalPrevio || usuario.ingresoMensual,
       })
+      
+      if (id !== null && id !== 0) {
+        try {
+          const resumenes = await obtenerResumenMensual(id)
+          store.setResumenesMensuales(resumenes)
+        } catch (e) {
+          console.error("Error al obtener los resumenes mensuales:", e)
+        }
+      }
+
       await listarTransacciones()
       return usuario
     } catch (error) {

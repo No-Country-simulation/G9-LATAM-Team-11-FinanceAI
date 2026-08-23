@@ -23,6 +23,8 @@ const {
   gastoMes,
   ingresoOriginal,
   saldoDisponible,
+  sobranteMesAnterior,
+  porcentajeAhorroMesAnterior,
   ahorroMes,
   inversionMes,
   gastosFijos,
@@ -129,15 +131,8 @@ const tonoGasto = computed(() => {
 
 const tieneAhorro = computed(() => ahorroMes.value > 0)
 const tieneInversion = computed(() => inversionMes.value > 0)
-
-const gridColsKpis = computed(() => {
-  let count = 3 // Saldo disponible + Gasto del mes + Gastos fijos
-  if (tieneAhorro.value) count++
-  if (tieneInversion.value) count++
-  if (count === 5) return 'grid-cols-2 sm:grid-cols-3 lg:grid-cols-5'
-  if (count === 4) return 'grid-cols-2 md:grid-cols-4'
-  return 'grid-cols-1 sm:grid-cols-3'
-})
+const tieneSobrante = computed(() => sobranteMesAnterior.value > 0)
+const ultimaTransaccion = computed(() => ultimasTransacciones.value?.[0] || null)
 </script>
 
 <template>
@@ -161,20 +156,48 @@ const gridColsKpis = computed(() => {
             <button
               v-if="usuarioStore.id"
               type="button"
-              class="inline-flex items-center gap-1 rounded px-1.5 py-0.5 text-xs text-cyan hover:bg-cyan/10 transition-colors"
+              class="inline-flex items-center gap-1.5 rounded px-2 py-0.5 text-xs text-cyan hover:bg-cyan/10 transition-colors cursor-pointer"
               title="Editar sueldo"
               @click="abrirEdicionSueldo"
             >
-              ✎ Editar
+              <svg
+                width="11"
+                height="11"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M12 20h9"></path>
+                <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+              </svg>
+              Editar
             </button>
             <button
               v-if="usuarioStore.id"
               type="button"
-              class="inline-flex items-center gap-1 rounded px-1.5 py-0.5 text-xs text-muted hover:text-white transition-colors"
+              class="inline-flex items-center gap-1.5 rounded px-2 py-0.5 text-xs text-muted hover:text-white transition-colors cursor-pointer"
               title="Ver historial de sueldos"
               @click="mostrarModalHistorial = true"
             >
-              📋 Historial
+              <svg
+                width="11"
+                height="11"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="opacity-85"
+              >
+                <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+                <path d="M3 3v5h5" />
+                <path d="M12 7v5l4 2" />
+              </svg>
+              Historial
             </button>
           </template>
           <template v-else>
@@ -215,13 +238,28 @@ const gridColsKpis = computed(() => {
       </div>
     </section>
 
-    <section :class="['grid gap-3 md:gap-4', gridColsKpis]" aria-label="Indicadores">
+    <section class="grid grid-cols-12 gap-3 md:gap-4" aria-label="Indicadores">
+      <div class="col-span-12 md:col-span-4 flex flex-col gap-2">
+        <KpiCard
+          etiqueta="Saldo disponible"
+          :valor="saldoDisponible"
+          :formato="(n) => formatoMoneda(n)"
+        />
+        <div v-if="ultimaTransaccion" class="flex items-center justify-between rounded-lg border border-edge bg-surface/50 px-3 py-2 text-[11px] text-muted">
+          <div class="flex items-center gap-1.5 min-w-0">
+            <svg class="h-3.5 w-3.5 text-danger shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19" />
+              <polyline points="19 12 12 19 5 12" />
+            </svg>
+            <span class="truncate">{{ ultimaTransaccion.descripcion }}</span>
+          </div>
+          <span class="font-mono font-semibold text-danger shrink-0 ml-2">
+            -{{ formatoMoneda(ultimaTransaccion.monto) }}
+          </span>
+        </div>
+      </div>
       <KpiCard
-        etiqueta="Saldo disponible"
-        :valor="saldoDisponible"
-        :formato="(n) => formatoMoneda(n)"
-      />
-      <KpiCard
+        class="col-span-12 sm:col-span-6 md:col-span-4"
         etiqueta="Gasto del mes"
         :valor="gastoMes"
         :formato="(n) => formatoMoneda(n)"
@@ -229,6 +267,7 @@ const gridColsKpis = computed(() => {
         :tono="tonoGasto"
       />
       <KpiCard
+        class="col-span-12 sm:col-span-6 md:col-span-4"
         etiqueta="Gastos fijos"
         :valor="gastosFijos"
         :formato="(n) => formatoMoneda(n)"
@@ -237,20 +276,36 @@ const gridColsKpis = computed(() => {
       />
       <KpiCard
         v-if="tieneAhorro"
+        class="col-span-12 md:col-span-6"
         etiqueta="Ahorro"
         :valor="ahorroMes"
         :formato="(n) => formatoMoneda(n)"
-        delta="transacciones de ahorro"
+        :delta="tieneSobrante ? `El mes anterior ahorraste ${porcentajeAhorroMesAnterior}% de tu ingreso` : 'transacciones de ahorro'"
         tono="success"
-      />
+      >
+        <template #icono>
+          <svg class="h-6 w-6 text-success drop-shadow-[0_0_8px_rgba(52,211,153,0.3)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+            <polyline points="16 7 22 7 22 13" />
+          </svg>
+        </template>
+      </KpiCard>
       <KpiCard
         v-if="tieneInversion"
+        class="col-span-12 md:col-span-6"
         etiqueta="Inversión"
         :valor="inversionMes"
         :formato="(n) => formatoMoneda(n)"
         delta="rendimiento & activos"
         tono="success"
-      />
+      >
+        <template #icono>
+          <svg class="h-6 w-6 text-success drop-shadow-[0_0_8px_rgba(52,211,153,0.3)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="7" y1="17" x2="17" y2="7" />
+            <polyline points="7 7 17 7 17 17" />
+          </svg>
+        </template>
+      </KpiCard>
     </section>
 
     <section class="grid gap-4 lg:grid-cols-2">

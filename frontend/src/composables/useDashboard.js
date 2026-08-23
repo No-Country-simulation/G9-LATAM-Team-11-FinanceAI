@@ -42,17 +42,42 @@ export function useDashboard() {
 
   const ingresoOriginal = computed(() => Number(store.ingresoOriginal || store.ingresoDisponible || 0))
 
+  // Sobrante del mes anterior
+  const sobranteMesAnterior = computed(() => {
+    const pMes = mes === 0 ? 11 : mes - 1
+    const pAnio = mes === 0 ? anio - 1 : anio
+    const pMesBackend = pMes + 1 // 1-indexed para el backend
+    
+    const resumen = (store.resumenesMensuales || []).find(
+      (r) => r.mes === pMesBackend && r.anio === pAnio
+    )
+    return resumen ? Number(resumen.sobranteFinal || 0) : 0
+  })
+
+  // Porcentaje de ahorro del mes anterior
+  const porcentajeAhorroMesAnterior = computed(() => {
+    const pMes = mes === 0 ? 11 : mes - 1
+    const pAnio = mes === 0 ? anio - 1 : anio
+    const pMesBackend = pMes + 1
+    
+    const resumen = (store.resumenesMensuales || []).find(
+      (r) => r.mes === pMesBackend && r.anio === pAnio
+    )
+    if (resumen && Number(resumen.sueldoBase) > 0) {
+      return Math.round((Number(resumen.sobranteFinal) / Number(resumen.sueldoBase)) * 100)
+    }
+    return 0
+  })
+
   // Saldo disponible = ingreso original - gasto del mes actual
   const saldoDisponible = computed(() => Math.max(0, ingresoOriginal.value - gastoMes.value))
 
-  // Ahorro = transacciones de categoría "ahorros" del mes actual
-  // (preparado para incluir remanente del mes anterior cuando backend lo implemente)
+  // Ahorro = transacciones de categoría "ahorros" del mes actual + sobrante del mes anterior
   const ahorroMes = computed(() => {
     const ahorroTransacciones = transaccionesArray.value
       .filter((t) => mismoMes(t.fecha, anio, mes) && normalizarCategoria(t.categoria) === 'ahorros')
       .reduce((sum, t) => sum + Number(t.monto || 0), 0)
-    // TODO: sumar remanente mes anterior cuando backend exponga ese dato
-    return ahorroTransacciones
+    return ahorroTransacciones + sobranteMesAnterior.value
   })
 
   const gastosFijos = computed(() => {
@@ -124,6 +149,8 @@ export function useDashboard() {
     ingreso,
     ingresoOriginal,
     saldoDisponible,
+    sobranteMesAnterior,
+    porcentajeAhorroMesAnterior,
     ahorroMes,
     inversionMes,
     gastosFijos,
