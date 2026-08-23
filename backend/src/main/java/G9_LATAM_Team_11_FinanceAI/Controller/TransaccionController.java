@@ -29,7 +29,7 @@ public class TransaccionController {
         Transaccion transaccionGuardada = transaccionService.ingresarTransaccion(datos);
         return ResponseEntity.status(HttpStatus.CREATED).body(new RespuestaCategoriaDTO(transaccionGuardada));
     }
-    
+
     @GetMapping("/rangos")
     public ResponseEntity<List<DetallesTransaccionFiltradaDTO>> obtenerTransaccionPorFechas(@ModelAttribute @Valid TransaccionFiltradaDTO datos) {
         List<DetallesTransaccionFiltradaDTO> transacciones = transaccionService.obtenerTransaccionesPorRango(datos);
