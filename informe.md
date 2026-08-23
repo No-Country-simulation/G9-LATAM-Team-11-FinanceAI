@@ -1,8 +1,8 @@
 # Informe de Estado y Correcciones Técnicas por Rol - FinanceAI
 
-**Fecha:** 17 de agosto de 2026  
+**Fecha:** 23 de agosto de 2026  
 **Destinatarios:** Equipo de Desarrollo (DevOps, Backend, Frontend, Data Science)  
-**Resumen:** Este documento consolida el estado del MVP, los problemas identificados y las correcciones técnicas aplicadas e integradas en esta sesión para estabilizar el sistema e interoperar los modelos de Inteligencia Artificial (ONNX) con Spring Boot y Vue 3.
+**Resumen:** Este documento consolida el estado del MVP, la evolución completa de la arquitectura Docker (desarrollo y producción para OCI), los problemas identificados y las correcciones técnicas aplicadas en cada área para estabilizar el sistema, interoperar los modelos de Inteligencia Artificial (ONNX) con Spring Boot y Vue 3, y maximizar la capacidad de generalización del procesamiento de lenguaje natural.
 
 ---
 
@@ -221,5 +221,105 @@ Se ejecutó un análisis en vivo de la infraestructura de producción mediante `
   * **Modelo B (Elegido):** 93.9% de exactitud en casos cotidianos, 58 KB de peso y un vocabulario hiper-optimizado de 762 términos clave.
   * **Modelo A:** 78.8% de exactitud y 320 KB.
   * **Modelo C:** 75.8% de exactitud y 235 KB (degradado por sobreajuste léxico debido a ruido estocástico en identificadores numéricos).
+
+---
+
+## 9. Informe de Reestructuración Docker (Dev & Prod), Compatibilidad ONNX C++ y Generalización de Modelos de IA (22 y 23 de agosto de 2026)
+
+**Destinatarios:** Equipo de Desarrollo (DevOps, Backend, Data Science, Frontend)  
+**Objetivo:** Documentar la reestructuración completa de los entornos Docker (desarrollo, producción y overrides), la resolución del error de carga nativa en ONNX Runtime Java, y la evolución del modelo de procesamiento de lenguaje natural hacia una cobertura léxica regional con 2.961 términos.
+
+---
+
+### A. DevOps, Infraestructura y Entornos Docker
+
+1. **Resolución de incompatibilidad de biblioteca nativa C++ en ONNX Runtime (`libonnxruntime4j_jni.so`)**:
+   * **Diagnóstico previo**: Al desplegar el backend en contenedores basados en Alpine Linux (`eclipse-temurin:17-jre-alpine`), la biblioteca estándar de C utilizada por el sistema operativo es `musl libc`. El motor nativo de ONNX Runtime (`onnxruntime4j`) requiere `glibc` y símbolos de la biblioteca estándar de C++ de GNU (`libstdc++`). Esto provocaba un error de enlace dinámico (`java.lang.UnsatisfiedLinkError: /tmp/onnxruntime4j_jni...: Error relocating ... symbol not found`) que impedía la carga de `modelo_transacciones.onnx` y `modelo_perfil.onnx` en tiempo de ejecución.
+   * **Solución implementada**: En `backend/Dockerfile` (Etapa 2), se migró la imagen de ejecución a `eclipse-temurin:17-jre` (basada en Ubuntu/Debian), la cual incluye soporte nativo completo para `glibc`. Se mantuvo la seguridad del contenedor ejecutando bajo un usuario sin privilegios (`appuser`) y se configuró la memoria inicial y máxima de la JVM con `-Xms256m -Xmx512m`.
+
+2. **Diferenciación estricta de entornos Docker**:
+   * **Entorno de Desarrollo (`docker-compose.yml`)**:
+     * **Base de Datos (`financeai_db`)**: Imagen `mysql:8.0`. El puerto se mapeó a `127.0.0.1:3307:3306` para evitar colisiones con instancias locales de MySQL que puedan estar ejecutándose en el puerto 3306 del host.
+     * **Backend (`financeai_backend`)**: Imagen `maven:3.9.6-eclipse-temurin-17`. Montaje de volumen en vivo `./backend:/app` y `./shared-models:/app/models`, ejecutando `mvn spring-boot:run` con límites de recursos amplios (2 CPUs, 2048 MB RAM) para facilitar compilaciones incrementales en caliente.
+     * **Frontend (`financeai_frontend`)**: Imagen `node:22-alpine`. Montaje en vivo `./frontend:/app` con ejecución de `npm run dev` en el puerto `127.0.0.1:8082:3000`, configurado con `VITE_BACKEND_URL=http://backend:8080`.
+     * **Ciencia de Datos (`financeai_datascience`)**: Construcción basada en `notebooks/Dockerfile` sobre `jupyter/scipy-notebook:latest`, con preinstalación de dependencias científicas (`scikit-learn`, `skl2onnx`, `onnxruntime`, `faker`, `pandas`, `numpy`). Expuesto en `127.0.0.1:8888:8888` para permitir la experimentación interactiva.
+   * **Entorno de Producción (`docker-compose.prod.yml`)**:
+     * **Base de Datos (`financeai_db_prod`)**: Sin puertos expuestos al exterior, aislada en la red interna de Docker. Límites de recursos fijados en 0.8 CPU y 400 MB RAM.
+     * **Backend (`financeai_backend_prod`)**: Construcción multi-etapa optimizada con montaje de modelos en modo solo lectura (`./shared-models:/app/models:ro`), perfil `SPRING_PROFILES_ACTIVE=prod` y límites de 1.0 CPU y 600 MB RAM.
+     * **Frontend (`financeai_frontend_prod`)**: Construcción multi-etapa con Node 22 (compilación de estáticos con `VITE_BACKEND_URL=/api`) y servidor web Nginx Alpine sirviendo estáticos y actuando como proxy inverso (`location /api/ -> http://backend:8080/`). Es el único servicio con puerto público expuesto (`80:80`).
+   * **Plantilla de Overrides Locales (`docker-compose.override.yml.example`)**:
+     * Se incorporó una plantilla versionada para que los desarrolladores puedan crear su propio `docker-compose.override.yml` (ignorado en Git), resolviendo problemas de permisos en sistemas Linux/Mac y habilitando la detección de cambios en caliente de Vite con el parámetro `--host 0.0.0.0`.
+
+3. **Inyección en cascada de variables de entorno**:
+   * Se configuraron variables de entorno con valores de reserva (*fallbacks*) en `docker-compose.yml` y `docker-compose.prod.yml` (`${DB_USER:-${DB_USER_M:-dev_user}}`, `${JWT_SECRET:-${TOKEN_SECRETO:...}}`), garantizando que los contenedores puedan levantarse inmediatamente con valores seguros por defecto o sobrescribirse mediante un archivo `.env`.
+
+---
+
+### B. Backend y Consistencia de Semillas
+
+* **Corrección de hashes BCrypt en `V6__poblar_datos_prueba.sql` y `poblar_db.ipynb`**:
+  * Se reemplazó el hash de prueba previo por el hash generado formalmente por BCrypt (`$2a$10$kJio4J2CJgvbQPtXPLW2Mu2bsmJaTlG1Vij9Hy2jnRok6qTVz/W7a`), permitiendo que todos los usuarios del dataset de prueba inicien sesión con la credencial estándar `password123`.
+
+---
+
+### C. Data Science: Generalización Léxica e Inferencia ONNX
+
+1. **Diagnóstico del modelo de transacciones previo**:
+   * **Memorización vs. Generalización**: El modelo anterior alcanzaba 93.8% de precisión en términos memorizados, pero caía a **56.2% en datos no vistos**, colapsando sistemáticamente hacia la clase `Electrodomesticos` (25 de 35 fallos).
+   * **Ruido en etiquetas**: El cuaderno `1_simulation.ipynb` contenía un bloque de inyección de ruido de etiquetas (10% de transacciones con categoría permutada al azar) que imponía un techo artificial al clasificador.
+
+2. **Ampliación léxica y adaptaciones implementadas**:
+   * **Integración del corpus regional**: Se unificaron 2.671 comercios de América Latina (extraídos de los 200 archivos JSON del proyecto) y se mapearon a las 10 categorías oficiales, sin añadir columnas de país ni modificar el esquema de base de datos.
+   * **Descripciones funcionales genéricas**: Se añadieron frases descriptivas en cada categoría ("compra de viveres", "consulta odontologica", "mantenimiento del inmueble", "constitucion plazo fijo", etc.).
+   * **Prefijos transaccionales bancarios**: Se implementó una distribución probabilística de prefijos reales (`debito `, `transferencia a `, `pago `, `cargo por `, `pos `, `consumo `) y se eliminó la sustitución arbitraria de letras (`replace('a', 'q')`), alcanzando un vocabulario final de **2.961 términos únicos**.
+   * **Desactivación del ruido de etiquetas**: Se comentaron las líneas de permutación de categorías en `1_simulation.ipynb`.
+
+3. **Calibración y resolución de convergencia en `3_training.ipynb`**:
+   * **Ponderación de clases**: Se incorporó `class_weight='balanced'` en `LogisticRegression` para preservar el recall de categorías con menor volumen transaccional.
+   * **Ampliación de la grilla de búsqueda**: Se amplió `GridSearchCV` a `max_features: [2000, 3000, 4000]`, bigramas `ngram_range: [(1, 1), (1, 2)]` y filtros de frecuencia `max_df: [0.75, 0.85]`, totalizando 36 combinaciones y 108 entrenamientos internos con `cv=3`.
+   * **Eliminación de `ConvergenceWarning`**: Se establecieron los parámetros `max_iter=1000` y `tol=1e-3` en el optimizador L-BFGS, garantizando convergencia matemática estable y reduciendo el tiempo de ajuste a 48 segundos.
+
+4. **Resultados empíricos obtenidos**:
+   * **Exactitud en Validación Cruzada (`GridSearchCV`)**: **98.65%** (parámetros óptimos: `max_features=4000`, `C=1.0`, unigramas).
+   * **Exactitud en Test Set**: **98.0% - 99.0%** (F1-score ponderado de 0.99).
+   * **Generalización en términos ciegos no vistos (80 casos)**: Subió de **56.2% a 72.5% (+16.3 puntos porcentuales)**.
+   * **Desglose de generalización por categoría**:
+     * Salud: **100.0%** (8/8)
+     * Inversión: **87.5%** (7/8)
+     * Servicios: **87.5%** (7/8)
+     * Electrodomésticos: **87.5%** (7/8)
+     * Alimentación: **75.0%** (6/8)
+     * Transporte: **75.0%** (6/8)
+     * Vivienda: **75.0%** (6/8)
+     * Educación: **62.5%** (5/8)
+     * Ocio: **50.0%** (4/8)
+     * Vestimenta: **25.0%** (2/8)
+
+5. **Gobernanza de metadatos y serialización**:
+   * **`shared-models/modelo_transacciones.onnx`**: Actualizado a 233.9 KB (231.2 KB base 10), con entrada `string_input` (`String[1][1]`) y salida `output_label` (`String`).
+   * **`shared-models/modelo_perfil.onnx`**: Serializado en 1.17 KB, con entrada `float_input` (`float[1][3]`) y salida `output_label` (`String`).
+   * **`shared-models/metadata.json`**: Versión 2.0.0 sincronizada con las 10 categorías y los 3 perfiles oficiales para consumo directo de Spring Boot.
+
+---
+
+### D. Backend: Módulo de Resumen Mensual, Historial de Sueldo y Migración Flyway `V7`
+
+1. **Migración Flyway `V7__Creacion-tablas-historialsueldo-y-resumenmensual.sql`**:
+   * Se crearon las tablas `historial_sueldo` (para auditoría de cambios salariales con `sueldo_anterior`, `sueldo_nuevo`, `fecha_modificacion`) y `resumen_mensual` (con `anio`, `mes`, `sueldo_base`, `sobrante_mes_anterior`, `gastado_en_el_mes`, `sobrante_final`).
+2. **Servicios y Tareas Programadas (*Schedulers*)**:
+   * Se incorporó `ResumenMensualService` y la infraestructura en `infra/scheduler/` para el cálculo automático y cierre contable mensual del balance de los usuarios.
+3. **Validación de Usuarios**:
+   * Se integró `UsuarioValidacionService` para centralizar las reglas de negocio en la gestión de perfiles e ingresos.
+
+---
+
+### E. Frontend: Mejoras en Vistas de Análisis, Dashboard y Transacciones
+
+1. **Gestión de Análisis Financiero (`views/AnalisisView.vue` y `stores/analisisFinanciero.js`)**:
+   * Optimización del flujo reactivo para solicitar el análisis mensual y renderizar recomendaciones personalizadas junto a los indicadores de salud financiera.
+2. **Dashboard y Formato (`views/DashboardView.vue`, `utils/formato.js`)**:
+   * Actualización del formateo numérico y de divisas para consistencia regional, junto al refresco automático de métricas e historial de transacciones.
+
+
 
 
