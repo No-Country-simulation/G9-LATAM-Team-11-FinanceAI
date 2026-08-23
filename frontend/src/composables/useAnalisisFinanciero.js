@@ -1,70 +1,106 @@
 import { useAnalisisFinancieroStore } from '@/stores/analisisFinanciero'
 import { useUsuarioStore } from '@/stores/usuario'
-import { enviarAnalisisFinanciero } from '@/services/analisis'
+import { guardarAnalisisFinanciero, obtenerHistorialAnalisis } from '@/services/analisis'
+import { obtenerFrecuenciaAhorro, obtenerEndeudamiento } from '@/services/perfil'
 import { etiquetaCategoria } from '@/utils/categorias'
+
+const CLAVE_RESUMENES = 'financeai:resumenes-gastos'
+
+function guardarResumenLocal(idUsuario, idAnalisis, resumenGastos) {
+  if (!idUsuario) return
+  try {
+    const resumenes = JSON.parse(localStorage.getItem(CLAVE_RESUMENES) || '{}')
+    const claveUser = `u_${idUsuario}`
+    resumenes[claveUser] = resumenes[claveUser] || {}
+    resumenes[claveUser][idAnalisis] = resumenGastos
+    localStorage.setItem(CLAVE_RESUMENES, JSON.stringify(resumenes))
+  } catch {
+    // si localStorage falla, no es crítico
+  }
+}
+
+function obtenerResumenLocal(idUsuario, idAnalisis) {
+  if (!idUsuario) return null
+  try {
+    const resumenes = JSON.parse(localStorage.getItem(CLAVE_RESUMENES) || '{}')
+    const claveUser = `u_${idUsuario}`
+    return resumenes[claveUser]?.[idAnalisis] ?? null
+  } catch {
+    return null
+  }
+}
 
 /**
  * Composable de análisis financiero.
  *
  * FLUJO:
- * 1. Intenta enviar los datos al backend (POST /analisis-financiero)
- * 2. Si el backend responde → usa la respuesta real (perfil, recomendaciones de DS)
- * 3. Si el backend falla (endpoint no implementado aún) → genera un análisis LOCAL
- *    con heurísticas simples como fallback temporal.
- *
- * CUANDO EL BACKEND IMPLEMENTE /analisis-financiero:
- * - El try va a funcionar y el catch nunca se ejecuta
- * - No se necesita cambiar nada en el frontend
- * - Las recomendaciones vendrán del modelo de Data Science
+ * 1. Intenta llamar al backend (POST /analisisfinanciero/guardar/{idUsuario})
+ * 2. El backend calcula perfil, endeudamiento, ahorro y recomendaciones con DS
+ * 3. El frontend mapea la respuesta y complementa con datos locales (resumen_gastos, ratio)
+ * 4. Si el backend falla → fallback con análisis local (mock)
  */
 export function useAnalisisFinanciero() {
   const store = useAnalisisFinancieroStore()
   const usuarioStore = useUsuarioStore()
+
+  async function cargarPerfilBackend() {
+    if (!usuarioStore.id) return
+    try {
+      const [frecuencia, endeudamiento] = await Promise.all([
+        obtenerFrecuenciaAhorro(usuarioStore.id).catch(() => null),
+        obtenerEndeudamiento(usuarioStore.id).catch(() => null),
+      ])
+      if (frecuencia) store.setFrecuenciaAhorro(frecuencia)
+      if (endeudamiento !== null) store.setEndeudamientoBackend(endeudamiento)
+    } catch {
+      // fallo silencioso
+    }
+  }
 
   async function enviarAnalisis() {
     store.setLoading(true)
     store.setError('')
 
     const ingreso = Number(usuarioStore.ingresoDisponible || 0)
+    const ahora = new Date()
+    const mesActual = ahora.getMonth()
+    const anioActual = ahora.getFullYear()
+
     const transacciones = usuarioStore.transacciones
       .filter((t) => t.descripcion?.trim() && t.monto != null)
+      .filter((t) => {
+        if (!t.fecha) return false
+        const fecha = new Date(`${t.fecha}T00:00:00`)
+        return fecha.getMonth() === mesActual && fecha.getFullYear() === anioActual
+      })
 
     if (transacciones.length === 0) {
-      store.setError('Necesitas al menos una transacción registrada para analizar tus finanzas.')
+      store.setError('No tienes transacciones registradas este mes para analizar.')
       store.setLoading(false)
-      throw new Error('Sin transacciones')
+      throw new Error('Sin transacciones del mes actual')
     }
 
-    const endeudamiento = calcularEndeudamiento(transacciones, ingreso)
-    const frecuenciaAhorro = calcularFrecuenciaAhorro(transacciones, ingreso)
-
-    // Payload con el contrato esperado por el backend
-    const payload = {
-      ingreso_mensual: ingreso,
-      nivel_endeudamiento: endeudamiento,
-      frecuencia_ahorro: frecuenciaAhorro,
-      transacciones: transacciones.map((t) => ({
-        descripcion: t.descripcion.trim(),
-        valor: Number(t.monto),
-      })),
-    }
+    const resumenGastos = calcularResumenGastos(transacciones)
+    const totalGastado = Object.values(resumenGastos).reduce((s, m) => s + m, 0)
+    const ratioGastoIngreso = ingreso > 0 ? Math.min(100, Math.round((totalGastado / ingreso) * 100)) : 0
 
     try {
-      // ═══════════════════════════════════════════════════════════════
-      // RESPUESTA REAL DEL BACKEND (cuando exista POST /analisis-financiero)
-      // El backend usará modelo_perfil.onnx para clasificar y retornará:
-      // { perfil_financiero, probabilidad, resumen_gastos, recomendaciones }
-      // ═══════════════════════════════════════════════════════════════
-      const resultado = await enviarAnalisisFinanciero(payload)
-      store.setResultado(resultado)
-      return resultado
-    } catch {
-      // ═══════════════════════════════════════════════════════════════
-      // MOCK TEMPORAL — Análisis generado localmente en el frontend
-      // Se activa porque el endpoint /analisis-financiero NO existe aún.
-      // Usa heurísticas simples, NO modelos de ML.
-      // Eliminar este bloque cuando backend esté listo.
-      // ═══════════════════════════════════════════════════════════════
+      if (usuarioStore.esDemo) {
+        throw new Error('Modo demo activo: usando calculo local')
+      }
+      const respBackend = await guardarAnalisisFinanciero(usuarioStore.id)
+      const resultadoMapped = mapearRespuestaBackend(respBackend, resumenGastos, ratioGastoIngreso)
+      guardarResumenLocal(usuarioStore.id, respBackend.id, resumenGastos)
+      store.setResultado(resultadoMapped)
+      return resultadoMapped
+    } catch (err) {
+      if (err.message?.startsWith('Modo demo')) {
+        console.info('[FinanceAI] Modo demo activo: an\u00e1lisis calculado localmente.')
+      } else {
+        console.warn('[FinanceAI] Error backend an\u00e1lisis, usando c\u00e1lculo local fallback:', err)
+      }
+      const endeudamiento = calcularEndeudamiento(transacciones, ingreso)
+      const frecuenciaAhorro = calcularFrecuenciaAhorro(transacciones, ingreso)
       const resultadoMock = generarAnalisisMock(transacciones, ingreso, endeudamiento, frecuenciaAhorro)
       store.setResultado(resultadoMock)
       return resultadoMock
@@ -73,55 +109,130 @@ export function useAnalisisFinanciero() {
     }
   }
 
-  return { enviarAnalisis }
+  async function cargarHistorial() {
+    if (!usuarioStore.id) return []
+    try {
+      const historial = await obtenerHistorialAnalisis(usuarioStore.id)
+      return Array.isArray(historial)
+        ? historial.slice(0, 10).map((e) => mapearEntradaHistorial(e, usuarioStore.id))
+        : []
+    } catch {
+      return []
+    }
+  }
+
+  return { enviarAnalisis, cargarHistorial, cargarPerfilBackend }
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Cálculos automáticos (estos se usan siempre, tanto para el payload al backend
-// como para el mock local)
+// Mapeo de respuesta del backend al formato del frontend
 // ─────────────────────────────────────────────────────────────────────────────
 
+function mapearRespuestaBackend(resp, resumenGastos, ratioGastoIngreso) {
+  // nivelAhorro del backend es string ("ALTA", "MEDIA", "BAJA") → mapear a número
+  const mapaAhorro = { ALTA: 85, MEDIA: 55, BAJA: 25 }
+  const frecuenciaAhorro = mapaAhorro[String(resp.nivelAhorro).toUpperCase()] ?? 50
+
+  // recomendaciones del backend es un string largo → split por frases
+  const recomendaciones = resp.recomendaciones
+    ? resp.recomendaciones.split(/[.!]\s+/).filter((r) => r.trim().length > 10).map((r) => r.trim() + '.')
+    : []
+
+  return {
+    perfil_financiero: resp.perfilFinanciero,
+    probabilidad: calcularProbabilidadDesdeNivel(resp.nivelDeEndeudamiento, frecuenciaAhorro),
+    resumen_gastos: resumenGastos,
+    recomendaciones,
+    nivel_endeudamiento: resp.nivelDeEndeudamiento ?? 0,
+    frecuencia_ahorro: frecuenciaAhorro,
+    ratio_gasto_ingreso: ratioGastoIngreso,
+    fecha_analisis: resp.fechaDeAnalisis,
+    periodo: resp.fechaDeMesesAnalisis,
+  }
+}
+
+function mapearEntradaHistorial(entrada, idUsuario) {
+  const mapaAhorro = { ALTA: 85, MEDIA: 55, BAJA: 25 }
+  const frecuenciaAhorro = mapaAhorro[String(entrada.nivelAhorro).toUpperCase()] ?? 50
+
+  // recomendaciones del historial también viene como string
+  const recomendaciones = entrada.recomendaciones
+    ? entrada.recomendaciones.split(/[.!]\s+/).filter((r) => r.trim().length > 10).map((r) => r.trim() + '.')
+    : []
+
+  // Recuperar resumen de gastos guardado localmente al momento del análisis para este usuario
+  const resumenGastos = obtenerResumenLocal(idUsuario, entrada.id)
+
+  return {
+    id: entrada.id,
+    fecha: entrada.fechaDeAnalisis,
+    perfil_financiero: entrada.perfilFinanciero,
+    probabilidad: calcularProbabilidadDesdeNivel(entrada.nivelDeEndeudamiento, frecuenciaAhorro),
+    nivel_endeudamiento: entrada.nivelDeEndeudamiento ?? 0,
+    frecuencia_ahorro: frecuenciaAhorro,
+    ratio_gasto_ingreso: 0,
+    resumen_gastos: resumenGastos,
+    recomendaciones,
+    periodo: entrada.fechaDeMesesAnalisis,
+  }
+}
+
+function calcularProbabilidadDesdeNivel(endeudamiento, ahorro) {
+  // Heurística: combina endeudamiento y ahorro para una probabilidad de clasificación
+  const puntaje = ((100 - (endeudamiento || 0)) + ahorro) / 200
+  return Math.min(0.95, Math.max(0.3, puntaje))
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Cálculos locales (para complementar datos y para el fallback)
+// ─────────────────────────────────────────────────────────────────────────────
+
+function calcularResumenGastos(transacciones) {
+  const porCategoria = {}
+  for (const t of transacciones) {
+    const categoria = t.categoria || 'otro'
+    porCategoria[categoria] = (porCategoria[categoria] || 0) + Number(t.monto || 0)
+  }
+  return porCategoria
+}
+
+function normalizarCat(cat) {
+  return String(cat || 'otro')
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+}
+
 function calcularEndeudamiento(transacciones, ingreso) {
-  const ahora = new Date()
-  const gastoMes = transacciones
+  if (!ingreso || ingreso <= 0) return 0
+  const gastosFijos = transacciones
     .filter((t) => {
-      if (!t.fecha) return false
-      const fecha = new Date(`${t.fecha}T00:00:00`)
-      return fecha.getMonth() === ahora.getMonth() && fecha.getFullYear() === ahora.getFullYear()
+      const c = normalizarCat(t.categoria)
+      return c === 'vivienda' || c === 'servicios'
     })
     .reduce((total, t) => total + Number(t.monto || 0), 0)
 
-  if (!ingreso || ingreso <= 0) return 0
-  return Math.min(100, Math.round((gastoMes / ingreso) * 100))
-}
-
-function calcularFrecuenciaAhorro(transacciones, ingreso) {
-  if (!ingreso || ingreso <= 0) return 'Baja'
-
-  const totalGastado = transacciones.reduce((sum, t) => sum + Number(t.monto || 0), 0)
-  const meses = contarMesesConTransacciones(transacciones)
-  const promedioMensual = meses > 0 ? totalGastado / meses : totalGastado
-
-  const ratioGasto = promedioMensual / ingreso
-
-  if (ratioGasto < 0.5) return 'Alta'
-  if (ratioGasto < 0.8) return 'Media'
-  return 'Baja'
-}
-
-function contarMesesConTransacciones(transacciones) {
-  const mesesUnicos = new Set()
-  for (const t of transacciones) {
-    if (t.fecha) {
-      const fecha = new Date(`${t.fecha}T00:00:00`)
-      mesesUnicos.add(`${fecha.getFullYear()}-${fecha.getMonth()}`)
-    }
+  if (gastosFijos > 0) {
+    return Math.min(100, Math.round((gastosFijos / ingreso) * 100))
   }
-  return Math.max(1, mesesUnicos.size)
+  const totalGastos = transacciones.reduce((total, t) => total + Number(t.monto || 0), 0)
+  return Math.min(100, Math.round((totalGastos / ingreso) * 100))
+}
+
+function calcularFrecuenciaAhorro(transacciones) {
+  const inversiones = transacciones.filter((t) => {
+    const c = normalizarCat(t.categoria)
+    return c === 'inversion' || c === 'inversión' || c === 'ahorros'
+  }).length
+
+  if (inversiones === 0) return 'Baja'
+  if (inversiones === 1) return 'Baja'
+  if (inversiones === 2) return 'Media'
+  return 'Alta'
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// MOCK TEMPORAL — Todo lo que sigue se elimina cuando backend tenga el endpoint
+// FALLBACK — Análisis local si backend no responde
 // ─────────────────────────────────────────────────────────────────────────────
 
 function generarAnalisisMock(transacciones, ingreso, endeudamiento, frecuenciaAhorro) {
@@ -144,18 +255,8 @@ function generarAnalisisMock(transacciones, ingreso, endeudamiento, frecuenciaAh
   }
 }
 
-function calcularResumenGastos(transacciones) {
-  const porCategoria = {}
-  for (const t of transacciones) {
-    const categoria = t.categoria || 'otro'
-    porCategoria[categoria] = (porCategoria[categoria] || 0) + Number(t.monto || 0)
-  }
-  return porCategoria
-}
-
 function determinarPerfil(endeudamiento, frecuenciaAhorro) {
   let puntaje = 0
-
   if (endeudamiento < 30) puntaje += 3
   else if (endeudamiento < 60) puntaje += 2
   else if (endeudamiento < 80) puntaje += 1
@@ -164,99 +265,36 @@ function determinarPerfil(endeudamiento, frecuenciaAhorro) {
   else if (frecuenciaAhorro === 'Media') puntaje += 2
   else puntaje += 1
 
-  if (puntaje >= 5) {
-    return { nombre: 'Saludable', probabilidad: 0.7 + (puntaje - 5) * 0.1 }
-  }
-  if (puntaje >= 3) {
-    return { nombre: 'En observación', probabilidad: 0.5 + (puntaje - 3) * 0.1 }
-  }
+  if (puntaje >= 5) return { nombre: 'Saludable', probabilidad: 0.7 + (puntaje - 5) * 0.1 }
+  if (puntaje >= 3) return { nombre: 'En observación', probabilidad: 0.5 + (puntaje - 3) * 0.1 }
   return { nombre: 'En riesgo', probabilidad: 0.6 + (2 - puntaje) * 0.15 }
 }
 
-/**
- * Genera recomendaciones basadas en heurísticas simples.
- * NOTA: Estas NO son recomendaciones de ML — son reglas fijas del frontend.
- * Cuando el backend implemente /analisis-financiero, las recomendaciones
- * vendrán del modelo de Data Science y este código no se ejecutará.
- */
 function generarRecomendaciones(resumenGastos, ingreso, endeudamiento, frecuenciaAhorro) {
   const recomendaciones = []
   const entradas = Object.entries(resumenGastos).sort((a, b) => b[1] - a[1])
   const totalGastos = entradas.reduce((sum, [, monto]) => sum + monto, 0)
 
-  // Alerta de endeudamiento alto
   if (endeudamiento > 70) {
-    recomendaciones.push(
-      'Tu nivel de gasto supera el 70% de tu ingreso. Revisa tus gastos fijos y busca reducir los no esenciales para evitar sobreendeudarte.',
-    )
+    recomendaciones.push('Tu nivel de gasto supera el 70% de tu ingreso. Revisa tus gastos fijos y busca reducir los no esenciales.')
   } else if (endeudamiento > 50) {
-    recomendaciones.push(
-      'Estás gastando más de la mitad de tu ingreso. Intenta mantener tus gastos por debajo del 50% para tener un colchón financiero.',
-    )
+    recomendaciones.push('Estás gastando más de la mitad de tu ingreso. Intenta mantener tus gastos por debajo del 50%.')
   }
 
-  // Ahorro
   if (frecuenciaAhorro === 'Baja') {
-    recomendaciones.push(
-      'Tu capacidad de ahorro es baja. Un buen objetivo es ahorrar entre el 10% y el 20% de tu ingreso mensual. Automatizar una transferencia a una cuenta aparte puede ayudar.',
-    )
-  } else if (frecuenciaAhorro === 'Media') {
-    recomendaciones.push(
-      'Tu nivel de ahorro es moderado. Para mejorar, identifica un gasto recurrente que puedas reducir y redirige ese monto al ahorro.',
-    )
+    recomendaciones.push('Tu capacidad de ahorro es baja. Intenta ahorrar entre el 10% y el 20% de tu ingreso mensual.')
   }
 
-  // Análisis por categoría (top 3)
   for (const [categoria, monto] of entradas.slice(0, 3)) {
     const porcentaje = Math.round((monto / totalGastos) * 100)
     const nombre = etiquetaCategoria(categoria)
-
     if (porcentaje > 40) {
-      recomendaciones.push(
-        `${nombre} concentra el ${porcentaje}% de tus gastos totales. Considera buscar alternativas más económicas o establecer un tope mensual para esta categoría.`,
-      )
-    } else if (porcentaje > 25) {
-      recomendaciones.push(
-        `${nombre} es tu categoría de mayor gasto (${porcentaje}% del total). Revisa si hay suscripciones o compras que puedas optimizar.`,
-      )
+      recomendaciones.push(`${nombre} concentra el ${porcentaje}% de tus gastos. Considera establecer un tope mensual.`)
     }
   }
 
-  // Categorías específicas con alertas
-  if (resumenGastos['Ocio'] || resumenGastos['ocio']) {
-    const gastoOcio = (resumenGastos['Ocio'] || 0) + (resumenGastos['ocio'] || 0)
-    if (ingreso > 0 && gastoOcio / ingreso > 0.15) {
-      recomendaciones.push(
-        'Tus gastos en ocio superan el 15% de tu ingreso. Establece un presupuesto fijo para entretenimiento y respétalo cada mes.',
-      )
-    }
-  }
-
-  if (resumenGastos['deudas'] || resumenGastos['Deudas']) {
-    const gastoDeudas = (resumenGastos['deudas'] || 0) + (resumenGastos['Deudas'] || 0)
-    if (ingreso > 0 && gastoDeudas / ingreso > 0.2) {
-      recomendaciones.push(
-        'Tus pagos de deuda son significativos (más del 20% de tu ingreso). Evalúa opciones de consolidación o renegociación de tasas.',
-      )
-    }
-  }
-
-  // Recomendación positiva si está bien
   if (endeudamiento < 40 && frecuenciaAhorro === 'Alta') {
-    recomendaciones.push(
-      'Tu manejo financiero es sólido. Considera destinar parte de tu ahorro a inversiones de bajo riesgo para generar rendimientos a mediano plazo.',
-    )
-  } else if (endeudamiento < 50 && frecuenciaAhorro === 'Media') {
-    recomendaciones.push(
-      'Vas por buen camino. Con pequeños ajustes en tus gastos variables podrías pasar de un ahorro moderado a uno alto.',
-    )
-  }
-
-  // Si pocas transacciones
-  if (entradas.length < 5) {
-    recomendaciones.push(
-      'Tienes pocas transacciones registradas. Cuantos más gastos registres, más preciso será tu análisis y mejores las recomendaciones.',
-    )
+    recomendaciones.push('Tu manejo financiero es sólido. Considera inversiones de bajo riesgo para generar rendimientos.')
   }
 
   return recomendaciones.slice(0, 6)

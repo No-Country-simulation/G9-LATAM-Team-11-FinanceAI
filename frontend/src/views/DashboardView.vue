@@ -3,6 +3,7 @@ import { computed, ref, onMounted, onUnmounted } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useRouter } from 'vue-router'
 import { useUsuarioStore } from '@/stores/usuario'
+import { useUsuario } from '@/composables/useUsuario'
 import { useDashboard } from '@/composables/useDashboard'
 import { formatoMoneda, formatoNumero } from '@/utils/formato'
 import BaseButton from '@/components/base/BaseButton.vue'
@@ -12,27 +13,39 @@ import KpiCard from '@/components/dashboard/KpiCard.vue'
 import GraficoCategorias from '@/components/dashboard/GraficoCategorias.vue'
 import GraficoEvolucion from '@/components/dashboard/GraficoEvolucion.vue'
 import ListaTransacciones from '@/components/dashboard/ListaTransacciones.vue'
+import HistorialSueldoModal from '@/components/dashboard/HistorialSueldoModal.vue'
 
 const router = useRouter()
 const usuarioStore = useUsuarioStore()
+const { editarSueldo } = useUsuario()
 const { nombre, transacciones } = storeToRefs(usuarioStore)
 const {
   gastoMes,
-  ingreso,
+  ingresoOriginal,
+  saldoDisponible,
   ahorroMes,
+  inversionMes,
+  gastosFijos,
   endeudamiento,
+  porcentajeGastoMes,
   porCategoria,
   ultimasTransacciones,
 } = useDashboard()
 
 const rangoEvolucion = ref(6)
+const editandoSueldo = ref(false)
+const nuevoSueldoVal = ref(0)
+const guardandoSueldo = ref(false)
+const errorSueldo = ref('')
 
-const horaLocal = ref(new Date().toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit' }))
+const mostrarModalHistorial = ref(false)
+
+const horaLocal = ref(new Date().toLocaleTimeString(navigator.language || undefined, { hour: '2-digit', minute: '2-digit' }))
 let intervaloHora = null
 
 onMounted(() => {
   intervaloHora = setInterval(() => {
-    horaLocal.value = new Date().toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit' })
+    horaLocal.value = new Date().toLocaleTimeString(navigator.language || undefined, { hour: '2-digit', minute: '2-digit' })
   }, 1000)
 })
 
@@ -40,11 +53,37 @@ onUnmounted(() => {
   clearInterval(intervaloHora)
 })
 
+function abrirEdicionSueldo() {
+  nuevoSueldoVal.value = ingresoOriginal.value || 0
+  errorSueldo.value = ''
+  editandoSueldo.value = true
+}
+
+async function guardarSueldo() {
+  if (!nuevoSueldoVal.value || nuevoSueldoVal.value <= 0) {
+    errorSueldo.value = 'El sueldo debe ser mayor a 0'
+    return
+  }
+  guardandoSueldo.value = true
+  errorSueldo.value = ''
+  try {
+    await editarSueldo(nuevoSueldoVal.value)
+    editandoSueldo.value = false
+  } catch (err) {
+    errorSueldo.value = 'Error al actualizar el sueldo'
+    console.error(err)
+  } finally {
+    guardandoSueldo.value = false
+  }
+}
+
 const evolucionFiltrada = computed(() => {
   const ahora = new Date()
   const anio = ahora.getFullYear()
   const mes = ahora.getMonth()
   const cantidad = rangoEvolucion.value
+
+  const listaTransacciones = Array.isArray(transacciones.value) ? transacciones.value : []
 
   // Para 1 mes: mostrar evolución por semana del mes actual
   if (cantidad === 1) {
@@ -52,7 +91,7 @@ const evolucionFiltrada = computed(() => {
     for (let semana = 0; semana < 4; semana++) {
       const inicioSemana = semana * 7 + 1
       const finSemana = Math.min((semana + 1) * 7, new Date(anio, mes + 1, 0).getDate())
-      const total = transacciones.value
+      const total = listaTransacciones
         .filter((t) => {
           if (!t.fecha) return false
           const f = new Date(`${t.fecha}T00:00:00`)
@@ -61,7 +100,6 @@ const evolucionFiltrada = computed(() => {
           return dia >= inicioSemana && dia <= finSemana
         })
         .reduce((suma, t) => suma + Number(t.monto || 0), 0)
-      // Usamos el primer día de cada semana como referencia para la etiqueta
       lista.push({ mes: new Date(anio, mes, inicioSemana), total, etiqueta: `Sem ${semana + 1}` })
     }
     return lista
@@ -71,7 +109,7 @@ const evolucionFiltrada = computed(() => {
   const lista = []
   for (let i = cantidad - 1; i >= 0; i--) {
     const d = new Date(anio, mes - i, 1)
-    const total = transacciones.value
+    const total = listaTransacciones
       .filter((t) => {
         if (!t.fecha) return false
         const f = new Date(`${t.fecha}T00:00:00`)
@@ -81,6 +119,24 @@ const evolucionFiltrada = computed(() => {
     lista.push({ mes: d, total })
   }
   return lista
+})
+
+const tonoGasto = computed(() => {
+  if (endeudamiento.value >= 80) return 'danger'
+  if (endeudamiento.value >= 60) return 'warning'
+  return 'cyan'
+})
+
+const tieneAhorro = computed(() => ahorroMes.value > 0)
+const tieneInversion = computed(() => inversionMes.value > 0)
+
+const gridColsKpis = computed(() => {
+  let count = 3 // Saldo disponible + Gasto del mes + Gastos fijos
+  if (tieneAhorro.value) count++
+  if (tieneInversion.value) count++
+  if (count === 5) return 'grid-cols-2 sm:grid-cols-3 lg:grid-cols-5'
+  if (count === 4) return 'grid-cols-2 md:grid-cols-4'
+  return 'grid-cols-1 sm:grid-cols-3'
 })
 </script>
 
@@ -98,9 +154,58 @@ const evolucionFiltrada = computed(() => {
         <h1 class="mt-4 text-2xl font-bold tracking-tight md:text-3xl">
           Hola, <span class="text-cyan">{{ nombre }}</span>
         </h1>
-        <p class="mt-1 text-sm text-muted">
-          Gasto de este mes: <span class="font-semibold text-ink">−{{ formatoMoneda(gastoMes) }}</span>
-        </p>
+        <div class="mt-1 flex flex-wrap items-center gap-2 text-sm text-muted">
+          <span>Ingreso mensual:</span>
+          <template v-if="!editandoSueldo">
+            <span class="font-semibold text-ink">{{ formatoMoneda(ingresoOriginal) }}</span>
+            <button
+              v-if="usuarioStore.id"
+              type="button"
+              class="inline-flex items-center gap-1 rounded px-1.5 py-0.5 text-xs text-cyan hover:bg-cyan/10 transition-colors"
+              title="Editar sueldo"
+              @click="abrirEdicionSueldo"
+            >
+              ✎ Editar
+            </button>
+            <button
+              v-if="usuarioStore.id"
+              type="button"
+              class="inline-flex items-center gap-1 rounded px-1.5 py-0.5 text-xs text-muted hover:text-white transition-colors"
+              title="Ver historial de sueldos"
+              @click="mostrarModalHistorial = true"
+            >
+              📋 Historial
+            </button>
+          </template>
+          <template v-else>
+            <div class="flex items-center gap-1.5">
+              <input
+                v-model.number="nuevoSueldoVal"
+                type="number"
+                min="1"
+                step="0.01"
+                class="w-28 rounded border border-edge bg-surface-dark px-2 py-0.5 text-xs text-ink focus:border-cyan focus:outline-none"
+                @keyup.enter="guardarSueldo"
+              />
+              <button
+                type="button"
+                class="rounded bg-cyan px-2 py-0.5 text-xs font-semibold text-surface-dark hover:bg-cyan/90"
+                :disabled="guardandoSueldo"
+                @click="guardarSueldo"
+              >
+                {{ guardandoSueldo ? '...' : 'Guardar' }}
+              </button>
+              <button
+                type="button"
+                class="rounded border border-edge px-2 py-0.5 text-xs text-muted hover:text-white"
+                @click="editandoSueldo = false"
+              >
+                Cancelar
+              </button>
+            </div>
+            <span v-if="errorSueldo" class="text-xs text-danger">{{ errorSueldo }}</span>
+          </template>
+        </div>
       </div>
       <div class="flex gap-3">
         <BaseButton variante="secundario" @click="router.push({ name: 'transacciones' })">
@@ -110,32 +215,41 @@ const evolucionFiltrada = computed(() => {
       </div>
     </section>
 
-    <section class="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4" aria-label="Indicadores">
+    <section :class="['grid gap-3 md:gap-4', gridColsKpis]" aria-label="Indicadores">
       <KpiCard
-        etiqueta="Ingreso disponible"
-        :valor="ingreso"
+        etiqueta="Saldo disponible"
+        :valor="saldoDisponible"
         :formato="(n) => formatoMoneda(n)"
       />
       <KpiCard
         etiqueta="Gasto del mes"
         :valor="gastoMes"
         :formato="(n) => formatoMoneda(n)"
-        delta="total mensual"
-        tono="cyan"
+        :delta="`${formatoNumero(porcentajeGastoMes)}% del ingreso`"
+        :tono="tonoGasto"
       />
       <KpiCard
+        etiqueta="Gastos fijos"
+        :valor="gastosFijos"
+        :formato="(n) => formatoMoneda(n)"
+        :delta="`${formatoNumero(endeudamiento)}% del ingreso`"
+        :tono="tonoGasto"
+      />
+      <KpiCard
+        v-if="tieneAhorro"
         etiqueta="Ahorro"
         :valor="ahorroMes"
         :formato="(n) => formatoMoneda(n)"
-        delta="ingreso − gastos"
+        delta="transacciones de ahorro"
         tono="success"
       />
       <KpiCard
-        etiqueta="Endeudamiento"
-        :valor="endeudamiento"
-        :formato="(n) => `${formatoNumero(n)}%`"
-        :delta="endeudamiento < 30 ? 'saludable' : 'en riesgo'"
-        :tono="endeudamiento < 30 ? 'success' : 'danger'"
+        v-if="tieneInversion"
+        etiqueta="Inversión"
+        :valor="inversionMes"
+        :formato="(n) => formatoMoneda(n)"
+        delta="rendimiento & activos"
+        tono="success"
       />
     </section>
 
@@ -194,5 +308,12 @@ const evolucionFiltrada = computed(() => {
       </div>
       <ListaTransacciones :transacciones="ultimasTransacciones" />
     </BaseCard>
+
+    <!-- Modal de Historial de Sueldo -->
+    <HistorialSueldoModal
+      :mostrar="mostrarModalHistorial"
+      :id-usuario="usuarioStore.id"
+      @cerrar="mostrarModalHistorial = false"
+    />
   </div>
 </template>

@@ -82,10 +82,21 @@
 
   input:-webkit-autofill,
   input:-webkit-autofill:hover,
-  input:-webkit-autofill:focus {
-    -webkit-box-shadow: 0 0 0 1000px var(--color-coal) inset;
-    -webkit-text-fill-color: var(--color-ink);
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  select:-webkit-autofill,
+  select:-webkit-autofill:hover,
+  select:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 1000px #0b0b0c inset !important;
+    -webkit-text-fill-color: #ececec !important;
+    caret-color: #ececec !important;
     transition: background-color 9999s ease-out;
+  }
+
+  input:focus {
+    color: #ececec !important;
   }
 
   input.campo-invalido,

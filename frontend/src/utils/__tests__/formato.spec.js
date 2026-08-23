@@ -112,4 +112,50 @@ describe('formatoMoneda — Property-based tests', () => {
       )
     })
   })
+
+  /**
+   * Property 8: Robustez frente a códigos de moneda inválidos.
+   * Verifica que formatoMoneda NUNCA lanza una excepción fatal (RangeError de Intl)
+   * aunque el código de moneda guardado en localStorage sea inválido.
+   * Esto replica el escenario de corrupción de datos del localStorage en producción.
+   */
+  describe('Property 8: Robustez ante monedas inválidas en localStorage', () => {
+    const arbInvalidCurrency = fc.oneof(
+      fc.constant('INVALID'),
+      fc.constant('XXX_INVALID'),
+      fc.constant('12345'),
+      fc.constant(''),
+      fc.string({ minLength: 5, maxLength: 10 }),
+    )
+
+    it('no lanza excepcion aunque monedaActiva tenga un codigo invalido', () => {
+      fc.assert(
+        fc.property(arbInvalidCurrency, arbAmount, (codigoInvalido, monto) => {
+          setActivePinia(createPinia())
+          const store = useDivisaStore()
+          // Simula corrupción de localStorage (moneda inválida)
+          store.monedaActiva = codigoInvalido
+
+          // No debe lanzar ninguna excepción
+          expect(() => formatoMoneda(monto)).not.toThrow()
+        }),
+        { numRuns: 50 },
+      )
+    })
+
+    it('devuelve siempre un string no vacío aunque la moneda sea invalida', () => {
+      fc.assert(
+        fc.property(arbInvalidCurrency, arbAmount, (codigoInvalido, monto) => {
+          setActivePinia(createPinia())
+          const store = useDivisaStore()
+          store.monedaActiva = codigoInvalido
+
+          const resultado = formatoMoneda(monto)
+          expect(typeof resultado).toBe('string')
+          expect(resultado.length).toBeGreaterThan(0)
+        }),
+        { numRuns: 50 },
+      )
+    })
+  })
 })

@@ -38,7 +38,7 @@ onMounted(async () => {
   const { cargarUsuario, entrarDemo } = useUsuario()
   const usuarioStore = useUsuarioStore()
 
-  if (auth.sesionActiva) {
+  if (auth.sesionActiva && auth.usuarioId !== 0) {
     try {
       await cargarUsuario(auth.usuarioId)
       const nombreGuardado = localStorage.getItem('financeai:nombre')

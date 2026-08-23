@@ -9,7 +9,7 @@ import BaseButton from '@/components/base/BaseButton.vue'
 const emit = defineEmits(['creada'])
 const usuarioStore = useUsuarioStore()
 const divisaStore = useDivisaStore()
-const { ingresoDisponible } = storeToRefs(usuarioStore)
+const { ingresoDisponible, esDemo } = storeToRefs(usuarioStore)
 const { monedaActiva } = storeToRefs(divisaStore)
 const { crearTransaccion } = useTransacciones()
 
@@ -37,8 +37,11 @@ function primerDiaDelMes() {
 function validar() {
   if (!form.descripcion.trim()) return 'La descripción es obligatoria.'
   if (!form.monto || form.monto <= 0) return 'Ingresa un monto mayor a 0.'
-  const limiteEnMonedaActiva = divisaStore.convertirDesdeUSD(ingresoDisponible.value)
-  if (form.monto >= limiteEnMonedaActiva) return 'El monto debe ser menor que tu ingreso disponible.'
+  // En modo demo no hay ingreso disponible real, se omite la validación de límite
+  if (!esDemo.value) {
+    const limiteEnMonedaActiva = divisaStore.convertirDesdeUSD(ingresoDisponible.value)
+    if (form.monto >= limiteEnMonedaActiva) return 'El monto debe ser menor que tu ingreso disponible.'
+  }
   if (!form.fecha) return 'La fecha es obligatoria.'
   if (form.fecha < primerDiaDelMes() || form.fecha > hoy()) return 'La fecha debe estar dentro del mes actual.'
   return ''
