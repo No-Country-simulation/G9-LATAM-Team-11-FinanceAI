@@ -5,26 +5,25 @@ import { etiquetaCategoria } from '@/utils/categorias'
 
 const CLAVE_RESUMENES = 'financeai:resumenes-gastos'
 
-function guardarResumenLocal(idAnalisis, resumenGastos) {
+function guardarResumenLocal(idUsuario, idAnalisis, resumenGastos) {
+  if (!idUsuario) return
   try {
     const resumenes = JSON.parse(localStorage.getItem(CLAVE_RESUMENES) || '{}')
-    resumenes[idAnalisis] = resumenGastos
-    // Mantener solo los últimos 11 para no saturar localStorage (el historial muestra 10)
-    const claves = Object.keys(resumenes)
-    if (claves.length > 11) {
-      const sobrantes = claves.slice(0, claves.length - 11)
-      for (const k of sobrantes) delete resumenes[k]
-    }
+    const claveUser = `u_${idUsuario}`
+    resumenes[claveUser] = resumenes[claveUser] || {}
+    resumenes[claveUser][idAnalisis] = resumenGastos
     localStorage.setItem(CLAVE_RESUMENES, JSON.stringify(resumenes))
   } catch {
     // si localStorage falla, no es crítico
   }
 }
 
-function obtenerResumenLocal(idAnalisis) {
+function obtenerResumenLocal(idUsuario, idAnalisis) {
+  if (!idUsuario) return null
   try {
     const resumenes = JSON.parse(localStorage.getItem(CLAVE_RESUMENES) || '{}')
-    return resumenes[idAnalisis] ?? null
+    const claveUser = `u_${idUsuario}`
+    return resumenes[claveUser]?.[idAnalisis] ?? null
   } catch {
     return null
   }
@@ -80,9 +79,9 @@ export function useAnalisisFinanciero() {
       // Mapear respuesta del backend al formato del frontend
       const resultado = mapearRespuestaBackend(backendResp, resumenGastos, ratioGastoIngreso)
 
-      // Guardar resumen de gastos en localStorage indexado por id del análisis
+      // Guardar resumen de gastos en localStorage indexado por id del usuario y del análisis
       if (backendResp.id) {
-        guardarResumenLocal(backendResp.id, resumenGastos)
+        guardarResumenLocal(usuarioStore.id, backendResp.id, resumenGastos)
       }
 
       store.setResultado(resultado)
@@ -103,7 +102,9 @@ export function useAnalisisFinanciero() {
     if (!usuarioStore.id) return []
     try {
       const historial = await obtenerHistorialAnalisis(usuarioStore.id)
-      return Array.isArray(historial) ? historial.slice(0, 10).map(mapearEntradaHistorial) : []
+      return Array.isArray(historial)
+        ? historial.slice(0, 10).map((e) => mapearEntradaHistorial(e, usuarioStore.id))
+        : []
     } catch {
       return []
     }
@@ -139,7 +140,7 @@ function mapearRespuestaBackend(resp, resumenGastos, ratioGastoIngreso) {
   }
 }
 
-function mapearEntradaHistorial(entrada) {
+function mapearEntradaHistorial(entrada, idUsuario) {
   const mapaAhorro = { ALTA: 85, MEDIA: 55, BAJA: 25 }
   const frecuenciaAhorro = mapaAhorro[String(entrada.nivelAhorro).toUpperCase()] ?? 50
 
@@ -148,8 +149,8 @@ function mapearEntradaHistorial(entrada) {
     ? entrada.recomendaciones.split(/[.!]\s+/).filter((r) => r.trim().length > 10).map((r) => r.trim() + '.')
     : []
 
-  // Recuperar resumen de gastos guardado localmente al momento del análisis
-  const resumenGastos = obtenerResumenLocal(entrada.id)
+  // Recuperar resumen de gastos guardado localmente al momento del análisis para este usuario
+  const resumenGastos = obtenerResumenLocal(idUsuario, entrada.id)
 
   return {
     id: entrada.id,

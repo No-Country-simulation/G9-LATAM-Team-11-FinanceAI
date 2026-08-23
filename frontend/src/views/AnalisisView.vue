@@ -21,7 +21,7 @@ const { loading, error, historial } = storeToRefs(analisisStore)
 const { enviarAnalisis, cargarHistorial } = useAnalisisFinanciero()
 const { gastoMes, ingreso, endeudamiento, porCategoria } = useDashboard()
 
-const horaLocal = ref(new Date().toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit' }))
+const horaLocal = ref(new Date().toLocaleTimeString(navigator.language || undefined, { hour: '2-digit', minute: '2-digit' }))
 let intervaloHora = null
 
 const tieneTransacciones = computed(() => transacciones.value.length > 0)
@@ -30,14 +30,14 @@ const periodoTexto = computed(() => {
   if (!tieneTransacciones.value) return ''
   const ahora = new Date()
   const inicio = new Date(ahora.getFullYear(), ahora.getMonth(), 1)
-  const desde = inicio.toLocaleDateString('es-AR', { day: 'numeric', month: 'short', year: 'numeric' })
-  const hasta = ahora.toLocaleDateString('es-AR', { day: 'numeric', month: 'short', year: 'numeric' })
+  const desde = inicio.toLocaleDateString(navigator.language || undefined, { day: 'numeric', month: 'short', year: 'numeric' })
+  const hasta = ahora.toLocaleDateString(navigator.language || undefined, { day: 'numeric', month: 'short', year: 'numeric' })
   return `${desde} — ${hasta}`
 })
 
 onMounted(async () => {
   intervaloHora = setInterval(() => {
-    horaLocal.value = new Date().toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit' })
+    horaLocal.value = new Date().toLocaleTimeString(navigator.language || undefined, { hour: '2-digit', minute: '2-digit' })
   }, 1000)
 
   const lista = await cargarHistorial()
@@ -65,8 +65,13 @@ function verResultado(id) {
 }
 
 function formatoFechaHistorial(fechaIso) {
-  const fecha = new Date(fechaIso)
-  return fecha.toLocaleDateString('es-AR', {
+  if (!fechaIso) return ''
+  let stringNormalizado = String(fechaIso).replace(' ', 'T')
+  if (!stringNormalizado.endsWith('Z') && !/[+-]\d{2}:\d{2}$/.test(stringNormalizado)) {
+    stringNormalizado += 'Z'
+  }
+  const fecha = new Date(stringNormalizado)
+  return fecha.toLocaleDateString(navigator.language || undefined, {
     day: '2-digit',
     month: 'short',
     year: 'numeric',

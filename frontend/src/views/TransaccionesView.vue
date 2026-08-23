@@ -18,17 +18,21 @@ const { transacciones } = storeToRefs(usuarioStore)
 const { gastoMes, saldoDisponible } = useDashboard()
 const { listarTransacciones, editarTransaccion, borrarTransaccion } = useTransacciones()
 
-const horaLocal = ref(new Date().toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit' }))
+const horaLocal = ref(new Date().toLocaleTimeString(navigator.language || undefined, { hour: '2-digit', minute: '2-digit' }))
 let intervaloHora = null
 
 onMounted(() => {
   intervaloHora = setInterval(() => {
-    horaLocal.value = new Date().toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit' })
+    horaLocal.value = new Date().toLocaleTimeString(navigator.language || undefined, { hour: '2-digit', minute: '2-digit' })
   }, 1000)
 })
 
 onUnmounted(() => {
   clearInterval(intervaloHora)
+  // Al salir de la vista se resetea el filtro a su estado original/rango por defecto
+  if (filtroActivo.value || desde.value || hasta.value) {
+    listarTransacciones()
+  }
 })
 
 const mostrarFormulario = ref(false)
@@ -197,7 +201,7 @@ async function ejecutarEliminar() {
 
     <BaseCard v-if="mostrarFormulario">
       <h2 class="mb-4 text-sm font-semibold text-ink">Registrar gasto</h2>
-      <FormularioTransaccion @creada="mostrarFormulario = false; pagina = 1" />
+      <FormularioTransaccion @creada="pagina = 1" />
     </BaseCard>
 
     <!-- Filtro por fechas + paginación -->
@@ -225,7 +229,12 @@ async function ejecutarEliminar() {
           <BaseButton tamano="sm" :cargando="filtrando" @click="filtrar">
             Filtrar
           </BaseButton>
-          <BaseButton v-if="filtroActivo" variante="fantasma" tamano="sm" @click="limpiarFiltro">
+          <BaseButton
+            variante="secundario"
+            tamano="sm"
+            :disabled="!desde && !hasta && !filtroActivo"
+            @click="limpiarFiltro"
+          >
             Limpiar
           </BaseButton>
         </div>

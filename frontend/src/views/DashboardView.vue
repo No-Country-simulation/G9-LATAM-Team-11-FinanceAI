@@ -29,12 +29,12 @@ const {
 
 const rangoEvolucion = ref(6)
 
-const horaLocal = ref(new Date().toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit' }))
+const horaLocal = ref(new Date().toLocaleTimeString(navigator.language || undefined, { hour: '2-digit', minute: '2-digit' }))
 let intervaloHora = null
 
 onMounted(() => {
   intervaloHora = setInterval(() => {
-    horaLocal.value = new Date().toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit' })
+    horaLocal.value = new Date().toLocaleTimeString(navigator.language || undefined, { hour: '2-digit', minute: '2-digit' })
   }, 1000)
 })
 

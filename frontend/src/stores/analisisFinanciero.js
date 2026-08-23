@@ -32,6 +32,13 @@ export const useAnalisisFinancieroStore = defineStore('analisisFinanciero', () =
     error.value = mensaje
   }
 
+  function reset() {
+    resultado.value = null
+    historial.value = []
+    loading.value = false
+    error.value = ''
+  }
+
   function limpiarResultado() {
     resultado.value = null
     error.value = ''
@@ -49,5 +56,6 @@ export const useAnalisisFinancieroStore = defineStore('analisisFinanciero', () =
     setLoading,
     setError,
     limpiarResultado,
+    reset,
   }
 })

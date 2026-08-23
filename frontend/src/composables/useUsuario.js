@@ -1,5 +1,6 @@
 import { useUsuarioStore } from '@/stores/usuario'
 import { useAuthStore } from '@/stores/auth'
+import { useAnalisisFinancieroStore } from '@/stores/analisisFinanciero'
 import { registrarUsuario, obtenerUsuario, loginUsuario } from '@/services/usuarios'
 import { useTransacciones } from '@/composables/useTransacciones'
 import { mensajeErrorApi } from '@/utils/errores'
@@ -8,6 +9,7 @@ import { datosDemo } from '@/data/demo'
 export function useUsuario() {
   const store = useUsuarioStore()
   const auth = useAuthStore()
+  const analisisStore = useAnalisisFinancieroStore()
   const { listarTransacciones } = useTransacciones()
 
   async function cargarUsuario(id) {
@@ -36,6 +38,8 @@ export function useUsuario() {
   async function registrarYEntrar(datos) {
     store.setCargando(true)
     store.setError('')
+    analisisStore.reset()
+    localStorage.removeItem('financeai:resumenes-gastos')
     try {
       // 1. Registrar usuario en el backend
       await registrarUsuario(datos)
@@ -66,6 +70,8 @@ export function useUsuario() {
   }
 
   async function iniciarSesionCredenciales(email, password) {
+    analisisStore.reset()
+    localStorage.removeItem('financeai:resumenes-gastos')
     try {
       const loginResp = await loginUsuario(email, password)
       auth.iniciarSesion(loginResp.idUsuario, loginResp.token)
@@ -81,8 +87,10 @@ export function useUsuario() {
 
   function salir() {
     store.limpiar()
+    analisisStore.reset()
     auth.cerrarSesion()
     localStorage.removeItem('financeai:nombre')
+    localStorage.removeItem('financeai:resumenes-gastos')
   }
 
   // Modo demo: sin sesión real, con datos de ejemplo para ver el dashboard.
