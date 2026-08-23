@@ -2,8 +2,16 @@ import axios from 'axios'
 
 const CLAVE_TOKEN = 'financeai:token'
 
+let apiBaseUrl = import.meta.env.VITE_API_BASE_URL || '/api'
+
+// Si apunta a una URL absoluta que termina en '/api' (comunicación directa al backend sin el proxy rewrite de Vite),
+// removemos '/api' ya que Spring Boot no mapea ese context path
+if (apiBaseUrl.startsWith('http') && apiBaseUrl.endsWith('/api')) {
+  apiBaseUrl = apiBaseUrl.slice(0, -4)
+}
+
 const http = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL || '/api',
+  baseURL: apiBaseUrl,
   timeout: 20000,
   headers: {
     'Content-Type': 'application/json',
