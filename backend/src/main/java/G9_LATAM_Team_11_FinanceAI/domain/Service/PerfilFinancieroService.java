@@ -4,6 +4,8 @@ import G9_LATAM_Team_11_FinanceAI.Repository.ITransaccionRepository;
 import G9_LATAM_Team_11_FinanceAI.Repository.IUsuarioRepository;
 import G9_LATAM_Team_11_FinanceAI.domain.Models.FrecuenciaAhorro;
 import G9_LATAM_Team_11_FinanceAI.domain.usuario.Usuario;
+import jakarta.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,50 +15,43 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class PerfilFinancieroService {
 
-    @Autowired
-    private ITransaccionRepository transaccionRepository;
+    private final ITransaccionRepository transaccionRepository;
 
-    @Autowired
-    private IUsuarioRepository usuarioRepository;
+    private final UsuarioValidacionService usuarioValidacionService;
 
-    @Autowired
-    private DataScienceModelService dataScienceModelService;
-
+    @Transactional
     public FrecuenciaAhorro calcularFrecuenciaAhorro(Long idUsuario) {
         LocalDate fechaActual = LocalDate.now(); //fecha de hoy
-
         LocalDate primerDiaDelMes = fechaActual.withDayOfMonth(1);// necesito mes actual: desde el primer dia del mes
 
         long cantidadInversiones = transaccionRepository.countInversionesEnRango(idUsuario,
                 "Inversión", primerDiaDelMes, fechaActual);
 
         // evaluacion por cantidad de inversion, no por monto
-        if (cantidadInversiones == 0) {
-            return FrecuenciaAhorro.NINGUNA;
-        } else if (cantidadInversiones == 1) {
-            return FrecuenciaAhorro.BAJA;
-        } else if (cantidadInversiones == 2) {
-            return FrecuenciaAhorro.MEDIA;
-        } else {
-            return FrecuenciaAhorro.ALTA; // 3 o mas inversiones
-        }
+        return determinarFrecuenciaPorCantidad(cantidadInversiones);
     }
 
+    private FrecuenciaAhorro determinarFrecuenciaPorCantidad(long cantidadInversiones) {
+        return switch ((int) cantidadInversiones) {
+            case 0 -> FrecuenciaAhorro.NINGUNA;
+            case 1 -> FrecuenciaAhorro.BAJA;
+            case 2 -> FrecuenciaAhorro.MEDIA;
+            default -> FrecuenciaAhorro.ALTA;
+        };
+    }
+
+    @Transactional
     public BigDecimal calcularPorcentajeEndeudamiento(Long idUsuario) {
-
-        Usuario usuario = usuarioRepository.findById(idUsuario)
-                .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
-
+        Usuario usuario = usuarioValidacionService.obtenerUsuarioOExcepcion(idUsuario);
         BigDecimal ingresoMensual = usuario.getIngresoMensual();
 
         // controlar el ingreso mensual, si no está configurado o es cero, si divide por 0 da error
         if (ingresoMensual == null || ingresoMensual.compareTo(BigDecimal.ZERO) == 0) {
             return BigDecimal.ZERO;
         }
-
-
         // rango del mes actual "del 1 del mes a la fecha actual"
         LocalDate fechaActual = LocalDate.now();
         LocalDate primerDiaDelMes = fechaActual.withDayOfMonth(1);
@@ -71,13 +66,16 @@ public class PerfilFinancieroService {
                 fechaActual
         );
 
-        // saca el porcentaje: (gastos_fijos / ingreso_mensual) * 100
-        BigDecimal porcentaje = totalGastosFijos
+        if (totalGastosFijos == null) {
+            totalGastosFijos = BigDecimal.ZERO;
+        }
+        if (ingresoMensual == null || ingresoMensual.compareTo(BigDecimal.ZERO) <= 0) {
+            return BigDecimal.ZERO;
+        }
+        return totalGastosFijos
                 .divide(ingresoMensual, 4, RoundingMode.HALF_UP)
                 .multiply(BigDecimal.valueOf(100))
-                .setScale(2, RoundingMode.HALF_UP); // 2 decimales (ej: 35.50%)
-
-        return porcentaje;
+                .setScale(2, RoundingMode.HALF_UP);
     }
 
 

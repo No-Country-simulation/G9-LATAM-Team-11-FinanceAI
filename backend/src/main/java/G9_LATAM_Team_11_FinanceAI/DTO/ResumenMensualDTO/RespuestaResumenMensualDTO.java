@@ -1,4 +1,4 @@
-package G9_LATAM_Team_11_FinanceAI.DTO.ResumenMensualDTOs;
+package G9_LATAM_Team_11_FinanceAI.DTO.ResumenMensualDTO;
 
 import G9_LATAM_Team_11_FinanceAI.domain.resumenmensual.ResumenMensual;
 import java.math.BigDecimal;
@@ -8,9 +8,9 @@ public record RespuestaResumenMensualDTO(
         Long idUsuario,
         Integer mes,
         Integer anio,
-        BigDecimal ingresoTotal,
-        BigDecimal gastoTotal,
-        BigDecimal ahorroTotal,
+        BigDecimal sueldoBase,
+        BigDecimal sobranteMesAnterior,
+        BigDecimal gastadoEnElMes,
         BigDecimal sobranteFinal
 ) {
     public RespuestaResumenMensualDTO(ResumenMensual resumen) {
@@ -20,8 +20,8 @@ public record RespuestaResumenMensualDTO(
                 resumen.getMes(),
                 resumen.getAnio(),
                 resumen.getSueldoBase(),
-                resumen.getGastadoEnElMes(),
                 resumen.getSobranteMesAnterior(),
+                resumen.getGastadoEnElMes(),
                 resumen.getSobranteFinal()
         );
     }

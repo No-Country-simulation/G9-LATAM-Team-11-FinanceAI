@@ -9,6 +9,8 @@ import G9_LATAM_Team_11_FinanceAI.domain.analisis_financiero.AnalisisFinanciero;
 import G9_LATAM_Team_11_FinanceAI.domain.usuario.Usuario;
 
 import jakarta.persistence.EntityNotFoundException;
+import jakarta.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,33 +23,26 @@ import java.util.List;
 
 
 @Service
+@RequiredArgsConstructor
 public class AnalisisFinancieroService {
 
-    @Autowired
-    private IAnalisisFinanciero iAnalisisFinanciero;
 
-    @Autowired
-    private IUsuarioRepository usuarioRepository;
+    private final IAnalisisFinanciero analisisFinanciero;
+    private final PerfilFinancieroService perfilFinancieroService;
+    private final DataScienceModelService dataScienceModelService;
+    private final UsuarioValidacionService usuarioValidacionService;
 
-    @Autowired
-    private PerfilFinancieroService perfilFinancieroService;
-
-    @Autowired
-    private DataScienceModelService dataScienceModelService;
-
+    @Transactional
     public AnalisisFinanciero ingresarAnalisisFinanciero(IngresarAnalisisFinancieroDTO datos){
+        Usuario usuario = usuarioValidacionService.obtenerUsuarioOExcepcion(datos.idUsuario());
+        AnalisisFinanciero analisisfinanciero = new AnalisisFinanciero(datos, usuario);
 
-        var usuario = usuarioRepository.findById(datos.idUsuario())
-                .orElseThrow(() -> new EntityNotFoundException("Usuario no existe"));
-
-        var analisisfinanciero = new AnalisisFinanciero(datos, usuario);
-
-        return iAnalisisFinanciero.save(analisisfinanciero);
+        return analisisFinanciero.save(analisisfinanciero);
     }
 
+    @Transactional
     public AnalisisFinanciero generarYGuardarAnalisis(Long idUsuario) {
-        Usuario usuario = usuarioRepository.findById(idUsuario)
-                .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+        Usuario usuario = usuarioValidacionService.obtenerUsuarioOExcepcion(idUsuario);
 
         // rango de fechas (01 de agosto a hoy)
         LocalDate fechaActual = LocalDate.now();
@@ -80,13 +75,13 @@ public class AnalisisFinancieroService {
 
         AnalisisFinanciero analisis = new AnalisisFinanciero(datosDTO, usuario);
 
-        return iAnalisisFinanciero.save(analisis);
+        return analisisFinanciero.save(analisis);
     }
 
     private String generarRecomendacion(BigDecimal endeudamiento, FrecuenciaAhorro ahorro, String perfil) {
         StringBuilder sb = new StringBuilder();
 
-        // Reglas para endeudamiento
+        // reglas para endeudamiento
         if (endeudamiento.compareTo(new BigDecimal("40")) > 0) {
             sb.append("Atención: Tu nivel de gastos fijos está elevado (mayor al 40%). Intenta renegociar servicios o reducir costos de vivienda. ");
         } else {
@@ -106,15 +101,13 @@ public class AnalisisFinancieroService {
         return sb.toString();
     }
 
-
+    @Transactional
     //Mostra los analisis financieron guardados
     public List<RespuestaAnalisisFinancieroDTO> obtenerHistorialAnalisis(Long idUsuario) {
-        if (!usuarioRepository.existsById(idUsuario)) {
-            throw new RuntimeException("Usuario no encontrado");
-        }
+        usuarioValidacionService.validarExistencia(idUsuario);
 
         // el historial ordenado de más reciente a más antiguo
-        List<AnalisisFinanciero> historial = iAnalisisFinanciero.findByUsuarioIdOrderByFechaAnalisisDesc(idUsuario);
+        List<AnalisisFinanciero> historial = analisisFinanciero.findByUsuarioIdOrderByFechaAnalisisDesc(idUsuario);
 
         // convertir la lista de entidades a lista de DTOs
         return historial.stream()
