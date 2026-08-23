@@ -13,7 +13,10 @@ const props = defineProps({
   invertido: { type: Boolean, default: false },
 })
 
-const porcentaje = computed(() => Math.min(100, Math.max(0, (props.valor / props.max) * 100)))
+const porcentaje = computed(() => {
+  if (!props.max || props.max <= 0) return 0
+  return Math.min(100, Math.max(0, (props.valor / props.max) * 100))
+})
 
 const color = computed(() => {
   const p = porcentaje.value

@@ -1,23 +1,11 @@
 import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 
-const CLAVE_HISTORIAL = 'financeai:historial-analisis'
-
-function cargarHistorial() {
-  try {
-    return JSON.parse(localStorage.getItem(CLAVE_HISTORIAL)) ?? []
-  } catch {
-    return []
-  }
-}
-
-function persistirHistorial(historial) {
-  localStorage.setItem(CLAVE_HISTORIAL, JSON.stringify(historial))
-}
-
 export const useAnalisisFinancieroStore = defineStore('analisisFinanciero', () => {
   const resultado = ref(null)
-  const historial = ref(cargarHistorial())
+  const historial = ref([])
+  const frecuenciaAhorro = ref(null)
+  const endeudamientoBackend = ref(null)
   const loading = ref(false)
   const error = ref('')
 
@@ -25,18 +13,18 @@ export const useAnalisisFinancieroStore = defineStore('analisisFinanciero', () =
 
   function setResultado(res) {
     resultado.value = res
+  }
 
-    // Agregar al historial con timestamp
-    const entrada = {
-      id: Date.now(),
-      fecha: new Date().toISOString(),
-      perfil_financiero: res.perfil_financiero,
-      probabilidad: res.probabilidad,
-      resumen_gastos: res.resumen_gastos,
-      recomendaciones: res.recomendaciones,
-    }
-    historial.value = [entrada, ...historial.value].slice(0, 10) // Máximo 10 entradas
-    persistirHistorial(historial.value)
+  function setHistorial(lista) {
+    historial.value = lista
+  }
+
+  function setFrecuenciaAhorro(frecuencia) {
+    frecuenciaAhorro.value = frecuencia
+  }
+
+  function setEndeudamientoBackend(valor) {
+    endeudamientoBackend.value = valor !== null && valor !== undefined ? Number(valor) : null
   }
 
   function verAnalisis(id) {
@@ -44,11 +32,6 @@ export const useAnalisisFinancieroStore = defineStore('analisisFinanciero', () =
     if (entrada) {
       resultado.value = entrada
     }
-  }
-
-  function eliminarAnalisis(id) {
-    historial.value = historial.value.filter((h) => h.id !== id)
-    persistirHistorial(historial.value)
   }
 
   function setLoading(estado) {
@@ -59,28 +42,36 @@ export const useAnalisisFinancieroStore = defineStore('analisisFinanciero', () =
     error.value = mensaje
   }
 
+  function reset() {
+    resultado.value = null
+    historial.value = []
+    frecuenciaAhorro.value = null
+    endeudamientoBackend.value = null
+    loading.value = false
+    error.value = ''
+  }
+
   function limpiarResultado() {
     resultado.value = null
     error.value = ''
   }
 
-  function limpiarHistorial() {
-    historial.value = []
-    persistirHistorial([])
-  }
-
   return {
     resultado,
     historial,
+    frecuenciaAhorro,
+    endeudamientoBackend,
     loading,
     error,
     tieneResultado,
     setResultado,
+    setHistorial,
+    setFrecuenciaAhorro,
+    setEndeudamientoBackend,
     verAnalisis,
-    eliminarAnalisis,
     setLoading,
     setError,
     limpiarResultado,
-    limpiarHistorial,
+    reset,
   }
 })

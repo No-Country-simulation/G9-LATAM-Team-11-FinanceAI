@@ -32,11 +32,12 @@ services:
       - DB_PASSWORD=${DB_PASSWORD:-dev_password}
       - SHARED_MODELS_PATH=/app/models
       - OCI_STORAGE_BUCKET=${OCI_STORAGE_BUCKET:-financeai-bucket}
-      - TOKEN_SECRETO=${TOKEN_SECRETO}
+      - TOKEN_SECRETO=${TOKEN_SECRETO:-FinanceAI_Secret_Key_Super_Segura_2026_JWT_Token_HS256_Min$}
       - MAVEN_OPTS=-Xmx1024m -Xms512m
     volumes:
       - ./backend:/app
       - ./shared-models:/app/models
+      - ./shared-models:/shared-models
     working_dir: /app
     command: mvn spring-boot:run
     depends_on:
@@ -50,14 +51,16 @@ services:
 
   # 3. Front-End: Interfaz de Usuario (Vue 3 + Vite)
   frontend:
-    image: node:20-alpine
+    image: node:22-alpine
     container_name: financeai_frontend
     ports:
       - "127.0.0.1:8082:3000"
+    environment:
+      - VITE_BACKEND_URL=http://backend:8080
     volumes:
       - ./frontend:/app
     working_dir: /app
-    command: sh -c "npm install && npm run dev" 
+    command: sh -c "npm install && npm run dev"
     restart: no
     deploy:
       resources:
