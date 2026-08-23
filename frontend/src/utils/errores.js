@@ -1,10 +1,14 @@
 export function mensajeErrorApi(error) {
   const datos = error?.response?.data
   const status = error?.response?.status
+  const url = error?.config?.url || ''
 
-  // Errores de autenticación: Mensaje seguro que no delata si falló el email o la contraseña
+  // Errores de autenticación: distinción entre intento de login vs sesión expirada/no autorizada
   if (status === 401 || status === 403) {
-    return 'Correo electrónico o contraseña incorrectos. Por favor, verifica tus datos e intenta nuevamente.'
+    if (url.includes('/login')) {
+      return 'Correo electrónico o contraseña incorrectos. Por favor, verifica tus datos e intenta nuevamente.'
+    }
+    return 'Tu sesión ha expirado o no tienes autorización. Por favor inicia sesión nuevamente.'
   }
 
   let mensajeBackend = ''

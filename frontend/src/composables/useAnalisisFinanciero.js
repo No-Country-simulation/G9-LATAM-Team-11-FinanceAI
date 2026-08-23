@@ -1,6 +1,7 @@
 import { useAnalisisFinancieroStore } from '@/stores/analisisFinanciero'
 import { useUsuarioStore } from '@/stores/usuario'
 import { guardarAnalisisFinanciero, obtenerHistorialAnalisis } from '@/services/analisis'
+import { obtenerFrecuenciaAhorro, obtenerEndeudamiento } from '@/services/perfil'
 import { etiquetaCategoria } from '@/utils/categorias'
 
 const CLAVE_RESUMENES = 'financeai:resumenes-gastos'
@@ -42,6 +43,20 @@ export function useAnalisisFinanciero() {
   const store = useAnalisisFinancieroStore()
   const usuarioStore = useUsuarioStore()
 
+  async function cargarPerfilBackend() {
+    if (!usuarioStore.id) return
+    try {
+      const [frecuencia, endeudamiento] = await Promise.all([
+        obtenerFrecuenciaAhorro(usuarioStore.id).catch(() => null),
+        obtenerEndeudamiento(usuarioStore.id).catch(() => null),
+      ])
+      if (frecuencia) store.setFrecuenciaAhorro(frecuencia)
+      if (endeudamiento !== null) store.setEndeudamientoBackend(endeudamiento)
+    } catch {
+      // fallo silencioso
+    }
+  }
+
   async function enviarAnalisis() {
     store.setLoading(true)
     store.setError('')
@@ -65,29 +80,18 @@ export function useAnalisisFinanciero() {
       throw new Error('Sin transacciones del mes actual')
     }
 
-    // Datos locales que el backend no devuelve
     const resumenGastos = calcularResumenGastos(transacciones)
-    const totalGastos = transacciones.reduce((sum, t) => sum + Number(t.monto || 0), 0)
-    // Usar ingresoOriginal para ratio consistente con el dashboard
-    const ingresoBase = Number(usuarioStore.ingresoOriginal || ingreso || 0)
-    const ratioGastoIngreso = ingresoBase > 0 ? Math.min(100, Math.round((totalGastos / ingresoBase) * 100)) : 0
+    const totalGastado = Object.values(resumenGastos).reduce((s, m) => s + m, 0)
+    const ratioGastoIngreso = ingreso > 0 ? Math.min(100, Math.round((totalGastado / ingreso) * 100)) : 0
 
     try {
-      // Llamar al backend real
-      const backendResp = await guardarAnalisisFinanciero(usuarioStore.id)
-
-      // Mapear respuesta del backend al formato del frontend
-      const resultado = mapearRespuestaBackend(backendResp, resumenGastos, ratioGastoIngreso)
-
-      // Guardar resumen de gastos en localStorage indexado por id del usuario y del análisis
-      if (backendResp.id) {
-        guardarResumenLocal(usuarioStore.id, backendResp.id, resumenGastos)
-      }
-
-      store.setResultado(resultado)
-      return resultado
-    } catch {
-      // Fallback: análisis local si el backend falla
+      const respBackend = await guardarAnalisisFinanciero(usuarioStore.id)
+      const resultadoMapped = mapearRespuestaBackend(respBackend, resumenGastos, ratioGastoIngreso)
+      guardarResumenLocal(usuarioStore.id, respBackend.id, resumenGastos)
+      store.setResultado(resultadoMapped)
+      return resultadoMapped
+    } catch (err) {
+      console.warn('Error backend analisis, usando calculo local fallback:', err)
       const endeudamiento = calcularEndeudamiento(transacciones, ingreso)
       const frecuenciaAhorro = calcularFrecuenciaAhorro(transacciones, ingreso)
       const resultadoMock = generarAnalisisMock(transacciones, ingreso, endeudamiento, frecuenciaAhorro)
@@ -110,7 +114,7 @@ export function useAnalisisFinanciero() {
     }
   }
 
-  return { enviarAnalisis, cargarHistorial }
+  return { enviarAnalisis, cargarHistorial, cargarPerfilBackend }
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -185,19 +189,39 @@ function calcularResumenGastos(transacciones) {
   return porCategoria
 }
 
+function normalizarCat(cat) {
+  return String(cat || 'otro')
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+}
+
 function calcularEndeudamiento(transacciones, ingreso) {
-  const totalGastos = transacciones.reduce((total, t) => total + Number(t.monto || 0), 0)
   if (!ingreso || ingreso <= 0) return 0
+  const gastosFijos = transacciones
+    .filter((t) => {
+      const c = normalizarCat(t.categoria)
+      return c === 'vivienda' || c === 'servicios'
+    })
+    .reduce((total, t) => total + Number(t.monto || 0), 0)
+
+  if (gastosFijos > 0) {
+    return Math.min(100, Math.round((gastosFijos / ingreso) * 100))
+  }
+  const totalGastos = transacciones.reduce((total, t) => total + Number(t.monto || 0), 0)
   return Math.min(100, Math.round((totalGastos / ingreso) * 100))
 }
 
-function calcularFrecuenciaAhorro(transacciones, ingreso) {
-  if (!ingreso || ingreso <= 0) return 'Baja'
-  const totalGastado = transacciones.reduce((sum, t) => sum + Number(t.monto || 0), 0)
-  const ratioGasto = totalGastado / ingreso
-  if (ratioGasto < 0.5) return 'Alta'
-  if (ratioGasto < 0.8) return 'Media'
-  return 'Baja'
+function calcularFrecuenciaAhorro(transacciones) {
+  const inversiones = transacciones.filter((t) => {
+    const c = normalizarCat(t.categoria)
+    return c === 'inversion' || c === 'inversión' || c === 'ahorros'
+  }).length
+
+  if (inversiones === 0) return 'Baja'
+  if (inversiones === 1) return 'Baja'
+  if (inversiones === 2) return 'Media'
+  return 'Alta'
 }
 
 // ─────────────────────────────────────────────────────────────────────────────

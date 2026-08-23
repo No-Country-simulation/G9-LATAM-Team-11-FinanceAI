@@ -3,6 +3,7 @@ import { computed, ref, onMounted, onUnmounted } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useRouter } from 'vue-router'
 import { useUsuarioStore } from '@/stores/usuario'
+import { useUsuario } from '@/composables/useUsuario'
 import { useDashboard } from '@/composables/useDashboard'
 import { formatoMoneda, formatoNumero } from '@/utils/formato'
 import BaseButton from '@/components/base/BaseButton.vue'
@@ -12,9 +13,11 @@ import KpiCard from '@/components/dashboard/KpiCard.vue'
 import GraficoCategorias from '@/components/dashboard/GraficoCategorias.vue'
 import GraficoEvolucion from '@/components/dashboard/GraficoEvolucion.vue'
 import ListaTransacciones from '@/components/dashboard/ListaTransacciones.vue'
+import HistorialSueldoModal from '@/components/dashboard/HistorialSueldoModal.vue'
 
 const router = useRouter()
 const usuarioStore = useUsuarioStore()
+const { editarSueldo } = useUsuario()
 const { nombre, transacciones } = storeToRefs(usuarioStore)
 const {
   gastoMes,
@@ -28,6 +31,12 @@ const {
 } = useDashboard()
 
 const rangoEvolucion = ref(6)
+const editandoSueldo = ref(false)
+const nuevoSueldoVal = ref(0)
+const guardandoSueldo = ref(false)
+const errorSueldo = ref('')
+
+const mostrarModalHistorial = ref(false)
 
 const horaLocal = ref(new Date().toLocaleTimeString(navigator.language || undefined, { hour: '2-digit', minute: '2-digit' }))
 let intervaloHora = null
@@ -41,6 +50,30 @@ onMounted(() => {
 onUnmounted(() => {
   clearInterval(intervaloHora)
 })
+
+function abrirEdicionSueldo() {
+  nuevoSueldoVal.value = ingresoOriginal.value || 0
+  errorSueldo.value = ''
+  editandoSueldo.value = true
+}
+
+async function guardarSueldo() {
+  if (!nuevoSueldoVal.value || nuevoSueldoVal.value <= 0) {
+    errorSueldo.value = 'El sueldo debe ser mayor a 0'
+    return
+  }
+  guardandoSueldo.value = true
+  errorSueldo.value = ''
+  try {
+    await editarSueldo(nuevoSueldoVal.value)
+    editandoSueldo.value = false
+  } catch (err) {
+    errorSueldo.value = 'Error al actualizar el sueldo'
+    console.error(err)
+  } finally {
+    guardandoSueldo.value = false
+  }
+}
 
 const evolucionFiltrada = computed(() => {
   const ahora = new Date()
@@ -65,7 +98,6 @@ const evolucionFiltrada = computed(() => {
           return dia >= inicioSemana && dia <= finSemana
         })
         .reduce((suma, t) => suma + Number(t.monto || 0), 0)
-      // Usamos el primer día de cada semana como referencia para la etiqueta
       lista.push({ mes: new Date(anio, mes, inicioSemana), total, etiqueta: `Sem ${semana + 1}` })
     }
     return lista
@@ -120,9 +152,57 @@ const gridColsKpis = computed(() => {
         <h1 class="mt-4 text-2xl font-bold tracking-tight md:text-3xl">
           Hola, <span class="text-cyan">{{ nombre }}</span>
         </h1>
-        <p class="mt-1 text-sm text-muted">
-          Ingreso mensual: <span class="font-semibold text-ink">{{ formatoMoneda(ingresoOriginal) }}</span>
-        </p>
+        <div class="mt-1 flex flex-wrap items-center gap-2 text-sm text-muted">
+          <span>Ingreso mensual:</span>
+          <template v-if="!editandoSueldo">
+            <span class="font-semibold text-ink">{{ formatoMoneda(ingresoOriginal) }}</span>
+            <button
+              v-if="usuarioStore.id"
+              type="button"
+              class="inline-flex items-center gap-1 rounded px-1.5 py-0.5 text-xs text-cyan hover:bg-cyan/10 transition-colors"
+              title="Editar sueldo"
+              @click="abrirEdicionSueldo"
+            >
+              ✎ Editar
+            </button>
+            <button
+              v-if="usuarioStore.id"
+              type="button"
+              class="inline-flex items-center gap-1 rounded px-1.5 py-0.5 text-xs text-muted hover:text-white transition-colors"
+              title="Ver historial de sueldos"
+              @click="mostrarModalHistorial = true"
+            >
+              📋 Historial
+            </button>
+          </template>
+          <template v-else>
+            <div class="flex items-center gap-1.5">
+              <input
+                v-model.number="nuevoSueldoVal"
+                type="number"
+                min="1"
+                step="0.01"
+                class="w-28 rounded border border-edge bg-surface-dark px-2 py-0.5 text-xs text-ink focus:border-cyan focus:outline-none"
+              />
+              <button
+                type="button"
+                class="rounded bg-cyan px-2 py-0.5 text-xs font-semibold text-surface-dark hover:bg-cyan/90"
+                :disabled="guardandoSueldo"
+                @click="guardarSueldo"
+              >
+                {{ guardandoSueldo ? '...' : 'Guardar' }}
+              </button>
+              <button
+                type="button"
+                class="rounded border border-edge px-2 py-0.5 text-xs text-muted hover:text-white"
+                @click="editandoSueldo = false"
+              >
+                Cancelar
+              </button>
+            </div>
+            <span v-if="errorSueldo" class="text-xs text-danger">{{ errorSueldo }}</span>
+          </template>
+        </div>
       </div>
       <div class="flex gap-3">
         <BaseButton variante="secundario" @click="router.push({ name: 'transacciones' })">
@@ -218,5 +298,12 @@ const gridColsKpis = computed(() => {
       </div>
       <ListaTransacciones :transacciones="ultimasTransacciones" />
     </BaseCard>
+
+    <!-- Modal de Historial de Sueldo -->
+    <HistorialSueldoModal
+      :mostrar="mostrarModalHistorial"
+      :id-usuario="usuarioStore.id"
+      @cerrar="mostrarModalHistorial = false"
+    />
   </div>
 </template>

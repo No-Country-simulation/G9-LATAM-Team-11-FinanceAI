@@ -18,7 +18,7 @@ const usuarioStore = useUsuarioStore()
 const analisisStore = useAnalisisFinancieroStore()
 const { transacciones } = storeToRefs(usuarioStore)
 const { loading, error, historial } = storeToRefs(analisisStore)
-const { enviarAnalisis, cargarHistorial } = useAnalisisFinanciero()
+const { enviarAnalisis, cargarHistorial, cargarPerfilBackend } = useAnalisisFinanciero()
 const { gastoMes, ingreso, endeudamiento, porCategoria } = useDashboard()
 
 const horaLocal = ref(new Date().toLocaleTimeString(navigator.language || undefined, { hour: '2-digit', minute: '2-digit' }))
@@ -40,6 +40,7 @@ onMounted(async () => {
     horaLocal.value = new Date().toLocaleTimeString(navigator.language || undefined, { hour: '2-digit', minute: '2-digit' })
   }, 1000)
 
+  cargarPerfilBackend()
   const lista = await cargarHistorial()
   analisisStore.setHistorial(lista)
 })

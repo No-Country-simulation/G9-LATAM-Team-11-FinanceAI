@@ -1,7 +1,7 @@
 import { useUsuarioStore } from '@/stores/usuario'
 import { useAuthStore } from '@/stores/auth'
 import { useAnalisisFinancieroStore } from '@/stores/analisisFinanciero'
-import { registrarUsuario, obtenerUsuario, loginUsuario } from '@/services/usuarios'
+import { registrarUsuario, obtenerUsuario, loginUsuario, actualizarSueldo, eliminarCuenta } from '@/services/usuarios'
 import { useTransacciones } from '@/composables/useTransacciones'
 import { mensajeErrorApi } from '@/utils/errores'
 import { datosDemo } from '@/data/demo'
@@ -85,6 +85,40 @@ export function useUsuario() {
     }
   }
 
+  async function editarSueldo(nuevoSueldo) {
+    if (!store.id) return
+    store.setCargando(true)
+    store.setError('')
+    try {
+      await actualizarSueldo(store.id, nuevoSueldo)
+      store.setUsuario({
+        id: store.id,
+        ingresoOriginal: nuevoSueldo,
+        ingresoDisponible: nuevoSueldo,
+      })
+    } catch (error) {
+      store.setError(mensajeErrorApi(error))
+      throw new Error(mensajeErrorApi(error), { cause: error })
+    } finally {
+      store.setCargando(false)
+    }
+  }
+
+  async function desactivarCuenta() {
+    if (!store.id) return
+    store.setCargando(true)
+    store.setError('')
+    try {
+      await eliminarCuenta(store.id)
+      salir()
+    } catch (error) {
+      store.setError(mensajeErrorApi(error))
+      throw new Error(mensajeErrorApi(error), { cause: error })
+    } finally {
+      store.setCargando(false)
+    }
+  }
+
   function salir() {
     store.limpiar()
     analisisStore.reset()
@@ -103,5 +137,5 @@ export function useUsuario() {
     store.setTransacciones(datosDemo.transacciones)
   }
 
-  return { cargarUsuario, registrarYEntrar, iniciarSesionCredenciales, salir, entrarDemo }
+  return { cargarUsuario, registrarYEntrar, iniciarSesionCredenciales, editarSueldo, desactivarCuenta, salir, entrarDemo }
 }

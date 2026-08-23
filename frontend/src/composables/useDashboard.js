@@ -45,10 +45,22 @@ export function useDashboard() {
   })
 
   const endeudamiento = computed(() => {
-    // Usamos ingresoOriginal para el % de endeudamiento (base fija, no se descuenta)
-    // Si no hay ingresoOriginal, caemos a ingresoDisponible
+    // Usamos la constante de gastos fijos oficial (vivienda, servicios) para coincidir con el backend
     const base = Number(store.ingresoOriginal || store.ingresoDisponible || 0)
     if (!base) return 0
+
+    const gastosFijos = transaccionesArray.value
+      .filter((t) => mismoMes(t.fecha, anio, mes))
+      .filter((t) => {
+        const cat = normalizarCategoria(t.categoria)
+        return cat === 'vivienda' || cat === 'servicios'
+      })
+      .reduce((sum, t) => sum + Number(t.monto || 0), 0)
+
+    // Si existen gastos fijos, calcular % de endeudamiento fijos sobre ingreso; de lo contrario fallback a ratio de gasto general
+    if (gastosFijos > 0) {
+      return Math.min(100, Math.round((gastosFijos / base) * 100))
+    }
     return Math.min(100, Math.round((gastoMes.value / base) * 100))
   })
 

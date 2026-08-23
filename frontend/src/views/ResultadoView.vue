@@ -421,7 +421,7 @@ function irAlAnalisis() {
           <!-- Gauges Indicadores Clave (7 columnas en desktop) -->
           <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:col-span-7">
             <GaugeChart
-              :valor="resultado.nivel_endeudamiento ?? 0"
+              :valor="resultado.nivel_endeudamiento || store.endeudamientoBackend || 0"
               etiqueta="Nivel de endeudamiento"
               invertido
             />

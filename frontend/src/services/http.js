@@ -19,4 +19,25 @@ http.interceptors.request.use((config) => {
   return config
 })
 
+// Interceptor de respuesta: si el backend devuelve 401/403 en endpoints protegidos (token expirado/inválido)
+http.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    const status = error.response?.status
+    const url = error.config?.url || ''
+
+    if ((status === 401 || status === 403) && !url.includes('/login')) {
+      localStorage.removeItem(CLAVE_TOKEN)
+      localStorage.removeItem('financeai:sessid')
+      localStorage.removeItem('financeai:nombre')
+      localStorage.removeItem('financeai:ingreso-original')
+
+      if (typeof window !== 'undefined' && window.location.pathname !== '/login') {
+        window.location.href = '/login'
+      }
+    }
+    return Promise.reject(error)
+  },
+)
+
 export default http

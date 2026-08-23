@@ -4,6 +4,8 @@ import { defineStore } from 'pinia'
 export const useAnalisisFinancieroStore = defineStore('analisisFinanciero', () => {
   const resultado = ref(null)
   const historial = ref([])
+  const frecuenciaAhorro = ref(null)
+  const endeudamientoBackend = ref(null)
   const loading = ref(false)
   const error = ref('')
 
@@ -15,6 +17,14 @@ export const useAnalisisFinancieroStore = defineStore('analisisFinanciero', () =
 
   function setHistorial(lista) {
     historial.value = lista
+  }
+
+  function setFrecuenciaAhorro(frecuencia) {
+    frecuenciaAhorro.value = frecuencia
+  }
+
+  function setEndeudamientoBackend(valor) {
+    endeudamientoBackend.value = valor !== null && valor !== undefined ? Number(valor) : null
   }
 
   function verAnalisis(id) {
@@ -35,6 +45,8 @@ export const useAnalisisFinancieroStore = defineStore('analisisFinanciero', () =
   function reset() {
     resultado.value = null
     historial.value = []
+    frecuenciaAhorro.value = null
+    endeudamientoBackend.value = null
     loading.value = false
     error.value = ''
   }
@@ -47,11 +59,15 @@ export const useAnalisisFinancieroStore = defineStore('analisisFinanciero', () =
   return {
     resultado,
     historial,
+    frecuenciaAhorro,
+    endeudamientoBackend,
     loading,
     error,
     tieneResultado,
     setResultado,
     setHistorial,
+    setFrecuenciaAhorro,
+    setEndeudamientoBackend,
     verAnalisis,
     setLoading,
     setError,
