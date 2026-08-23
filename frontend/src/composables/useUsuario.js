@@ -129,11 +129,14 @@ export function useUsuario() {
   }
 
   // Modo demo: sin sesión real, con datos de ejemplo para ver el dashboard.
+  // id=null es necesario para que esDemo() (store.id == null) funcione correctamente
+  // y ningún composable intente llamar al backend.
   function entrarDemo() {
     store.setUsuario({
-      id: 0,
+      id: null,
       nombre: datosDemo.nombre,
       ingresoDisponible: datosDemo.ingresoDisponible,
+      ingresoOriginal: datosDemo.ingresoDisponible,
     })
     store.setTransacciones(datosDemo.transacciones)
   }

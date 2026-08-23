@@ -75,6 +75,22 @@ function hoy() {
   return new Date().toISOString().slice(0, 10)
 }
 
+/**
+ * Sanitiza una cadena para su uso seguro dentro de HTML generado dinámicamente.
+ * Evita inyecciones XSS al escapar los caracteres especiales de HTML.
+ * @param {unknown} str - El valor a sanitizar
+ * @returns {string} Cadena con caracteres HTML escapados
+ */
+function escapeHtml(str) {
+  if (typeof str !== 'string') return String(str ?? '')
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;')
+}
+
 function descargarArchivo(contenido, tipo, nombre) {
   const blob = new Blob([contenido], { type: tipo })
   const url = URL.createObjectURL(blob)
@@ -214,7 +230,7 @@ function generarBarrasGastosHtml(gastos) {
     html += `
       <div>
         <div style="display:flex; justify-content:space-between; font-size:12px; margin-bottom:4px;">
-          <span style="font-weight:600; color:#e4e4e7;">${etq}</span>
+          <span style="font-weight:600; color:#e4e4e7;">${escapeHtml(etq)}</span>
           <span style="font-family:monospace; color:#a1a1aa;">${formatoMoneda(monto)} (${pct}%)</span>
         </div>
         <div style="height:10px; background:#27272a; border-radius:5px; overflow:hidden;">
@@ -235,7 +251,7 @@ function exportarPDF() {
   const graficoBarras = generarBarrasGastosHtml(resumenGastos.value)
 
   const recsHtml = res.recomendaciones?.length
-    ? `<ol style="padding-left:20px; margin:0; line-height:1.7; color:#e4e4e7;">${res.recomendaciones.map((r) => `<li style="margin-bottom:8px;">${r}</li>`).join('')}</ol>`
+    ? `<ol style="padding-left:20px; margin:0; line-height:1.7; color:#e4e4e7;">${res.recomendaciones.map((r) => `<li style="margin-bottom:8px;">${escapeHtml(r)}</li>`).join('')}</ol>`
     : '<p style="color:#71717a;">Sin recomendaciones generadas.</p>'
 
   const ventana = window.open('', '_blank')
@@ -336,15 +352,15 @@ function exportarPDF() {
             <p style="margin:4px 0 0; font-size:12px; color:#a1a1aa !important;">Informe Completo de Diagnóstico Financiero</p>
           </div>
           <div style="text-align:right;">
-            <p style="margin:0; font-size:15px; font-weight:700; color:#ffffff !important;">${usuarioStore.nombre || 'Usuario'}</p>
-            <p style="margin:2px 0 0; font-size:11px; font-family:monospace; color:#a1a1aa !important;">${fechaStr}</p>
+            <p style="margin:0; font-size:15px; font-weight:700; color:#ffffff !important;">${escapeHtml(usuarioStore.nombre || 'Usuario')}</p>
+            <p style="margin:2px 0 0; font-size:11px; font-family:monospace; color:#a1a1aa !important;">${escapeHtml(fechaStr)}</p>
           </div>
         </div>
 
         <!-- Perfil Principal -->
         <div class="card" style="text-align:center; padding:28px 16px;">
           <span style="font-family:'Space Grotesk', monospace; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:#a1a1aa;">Perfil Financiero Clasificado</span>
-          <h2 style="font-size:32px; font-weight:800; margin:10px 0 0; color:${colorPerfil.value} !important;">${res.perfil_financiero}</h2>
+          <h2 style="font-size:32px; font-weight:800; margin:10px 0 0; color:${colorPerfil.value} !important;">${escapeHtml(res.perfil_financiero)}</h2>
         </div>
 
         <!-- Gauges Indicadores -->
@@ -360,7 +376,7 @@ function exportarPDF() {
         <div class="card">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
             <h3 style="margin:0; font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:#a1a1aa;">Distribución de Gastos</h3>
-            ${mayorGasto.value ? `<span style="font-size:12px; color:#a1a1aa;">Mayor gasto: <strong style="color:#ffffff;">${mayorGasto.value.categoria}</strong> (${mayorGasto.value.porcentaje}%)</span>` : ''}
+            ${mayorGasto.value ? `<span style="font-size:12px; color:#a1a1aa;">Mayor gasto: <strong style="color:#ffffff;">${escapeHtml(mayorGasto.value.categoria)}</strong> (${mayorGasto.value.porcentaje}%)</span>` : ''}
           </div>
           ${graficoBarras}
         </div>

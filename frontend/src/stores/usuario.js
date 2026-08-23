@@ -14,6 +14,7 @@ export const useUsuarioStore = defineStore('usuario', () => {
   const error = ref('')
 
   const tieneSesion = computed(() => id.value !== null)
+  const esDemo = computed(() => id.value === null || id.value === 0)
 
   function setUsuario(datos) {
     id.value = datos.id
@@ -61,6 +62,7 @@ export const useUsuarioStore = defineStore('usuario', () => {
     cargando,
     error,
     tieneSesion,
+    esDemo,
     setUsuario,
     setIngresoDisponible,
     setTransacciones,

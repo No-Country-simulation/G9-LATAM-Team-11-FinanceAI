@@ -16,7 +16,7 @@ const { nombre } = storeToRefs(usuarioStore)
 const { salir, desactivarCuenta } = useUsuario()
 
 const esUsuarioDemo = computed(() => {
-  return usuarioStore.id === 0 || auth.usuarioId === 0 || usuarioStore.id === null
+  return usuarioStore.esDemo || auth.usuarioId === 0
 })
 
 const dropdownAbierto = ref(false)

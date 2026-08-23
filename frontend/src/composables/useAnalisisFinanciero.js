@@ -85,7 +85,7 @@ export function useAnalisisFinanciero() {
     const ratioGastoIngreso = ingreso > 0 ? Math.min(100, Math.round((totalGastado / ingreso) * 100)) : 0
 
     try {
-      if (!usuarioStore.id || usuarioStore.id === 0) {
+      if (usuarioStore.esDemo) {
         throw new Error('Modo demo activo: usando calculo local')
       }
       const respBackend = await guardarAnalisisFinanciero(usuarioStore.id)
@@ -94,7 +94,11 @@ export function useAnalisisFinanciero() {
       store.setResultado(resultadoMapped)
       return resultadoMapped
     } catch (err) {
-      console.warn('Error backend analisis, usando calculo local fallback:', err)
+      if (err.message?.startsWith('Modo demo')) {
+        console.info('[FinanceAI] Modo demo activo: an\u00e1lisis calculado localmente.')
+      } else {
+        console.warn('[FinanceAI] Error backend an\u00e1lisis, usando c\u00e1lculo local fallback:', err)
+      }
       const endeudamiento = calcularEndeudamiento(transacciones, ingreso)
       const frecuenciaAhorro = calcularFrecuenciaAhorro(transacciones, ingreso)
       const resultadoMock = generarAnalisisMock(transacciones, ingreso, endeudamiento, frecuenciaAhorro)

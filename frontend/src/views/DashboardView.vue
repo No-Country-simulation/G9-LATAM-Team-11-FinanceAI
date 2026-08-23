@@ -25,7 +25,9 @@ const {
   saldoDisponible,
   ahorroMes,
   inversionMes,
+  gastosFijos,
   endeudamiento,
+  porcentajeGastoMes,
   porCategoria,
   ultimasTransacciones,
 } = useDashboard()
@@ -129,12 +131,12 @@ const tieneAhorro = computed(() => ahorroMes.value > 0)
 const tieneInversion = computed(() => inversionMes.value > 0)
 
 const gridColsKpis = computed(() => {
-  let count = 2 // Saldo disponible + Gasto del mes
+  let count = 3 // Saldo disponible + Gasto del mes + Gastos fijos
   if (tieneAhorro.value) count++
   if (tieneInversion.value) count++
+  if (count === 5) return 'grid-cols-2 sm:grid-cols-3 lg:grid-cols-5'
   if (count === 4) return 'grid-cols-2 md:grid-cols-4'
-  if (count === 3) return 'grid-cols-1 sm:grid-cols-3'
-  return 'grid-cols-1 sm:grid-cols-2'
+  return 'grid-cols-1 sm:grid-cols-3'
 })
 </script>
 
@@ -222,6 +224,13 @@ const gridColsKpis = computed(() => {
       <KpiCard
         etiqueta="Gasto del mes"
         :valor="gastoMes"
+        :formato="(n) => formatoMoneda(n)"
+        :delta="`${formatoNumero(porcentajeGastoMes)}% del ingreso`"
+        :tono="tonoGasto"
+      />
+      <KpiCard
+        etiqueta="Gastos fijos"
+        :valor="gastosFijos"
         :formato="(n) => formatoMoneda(n)"
         :delta="`${formatoNumero(endeudamiento)}% del ingreso`"
         :tono="tonoGasto"

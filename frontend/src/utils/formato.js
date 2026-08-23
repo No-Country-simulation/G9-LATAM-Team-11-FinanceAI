@@ -6,12 +6,26 @@ export function formatoMoneda(monto, fracciones = 2) {
   const convertido = divisaStore.convertirDesdeUSD(valor)
   const moneda = divisaStore.monedaActiva
 
-  return new Intl.NumberFormat('es-AR', {
-    style: 'currency',
-    currency: moneda,
-    minimumFractionDigits: fracciones,
-    maximumFractionDigits: fracciones,
-  }).format(convertido)
+  try {
+    return new Intl.NumberFormat('es-AR', {
+      style: 'currency',
+      currency: moneda,
+      minimumFractionDigits: fracciones,
+      maximumFractionDigits: fracciones,
+    }).format(convertido)
+  } catch {
+    // Fallback: moneda inválida en localStorage → intentar con USD
+    try {
+      return new Intl.NumberFormat('es-AR', {
+        style: 'currency',
+        currency: 'USD',
+        minimumFractionDigits: fracciones,
+        maximumFractionDigits: fracciones,
+      }).format(convertido)
+    } catch {
+      return `USD ${convertido.toFixed(fracciones)}`
+    }
+  }
 }
 
 export function formatoNumero(valor, fracciones = 0) {
