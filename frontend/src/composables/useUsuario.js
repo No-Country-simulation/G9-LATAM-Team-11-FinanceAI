@@ -92,14 +92,15 @@ export function useUsuario() {
       if (store.id) {
         await actualizarSueldo(store.id, nuevoSueldo)
       }
-    } catch (error) {
-      console.warn('Backend actualizarSueldo fallo o retorno restricciones, aplicando cambio local:', error)
-    } finally {
       store.setUsuario({
         id: store.id,
         ingresoOriginal: nuevoSueldo,
         ingresoDisponible: nuevoSueldo,
       })
+    } catch (error) {
+      store.setError(mensajeErrorApi(error))
+      throw new Error(mensajeErrorApi(error), { cause: error })
+    } finally {
       store.setCargando(false)
     }
   }
@@ -130,7 +131,7 @@ export function useUsuario() {
   // Modo demo: sin sesión real, con datos de ejemplo para ver el dashboard.
   function entrarDemo() {
     store.setUsuario({
-      id: null,
+      id: 0,
       nombre: datosDemo.nombre,
       ingresoDisponible: datosDemo.ingresoDisponible,
     })

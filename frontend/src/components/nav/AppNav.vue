@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { useAuthStore } from '@/stores/auth'
@@ -14,6 +14,10 @@ const auth = useAuthStore()
 const usuarioStore = useUsuarioStore()
 const { nombre } = storeToRefs(usuarioStore)
 const { salir, desactivarCuenta } = useUsuario()
+
+const esUsuarioDemo = computed(() => {
+  return usuarioStore.id === 0 || auth.usuarioId === 0 || usuarioStore.id === null
+})
 
 const dropdownAbierto = ref(false)
 const mostrarConfirmEliminar = ref(false)
@@ -130,10 +134,13 @@ async function ejecutarEliminarCuenta() {
 
             <button
               type="button"
-              class="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-left text-xs font-medium text-danger transition-colors hover:bg-danger/10"
+              class="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-left text-xs font-medium transition-colors"
+              :class="esUsuarioDemo ? 'text-muted cursor-not-allowed opacity-50' : 'text-danger hover:bg-danger/10 cursor-pointer'"
+              :disabled="esUsuarioDemo"
+              title="No disponible en modo demo"
               @click="cerrarDropdown(); mostrarConfirmEliminar = true"
             >
-              <svg class="h-4 w-4 text-danger" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="h-4 w-4" :class="esUsuarioDemo ? 'text-muted' : 'text-danger'" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
               </svg>
               Desactivar cuenta

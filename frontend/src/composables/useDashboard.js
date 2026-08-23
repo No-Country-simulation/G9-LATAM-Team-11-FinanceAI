@@ -2,7 +2,18 @@ import { computed } from 'vue'
 import { useUsuarioStore } from '@/stores/usuario'
 
 function mismoMes(fecha, anio, mes) {
-  const d = new Date(`${fecha}T00:00:00`)
+  if (!fecha) return false
+  if (fecha instanceof Date) {
+    return fecha.getFullYear() === anio && fecha.getMonth() === mes
+  }
+  const str = String(fecha).substring(0, 10)
+  const partes = str.split('-')
+  if (partes.length === 3) {
+    const a = parseInt(partes[0], 10)
+    const m = parseInt(partes[1], 10) - 1
+    return a === anio && m === mes
+  }
+  const d = new Date(fecha)
   return d.getFullYear() === anio && d.getMonth() === mes
 }
 
@@ -67,8 +78,10 @@ export function useDashboard() {
   const porCategoria = computed(() => {
     const mapa = new Map()
     for (const transaccion of transaccionesArray.value) {
-      const clave = normalizarCategoria(transaccion.categoria)
-      mapa.set(clave, (mapa.get(clave) || 0) + Number(transaccion.monto || 0))
+      if (mismoMes(transaccion.fecha, anio, mes)) {
+        const clave = normalizarCategoria(transaccion.categoria)
+        mapa.set(clave, (mapa.get(clave) || 0) + Number(transaccion.monto || 0))
+      }
     }
     return [...mapa.entries()].sort((a, b) => b[1] - a[1])
   })

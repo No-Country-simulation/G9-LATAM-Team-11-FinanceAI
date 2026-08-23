@@ -19,9 +19,9 @@ public record RespuestaResumenMensualDTO(
                 resumen.getUsuario().getId(),
                 resumen.getMes(),
                 resumen.getAnio(),
-                resumen.getIngresoTotal(),
-                resumen.getGastoTotal(),
-                resumen.getAhorroTotal(),
+                resumen.getSueldoBase(),
+                resumen.getGastadoEnElMes(),
+                resumen.getSobranteMesAnterior(),
                 resumen.getSobranteFinal()
         );
     }

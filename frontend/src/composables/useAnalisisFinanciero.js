@@ -85,6 +85,9 @@ export function useAnalisisFinanciero() {
     const ratioGastoIngreso = ingreso > 0 ? Math.min(100, Math.round((totalGastado / ingreso) * 100)) : 0
 
     try {
+      if (!usuarioStore.id || usuarioStore.id === 0) {
+        throw new Error('Modo demo activo: usando calculo local')
+      }
       const respBackend = await guardarAnalisisFinanciero(usuarioStore.id)
       const resultadoMapped = mapearRespuestaBackend(respBackend, resumenGastos, ratioGastoIngreso)
       guardarResumenLocal(usuarioStore.id, respBackend.id, resumenGastos)

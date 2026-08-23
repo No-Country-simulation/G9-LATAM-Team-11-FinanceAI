@@ -183,6 +183,7 @@ const gridColsKpis = computed(() => {
                 min="1"
                 step="0.01"
                 class="w-28 rounded border border-edge bg-surface-dark px-2 py-0.5 text-xs text-ink focus:border-cyan focus:outline-none"
+                @keyup.enter="guardarSueldo"
               />
               <button
                 type="button"

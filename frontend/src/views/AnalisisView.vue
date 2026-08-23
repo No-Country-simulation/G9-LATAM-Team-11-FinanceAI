@@ -21,19 +21,38 @@ const { loading, error, historial } = storeToRefs(analisisStore)
 const { enviarAnalisis, cargarHistorial, cargarPerfilBackend } = useAnalisisFinanciero()
 const { gastoMes, ingreso, endeudamiento, porCategoria } = useDashboard()
 
-const horaLocal = ref(new Date().toLocaleTimeString(navigator.language || undefined, { hour: '2-digit', minute: '2-digit' }))
-let intervaloHora = null
+const ahora = new Date()
+const mesActual = ahora.getMonth()
+const anioActual = ahora.getFullYear()
 
-const tieneTransacciones = computed(() => transacciones.value.length > 0)
+const transaccionesMesActual = computed(() => {
+  const lista = Array.isArray(transacciones.value) ? transacciones.value : []
+  return lista.filter((t) => {
+    if (!t.fecha) return false
+    const str = String(t.fecha).substring(0, 10)
+    const partes = str.split('-')
+    if (partes.length === 3) {
+      const a = parseInt(partes[0], 10)
+      const m = parseInt(partes[1], 10) - 1
+      return a === anioActual && m === mesActual
+    }
+    const d = new Date(t.fecha)
+    return d.getFullYear() === anioActual && d.getMonth() === mesActual
+  })
+})
+
+const tieneTransacciones = computed(() => transaccionesMesActual.value.length > 0)
 
 const periodoTexto = computed(() => {
   if (!tieneTransacciones.value) return ''
-  const ahora = new Date()
-  const inicio = new Date(ahora.getFullYear(), ahora.getMonth(), 1)
+  const inicio = new Date(anioActual, mesActual, 1)
   const desde = inicio.toLocaleDateString(navigator.language || undefined, { day: 'numeric', month: 'short', year: 'numeric' })
   const hasta = ahora.toLocaleDateString(navigator.language || undefined, { day: 'numeric', month: 'short', year: 'numeric' })
   return `${desde} — ${hasta}`
 })
+
+const horaLocal = ref(new Date().toLocaleTimeString(navigator.language || undefined, { hour: '2-digit', minute: '2-digit' }))
+let intervaloHora = null
 
 onMounted(async () => {
   intervaloHora = setInterval(() => {
@@ -141,7 +160,7 @@ function colorPerfil(perfil) {
           <div class="max-w-xl">
             <h2 class="text-xl font-bold text-white md:text-2xl">¿Listo para diagnosticar tus finanzas?</h2>
             <p class="mt-1.5 text-sm text-muted leading-relaxed">
-              Analizaremos tus <span class="font-semibold text-ink">{{ transacciones.length }} transacciones</span> registradas este mes para clasificar tu perfil de riesgo y generar sugerencias a medida.
+              Analizaremos tus <span class="font-semibold text-ink">{{ transaccionesMesActual.length }} transacciones</span> registradas este mes para clasificar tu perfil de riesgo y generar sugerencias a medida.
             </p>
           </div>
 
@@ -164,7 +183,7 @@ function colorPerfil(perfil) {
       <section class="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
         <div class="flex flex-col gap-1 rounded-xl border border-edge bg-surface p-4">
           <span class="font-mono text-[10.5px] uppercase tracking-[0.16em] text-faint">Transacciones</span>
-          <strong class="text-xl font-bold tabular-nums text-white">{{ formatoNumero(transacciones.length) }}</strong>
+          <strong class="text-xl font-bold tabular-nums text-white">{{ formatoNumero(transaccionesMesActual.length) }}</strong>
           <span class="text-[11px] text-muted">{{ periodoTexto || 'Mes actual' }}</span>
         </div>
 
