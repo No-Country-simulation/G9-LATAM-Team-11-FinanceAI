@@ -1,91 +1,158 @@
-# FinanceAI — Entorno de Testing y Orquestación Docker
+# FinanceAI - Plataforma inteligente de gestión y diagnóstico financiero
 
-Esta rama está dedicada exclusivamente a la configuración, testing y estabilización de la infraestructura local multiplataforma utilizando Docker y Docker Compose en la fase de desarrollo.
-
-Cada contenedor está pensado y estructurado para que funcione y esté listo para que cada rol/sector del proyecto no tenga que preocuparse por docker, pero sí por sus tareas. Cualquier sugerencia es bien recibida.
-
-Los contenedores se detendrán entre un inicio de sesión y el siguiente, de manera que deben arrancarse manualmente en cada reinicio (docker compose up -d). Esto está hecho así para evitar consumir recursos cuando no corresponda.
+FinanceAI es una aplicación web integral diseñada para ayudar a las personas a gestionar sus finanzas personales de forma simple e informada. La plataforma permite registrar ingresos y gastos, clasificar automáticamente los movimientos mediante inteligencia artificial, evaluar el estado de salud financiera del usuario y generar recomendaciones personalizadas para optimizar su presupuesto.
 
 ---
 
-##  Estructura de Contenedores y Puertos
+## Arquitectura general del sistema
 
-El entorno local levanta 4 servicios interconectados dentro de la misma red de Docker:
+El proyecto está estructurado como una solución modular de cuatro componentes principales que se comunican entre sí de forma desacoplada y predecible:
 
-* 🎨 **Front-End (Vue.js 3 + Vite)**: [http://localhost:8082](http://localhost:8082) (interno puerto `3000`)
-* ⚙️ **Back-End (Spring Boot)**: [http://localhost:8081](http://localhost:8081) (interno puerto `8080`)
-* 🗄️ **Base de Datos (MySQL 8.0)**: Mapeado localmente al puerto `3307` (interno puerto `3306`)
-* 📊 **Ciencia de Datos (Jupyter Lab)**: [http://localhost:8888](http://localhost:8888) (puente a `shared-models/`)
+1. **Frontend (interfaz de usuario)**: Aplicación web interactiva de una sola página (SPA) desarrollada con Vue.js 3, Pinia y Tailwind CSS. Es la pantalla donde el usuario interactúa, carga transacciones, visualiza gráficos y consulta su estado financiero.
+2. **Backend (servidor de aplicaciones)**: API REST construida con Java 17 y Spring Boot 3.2.5. Se encarga de la lógica de negocio, la persistencia de datos, el cifrado de credenciales y la ejecución de los modelos de inteligencia artificial de forma nativa.
+3. **Base de datos (persistencia)**: Servidor relacional MySQL 8.0 gestionado mediante migraciones automáticas con Flyway, garantizando un esquema de datos consistente y reproducible.
+4. **Ciencia de datos y modelos (inteligencia artificial)**: Entorno de experimentación en Jupyter Lab con Python y Scikit-Learn. Los modelos entrenados se exportan al formato estándar ONNX, permitiendo que el backend de Java los ejecute directamente a gran velocidad sin necesidad de mantener un servidor de Python en producción.
+
+```mermaid
+flowchart LR
+    subgraph Usuario["Navegador web"]
+        UI["Frontend (Vue.js 3 + Vite)\nPuerto 8082"]
+    end
+
+    subgraph Servidor["Backend y persistencia"]
+        API["Backend (Spring Boot 3.2.5)\nPuerto 8081"]
+        DB[("Base de datos MySQL 8.0\nPuerto 3307")]
+    end
+
+    subgraph InteligenciaArtificial["Modelos e inferencia"]
+        ONNX["Modelos ONNX y metadatos\n(shared-models/)"]
+        DS["Ciencia de datos (Jupyter Lab)\nPuerto 8888"]
+    end
+
+    UI -->|"Peticiones HTTP (JSON)"| API
+    API -->|"Lectura y escritura de datos"| DB
+    API -->|"Inferencia nativa (ONNX Runtime)"| ONNX
+    DS -->|"Entrenamiento y exportación"| ONNX
+```
 
 ---
 
-## Guía de Configuración y Arranque Rápido
+## Contenedores, servicios y puertos
 
-Sigue estos pasos en orden para levantar el entorno local:
+La plataforma se despliega de manera homogénea mediante Docker Compose. Cada servicio cuenta con puertos mapeados localmente y límites de consumo de recursos para no sobrecargar el equipo:
 
-### Paso 1: Configurar archivos locales a partir de las plantillas
-Dado que las credenciales y las configuraciones de desarrollo local no se suben a GitHub por seguridad, debés duplicar y renombrar los archivos plantilla en la raíz del proyecto (podés hacerlo visualmente desde tu explorador de archivos o con la terminal):
+| Servicio | Tecnología | Puerto local | Puerto interno | Descripción del componente |
+| :--- | :--- | :--- | :--- | :--- |
+| **frontend** | Node 22 / Vue.js 3 + Vite | `http://localhost:8082` | `3000` | Interfaz visual, paneles de control y gráficos interactivos |
+| **backend** | Java 17 / Spring Boot 3.2.5 | `http://localhost:8081` | `8080` | API REST, lógica de análisis y motor de inferencia ONNX |
+| **db** | MySQL 8.0 | `localhost:3307` | `3306` | Base de datos relacional para usuarios, transacciones e historial |
+| **data-science** | Jupyter Lab / Python 3 | `http://localhost:8888` | `8888` | Cuadernos de simulación, análisis exploratorio y entrenamiento |
 
-* **Variables de entorno:** Copiar `.env.example` y renombrarlo como `.env`
-* **Overrides de Docker:** Copiar `docker-compose.override.yml.example` y renombrarlo como `docker-compose.override.yml`
+> [!NOTE]
+> Por seguridad, los puertos de host están vinculados estrictamente a la dirección local `127.0.0.1`. Esto evita que los servicios queden expuestos a otros dispositivos dentro de redes locales compartidas o públicas.
 
+---
 
-### Paso 2: Construir y levantar los contenedores
-Ejecuta el comando estándar de Docker Compose para compilar e iniciar los servicios en segundo plano:
+## Guía de inicio rápido y configuración local
+
+Sigue estos pasos para poner en funcionamiento todo el entorno en tu computadora:
+
+### 1. Preparar los archivos de configuración
+Por motivos de seguridad y buenas prácticas, las contraseñas y variables de entorno no se incluyen directamente en el control de versiones. Debes crear tus archivos locales copiando las plantillas de ejemplo:
+
+* **Variables de entorno:** Copia el archivo `.env.example` y renómbralo como `.env`.
+* **Ajustes de Docker:** Copia el archivo `docker-compose.override.yml.example` y renómbralo como `docker-compose.override.yml`.
+
+En sistemas Linux o macOS puedes ejecutar:
+```bash
+cp .env.example .env
+cp docker-compose.override.yml.example docker-compose.override.yml
+```
+
+En Windows (PowerShell):
+```powershell
+Copy-Item .env.example .env
+Copy-Item docker-compose.override.yml.example docker-compose.override.yml
+```
+
+### 2. Iniciar los contenedores
+Ejecuta el siguiente comando en la raíz del proyecto para descargar las imágenes, compilar los servicios y arrancarlos en segundo plano:
+
 ```bash
 docker compose up -d
 ```
 
-### Opcional: Monitorear el estado del Backend
-Podés verificar que el servidor de Java Spring Boot compile y se conecte a MySQL leyendo sus logs:
+### 3. Verificar el funcionamiento
+Una vez que el comando finalice, puedes ingresar a las siguientes direcciones desde tu navegador:
+
+* Interfaz web: [http://localhost:8082](http://localhost:8082)
+* Estado de la API: [http://localhost:8081](http://localhost:8081)
+* Entorno de cuadernos: [http://localhost:8888](http://localhost:8888)
+
+Para inspeccionar los registros (logs) del backend en caso de verificar la compilación y conexión con la base de datos:
 ```bash
 docker compose logs -f backend
 ```
 
----
-
-## Historial de Fixes Aplicados (Bitácora de DevOps)
-
-Se han resuelto los siguientes problemas técnicos críticos en esta rama:
-
-### Error de permisos con el Maven Wrapper (`./mvnw: Permission denied`)
-* **Problema:** En sistemas locales que montan volúmenes compartidos, el script `./mvnw` carecía de permisos de ejecución (`+x`), provocando un bucle de reinicios (Exit Code `126`) en el contenedor.
-* **Solución:** Se modificó el archivo `docker-compose.override.yml.example` para utilizar el comando **`mvn`** global provisto nativamente por la imagen de Docker, el cual tiene permisos de ejecución nativos y es totalmente independiente de los archivos locales.
-
-### Optimización de velocidad en el arranque del Backend
-* **Problema:** El backend utilizaba la imagen de JDK pura `eclipse-temurin:17-jdk` e instalaba Maven de forma dinámica en cada arranque, demorando de 1 a 3 minutos.
-* **Solución:** Se actualizó la imagen base en `docker-compose.yml` a **`maven:3.9.6-eclipse-temurin-17`** (que incluye Maven preinstalado), reduciendo el arranque a segundos.
-
-### Homologación MySQL vs PostgreSQL y variables del `.env`
-* **Problema:** Había confusión técnica en la documentación y archivos de configuración (se mencionaba Postgres y puertos locales 5433).
-* **Solución:** Se estandarizó todo a MySQL 8.0, mapeando el puerto del host a `3307` para evitar colisiones y actualizando las variables en la plantilla `.env.example` a `DB_USER_M` y `DB_PASSWORD`.
-
-### Conectividad interna de Red y contraseña en `application.properties`
-* **Problema:** El backend apuntaba a `localhost` (lo que falla en contenedores separados) y usaba la variable incorrecta `${DB_PASS}`.
-* **Solución:** Se reconfiguró `application.properties` para apuntar a la red interna de Docker (`${DB_HOST}`) y mapear la contraseña con `${DB_PASSWORD}` de forma alineada con Docker Compose.
-
-### Consumo de recursos
-* **Problema:** Al levantar el stack completo, la compilación de Java (Maven) y la base de datos MySQL pueden generar picos de consumo de CPU y consumir mucha memoria del sistema.
-* **Solución:** Se agregaron límites estrictos de CPU y memoria en todos los servicios de [docker-compose.yml](./docker-compose.yml) (`deploy.resources.limits`) y se limitó la memoria interna de la JVM con `MAVEN_OPTS=-Xmx1024m -Xms512m` en el backend.
-
-### Desactivación de reinicio automático de contenedores al arrancar el sistema
-* **Problema:** La configuración `restart: always` levantaba automáticamente todos los contenedores en segundo plano cuando el desarrollador iniciaba sesión en su computadora, consumiendo memoria RAM y CPU innecesariamente en equipos de recursos limitados.
-* **Solución:** Se actualizó la propiedad a `restart: "no"` en todos los servicios de [docker-compose.yml](./docker-compose.yml). Los contenedores ahora solo se inician con comandos explícitos (`docker compose up`) y no consumen recursos al prender la máquina.
+### 4. Detener el entorno
+Cuando termines de trabajar, puedes apagar los servicios de forma ordenada sin perder los datos guardados en la base de datos:
+```bash
+docker compose down
+```
 
 ---
 
-## Metodología del Perfilado Financiero (Data Science)
+## Inteligencia artificial y metodología de análisis
 
-El módulo de perfilado evalúa la salud económica del usuario analizando la relación entre la rigidez de sus costos fijos y su disciplina de ahorro:
+FinanceAI utiliza dos modelos de aprendizaje automático serializados en formato ONNX para brindar una experiencia automatizada y personalizada:
 
-### 1. Ratio de Gastos Fijos Ineludibles (Compromiso del Ingreso)
-Mide el porcentaje del salario mensual que el usuario destina a cubrir sus gastos fijos de subsistencia (**Vivienda** y **Servicios Básicos**):
+### 1. Clasificación automática de transacciones (NLP)
+Cuando el usuario ingresa una descripción en texto libre (por ejemplo, "compra en supermercado", "pago de luz", "boleto de colectivo"), el modelo de procesamiento de lenguaje natural analiza el texto y lo asigna a una de las **10 categorías oficiales**:
 
-$$\text{Ratio de Gastos Fijos (\%)} = \left( \frac{\text{Gasto Fijo Promedio Mensual}}{\text{Ingreso Mensual}} \right) \times 100$$
+* `Alimentacion`
+* `Educacion`
+* `Electrodomesticos`
+* `Inversion`
+* `Ocio`
+* `Salud`
+* `Servicios`
+* `Transporte`
+* `Vestimenta`
+* `Vivienda`
 
-* **En Riesgo (> 26%):** Indique alto nivel de rigidez presupuestaria. El usuario compromete una porción excesiva de su ingreso en costos fijos, quedando expuesto a impagos ante imprevistos.
-* **En Observación (22% a 26% o Ahorro 'Ninguno'):** Zona intermedia que requiere monitoreo preventivo de gastos.
-* **Saludable (<= 22% y Ahorro 'Medio' o 'Alto'):** Estructura de costos fijos sostenible con capacidad constante de reserva económica.
+El pipeline utiliza representación por frecuencia inversa de documentos (TF-IDF) y un clasificador lineal. Para evitar fallos por tildes o caracteres especiales, el backend aplica una normalización previa de texto antes de llamar al modelo.
 
-### 2. Frecuencia de Ahorro e Inversión
-Evalúa la constancia con la que el usuario realiza transacciones en la categoría **Inversión** (`Ninguna`, `Baja`, `Media`, `Alta`), ponderando la regularidad del hábito por encima de la cuantía individual.
+### 2. Diagnóstico de perfil financiero
+El motor analiza los indicadores económicos del usuario y lo clasifica en una de tres categorías de salud financiera:
+
+* **Saludable**: Estructura de gastos equilibrada, bajo nivel de compromiso sobre el ingreso y disciplina periódica de ahorro.
+* **En observación**: Nivel de gastos fijos moderadamente alto o capacidad de ahorro irregular. Requiere atención preventiva en gastos no esenciales.
+* **En riesgo**: Gastos fijos o deudas que comprometen una porción excesiva de los ingresos mensuales, con ahorro nulo o insuficiente para absorber contingencias.
+
+### 3. Generación de recomendaciones
+A partir del perfil diagnosticado y de la distribución real de gastos por categoría, el sistema elabora sugerencias prácticas en lenguaje natural, tales como límites de presupuesto en categorías críticas, pautas de ahorro mensual y estrategias de desendeudamiento.
+
+---
+
+## Seguridad y buenas prácticas aplicadas
+
+* **Cifrado de contraseñas**: El backend utiliza el algoritmo seguro `BCryptPasswordEncoder` para almacenar las claves de los usuarios. El frontend envía la contraseña en texto plano mediante el canal seguro (HTTPS/HTTP interno) y delega el cálculo del hash unidireccional exclusivamente al servidor, evitando vulnerabilidades de reenvío de hashes.
+* **Aislamiento de red**: La base de datos MySQL opera dentro de la red privada de Docker y solo acepta conexiones autorizadas del backend.
+* **Control de consumo de memoria**: Se establecieron límites de memoria RAM y CPU en `docker-compose.yml` para evitar ralentizaciones en equipos de desarrollo con recursos limitados.
+* **Reinicio manual (`restart: "no"`)**: Los contenedores solo se inician cuando el desarrollador ejecuta `docker compose up`, evitando que consuman memoria de fondo al encender la computadora.
+
+---
+
+## Estructura del repositorio
+
+```text
+├── backend/               # Proyecto Java 17 con Spring Boot, controladores y servicios
+├── frontend/              # Aplicación web en Vue.js 3, componentes, vistas y Pinia
+├── notebooks/             # Cuadernos Jupyter, simulación de datos y entrenamiento de modelos
+├── shared-models/         # Modelos serializados (.onnx) y archivo de metadatos (metadata.json)
+├── docker-compose.yml     # Orquestación principal de contenedores y definición de servicios
+├── .env.example           # Plantilla de variables de entorno para desarrollo local
+└── README.md              # Documentación general del proyecto
+```
+
+Para consultar detalles específicos de implementación, configuración interna y comandos de cada área, revisa los archivos de documentación dentro de cada subdirectorio: [backend/README.md](./backend/README.md), [frontend/README.md](./frontend/README.md), [notebooks/README.md](./notebooks/README.md) y [shared-models/README.md](./shared-models/README.md).

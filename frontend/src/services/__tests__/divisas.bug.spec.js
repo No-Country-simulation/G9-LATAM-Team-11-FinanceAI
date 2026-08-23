@@ -3,27 +3,17 @@ import fc from 'fast-check'
 import axios from 'axios'
 
 /**
- * Bug Condition Exploration Test — Property 1(a): Frankfurter API URL
- *
- * Validates: Requirements 1.1, 1.2
- *
- * This test verifies that `obtenerTasasDeCambio()` calls the CORRECT endpoint
- * (`https://api.frankfurter.app/latest`) and returns non-empty rates.
- *
- * On UNFIXED code, `FRANKFURTER_URL` is `https://frankfurter.dev/v1/latest` which
- * returns HTTP 404, so this test MUST FAIL — confirming the bug exists.
- *
- * EXPECTED OUTCOME: FAIL on unfixed code (proves bug exists)
+ * Pruebas de integración para Frankfurter API v2
  */
 
 vi.mock('axios')
 
-describe('Bug Condition: obtenerTasasDeCambio uses correct Frankfurter URL', () => {
+describe('Integración API Frankfurter v2: obtenerTasasDeCambio', () => {
   beforeEach(() => {
     vi.resetAllMocks()
   })
 
-  it('should call https://api.frankfurter.dev/v2/rates with base=USD and return non-empty rates', async () => {
+  it('debe invocar https://api.frankfurter.dev/v2/rates con base=USD y retornar mapa de tasas', async () => {
     const fakeData = [
       { date: '2026-08-22', base: 'USD', quote: 'EUR', rate: 0.92 },
       { date: '2026-08-22', base: 'USD', quote: 'GBP', rate: 0.79 },
@@ -41,30 +31,30 @@ describe('Bug Condition: obtenerTasasDeCambio uses correct Frankfurter URL', () 
     )
     expect(result.EUR).toBe(0.92)
     expect(result.ARS).toBe(870.2)
+    expect(result.CLP).toBe(950.5)
   })
 
-  it('property: URL used by obtenerTasasDeCambio is https://api.frankfurter.dev/v2/rates for any rates response', async () => {
+  it('propiedad: la URL utilizada es https://api.frankfurter.dev/v2/rates', async () => {
     const arbCurrencyCode = fc
       .stringMatching(/^[A-Z]{3}$/)
       .filter((c) => c !== 'USD')
 
     const arbRate = fc.double({ min: 0.001, max: 50000, noNaN: true, noDefaultInfinity: true })
 
-    const arbRatesArray = fc
+    const arbEntries = fc
       .uniqueArray(arbCurrencyCode, { minLength: 1, maxLength: 10 })
       .chain((codes) =>
-        fc.tuple(...codes.map(() => arbRate)).map((rates) =>
-          codes.map((code, i) => ({
-            date: '2026-08-22',
+        fc.tuple(...codes.map(() => arbRate)).map((rates) => {
+          return codes.map((code, i) => ({
             base: 'USD',
             quote: code,
             rate: rates[i],
-          })),
-        ),
+          }))
+        }),
       )
 
     await fc.assert(
-      fc.asyncProperty(arbRatesArray, async (entries) => {
+      fc.asyncProperty(arbEntries, async (entries) => {
         vi.resetAllMocks()
         axios.get.mockResolvedValue({ data: entries })
 

@@ -4,6 +4,7 @@ import ai.onnxruntime.OnnxTensor;
 import ai.onnxruntime.OrtEnvironment;
 import ai.onnxruntime.OrtException;
 import ai.onnxruntime.OrtSession;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import jakarta.annotation.PostConstruct;
@@ -17,31 +18,39 @@ import java.util.*;
 @Service
 public class OnnxInferenceService {
 
+    @Value("${app.shared-models.path:./shared-models}")
+    private String sharedModelsPath;
+
     private OrtEnvironment env;
     private OrtSession session;
 
     @PostConstruct
-    public void init() throws Exception {
+    public void init() {
         try {
             this.env = OrtEnvironment.getEnvironment();
 
-            File modelFile = new File("shared-models/modelo_perfil.onnx");
+            File modelFile = new File(sharedModelsPath, "modelo_perfil.onnx");
 
+            if (!modelFile.exists()) {
+                modelFile = new File("shared-models/modelo_perfil.onnx");
+            }
             if (!modelFile.exists()) {
                 modelFile = new File("../shared-models/modelo_perfil.onnx");
             }
-
             if (!modelFile.exists()) {
-                throw new IllegalStateException("No se encontró el archivo en: " + modelFile.getAbsolutePath());
+                modelFile = new File("/app/models/modelo_perfil.onnx");
             }
 
-            byte[] modelBytes = Files.readAllBytes(modelFile.toPath());
-            this.session = env.createSession(modelBytes, new OrtSession.SessionOptions());
-
-            System.out.println("Modelo ONNX cargado correctamente desde: " + modelFile.getAbsolutePath());
+            if (modelFile.exists()) {
+                byte[] modelBytes = Files.readAllBytes(modelFile.toPath());
+                this.session = env.createSession(modelBytes, new OrtSession.SessionOptions());
+                System.out.println("Modelo ONNX cargado correctamente desde: " + modelFile.getAbsolutePath());
+            } else {
+                System.err.println("Advertencia: No se encontró modelo_perfil.onnx en las rutas buscadas");
+            }
 
         } catch (Exception e) {
-            throw new RuntimeException("Error al inicializar el modelo ONNX desde shared-models: " + e.getMessage(), e);
+            System.err.println("Advertencia al inicializar OnnxInferenceService: " + e.getMessage());
         }
     }
 
