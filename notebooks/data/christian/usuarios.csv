@@ -1,0 +1,3001 @@
+id,nombre,ingreso_mensual,nivel_endeudamiento,frecuencia_ahorro,perfil_financiero
+1,Carlos,1360,63,Media,En riesgo
+2,Diego,5890,32,Baja,En observacion
+3,Lucia,5726,51,Media,En observacion
+4,Jose,5691,88,Baja,En riesgo
+5,Marta,4272,13,Baja,Saludable
+6,Alejandro,3592,74,Baja,En riesgo
+7,Luis,966,52,Media,En riesgo
+8,Elena,5834,58,Media,En observacion
+9,Martin,4926,77,Ninguna,En riesgo
+10,Carlos,3944,40,Media,En observacion
+11,Ana,3671,67,Baja,En riesgo
+12,Marta,3419,67,Media,En riesgo
+13,Marta,630,7,Baja,En observacion
+14,Ana,2185,1,Media,Saludable
+15,Alejandro,1269,85,Alta,En riesgo
+16,Martin,2891,40,Alta,En observacion
+17,Jorge,2933,54,Baja,En riesgo
+18,Juan,5811,15,Baja,Saludable
+19,Claudia,5551,61,Media,En observacion
+20,Ana,1684,47,Media,En riesgo
+21,Jose,5055,29,Baja,En observacion
+22,Luis,3885,11,Alta,Saludable
+23,Maria,4617,34,Media,En observacion
+24,Martin,5343,10,Alta,Saludable
+25,Sofia,3404,63,Alta,En observacion
+26,Lucia,974,49,Media,En riesgo
+27,Diego,1582,84,Media,En riesgo
+28,Jorge,3058,20,Alta,Saludable
+29,Jose,2547,68,Media,En riesgo
+30,Marta,3247,47,Media,En observacion
+31,Marta,1475,19,Media,En observacion
+32,Maria,2306,66,Media,En riesgo
+33,Laura,689,43,Baja,En riesgo
+34,Claudia,3234,32,Alta,En observacion
+35,Sofia,3505,72,Media,En observacion
+36,Jose,5158,60,Alta,En observacion
+37,Laura,2399,8,Alta,Saludable
+38,Jorge,1767,67,Media,En riesgo
+39,Martin,2028,34,Media,En observacion
+40,Pedro,3702,80,Ninguna,En riesgo
+41,Carlos,4056,87,Media,En observacion
+42,Camila,4390,64,Ninguna,En riesgo
+43,Jorge,1146,7,Alta,Saludable
+44,Alejandro,3388,44,Alta,En observacion
+45,Pedro,5893,86,Alta,En observacion
+46,Diego,2935,46,Alta,En observacion
+47,Alejandro,1100,39,Media,En observacion
+48,Jorge,2863,75,Baja,En riesgo
+49,Sofia,2561,53,Alta,En observacion
+50,Valentina,741,75,Ninguna,En riesgo
+51,Maria,2541,45,Baja,En riesgo
+52,Valentina,3324,46,Media,En observacion
+53,Valentina,3112,14,Alta,Saludable
+54,Jose,1863,18,Alta,Saludable
+55,Juan,5986,25,Alta,Saludable
+56,Elena,1978,51,Alta,En observacion
+57,Marta,3056,21,Media,En observacion
+58,Jose,1275,20,Media,En observacion
+59,Juan,4514,50,Media,En observacion
+60,Pedro,534,37,Ninguna,En riesgo
+61,Marta,3652,19,Baja,Saludable
+62,Elena,2455,28,Ninguna,En riesgo
+63,Miguel,2085,50,Alta,En observacion
+64,Elena,4443,3,Media,Saludable
+65,Jose,3573,54,Media,En observacion
+66,Marta,1521,70,Alta,En riesgo
+67,Alejandro,3961,27,Alta,Saludable
+68,Martin,3113,3,Baja,En observacion
+69,Lucia,5725,21,Baja,En observacion
+70,Jose,4343,75,Media,En observacion
+71,Martin,2000,44,Media,En observacion
+72,Diego,5298,66,Media,En observacion
+73,Valentina,661,85,Alta,En riesgo
+74,Martin,4797,65,Media,En observacion
+75,Claudia,2481,87,Alta,En observacion
+76,Luis,1495,33,Alta,En observacion
+77,Jose,5411,54,Ninguna,En riesgo
+78,Ana,3842,0,Media,Saludable
+79,Ana,5051,71,Baja,En riesgo
+80,Carlos,4298,86,Media,En observacion
+81,Martin,1775,37,Media,En observacion
+82,Pedro,1516,5,Media,En observacion
+83,Ana,837,85,Alta,En riesgo
+84,Jorge,1378,24,Alta,En observacion
+85,Claudia,1576,81,Baja,En riesgo
+86,Juan,5387,16,Baja,Saludable
+87,Alejandro,4493,60,Media,En observacion
+88,Camila,5359,11,Media,Saludable
+89,Valentina,879,5,Ninguna,En riesgo
+90,Jose,992,89,Alta,En riesgo
+91,Camila,5776,26,Media,En observacion
+92,Carlos,2562,7,Media,Saludable
+93,Martin,4384,82,Baja,En riesgo
+94,Claudia,564,64,Ninguna,En riesgo
+95,Laura,3068,56,Media,En observacion
+96,Sofia,5963,39,Ninguna,En observacion
+97,Miguel,5748,13,Baja,Saludable
+98,Luis,2527,34,Media,En observacion
+99,Ana,3195,47,Media,En observacion
+100,Camila,1995,83,Media,En riesgo
+101,Alejandro,5758,55,Ninguna,En riesgo
+102,Ana,891,48,Alta,En riesgo
+103,Miguel,5014,12,Baja,Saludable
+104,Martin,4974,60,Media,En observacion
+105,Claudia,4061,48,Baja,En observacion
+106,Carlos,2778,45,Media,En observacion
+107,Laura,3599,61,Media,En observacion
+108,Miguel,700,7,Baja,En observacion
+109,Laura,5375,42,Baja,En observacion
+110,Valentina,3604,19,Ninguna,En observacion
+111,Juan,5098,89,Alta,En observacion
+112,Carlos,2954,38,Baja,En observacion
+113,Claudia,4145,84,Alta,En observacion
+114,Juan,1304,48,Media,En riesgo
+115,Carlos,3231,63,Media,En riesgo
+116,Carlos,3273,61,Media,En riesgo
+117,Luis,2070,53,Media,En observacion
+118,Alejandro,5556,8,Ninguna,En observacion
+119,Juan,3190,87,Alta,En observacion
+120,Ana,4340,36,Baja,En observacion
+121,Ana,1528,48,Media,En riesgo
+122,Martin,1002,40,Alta,En observacion
+123,Elena,4993,16,Alta,Saludable
+124,Valentina,1370,87,Ninguna,En riesgo
+125,Juan,4988,20,Ninguna,En observacion
+126,Marta,706,50,Ninguna,En riesgo
+127,Carlos,5634,58,Ninguna,En riesgo
+128,Diego,1984,38,Media,En observacion
+129,Ana,1363,54,Media,En riesgo
+130,Luis,3290,40,Baja,En riesgo
+131,Jose,1063,38,Media,En observacion
+132,Diego,5616,12,Media,Saludable
+133,Carlos,4691,63,Media,En observacion
+134,Lucia,2257,10,Media,Saludable
+135,Jose,2178,18,Media,Saludable
+136,Diego,3742,10,Alta,Saludable
+137,Miguel,5136,76,Media,En observacion
+138,Carlos,1559,45,Media,En riesgo
+139,Juan,5779,44,Media,En observacion
+140,Camila,2222,0,Media,Saludable
+141,Alejandro,3814,39,Baja,En observacion
+142,Elena,3657,18,Alta,Saludable
+143,Martin,3125,75,Media,En riesgo
+144,Elena,3229,71,Baja,En riesgo
+145,Martin,2097,71,Media,En riesgo
+146,Elena,3560,60,Media,En observacion
+147,Claudia,3193,11,Baja,En observacion
+148,Marta,5391,60,Media,En observacion
+149,Juan,5647,32,Baja,En observacion
+150,Jorge,4127,44,Baja,En observacion
+151,Lucia,1863,89,Baja,En riesgo
+152,Martin,2481,68,Media,En riesgo
+153,Claudia,5950,7,Alta,Saludable
+154,Alejandro,2163,24,Media,En observacion
+155,Lucia,2029,45,Media,En observacion
+156,Pedro,2538,86,Media,En riesgo
+157,Juan,3802,29,Media,En observacion
+158,Juan,2737,46,Media,En observacion
+159,Luis,5996,86,Alta,En observacion
+160,Lucia,1806,48,Media,En riesgo
+161,Marta,4529,46,Media,En observacion
+162,Marta,3175,83,Baja,En riesgo
+163,Elena,5568,81,Alta,En observacion
+164,Juan,1782,17,Media,En observacion
+165,Jorge,1209,65,Ninguna,En riesgo
+166,Camila,5244,67,Alta,En observacion
+167,Laura,4913,32,Media,En observacion
+168,Laura,4248,35,Alta,Saludable
+169,Diego,5853,81,Baja,En riesgo
+170,Jorge,5279,18,Media,Saludable
+171,Carlos,1163,27,Media,En observacion
+172,Valentina,2498,39,Media,En observacion
+173,Camila,3945,83,Ninguna,En riesgo
+174,Maria,4243,75,Alta,En observacion
+175,Martin,1995,14,Alta,Saludable
+176,Alejandro,3804,40,Ninguna,En riesgo
+177,Jorge,4263,38,Media,En observacion
+178,Jorge,5732,1,Ninguna,En observacion
+179,Juan,2353,62,Media,En riesgo
+180,Maria,5159,28,Baja,En observacion
+181,Juan,1791,73,Media,En riesgo
+182,Luis,4081,65,Baja,En riesgo
+183,Carlos,3957,50,Ninguna,En riesgo
+184,Pedro,2136,74,Media,En riesgo
+185,Jorge,4196,76,Alta,En observacion
+186,Valentina,3499,9,Media,Saludable
+187,Pedro,3652,13,Alta,Saludable
+188,Juan,1198,81,Media,En riesgo
+189,Luis,2660,50,Media,En observacion
+190,Martin,4597,72,Media,En observacion
+191,Sofia,5237,38,Media,En observacion
+192,Miguel,1354,27,Media,En observacion
+193,Camila,3974,2,Baja,Saludable
+194,Ana,5749,83,Alta,En observacion
+195,Maria,5672,69,Alta,En observacion
+196,Luis,2207,26,Alta,En observacion
+197,Juan,3277,1,Media,Saludable
+198,Luis,2233,37,Media,En observacion
+199,Lucia,5431,2,Media,Saludable
+200,Maria,4010,15,Media,Saludable
+201,Juan,702,39,Baja,En riesgo
+202,Ana,3755,1,Alta,Saludable
+203,Pedro,4718,80,Baja,En riesgo
+204,Juan,4996,40,Baja,En observacion
+205,Juan,1266,11,Baja,En observacion
+206,Sofia,4889,34,Ninguna,En observacion
+207,Camila,2827,64,Alta,En observacion
+208,Marta,3431,54,Alta,En observacion
+209,Jorge,697,44,Ninguna,En riesgo
+210,Valentina,2430,78,Media,En riesgo
+211,Camila,4082,89,Media,En observacion
+212,Laura,1108,84,Baja,En riesgo
+213,Claudia,3772,61,Baja,En riesgo
+214,Juan,1647,48,Ninguna,En riesgo
+215,Laura,4782,24,Ninguna,En observacion
+216,Diego,3897,22,Baja,En observacion
+217,Carlos,3011,23,Media,En observacion
+218,Alejandro,2294,37,Ninguna,En riesgo
+219,Diego,1159,27,Alta,En observacion
+220,Laura,3311,20,Media,Saludable
+221,Alejandro,1869,53,Ninguna,En riesgo
+222,Marta,2486,17,Media,Saludable
+223,Valentina,646,35,Media,En riesgo
+224,Elena,3719,44,Alta,En observacion
+225,Carlos,3411,72,Ninguna,En riesgo
+226,Maria,2234,52,Media,En observacion
+227,Juan,2343,29,Baja,En observacion
+228,Valentina,988,59,Media,En riesgo
+229,Diego,3476,31,Baja,En observacion
+230,Jorge,2459,66,Baja,En riesgo
+231,Maria,2885,66,Media,En riesgo
+232,Pedro,3419,27,Media,En observacion
+233,Marta,5236,43,Media,En observacion
+234,Alejandro,2302,78,Ninguna,En riesgo
+235,Miguel,4561,40,Baja,En observacion
+236,Jose,3869,62,Ninguna,En riesgo
+237,Juan,762,22,Media,En riesgo
+238,Pedro,1123,74,Baja,En riesgo
+239,Camila,1516,47,Baja,En riesgo
+240,Sofia,4143,31,Baja,En observacion
+241,Laura,5476,56,Ninguna,En riesgo
+242,Luis,2549,32,Media,En observacion
+243,Diego,5923,23,Alta,Saludable
+244,Juan,4223,38,Baja,En observacion
+245,Maria,5048,33,Baja,En observacion
+246,Alejandro,3608,55,Media,En observacion
+247,Elena,5779,27,Media,En observacion
+248,Camila,4590,36,Media,En observacion
+249,Laura,2556,6,Media,Saludable
+250,Diego,3670,67,Media,En observacion
+251,Laura,2182,36,Baja,En observacion
+252,Lucia,2755,55,Baja,En riesgo
+253,Martin,1654,64,Media,En riesgo
+254,Lucia,4999,64,Media,En observacion
+255,Ana,3691,46,Media,En observacion
+256,Camila,2196,19,Alta,Saludable
+257,Carlos,4491,18,Baja,Saludable
+258,Alejandro,5223,28,Ninguna,En observacion
+259,Valentina,5182,73,Media,En observacion
+260,Ana,2148,59,Baja,En riesgo
+261,Sofia,1945,17,Ninguna,En observacion
+262,Martin,4699,34,Baja,En observacion
+263,Luis,4423,42,Alta,En observacion
+264,Jorge,753,10,Ninguna,En riesgo
+265,Juan,3683,48,Media,En observacion
+266,Jorge,3057,37,Media,En observacion
+267,Ana,598,63,Alta,En riesgo
+268,Elena,2700,68,Media,En riesgo
+269,Carlos,3461,7,Alta,Saludable
+270,Luis,5473,33,Media,En observacion
+271,Pedro,4933,47,Media,En observacion
+272,Juan,4277,55,Baja,En observacion
+273,Claudia,3369,75,Ninguna,En riesgo
+274,Jose,3734,64,Media,En observacion
+275,Sofia,4291,30,Ninguna,En observacion
+276,Lucia,1456,3,Ninguna,En observacion
+277,Maria,4567,49,Baja,En observacion
+278,Alejandro,660,68,Alta,En riesgo
+279,Camila,4993,29,Baja,En observacion
+280,Camila,1800,87,Ninguna,En riesgo
+281,Elena,5411,58,Baja,En observacion
+282,Juan,4487,66,Media,En observacion
+283,Laura,2027,74,Media,En riesgo
+284,Marta,5754,44,Baja,En observacion
+285,Ana,1718,3,Media,En observacion
+286,Jose,4996,25,Alta,Saludable
+287,Marta,5235,26,Media,En observacion
+288,Camila,3604,45,Baja,En observacion
+289,Juan,3235,63,Ninguna,En riesgo
+290,Marta,5055,50,Alta,En observacion
+291,Alejandro,1454,49,Ninguna,En riesgo
+292,Diego,5065,5,Media,Saludable
+293,Diego,3946,58,Baja,En observacion
+294,Diego,1545,14,Baja,En observacion
+295,Martin,2193,29,Baja,En observacion
+296,Claudia,3936,41,Ninguna,En riesgo
+297,Jorge,1062,36,Media,En observacion
+298,Sofia,2985,41,Ninguna,En riesgo
+299,Marta,3854,34,Alta,Saludable
+300,Valentina,725,86,Baja,En riesgo
+301,Juan,5393,5,Baja,Saludable
+302,Juan,1459,67,Baja,En riesgo
+303,Claudia,5048,17,Media,Saludable
+304,Lucia,3567,72,Ninguna,En riesgo
+305,Diego,1315,28,Alta,En observacion
+306,Luis,5254,76,Alta,En observacion
+307,Marta,5142,58,Baja,En observacion
+308,Valentina,5811,46,Media,En observacion
+309,Martin,3620,16,Baja,Saludable
+310,Valentina,516,21,Media,En riesgo
+311,Juan,1743,67,Alta,En riesgo
+312,Alejandro,2705,68,Baja,En riesgo
+313,Sofia,3024,36,Media,En observacion
+314,Carlos,1569,48,Alta,En observacion
+315,Luis,3944,12,Baja,Saludable
+316,Sofia,3065,33,Media,En observacion
+317,Alejandro,1560,85,Baja,En riesgo
+318,Valentina,2827,52,Media,En observacion
+319,Valentina,3920,86,Baja,En riesgo
+320,Juan,801,50,Baja,En riesgo
+321,Miguel,4776,2,Baja,Saludable
+322,Valentina,1106,41,Alta,En observacion
+323,Pedro,3670,31,Baja,En observacion
+324,Marta,1199,50,Baja,En riesgo
+325,Marta,5588,84,Baja,En riesgo
+326,Miguel,1639,45,Media,En riesgo
+327,Lucia,690,20,Ninguna,En riesgo
+328,Diego,2800,43,Baja,En riesgo
+329,Pedro,1480,10,Alta,Saludable
+330,Elena,3475,67,Media,En riesgo
+331,Jose,1684,0,Ninguna,En observacion
+332,Marta,3827,62,Alta,En observacion
+333,Lucia,3894,23,Ninguna,En observacion
+334,Marta,627,12,Baja,En observacion
+335,Camila,2565,10,Baja,En observacion
+336,Marta,2316,50,Media,En observacion
+337,Claudia,1069,16,Media,En observacion
+338,Martin,5942,81,Ninguna,En riesgo
+339,Luis,2395,85,Media,En riesgo
+340,Jorge,3233,23,Baja,En observacion
+341,Sofia,4363,18,Media,Saludable
+342,Luis,5221,36,Alta,Saludable
+343,Claudia,4514,84,Alta,En observacion
+344,Diego,3401,7,Media,Saludable
+345,Carlos,2186,27,Ninguna,En riesgo
+346,Carlos,3509,4,Media,Saludable
+347,Juan,654,16,Media,En observacion
+348,Valentina,3037,35,Media,En observacion
+349,Claudia,1909,18,Media,En observacion
+350,Diego,4557,63,Media,En observacion
+351,Diego,1284,10,Ninguna,En observacion
+352,Valentina,3675,53,Media,En observacion
+353,Valentina,4841,44,Media,En observacion
+354,Pedro,3306,46,Alta,En observacion
+355,Ana,1037,11,Ninguna,En observacion
+356,Jorge,2341,20,Media,Saludable
+357,Martin,5516,10,Alta,Saludable
+358,Maria,2955,4,Baja,En observacion
+359,Elena,1024,80,Media,En riesgo
+360,Carlos,3450,55,Media,En observacion
+361,Luis,4631,19,Media,Saludable
+362,Elena,5280,40,Baja,En observacion
+363,Carlos,4615,45,Alta,En observacion
+364,Pedro,2868,11,Baja,En observacion
+365,Valentina,4347,69,Baja,En riesgo
+366,Jorge,4995,16,Media,Saludable
+367,Laura,3201,18,Media,Saludable
+368,Jorge,1471,25,Media,En observacion
+369,Marta,1666,47,Baja,En riesgo
+370,Diego,5711,51,Media,En observacion
+371,Maria,5429,69,Media,En observacion
+372,Luis,3274,54,Media,En observacion
+373,Martin,2482,74,Ninguna,En riesgo
+374,Ana,1353,32,Media,En observacion
+375,Martin,4646,61,Ninguna,En riesgo
+376,Diego,4236,87,Media,En observacion
+377,Camila,4269,22,Alta,Saludable
+378,Maria,1074,14,Media,En observacion
+379,Valentina,3761,26,Media,En observacion
+380,Jose,1648,74,Media,En riesgo
+381,Jorge,2215,63,Alta,En observacion
+382,Sofia,5277,80,Ninguna,En riesgo
+383,Juan,5433,50,Baja,En observacion
+384,Martin,4354,52,Baja,En observacion
+385,Claudia,5673,77,Alta,En observacion
+386,Ana,2991,81,Alta,En observacion
+387,Jorge,3160,50,Alta,En observacion
+388,Diego,3624,46,Baja,En observacion
+389,Pedro,3551,3,Ninguna,En observacion
+390,Luis,504,6,Media,En observacion
+391,Luis,5722,34,Alta,Saludable
+392,Martin,5815,47,Media,En observacion
+393,Diego,5369,72,Media,En observacion
+394,Lucia,1376,71,Media,En riesgo
+395,Alejandro,1491,44,Baja,En riesgo
+396,Marta,4642,80,Baja,En riesgo
+397,Maria,4864,80,Alta,En observacion
+398,Laura,4965,71,Alta,En observacion
+399,Marta,1135,18,Ninguna,En observacion
+400,Luis,5725,62,Media,En observacion
+401,Miguel,2193,37,Alta,En observacion
+402,Jorge,2182,66,Alta,En observacion
+403,Jorge,5252,58,Alta,En observacion
+404,Jorge,619,68,Media,En riesgo
+405,Miguel,1330,12,Baja,En observacion
+406,Elena,4175,46,Media,En observacion
+407,Sofia,5677,60,Media,En observacion
+408,Jose,1869,30,Baja,En riesgo
+409,Valentina,1240,79,Media,En riesgo
+410,Ana,616,21,Ninguna,En riesgo
+411,Laura,3338,85,Ninguna,En riesgo
+412,Juan,1650,42,Alta,En observacion
+413,Luis,2431,66,Baja,En riesgo
+414,Jorge,1512,53,Media,En riesgo
+415,Juan,2164,9,Ninguna,En observacion
+416,Sofia,1581,41,Media,En riesgo
+417,Carlos,5229,63,Ninguna,En riesgo
+418,Carlos,1012,20,Baja,En observacion
+419,Pedro,3349,79,Media,En riesgo
+420,Ana,5715,75,Media,En observacion
+421,Carlos,5737,65,Ninguna,En riesgo
+422,Miguel,1059,40,Ninguna,En riesgo
+423,Sofia,4172,23,Alta,Saludable
+424,Carlos,5083,34,Baja,En observacion
+425,Pedro,5492,55,Media,En observacion
+426,Valentina,3843,29,Alta,Saludable
+427,Jose,5808,56,Media,En observacion
+428,Jose,4570,46,Media,En observacion
+429,Martin,5299,34,Baja,En observacion
+430,Lucia,1970,18,Media,En observacion
+431,Sofia,1080,7,Baja,En observacion
+432,Juan,2794,25,Alta,En observacion
+433,Laura,3647,70,Media,En observacion
+434,Alejandro,4749,29,Media,En observacion
+435,Carlos,2179,6,Media,Saludable
+436,Ana,4006,66,Alta,En observacion
+437,Jose,5592,64,Alta,En observacion
+438,Miguel,3244,35,Media,En observacion
+439,Juan,3856,24,Media,En observacion
+440,Diego,4545,36,Media,En observacion
+441,Jose,1743,0,Media,En observacion
+442,Alejandro,5688,14,Ninguna,En observacion
+443,Jorge,3618,36,Ninguna,En observacion
+444,Marta,5604,12,Media,Saludable
+445,Ana,2641,7,Media,Saludable
+446,Juan,5553,4,Alta,Saludable
+447,Camila,3559,59,Ninguna,En riesgo
+448,Jorge,5048,72,Alta,En observacion
+449,Juan,5823,0,Media,Saludable
+450,Luis,3459,35,Media,En observacion
+451,Luis,2765,34,Media,En observacion
+452,Elena,2979,65,Alta,En observacion
+453,Elena,5146,62,Baja,En riesgo
+454,Sofia,2135,22,Alta,En observacion
+455,Ana,5908,8,Baja,Saludable
+456,Pedro,2257,33,Alta,En observacion
+457,Camila,4952,45,Alta,En observacion
+458,Alejandro,2570,77,Ninguna,En riesgo
+459,Miguel,3349,3,Alta,Saludable
+460,Ana,3751,29,Baja,En observacion
+461,Alejandro,4230,74,Media,En observacion
+462,Diego,2989,71,Alta,En observacion
+463,Jorge,2131,2,Ninguna,En observacion
+464,Elena,3316,13,Media,Saludable
+465,Elena,1515,59,Ninguna,En riesgo
+466,Laura,1848,76,Alta,En riesgo
+467,Marta,5111,44,Ninguna,En riesgo
+468,Luis,3587,33,Alta,Saludable
+469,Lucia,3339,44,Media,En observacion
+470,Maria,835,60,Baja,En riesgo
+471,Jorge,5092,82,Ninguna,En riesgo
+472,Jorge,1395,15,Ninguna,En observacion
+473,Alejandro,4046,65,Baja,En riesgo
+474,Valentina,1351,39,Ninguna,En riesgo
+475,Alejandro,2187,16,Alta,Saludable
+476,Juan,2431,33,Media,En observacion
+477,Sofia,4246,15,Media,Saludable
+478,Marta,2927,59,Media,En observacion
+479,Maria,2068,65,Media,En riesgo
+480,Sofia,4500,65,Media,En observacion
+481,Lucia,5552,89,Alta,En observacion
+482,Marta,3238,12,Baja,En observacion
+483,Jose,3998,55,Alta,En observacion
+484,Martin,5887,30,Media,En observacion
+485,Alejandro,5787,33,Media,En observacion
+486,Jose,4413,38,Baja,En observacion
+487,Sofia,1566,66,Baja,En riesgo
+488,Ana,4880,7,Baja,Saludable
+489,Jose,2944,86,Alta,En observacion
+490,Sofia,4607,77,Media,En observacion
+491,Diego,3873,54,Alta,En observacion
+492,Maria,4469,26,Media,En observacion
+493,Marta,3046,52,Media,En observacion
+494,Lucia,1253,38,Alta,En observacion
+495,Alejandro,2582,64,Media,En riesgo
+496,Sofia,3274,16,Ninguna,En observacion
+497,Elena,3396,29,Ninguna,En riesgo
+498,Marta,4685,52,Media,En observacion
+499,Claudia,1275,12,Alta,Saludable
+500,Luis,2125,20,Alta,Saludable
+501,Alejandro,3569,18,Media,Saludable
+502,Valentina,917,52,Ninguna,En riesgo
+503,Diego,614,18,Alta,En observacion
+504,Maria,1116,56,Baja,En riesgo
+505,Camila,4474,24,Alta,Saludable
+506,Claudia,3767,85,Ninguna,En riesgo
+507,Maria,1325,30,Media,En observacion
+508,Laura,2016,80,Baja,En riesgo
+509,Juan,3646,54,Media,En observacion
+510,Ana,912,22,Baja,En riesgo
+511,Claudia,1228,31,Alta,En observacion
+512,Diego,3848,61,Alta,En observacion
+513,Ana,3308,73,Ninguna,En riesgo
+514,Diego,1175,9,Ninguna,En observacion
+515,Lucia,3965,71,Ninguna,En riesgo
+516,Juan,3004,53,Baja,En riesgo
+517,Laura,3467,51,Baja,En riesgo
+518,Elena,3286,19,Alta,Saludable
+519,Valentina,1622,31,Media,En observacion
+520,Lucia,4579,13,Media,Saludable
+521,Valentina,2071,49,Baja,En riesgo
+522,Camila,5573,27,Media,En observacion
+523,Marta,5604,52,Alta,En observacion
+524,Miguel,2643,23,Media,En observacion
+525,Marta,2187,78,Baja,En riesgo
+526,Sofia,4632,21,Media,En observacion
+527,Jorge,4351,29,Alta,Saludable
+528,Jose,3940,62,Alta,En observacion
+529,Pedro,4266,3,Media,Saludable
+530,Martin,2826,76,Media,En riesgo
+531,Valentina,3414,58,Baja,En riesgo
+532,Alejandro,5468,86,Baja,En riesgo
+533,Jorge,5892,7,Baja,Saludable
+534,Miguel,4452,81,Media,En observacion
+535,Juan,1095,11,Baja,En observacion
+536,Marta,1228,30,Media,En observacion
+537,Luis,1865,77,Media,En riesgo
+538,Carlos,4992,33,Baja,En observacion
+539,Laura,1198,81,Alta,En riesgo
+540,Alejandro,895,74,Alta,En riesgo
+541,Luis,4671,75,Ninguna,En riesgo
+542,Pedro,4860,48,Media,En observacion
+543,Elena,3002,78,Baja,En riesgo
+544,Carlos,2319,56,Alta,En observacion
+545,Jorge,1217,25,Baja,En riesgo
+546,Jorge,3282,17,Media,Saludable
+547,Laura,5446,85,Alta,En observacion
+548,Maria,4077,37,Baja,En observacion
+549,Lucia,5986,80,Media,En observacion
+550,Sofia,643,86,Media,En riesgo
+551,Ana,5480,87,Alta,En observacion
+552,Claudia,3640,49,Alta,En observacion
+553,Miguel,4991,7,Media,Saludable
+554,Sofia,3438,40,Alta,En observacion
+555,Pedro,4136,5,Ninguna,En observacion
+556,Elena,3722,68,Alta,En observacion
+557,Alejandro,1667,43,Media,En riesgo
+558,Elena,3116,63,Alta,En observacion
+559,Jorge,1562,28,Media,En observacion
+560,Juan,2656,27,Ninguna,En riesgo
+561,Alejandro,5661,10,Alta,Saludable
+562,Juan,5805,64,Ninguna,En riesgo
+563,Ana,3482,18,Media,Saludable
+564,Laura,3794,8,Baja,Saludable
+565,Carlos,5229,26,Media,En observacion
+566,Camila,1656,33,Ninguna,En riesgo
+567,Diego,5834,43,Media,En observacion
+568,Carlos,1232,67,Media,En riesgo
+569,Lucia,4830,81,Alta,En observacion
+570,Lucia,5346,14,Alta,Saludable
+571,Claudia,1453,50,Ninguna,En riesgo
+572,Juan,3039,12,Media,Saludable
+573,Marta,3824,82,Media,En observacion
+574,Luis,3801,48,Baja,En observacion
+575,Diego,2042,69,Media,En riesgo
+576,Laura,5793,55,Ninguna,En riesgo
+577,Jorge,1691,75,Baja,En riesgo
+578,Miguel,3493,50,Media,En observacion
+579,Claudia,3181,36,Ninguna,En riesgo
+580,Luis,1717,16,Alta,Saludable
+581,Luis,2040,57,Media,En observacion
+582,Valentina,3736,86,Media,En observacion
+583,Claudia,2886,89,Media,En riesgo
+584,Carlos,4219,28,Baja,En observacion
+585,Pedro,1888,32,Ninguna,En riesgo
+586,Martin,2356,59,Media,En observacion
+587,Alejandro,1865,88,Media,En riesgo
+588,Valentina,999,54,Ninguna,En riesgo
+589,Juan,2180,9,Media,Saludable
+590,Luis,1010,46,Media,En riesgo
+591,Maria,4812,22,Media,En observacion
+592,Juan,1824,84,Ninguna,En riesgo
+593,Pedro,1655,20,Media,En observacion
+594,Jose,2327,12,Baja,En observacion
+595,Jose,3641,32,Baja,En observacion
+596,Valentina,3986,23,Media,En observacion
+597,Martin,2310,10,Media,Saludable
+598,Maria,3423,16,Baja,En observacion
+599,Pedro,5801,67,Media,En observacion
+600,Pedro,2714,46,Baja,En riesgo
+601,Laura,4686,24,Ninguna,En observacion
+602,Carlos,1213,72,Baja,En riesgo
+603,Claudia,4102,20,Baja,Saludable
+604,Carlos,4634,83,Baja,En riesgo
+605,Jose,4022,82,Baja,En riesgo
+606,Claudia,4768,82,Media,En observacion
+607,Ana,5248,11,Alta,Saludable
+608,Marta,5349,36,Media,En observacion
+609,Camila,1743,41,Baja,En riesgo
+610,Valentina,4209,16,Media,Saludable
+611,Ana,1581,47,Baja,En riesgo
+612,Lucia,955,27,Media,En riesgo
+613,Miguel,5424,40,Baja,En observacion
+614,Juan,1394,46,Alta,En observacion
+615,Carlos,1884,17,Baja,En observacion
+616,Luis,2458,77,Media,En riesgo
+617,Martin,3572,70,Media,En observacion
+618,Elena,2496,12,Media,Saludable
+619,Diego,4785,81,Baja,En riesgo
+620,Carlos,1004,12,Media,En observacion
+621,Jorge,1714,30,Media,En observacion
+622,Carlos,2031,1,Ninguna,En observacion
+623,Jose,3940,15,Baja,Saludable
+624,Maria,1323,8,Ninguna,En observacion
+625,Miguel,1428,72,Media,En riesgo
+626,Jorge,5529,37,Media,En observacion
+627,Alejandro,5736,74,Ninguna,En riesgo
+628,Marta,633,53,Media,En riesgo
+629,Valentina,2605,55,Baja,En riesgo
+630,Pedro,4127,85,Media,En observacion
+631,Jorge,5280,86,Media,En observacion
+632,Ana,2352,44,Alta,En observacion
+633,Diego,5410,33,Media,En observacion
+634,Laura,5768,8,Alta,Saludable
+635,Diego,4675,87,Alta,En observacion
+636,Pedro,3433,7,Ninguna,En observacion
+637,Miguel,3784,6,Media,Saludable
+638,Sofia,4798,35,Baja,En observacion
+639,Alejandro,3311,17,Baja,En observacion
+640,Jose,5848,2,Media,Saludable
+641,Luis,1750,27,Alta,En observacion
+642,Maria,4012,69,Baja,En riesgo
+643,Laura,1756,43,Baja,En riesgo
+644,Marta,3876,20,Baja,Saludable
+645,Jorge,5762,27,Baja,En observacion
+646,Sofia,3986,53,Ninguna,En riesgo
+647,Diego,4084,53,Media,En observacion
+648,Jose,1896,64,Media,En riesgo
+649,Jose,4137,20,Baja,Saludable
+650,Marta,3830,12,Alta,Saludable
+651,Laura,3203,56,Ninguna,En riesgo
+652,Claudia,970,48,Alta,En riesgo
+653,Lucia,5631,53,Media,En observacion
+654,Claudia,1853,9,Baja,En observacion
+655,Laura,3283,52,Media,En observacion
+656,Valentina,3331,43,Media,En observacion
+657,Valentina,5563,46,Media,En observacion
+658,Ana,857,52,Ninguna,En riesgo
+659,Diego,3519,73,Media,En observacion
+660,Pedro,1167,45,Ninguna,En riesgo
+661,Valentina,4968,12,Alta,Saludable
+662,Sofia,5627,36,Baja,En observacion
+663,Jose,1645,23,Baja,En riesgo
+664,Pedro,5967,1,Alta,Saludable
+665,Diego,4685,85,Media,En observacion
+666,Sofia,4219,80,Alta,En observacion
+667,Carlos,3245,13,Baja,En observacion
+668,Martin,1039,9,Media,En observacion
+669,Maria,3279,34,Baja,En observacion
+670,Miguel,5464,24,Alta,Saludable
+671,Elena,4636,2,Media,Saludable
+672,Valentina,5335,16,Alta,Saludable
+673,Marta,4275,11,Media,Saludable
+674,Camila,5820,53,Media,En observacion
+675,Ana,5524,23,Ninguna,En observacion
+676,Camila,3008,28,Baja,En observacion
+677,Lucia,3279,42,Media,En observacion
+678,Lucia,1424,24,Ninguna,En riesgo
+679,Jose,3456,59,Baja,En riesgo
+680,Martin,2081,89,Ninguna,En riesgo
+681,Carlos,3824,64,Media,En observacion
+682,Jorge,4985,83,Media,En observacion
+683,Carlos,755,27,Alta,En observacion
+684,Marta,5304,15,Baja,Saludable
+685,Miguel,2338,46,Alta,En observacion
+686,Jose,2444,80,Media,En riesgo
+687,Valentina,509,57,Media,En riesgo
+688,Miguel,3371,75,Media,En riesgo
+689,Luis,1297,26,Baja,En riesgo
+690,Marta,5472,52,Alta,En observacion
+691,Marta,5624,41,Media,En observacion
+692,Martin,1515,58,Baja,En riesgo
+693,Diego,2324,46,Ninguna,En riesgo
+694,Carlos,4969,33,Baja,En observacion
+695,Camila,3636,36,Ninguna,En observacion
+696,Jorge,2693,5,Baja,En observacion
+697,Carlos,723,6,Media,En observacion
+698,Pedro,5858,24,Alta,Saludable
+699,Lucia,5448,32,Baja,En observacion
+700,Diego,4658,54,Baja,En observacion
+701,Claudia,5836,57,Baja,En observacion
+702,Miguel,4425,6,Media,Saludable
+703,Camila,5284,56,Media,En observacion
+704,Carlos,4500,11,Media,Saludable
+705,Laura,2133,15,Media,Saludable
+706,Juan,2652,79,Alta,En observacion
+707,Alejandro,1010,42,Baja,En riesgo
+708,Alejandro,884,76,Alta,En riesgo
+709,Jorge,904,6,Alta,En observacion
+710,Claudia,5113,50,Media,En observacion
+711,Juan,5071,72,Baja,En riesgo
+712,Alejandro,2500,31,Media,En observacion
+713,Marta,3256,74,Media,En riesgo
+714,Miguel,2168,7,Media,Saludable
+715,Marta,1960,86,Media,En riesgo
+716,Jose,4136,88,Ninguna,En riesgo
+717,Lucia,3224,71,Ninguna,En riesgo
+718,Jose,5309,44,Media,En observacion
+719,Carlos,4678,85,Media,En observacion
+720,Miguel,5764,58,Baja,En observacion
+721,Juan,2548,3,Alta,Saludable
+722,Pedro,4646,66,Media,En observacion
+723,Juan,5280,28,Media,En observacion
+724,Martin,1216,28,Ninguna,En riesgo
+725,Diego,5044,27,Alta,Saludable
+726,Jorge,5476,76,Media,En observacion
+727,Jose,5083,78,Baja,En riesgo
+728,Camila,2323,86,Media,En riesgo
+729,Lucia,2581,43,Alta,En observacion
+730,Juan,3919,89,Ninguna,En riesgo
+731,Pedro,2074,3,Media,Saludable
+732,Claudia,749,89,Baja,En riesgo
+733,Camila,1173,8,Media,En observacion
+734,Alejandro,5033,4,Media,Saludable
+735,Martin,2665,55,Media,En observacion
+736,Ana,1270,83,Alta,En riesgo
+737,Carlos,4462,49,Alta,En observacion
+738,Juan,4863,74,Baja,En riesgo
+739,Valentina,2484,14,Media,Saludable
+740,Miguel,1577,31,Alta,En observacion
+741,Sofia,735,27,Media,En riesgo
+742,Juan,888,21,Baja,En riesgo
+743,Camila,3537,16,Alta,Saludable
+744,Elena,5358,58,Media,En observacion
+745,Ana,2348,89,Alta,En observacion
+746,Luis,5219,70,Alta,En observacion
+747,Jorge,3314,56,Alta,En observacion
+748,Miguel,3874,25,Baja,En observacion
+749,Lucia,3778,24,Alta,Saludable
+750,Juan,1752,9,Alta,Saludable
+751,Alejandro,4481,44,Media,En observacion
+752,Jorge,5173,82,Baja,En riesgo
+753,Lucia,2622,10,Media,Saludable
+754,Miguel,5030,76,Media,En observacion
+755,Marta,2650,52,Alta,En observacion
+756,Marta,5359,71,Media,En observacion
+757,Laura,1829,67,Media,En riesgo
+758,Diego,1858,27,Media,En observacion
+759,Diego,2982,74,Media,En riesgo
+760,Martin,5042,64,Media,En observacion
+761,Martin,2517,48,Alta,En observacion
+762,Martin,1831,46,Media,En riesgo
+763,Claudia,4844,51,Alta,En observacion
+764,Jorge,4761,87,Baja,En riesgo
+765,Claudia,1858,53,Ninguna,En riesgo
+766,Elena,5615,59,Ninguna,En riesgo
+767,Laura,5137,56,Ninguna,En riesgo
+768,Alejandro,5354,46,Baja,En observacion
+769,Maria,3677,30,Baja,En observacion
+770,Ana,2628,45,Media,En observacion
+771,Alejandro,2680,25,Baja,En observacion
+772,Pedro,5392,4,Media,Saludable
+773,Miguel,637,83,Media,En riesgo
+774,Miguel,3972,51,Baja,En observacion
+775,Lucia,5949,74,Media,En observacion
+776,Carlos,3332,53,Media,En observacion
+777,Lucia,4079,32,Ninguna,En observacion
+778,Marta,3531,49,Alta,En observacion
+779,Maria,4664,37,Media,En observacion
+780,Pedro,3093,26,Ninguna,En riesgo
+781,Jose,4800,14,Baja,Saludable
+782,Pedro,4318,60,Media,En observacion
+783,Ana,4638,20,Media,Saludable
+784,Camila,4323,45,Media,En observacion
+785,Pedro,4542,68,Ninguna,En riesgo
+786,Ana,2406,5,Media,Saludable
+787,Claudia,1260,37,Media,En observacion
+788,Luis,3945,61,Alta,En observacion
+789,Alejandro,1399,85,Alta,En riesgo
+790,Luis,4955,61,Ninguna,En riesgo
+791,Alejandro,3447,81,Media,En riesgo
+792,Carlos,2219,77,Baja,En riesgo
+793,Jose,780,73,Alta,En riesgo
+794,Pedro,3766,45,Baja,En observacion
+795,Martin,2387,12,Ninguna,En observacion
+796,Diego,3766,2,Media,Saludable
+797,Diego,1166,5,Alta,Saludable
+798,Laura,4688,7,Media,Saludable
+799,Jorge,1171,43,Baja,En riesgo
+800,Miguel,2469,32,Media,En observacion
+801,Luis,4656,80,Ninguna,En riesgo
+802,Carlos,3622,74,Baja,En riesgo
+803,Sofia,5624,76,Ninguna,En riesgo
+804,Camila,5199,49,Baja,En observacion
+805,Laura,5277,10,Alta,Saludable
+806,Jorge,4400,27,Media,En observacion
+807,Carlos,1023,69,Media,En riesgo
+808,Sofia,2893,40,Ninguna,En riesgo
+809,Diego,3617,15,Baja,Saludable
+810,Claudia,3093,67,Baja,En riesgo
+811,Jose,2468,47,Media,En observacion
+812,Maria,5697,55,Alta,En observacion
+813,Valentina,2253,63,Baja,En riesgo
+814,Diego,2796,58,Media,En observacion
+815,Maria,5740,89,Media,En observacion
+816,Maria,2761,61,Baja,En riesgo
+817,Carlos,2786,75,Alta,En observacion
+818,Marta,5675,10,Media,Saludable
+819,Alejandro,4702,88,Media,En observacion
+820,Ana,3378,17,Alta,Saludable
+821,Valentina,4643,18,Ninguna,En observacion
+822,Camila,4144,86,Media,En observacion
+823,Valentina,4932,54,Alta,En observacion
+824,Laura,5645,81,Media,En observacion
+825,Jose,5876,25,Baja,En observacion
+826,Martin,2555,5,Media,Saludable
+827,Camila,5220,3,Media,Saludable
+828,Marta,1776,28,Alta,En observacion
+829,Camila,3266,58,Alta,En observacion
+830,Jorge,802,16,Media,En observacion
+831,Maria,1138,42,Baja,En riesgo
+832,Maria,555,79,Ninguna,En riesgo
+833,Elena,5321,65,Alta,En observacion
+834,Ana,1025,33,Media,En observacion
+835,Martin,5069,7,Ninguna,En observacion
+836,Jorge,4623,12,Media,Saludable
+837,Ana,2625,7,Baja,En observacion
+838,Carlos,3787,64,Alta,En observacion
+839,Claudia,864,42,Ninguna,En riesgo
+840,Sofia,5121,38,Baja,En observacion
+841,Maria,5931,80,Ninguna,En riesgo
+842,Lucia,5478,58,Baja,En observacion
+843,Laura,5626,83,Media,En observacion
+844,Claudia,5622,87,Ninguna,En riesgo
+845,Laura,2146,85,Media,En riesgo
+846,Laura,1418,85,Media,En riesgo
+847,Carlos,3297,43,Baja,En riesgo
+848,Camila,2031,8,Baja,En observacion
+849,Laura,3845,36,Ninguna,En observacion
+850,Diego,2406,73,Media,En riesgo
+851,Camila,3586,35,Baja,En observacion
+852,Alejandro,5811,27,Baja,En observacion
+853,Elena,5080,41,Alta,En observacion
+854,Maria,2575,42,Media,En observacion
+855,Luis,1213,84,Media,En riesgo
+856,Camila,1562,87,Media,En riesgo
+857,Sofia,2476,41,Ninguna,En riesgo
+858,Pedro,1796,65,Baja,En riesgo
+859,Lucia,5850,54,Baja,En observacion
+860,Jose,625,71,Ninguna,En riesgo
+861,Claudia,5132,47,Media,En observacion
+862,Valentina,4096,21,Baja,En observacion
+863,Alejandro,3783,26,Media,En observacion
+864,Laura,2103,66,Ninguna,En riesgo
+865,Elena,566,12,Alta,En observacion
+866,Carlos,732,44,Ninguna,En riesgo
+867,Valentina,2656,9,Media,Saludable
+868,Miguel,1669,8,Media,En observacion
+869,Lucia,2658,53,Baja,En riesgo
+870,Laura,4706,26,Media,En observacion
+871,Claudia,1993,33,Baja,En riesgo
+872,Pedro,5218,0,Media,Saludable
+873,Martin,4507,31,Baja,En observacion
+874,Juan,2972,88,Media,En riesgo
+875,Valentina,3160,70,Alta,En observacion
+876,Miguel,3239,66,Media,En riesgo
+877,Alejandro,5901,83,Media,En observacion
+878,Juan,2261,19,Alta,Saludable
+879,Luis,4014,34,Media,En observacion
+880,Miguel,2475,89,Media,En riesgo
+881,Carlos,2862,77,Alta,En observacion
+882,Juan,1376,16,Media,En observacion
+883,Sofia,4312,17,Ninguna,En observacion
+884,Claudia,3948,44,Alta,En observacion
+885,Alejandro,1812,83,Media,En riesgo
+886,Claudia,1960,52,Baja,En riesgo
+887,Jorge,3209,81,Media,En riesgo
+888,Juan,2824,67,Baja,En riesgo
+889,Alejandro,2233,64,Media,En riesgo
+890,Lucia,2105,0,Media,Saludable
+891,Sofia,3063,57,Alta,En observacion
+892,Ana,3921,25,Baja,En observacion
+893,Luis,4017,19,Baja,Saludable
+894,Pedro,2897,86,Alta,En observacion
+895,Ana,4235,9,Media,Saludable
+896,Camila,3370,58,Ninguna,En riesgo
+897,Ana,1660,74,Media,En riesgo
+898,Miguel,5354,40,Media,En observacion
+899,Luis,742,4,Ninguna,En riesgo
+900,Diego,3090,64,Baja,En riesgo
+901,Maria,1563,16,Media,En observacion
+902,Pedro,4824,21,Baja,En observacion
+903,Martin,3095,40,Ninguna,En riesgo
+904,Marta,1419,67,Media,En riesgo
+905,Martin,5842,68,Media,En observacion
+906,Camila,505,10,Media,En observacion
+907,Maria,967,55,Ninguna,En riesgo
+908,Jose,4670,50,Baja,En observacion
+909,Maria,503,20,Alta,En observacion
+910,Juan,1145,75,Ninguna,En riesgo
+911,Maria,617,25,Media,En riesgo
+912,Diego,3428,18,Alta,Saludable
+913,Maria,3051,59,Media,En observacion
+914,Miguel,5542,70,Media,En observacion
+915,Laura,4789,46,Ninguna,En riesgo
+916,Miguel,1346,70,Media,En riesgo
+917,Laura,3262,25,Baja,En observacion
+918,Martin,1641,39,Media,En observacion
+919,Diego,2310,4,Alta,Saludable
+920,Valentina,1223,20,Ninguna,En observacion
+921,Ana,724,77,Media,En riesgo
+922,Diego,5127,3,Media,Saludable
+923,Marta,4708,22,Media,En observacion
+924,Ana,5154,83,Ninguna,En riesgo
+925,Marta,2548,14,Media,Saludable
+926,Alejandro,5249,7,Alta,Saludable
+927,Juan,4915,40,Alta,En observacion
+928,Lucia,2073,18,Media,Saludable
+929,Laura,2328,45,Baja,En riesgo
+930,Marta,2417,27,Media,En observacion
+931,Ana,4734,67,Media,En observacion
+932,Jorge,2526,14,Alta,Saludable
+933,Marta,4244,36,Media,En observacion
+934,Camila,1401,0,Ninguna,En observacion
+935,Lucia,5285,66,Media,En observacion
+936,Jose,2539,23,Ninguna,En riesgo
+937,Carlos,509,26,Media,En riesgo
+938,Camila,760,39,Alta,En observacion
+939,Laura,2173,62,Ninguna,En riesgo
+940,Juan,2719,60,Media,En observacion
+941,Camila,2560,35,Baja,En observacion
+942,Jose,5787,23,Ninguna,En observacion
+943,Claudia,4213,23,Alta,Saludable
+944,Elena,2119,3,Alta,Saludable
+945,Sofia,820,66,Baja,En riesgo
+946,Jose,1842,33,Media,En observacion
+947,Ana,2876,56,Alta,En observacion
+948,Pedro,3332,48,Alta,En observacion
+949,Laura,3324,86,Alta,En observacion
+950,Alejandro,2494,52,Baja,En riesgo
+951,Ana,3458,22,Alta,En observacion
+952,Maria,2538,68,Media,En riesgo
+953,Valentina,3990,52,Baja,En observacion
+954,Elena,4177,61,Media,En observacion
+955,Marta,1618,40,Alta,En observacion
+956,Jose,2104,56,Baja,En riesgo
+957,Laura,4527,59,Alta,En observacion
+958,Martin,735,53,Baja,En riesgo
+959,Elena,2469,69,Ninguna,En riesgo
+960,Ana,4929,56,Media,En observacion
+961,Alejandro,2408,9,Media,Saludable
+962,Maria,875,39,Media,En riesgo
+963,Pedro,4030,6,Media,Saludable
+964,Diego,5756,37,Ninguna,En observacion
+965,Alejandro,3135,84,Ninguna,En riesgo
+966,Marta,2070,60,Media,En observacion
+967,Marta,3060,83,Baja,En riesgo
+968,Valentina,5915,2,Ninguna,En observacion
+969,Jose,3891,50,Ninguna,En riesgo
+970,Pedro,3465,85,Media,En riesgo
+971,Diego,4143,46,Media,En observacion
+972,Ana,5968,67,Media,En observacion
+973,Jorge,4350,75,Ninguna,En riesgo
+974,Ana,1372,37,Alta,En observacion
+975,Alejandro,1752,35,Media,En observacion
+976,Maria,1814,40,Media,En riesgo
+977,Diego,5320,68,Media,En observacion
+978,Claudia,3398,12,Media,Saludable
+979,Maria,577,86,Ninguna,En riesgo
+980,Lucia,3121,57,Alta,En observacion
+981,Luis,4727,49,Media,En observacion
+982,Luis,1100,29,Alta,En observacion
+983,Camila,1565,61,Alta,En riesgo
+984,Luis,2636,24,Media,En observacion
+985,Ana,2949,26,Media,En observacion
+986,Diego,2843,50,Media,En observacion
+987,Laura,2363,77,Media,En riesgo
+988,Marta,1818,56,Alta,En observacion
+989,Laura,5211,46,Media,En observacion
+990,Laura,4097,38,Ninguna,En observacion
+991,Alejandro,4262,15,Ninguna,En observacion
+992,Laura,5642,21,Media,En observacion
+993,Lucia,5170,84,Media,En observacion
+994,Martin,2690,53,Ninguna,En riesgo
+995,Luis,1492,20,Alta,Saludable
+996,Lucia,3212,71,Baja,En riesgo
+997,Miguel,2692,15,Ninguna,En observacion
+998,Alejandro,1748,58,Alta,En observacion
+999,Valentina,3554,30,Alta,Saludable
+1000,Ana,5098,41,Ninguna,En riesgo
+1001,Sofia,4533,73,Media,En observacion
+1002,Marta,2497,31,Alta,En observacion
+1003,Alejandro,5416,58,Media,En observacion
+1004,Camila,4187,33,Media,En observacion
+1005,Carlos,2651,8,Baja,En observacion
+1006,Laura,4518,80,Baja,En riesgo
+1007,Maria,3610,10,Ninguna,En observacion
+1008,Ana,2470,9,Media,Saludable
+1009,Lucia,697,85,Media,En riesgo
+1010,Jose,3126,16,Media,Saludable
+1011,Elena,1702,67,Media,En riesgo
+1012,Marta,5908,47,Alta,En observacion
+1013,Alejandro,2535,51,Ninguna,En riesgo
+1014,Maria,977,24,Ninguna,En riesgo
+1015,Martin,1754,20,Media,En observacion
+1016,Diego,1422,64,Baja,En riesgo
+1017,Martin,919,62,Media,En riesgo
+1018,Miguel,2704,88,Media,En riesgo
+1019,Pedro,3097,50,Baja,En riesgo
+1020,Alejandro,1620,35,Media,En observacion
+1021,Carlos,3568,80,Ninguna,En riesgo
+1022,Juan,1450,87,Baja,En riesgo
+1023,Ana,2836,65,Media,En riesgo
+1024,Valentina,5873,14,Baja,Saludable
+1025,Sofia,2743,38,Alta,En observacion
+1026,Alejandro,3145,69,Media,En riesgo
+1027,Lucia,2357,0,Media,Saludable
+1028,Juan,5112,22,Media,En observacion
+1029,Sofia,2365,38,Baja,En observacion
+1030,Juan,3412,56,Media,En observacion
+1031,Alejandro,5737,80,Baja,En riesgo
+1032,Jose,3353,33,Media,En observacion
+1033,Miguel,5410,40,Media,En observacion
+1034,Jose,3728,72,Baja,En riesgo
+1035,Alejandro,4219,12,Media,Saludable
+1036,Laura,3728,69,Media,En observacion
+1037,Claudia,2871,5,Media,Saludable
+1038,Juan,3391,83,Media,En riesgo
+1039,Pedro,4256,51,Alta,En observacion
+1040,Martin,4725,2,Baja,Saludable
+1041,Laura,594,80,Media,En riesgo
+1042,Lucia,3174,62,Media,En riesgo
+1043,Martin,2455,48,Ninguna,En riesgo
+1044,Valentina,1293,75,Media,En riesgo
+1045,Luis,2334,46,Ninguna,En riesgo
+1046,Valentina,2616,54,Alta,En observacion
+1047,Martin,4606,63,Media,En observacion
+1048,Marta,3825,64,Ninguna,En riesgo
+1049,Sofia,3419,80,Media,En riesgo
+1050,Jorge,3097,66,Baja,En riesgo
+1051,Marta,3705,89,Media,En observacion
+1052,Jose,5307,14,Alta,Saludable
+1053,Lucia,1314,31,Media,En observacion
+1054,Carlos,845,67,Media,En riesgo
+1055,Juan,2849,17,Ninguna,En observacion
+1056,Valentina,862,82,Media,En riesgo
+1057,Luis,2943,42,Ninguna,En riesgo
+1058,Jorge,2765,34,Ninguna,En riesgo
+1059,Laura,2688,77,Media,En riesgo
+1060,Luis,3505,57,Media,En observacion
+1061,Elena,3781,32,Ninguna,En observacion
+1062,Martin,1484,13,Ninguna,En observacion
+1063,Juan,2139,33,Media,En observacion
+1064,Maria,1327,60,Media,En riesgo
+1065,Pedro,3230,3,Media,Saludable
+1066,Laura,4031,87,Baja,En riesgo
+1067,Camila,4951,58,Media,En observacion
+1068,Pedro,5943,28,Baja,En observacion
+1069,Marta,3435,82,Alta,En observacion
+1070,Luis,4376,5,Alta,Saludable
+1071,Claudia,626,48,Media,En riesgo
+1072,Martin,3677,39,Media,En observacion
+1073,Marta,3556,82,Media,En observacion
+1074,Camila,1103,64,Media,En riesgo
+1075,Marta,3949,68,Media,En observacion
+1076,Alejandro,5609,26,Alta,Saludable
+1077,Miguel,4646,79,Media,En observacion
+1078,Claudia,4033,5,Ninguna,En observacion
+1079,Laura,3867,12,Media,Saludable
+1080,Maria,3868,63,Media,En observacion
+1081,Pedro,4297,61,Media,En observacion
+1082,Jorge,2292,18,Ninguna,En observacion
+1083,Carlos,3361,75,Media,En riesgo
+1084,Miguel,3976,79,Baja,En riesgo
+1085,Juan,3917,42,Baja,En observacion
+1086,Carlos,2145,73,Baja,En riesgo
+1087,Laura,1705,88,Alta,En riesgo
+1088,Miguel,3530,19,Baja,Saludable
+1089,Lucia,3372,67,Alta,En observacion
+1090,Camila,3572,43,Media,En observacion
+1091,Miguel,2354,22,Baja,En observacion
+1092,Pedro,4521,1,Media,Saludable
+1093,Luis,5162,21,Baja,En observacion
+1094,Ana,5531,56,Alta,En observacion
+1095,Valentina,3208,71,Baja,En riesgo
+1096,Carlos,4002,6,Media,Saludable
+1097,Martin,1832,77,Media,En riesgo
+1098,Valentina,701,55,Alta,En riesgo
+1099,Valentina,4007,66,Ninguna,En riesgo
+1100,Maria,4712,15,Alta,Saludable
+1101,Jorge,5532,82,Alta,En observacion
+1102,Miguel,1074,50,Media,En riesgo
+1103,Luis,1036,81,Baja,En riesgo
+1104,Carlos,2125,79,Media,En riesgo
+1105,Luis,2622,71,Alta,En observacion
+1106,Luis,885,11,Media,En observacion
+1107,Luis,3781,52,Media,En observacion
+1108,Carlos,974,74,Media,En riesgo
+1109,Carlos,917,4,Media,En observacion
+1110,Camila,4100,26,Baja,En observacion
+1111,Valentina,5534,11,Media,Saludable
+1112,Camila,1454,16,Media,En observacion
+1113,Ana,5471,5,Media,Saludable
+1114,Juan,5358,4,Ninguna,En observacion
+1115,Marta,5798,56,Ninguna,En riesgo
+1116,Sofia,1705,27,Baja,En riesgo
+1117,Martin,5259,77,Media,En observacion
+1118,Sofia,4620,68,Alta,En observacion
+1119,Pedro,2490,58,Media,En observacion
+1120,Sofia,5799,32,Media,En observacion
+1121,Claudia,5305,61,Media,En observacion
+1122,Marta,4072,49,Baja,En observacion
+1123,Claudia,5780,18,Ninguna,En observacion
+1124,Alejandro,4880,85,Baja,En riesgo
+1125,Laura,4658,68,Media,En observacion
+1126,Pedro,5598,65,Baja,En riesgo
+1127,Claudia,5257,46,Media,En observacion
+1128,Camila,3213,38,Alta,En observacion
+1129,Luis,2703,67,Baja,En riesgo
+1130,Marta,3620,32,Alta,Saludable
+1131,Diego,1466,12,Media,En observacion
+1132,Pedro,5444,83,Media,En observacion
+1133,Camila,5703,53,Baja,En observacion
+1134,Elena,3932,6,Baja,Saludable
+1135,Jose,1188,78,Media,En riesgo
+1136,Pedro,4743,86,Baja,En riesgo
+1137,Laura,4201,13,Media,Saludable
+1138,Diego,841,86,Media,En riesgo
+1139,Ana,5682,18,Baja,Saludable
+1140,Marta,2224,53,Baja,En riesgo
+1141,Laura,5979,19,Ninguna,En observacion
+1142,Alejandro,4922,28,Media,En observacion
+1143,Martin,2292,23,Baja,En observacion
+1144,Diego,2259,81,Baja,En riesgo
+1145,Jorge,3712,62,Ninguna,En riesgo
+1146,Juan,1489,73,Alta,En riesgo
+1147,Maria,2762,56,Baja,En riesgo
+1148,Jorge,2982,7,Media,Saludable
+1149,Diego,1451,89,Media,En riesgo
+1150,Pedro,1222,61,Media,En riesgo
+1151,Marta,3889,28,Media,En observacion
+1152,Alejandro,2579,73,Media,En riesgo
+1153,Pedro,3217,16,Ninguna,En observacion
+1154,Lucia,2832,65,Media,En riesgo
+1155,Valentina,3876,5,Baja,Saludable
+1156,Alejandro,5024,57,Media,En observacion
+1157,Jose,2000,68,Alta,En observacion
+1158,Claudia,785,27,Media,En riesgo
+1159,Laura,3995,61,Media,En observacion
+1160,Jorge,2565,40,Media,En observacion
+1161,Claudia,1268,68,Alta,En riesgo
+1162,Laura,5990,81,Media,En observacion
+1163,Camila,3557,89,Media,En observacion
+1164,Valentina,4789,83,Media,En observacion
+1165,Ana,5583,40,Media,En observacion
+1166,Luis,5732,48,Alta,En observacion
+1167,Luis,2661,48,Ninguna,En riesgo
+1168,Claudia,3793,75,Ninguna,En riesgo
+1169,Carlos,1446,70,Baja,En riesgo
+1170,Sofia,5426,2,Alta,Saludable
+1171,Maria,3835,9,Baja,Saludable
+1172,Valentina,4650,88,Baja,En riesgo
+1173,Diego,5395,34,Baja,En observacion
+1174,Jorge,5373,79,Alta,En observacion
+1175,Pedro,1981,1,Baja,En observacion
+1176,Laura,2401,23,Baja,En observacion
+1177,Diego,3951,73,Media,En observacion
+1178,Miguel,4564,37,Baja,En observacion
+1179,Luis,554,21,Media,En riesgo
+1180,Claudia,2323,25,Media,En observacion
+1181,Juan,5797,42,Alta,En observacion
+1182,Claudia,3962,54,Baja,En observacion
+1183,Lucia,3579,38,Alta,Saludable
+1184,Alejandro,1332,28,Media,En observacion
+1185,Alejandro,4908,19,Media,Saludable
+1186,Marta,3306,40,Media,En observacion
+1187,Alejandro,2990,53,Alta,En observacion
+1188,Carlos,827,19,Baja,En observacion
+1189,Laura,3810,18,Baja,Saludable
+1190,Valentina,3800,83,Alta,En observacion
+1191,Jorge,4175,65,Alta,En observacion
+1192,Valentina,3554,29,Alta,Saludable
+1193,Carlos,5883,52,Ninguna,En riesgo
+1194,Carlos,2643,33,Media,En observacion
+1195,Claudia,5707,21,Media,En observacion
+1196,Camila,1811,66,Alta,En riesgo
+1197,Pedro,3691,5,Baja,Saludable
+1198,Sofia,3038,78,Ninguna,En riesgo
+1199,Diego,4483,26,Baja,En observacion
+1200,Elena,5047,9,Baja,Saludable
+1201,Luis,664,72,Alta,En riesgo
+1202,Alejandro,4777,47,Alta,En observacion
+1203,Marta,5505,69,Alta,En observacion
+1204,Claudia,1322,58,Media,En riesgo
+1205,Ana,1443,58,Alta,En observacion
+1206,Sofia,4925,1,Media,Saludable
+1207,Pedro,1274,28,Media,En observacion
+1208,Miguel,2698,67,Ninguna,En riesgo
+1209,Lucia,3656,64,Baja,En riesgo
+1210,Luis,4742,82,Baja,En riesgo
+1211,Elena,4195,25,Baja,En observacion
+1212,Jorge,3952,88,Alta,En observacion
+1213,Laura,1414,9,Baja,En observacion
+1214,Valentina,1808,52,Media,En riesgo
+1215,Ana,4677,78,Baja,En riesgo
+1216,Sofia,1013,58,Media,En riesgo
+1217,Jose,2420,21,Ninguna,En riesgo
+1218,Martin,4094,50,Media,En observacion
+1219,Valentina,5341,47,Media,En observacion
+1220,Jose,1909,20,Ninguna,En observacion
+1221,Marta,5302,21,Alta,Saludable
+1222,Claudia,5066,29,Baja,En observacion
+1223,Jorge,3690,24,Baja,En observacion
+1224,Marta,4991,27,Baja,En observacion
+1225,Juan,2055,64,Ninguna,En riesgo
+1226,Marta,1304,44,Ninguna,En riesgo
+1227,Miguel,5529,67,Alta,En observacion
+1228,Lucia,1779,6,Baja,En observacion
+1229,Claudia,5500,48,Baja,En observacion
+1230,Sofia,5672,8,Baja,Saludable
+1231,Pedro,4077,35,Alta,Saludable
+1232,Maria,3401,82,Baja,En riesgo
+1233,Claudia,1887,0,Ninguna,En observacion
+1234,Elena,5899,9,Ninguna,En observacion
+1235,Marta,5188,35,Media,En observacion
+1236,Jose,3261,72,Alta,En observacion
+1237,Camila,3179,45,Media,En observacion
+1238,Diego,2606,31,Baja,En observacion
+1239,Laura,4723,31,Baja,En observacion
+1240,Martin,5331,5,Media,Saludable
+1241,Claudia,3268,47,Alta,En observacion
+1242,Lucia,4453,37,Media,En observacion
+1243,Alejandro,3686,16,Media,Saludable
+1244,Jose,3780,73,Ninguna,En riesgo
+1245,Diego,3073,26,Baja,En observacion
+1246,Lucia,5116,53,Media,En observacion
+1247,Marta,3099,49,Media,En observacion
+1248,Camila,4533,34,Alta,Saludable
+1249,Marta,736,84,Ninguna,En riesgo
+1250,Lucia,1804,24,Media,En observacion
+1251,Luis,3930,27,Media,En observacion
+1252,Ana,1801,14,Media,En observacion
+1253,Maria,3041,3,Baja,En observacion
+1254,Lucia,2551,72,Baja,En riesgo
+1255,Diego,941,26,Baja,En riesgo
+1256,Martin,2576,25,Media,En observacion
+1257,Elena,3680,18,Media,Saludable
+1258,Pedro,3157,16,Alta,Saludable
+1259,Alejandro,4298,42,Baja,En observacion
+1260,Juan,1304,40,Alta,En observacion
+1261,Camila,574,41,Media,En riesgo
+1262,Miguel,2675,49,Ninguna,En riesgo
+1263,Valentina,4424,83,Ninguna,En riesgo
+1264,Carlos,2589,39,Media,En observacion
+1265,Valentina,5975,38,Media,En observacion
+1266,Maria,540,22,Alta,En observacion
+1267,Laura,2581,51,Baja,En riesgo
+1268,Jose,5997,46,Baja,En observacion
+1269,Carlos,5183,62,Media,En observacion
+1270,Pedro,2122,68,Media,En riesgo
+1271,Sofia,841,42,Baja,En riesgo
+1272,Alejandro,4552,47,Ninguna,En riesgo
+1273,Valentina,2574,33,Media,En observacion
+1274,Jorge,1145,39,Media,En observacion
+1275,Jorge,5326,74,Alta,En observacion
+1276,Alejandro,4763,60,Alta,En observacion
+1277,Claudia,1109,49,Ninguna,En riesgo
+1278,Martin,954,66,Baja,En riesgo
+1279,Claudia,3453,61,Baja,En riesgo
+1280,Jorge,2208,57,Alta,En observacion
+1281,Claudia,3972,32,Baja,En observacion
+1282,Alejandro,3469,74,Media,En riesgo
+1283,Elena,3528,15,Media,Saludable
+1284,Pedro,5297,81,Media,En observacion
+1285,Jorge,3181,47,Alta,En observacion
+1286,Lucia,4129,9,Baja,Saludable
+1287,Alejandro,4725,81,Media,En observacion
+1288,Alejandro,3567,37,Alta,Saludable
+1289,Ana,1886,18,Alta,Saludable
+1290,Alejandro,4276,35,Alta,Saludable
+1291,Diego,3366,58,Alta,En observacion
+1292,Marta,5288,62,Media,En observacion
+1293,Ana,3863,76,Baja,En riesgo
+1294,Lucia,5990,45,Alta,En observacion
+1295,Sofia,5389,2,Alta,Saludable
+1296,Marta,4624,73,Media,En observacion
+1297,Luis,648,64,Baja,En riesgo
+1298,Laura,4350,7,Media,Saludable
+1299,Jorge,5915,50,Media,En observacion
+1300,Elena,2558,80,Media,En riesgo
+1301,Pedro,1636,72,Media,En riesgo
+1302,Camila,686,5,Alta,En observacion
+1303,Lucia,3354,88,Baja,En riesgo
+1304,Pedro,1750,38,Baja,En riesgo
+1305,Luis,1833,59,Media,En riesgo
+1306,Valentina,4693,27,Baja,En observacion
+1307,Claudia,4650,53,Baja,En observacion
+1308,Lucia,3211,36,Media,En observacion
+1309,Juan,5353,8,Media,Saludable
+1310,Ana,5001,81,Alta,En observacion
+1311,Alejandro,5908,55,Alta,En observacion
+1312,Claudia,2285,58,Baja,En riesgo
+1313,Miguel,1250,84,Ninguna,En riesgo
+1314,Carlos,2262,1,Ninguna,En observacion
+1315,Camila,4420,60,Baja,En observacion
+1316,Sofia,4960,57,Alta,En observacion
+1317,Jose,981,59,Alta,En riesgo
+1318,Marta,653,39,Baja,En riesgo
+1319,Diego,2024,35,Media,En observacion
+1320,Carlos,2620,36,Baja,En observacion
+1321,Luis,2843,78,Baja,En riesgo
+1322,Camila,5636,17,Baja,Saludable
+1323,Elena,1740,62,Baja,En riesgo
+1324,Miguel,560,21,Alta,En observacion
+1325,Lucia,1438,10,Baja,En observacion
+1326,Ana,2139,57,Ninguna,En riesgo
+1327,Sofia,4620,56,Media,En observacion
+1328,Alejandro,5658,76,Baja,En riesgo
+1329,Luis,4726,3,Media,Saludable
+1330,Jorge,4069,85,Ninguna,En riesgo
+1331,Marta,1752,6,Alta,Saludable
+1332,Juan,4703,60,Media,En observacion
+1333,Jorge,671,53,Alta,En riesgo
+1334,Jose,1958,87,Baja,En riesgo
+1335,Sofia,4049,67,Alta,En observacion
+1336,Sofia,4697,78,Media,En observacion
+1337,Elena,2822,0,Media,Saludable
+1338,Jorge,2136,54,Ninguna,En riesgo
+1339,Carlos,3615,2,Media,Saludable
+1340,Ana,4590,77,Alta,En observacion
+1341,Camila,3504,37,Baja,En observacion
+1342,Miguel,5636,0,Media,Saludable
+1343,Miguel,829,37,Ninguna,En riesgo
+1344,Jorge,4140,84,Alta,En observacion
+1345,Diego,4394,28,Baja,En observacion
+1346,Laura,4607,4,Media,Saludable
+1347,Claudia,1841,73,Alta,En riesgo
+1348,Elena,4163,20,Baja,Saludable
+1349,Juan,715,70,Media,En riesgo
+1350,Elena,838,66,Baja,En riesgo
+1351,Elena,4562,46,Media,En observacion
+1352,Sofia,3208,83,Media,En riesgo
+1353,Marta,3652,82,Media,En observacion
+1354,Elena,2250,34,Ninguna,En riesgo
+1355,Juan,2921,67,Media,En riesgo
+1356,Marta,1209,68,Media,En riesgo
+1357,Valentina,5819,0,Media,Saludable
+1358,Pedro,5708,67,Media,En observacion
+1359,Miguel,5887,11,Media,Saludable
+1360,Martin,4226,59,Ninguna,En riesgo
+1361,Alejandro,4142,26,Media,En observacion
+1362,Jorge,4493,55,Ninguna,En riesgo
+1363,Diego,988,22,Alta,En observacion
+1364,Miguel,546,24,Baja,En riesgo
+1365,Carlos,3859,20,Ninguna,En observacion
+1366,Juan,5373,60,Alta,En observacion
+1367,Marta,5635,62,Ninguna,En riesgo
+1368,Sofia,5306,51,Media,En observacion
+1369,Jorge,900,87,Ninguna,En riesgo
+1370,Sofia,4490,24,Baja,En observacion
+1371,Martin,3657,54,Media,En observacion
+1372,Elena,4845,45,Alta,En observacion
+1373,Pedro,890,31,Media,En riesgo
+1374,Miguel,4353,54,Alta,En observacion
+1375,Marta,4930,4,Alta,Saludable
+1376,Alejandro,1128,35,Alta,En observacion
+1377,Lucia,4732,48,Media,En observacion
+1378,Juan,3430,57,Baja,En riesgo
+1379,Claudia,2021,38,Alta,En observacion
+1380,Valentina,1326,79,Alta,En riesgo
+1381,Marta,5322,84,Baja,En riesgo
+1382,Claudia,2000,60,Alta,En observacion
+1383,Camila,3794,8,Alta,Saludable
+1384,Jorge,5585,5,Alta,Saludable
+1385,Sofia,2919,34,Ninguna,En riesgo
+1386,Juan,1434,38,Baja,En riesgo
+1387,Pedro,3542,21,Media,En observacion
+1388,Miguel,4997,40,Baja,En observacion
+1389,Jorge,1966,4,Media,En observacion
+1390,Jorge,4061,41,Baja,En observacion
+1391,Diego,1114,86,Baja,En riesgo
+1392,Miguel,5892,80,Baja,En riesgo
+1393,Ana,1682,75,Media,En riesgo
+1394,Jorge,3723,86,Alta,En observacion
+1395,Claudia,3167,79,Media,En riesgo
+1396,Luis,5717,66,Ninguna,En riesgo
+1397,Pedro,630,29,Media,En riesgo
+1398,Sofia,5790,56,Baja,En observacion
+1399,Luis,3483,85,Ninguna,En riesgo
+1400,Diego,4778,72,Alta,En observacion
+1401,Elena,4959,28,Baja,En observacion
+1402,Claudia,538,36,Baja,En riesgo
+1403,Ana,4459,86,Ninguna,En riesgo
+1404,Camila,4087,12,Ninguna,En observacion
+1405,Sofia,5968,31,Baja,En observacion
+1406,Martin,1420,45,Media,En riesgo
+1407,Sofia,3269,22,Baja,En observacion
+1408,Juan,4611,44,Alta,En observacion
+1409,Camila,992,16,Baja,En observacion
+1410,Maria,1631,84,Ninguna,En riesgo
+1411,Ana,4021,65,Media,En observacion
+1412,Juan,810,5,Baja,En observacion
+1413,Pedro,1238,17,Media,En observacion
+1414,Juan,3741,21,Media,En observacion
+1415,Diego,1045,32,Media,En observacion
+1416,Carlos,2961,29,Baja,En observacion
+1417,Claudia,4846,80,Ninguna,En riesgo
+1418,Alejandro,5354,31,Ninguna,En observacion
+1419,Miguel,2304,41,Alta,En observacion
+1420,Marta,3712,77,Ninguna,En riesgo
+1421,Laura,5893,9,Baja,Saludable
+1422,Lucia,4310,35,Media,En observacion
+1423,Martin,1313,33,Alta,En observacion
+1424,Martin,4624,72,Media,En observacion
+1425,Alejandro,5553,27,Ninguna,En observacion
+1426,Valentina,2532,10,Baja,En observacion
+1427,Jose,5072,77,Baja,En riesgo
+1428,Pedro,4913,38,Media,En observacion
+1429,Laura,744,46,Baja,En riesgo
+1430,Pedro,5343,18,Alta,Saludable
+1431,Luis,5292,14,Media,Saludable
+1432,Claudia,771,27,Baja,En riesgo
+1433,Marta,4011,23,Alta,Saludable
+1434,Valentina,2271,71,Baja,En riesgo
+1435,Carlos,1762,8,Media,En observacion
+1436,Camila,2924,46,Baja,En riesgo
+1437,Miguel,4861,32,Media,En observacion
+1438,Luis,1420,61,Media,En riesgo
+1439,Jorge,3930,18,Alta,Saludable
+1440,Alejandro,4935,66,Alta,En observacion
+1441,Claudia,4984,73,Ninguna,En riesgo
+1442,Luis,3124,39,Media,En observacion
+1443,Lucia,4260,46,Baja,En observacion
+1444,Pedro,2550,64,Ninguna,En riesgo
+1445,Laura,4000,28,Media,En observacion
+1446,Marta,1665,49,Media,En riesgo
+1447,Sofia,875,12,Baja,En observacion
+1448,Diego,2533,0,Ninguna,En observacion
+1449,Ana,645,33,Ninguna,En riesgo
+1450,Sofia,4888,47,Media,En observacion
+1451,Pedro,931,76,Baja,En riesgo
+1452,Miguel,1204,47,Alta,En observacion
+1453,Carlos,3132,48,Ninguna,En riesgo
+1454,Martin,4994,63,Ninguna,En riesgo
+1455,Jose,1463,60,Alta,En observacion
+1456,Diego,2734,28,Media,En observacion
+1457,Luis,2541,38,Alta,En observacion
+1458,Laura,2328,87,Media,En riesgo
+1459,Miguel,2608,25,Baja,En observacion
+1460,Elena,4568,16,Media,Saludable
+1461,Ana,1438,70,Alta,En riesgo
+1462,Camila,5305,12,Media,Saludable
+1463,Maria,1306,68,Ninguna,En riesgo
+1464,Claudia,1963,25,Baja,En riesgo
+1465,Juan,5921,48,Media,En observacion
+1466,Camila,3915,66,Alta,En observacion
+1467,Luis,510,6,Ninguna,En riesgo
+1468,Lucia,5681,57,Baja,En observacion
+1469,Jose,2368,48,Media,En observacion
+1470,Sofia,5367,52,Alta,En observacion
+1471,Pedro,5929,64,Alta,En observacion
+1472,Ana,1384,61,Alta,En riesgo
+1473,Lucia,4064,16,Media,Saludable
+1474,Marta,1889,42,Ninguna,En riesgo
+1475,Camila,3901,24,Media,En observacion
+1476,Miguel,4821,2,Baja,Saludable
+1477,Elena,1324,78,Media,En riesgo
+1478,Claudia,2765,28,Baja,En observacion
+1479,Claudia,1436,31,Baja,En riesgo
+1480,Marta,3300,25,Alta,En observacion
+1481,Miguel,3053,15,Media,Saludable
+1482,Jorge,4345,24,Baja,En observacion
+1483,Jose,2296,53,Alta,En observacion
+1484,Martin,553,27,Media,En riesgo
+1485,Miguel,1226,72,Media,En riesgo
+1486,Elena,3236,55,Ninguna,En riesgo
+1487,Laura,3670,64,Media,En observacion
+1488,Claudia,5639,85,Baja,En riesgo
+1489,Marta,2413,79,Media,En riesgo
+1490,Miguel,2096,40,Baja,En riesgo
+1491,Laura,2414,50,Media,En observacion
+1492,Ana,2966,70,Ninguna,En riesgo
+1493,Diego,3237,77,Media,En riesgo
+1494,Camila,1349,28,Baja,En riesgo
+1495,Diego,2609,82,Baja,En riesgo
+1496,Camila,502,18,Media,En observacion
+1497,Jose,4755,65,Alta,En observacion
+1498,Jose,4569,40,Alta,En observacion
+1499,Pedro,5376,44,Alta,En observacion
+1500,Laura,1392,14,Ninguna,En observacion
+1501,Ana,2530,2,Media,Saludable
+1502,Luis,3660,10,Media,Saludable
+1503,Luis,2876,52,Baja,En riesgo
+1504,Jose,5175,45,Media,En observacion
+1505,Diego,2433,29,Media,En observacion
+1506,Marta,1880,56,Alta,En observacion
+1507,Diego,4181,17,Ninguna,En observacion
+1508,Ana,1790,50,Ninguna,En riesgo
+1509,Maria,2140,47,Ninguna,En riesgo
+1510,Elena,5547,65,Media,En observacion
+1511,Carlos,3182,7,Baja,En observacion
+1512,Valentina,1487,21,Alta,En observacion
+1513,Lucia,1718,5,Alta,Saludable
+1514,Jose,5516,75,Alta,En observacion
+1515,Valentina,1855,56,Media,En riesgo
+1516,Claudia,4765,35,Media,En observacion
+1517,Luis,5116,78,Media,En observacion
+1518,Diego,4635,56,Alta,En observacion
+1519,Camila,2060,48,Media,En observacion
+1520,Valentina,1918,44,Baja,En riesgo
+1521,Alejandro,1454,81,Media,En riesgo
+1522,Carlos,1483,65,Baja,En riesgo
+1523,Diego,1474,76,Media,En riesgo
+1524,Ana,4633,44,Baja,En observacion
+1525,Martin,5870,78,Media,En observacion
+1526,Martin,4472,19,Media,Saludable
+1527,Maria,5795,63,Media,En observacion
+1528,Diego,1413,66,Baja,En riesgo
+1529,Diego,5049,82,Baja,En riesgo
+1530,Luis,536,2,Media,En observacion
+1531,Miguel,3887,53,Media,En observacion
+1532,Miguel,2211,77,Ninguna,En riesgo
+1533,Carlos,3520,63,Baja,En riesgo
+1534,Alejandro,1295,39,Media,En observacion
+1535,Carlos,4536,58,Media,En observacion
+1536,Lucia,5568,54,Media,En observacion
+1537,Ana,5188,61,Baja,En riesgo
+1538,Jorge,5733,3,Media,Saludable
+1539,Jorge,3611,59,Ninguna,En riesgo
+1540,Jose,1824,74,Media,En riesgo
+1541,Luis,817,29,Media,En riesgo
+1542,Juan,2896,1,Media,Saludable
+1543,Diego,2662,61,Ninguna,En riesgo
+1544,Martin,3245,48,Baja,En riesgo
+1545,Juan,5942,8,Media,Saludable
+1546,Carlos,2091,30,Baja,En observacion
+1547,Miguel,3611,60,Media,En observacion
+1548,Laura,4430,78,Media,En observacion
+1549,Sofia,2496,47,Alta,En observacion
+1550,Claudia,1812,24,Media,En observacion
+1551,Miguel,1785,35,Media,En observacion
+1552,Diego,4811,7,Ninguna,En observacion
+1553,Laura,2883,72,Media,En riesgo
+1554,Camila,3739,57,Ninguna,En riesgo
+1555,Diego,2639,44,Media,En observacion
+1556,Miguel,2204,61,Baja,En riesgo
+1557,Juan,862,38,Media,En riesgo
+1558,Maria,3104,57,Alta,En observacion
+1559,Alejandro,2216,80,Media,En riesgo
+1560,Elena,5789,82,Alta,En observacion
+1561,Sofia,4951,63,Baja,En riesgo
+1562,Lucia,4786,43,Media,En observacion
+1563,Claudia,4238,28,Baja,En observacion
+1564,Miguel,2969,58,Media,En observacion
+1565,Elena,5295,70,Alta,En observacion
+1566,Juan,1056,8,Media,En observacion
+1567,Jose,1325,5,Ninguna,En observacion
+1568,Carlos,3308,28,Baja,En observacion
+1569,Alejandro,5650,57,Media,En observacion
+1570,Valentina,5021,16,Media,Saludable
+1571,Camila,3219,15,Alta,Saludable
+1572,Maria,4008,86,Ninguna,En riesgo
+1573,Pedro,4241,2,Baja,Saludable
+1574,Sofia,2074,20,Media,Saludable
+1575,Alejandro,4498,63,Media,En observacion
+1576,Miguel,2629,89,Alta,En observacion
+1577,Laura,2903,35,Ninguna,En riesgo
+1578,Juan,3829,85,Alta,En observacion
+1579,Lucia,1088,61,Baja,En riesgo
+1580,Jorge,2512,41,Media,En observacion
+1581,Elena,2047,75,Baja,En riesgo
+1582,Carlos,794,41,Baja,En riesgo
+1583,Jose,2485,60,Baja,En riesgo
+1584,Carlos,5843,12,Baja,Saludable
+1585,Alejandro,3617,10,Ninguna,En observacion
+1586,Laura,2190,53,Alta,En observacion
+1587,Miguel,1636,15,Media,En observacion
+1588,Jose,5852,7,Media,Saludable
+1589,Miguel,2564,58,Ninguna,En riesgo
+1590,Jorge,4955,56,Media,En observacion
+1591,Luis,5295,39,Baja,En observacion
+1592,Ana,5043,58,Baja,En observacion
+1593,Jorge,5270,1,Media,Saludable
+1594,Diego,1507,75,Media,En riesgo
+1595,Martin,5945,9,Media,Saludable
+1596,Maria,3014,43,Media,En observacion
+1597,Luis,4026,10,Media,Saludable
+1598,Marta,5181,78,Alta,En observacion
+1599,Pedro,5852,79,Ninguna,En riesgo
+1600,Juan,1747,80,Ninguna,En riesgo
+1601,Claudia,5589,89,Media,En observacion
+1602,Jose,4402,1,Media,Saludable
+1603,Claudia,1935,49,Alta,En observacion
+1604,Alejandro,1071,11,Baja,En observacion
+1605,Claudia,2882,89,Baja,En riesgo
+1606,Claudia,1745,22,Alta,En observacion
+1607,Elena,2584,17,Alta,Saludable
+1608,Maria,5584,61,Baja,En riesgo
+1609,Maria,777,61,Baja,En riesgo
+1610,Ana,5815,37,Alta,Saludable
+1611,Camila,2387,66,Baja,En riesgo
+1612,Marta,5079,37,Media,En observacion
+1613,Laura,1765,66,Media,En riesgo
+1614,Jorge,5326,60,Baja,En observacion
+1615,Maria,1540,0,Baja,En observacion
+1616,Carlos,1417,44,Media,En riesgo
+1617,Alejandro,1385,27,Ninguna,En riesgo
+1618,Lucia,3252,20,Media,Saludable
+1619,Alejandro,521,12,Baja,En observacion
+1620,Camila,5069,26,Media,En observacion
+1621,Alejandro,3691,6,Ninguna,En observacion
+1622,Sofia,2853,21,Ninguna,En riesgo
+1623,Elena,5299,73,Alta,En observacion
+1624,Laura,1186,52,Ninguna,En riesgo
+1625,Carlos,784,78,Baja,En riesgo
+1626,Lucia,5311,78,Baja,En riesgo
+1627,Miguel,4247,3,Media,Saludable
+1628,Valentina,1262,22,Baja,En riesgo
+1629,Elena,5846,69,Ninguna,En riesgo
+1630,Alejandro,5543,87,Media,En observacion
+1631,Laura,2928,83,Ninguna,En riesgo
+1632,Miguel,3007,83,Alta,En observacion
+1633,Ana,5626,75,Alta,En observacion
+1634,Maria,528,32,Media,En riesgo
+1635,Carlos,1406,27,Media,En observacion
+1636,Pedro,3604,7,Baja,Saludable
+1637,Marta,4499,0,Alta,Saludable
+1638,Laura,3494,36,Ninguna,En riesgo
+1639,Alejandro,3006,62,Alta,En observacion
+1640,Martin,5165,21,Alta,Saludable
+1641,Alejandro,4109,69,Alta,En observacion
+1642,Luis,4053,20,Media,Saludable
+1643,Camila,1953,34,Ninguna,En riesgo
+1644,Jorge,5333,78,Baja,En riesgo
+1645,Jorge,3856,4,Baja,Saludable
+1646,Jose,1015,59,Alta,En observacion
+1647,Jose,538,45,Media,En riesgo
+1648,Marta,3842,49,Media,En observacion
+1649,Miguel,1386,47,Media,En riesgo
+1650,Martin,3344,5,Alta,Saludable
+1651,Valentina,2704,88,Baja,En riesgo
+1652,Alejandro,1598,55,Media,En riesgo
+1653,Ana,2323,58,Baja,En riesgo
+1654,Luis,3701,28,Media,En observacion
+1655,Pedro,5569,70,Alta,En observacion
+1656,Maria,3655,76,Baja,En riesgo
+1657,Juan,3593,17,Alta,Saludable
+1658,Claudia,4030,1,Ninguna,En observacion
+1659,Laura,4278,7,Baja,Saludable
+1660,Sofia,3396,74,Alta,En observacion
+1661,Juan,3953,53,Ninguna,En riesgo
+1662,Claudia,4011,37,Media,En observacion
+1663,Maria,1488,47,Alta,En observacion
+1664,Laura,4616,26,Baja,En observacion
+1665,Martin,5464,19,Media,Saludable
+1666,Carlos,4526,11,Baja,Saludable
+1667,Pedro,4679,42,Baja,En observacion
+1668,Claudia,2182,60,Ninguna,En riesgo
+1669,Sofia,5165,30,Media,En observacion
+1670,Camila,4463,60,Media,En observacion
+1671,Claudia,1433,73,Baja,En riesgo
+1672,Carlos,4098,66,Alta,En observacion
+1673,Martin,3733,34,Media,En observacion
+1674,Diego,2480,14,Media,Saludable
+1675,Laura,2355,15,Alta,Saludable
+1676,Lucia,3556,12,Media,Saludable
+1677,Juan,1292,34,Ninguna,En riesgo
+1678,Claudia,1291,74,Ninguna,En riesgo
+1679,Luis,2309,58,Alta,En observacion
+1680,Jorge,5890,20,Alta,Saludable
+1681,Miguel,2755,53,Media,En observacion
+1682,Jose,4110,74,Ninguna,En riesgo
+1683,Sofia,2107,29,Alta,En observacion
+1684,Luis,5679,47,Baja,En observacion
+1685,Maria,1484,34,Alta,En observacion
+1686,Claudia,4176,85,Baja,En riesgo
+1687,Maria,3880,37,Media,En observacion
+1688,Marta,1019,30,Baja,En riesgo
+1689,Carlos,1090,77,Media,En riesgo
+1690,Laura,1550,23,Baja,En riesgo
+1691,Alejandro,4133,48,Media,En observacion
+1692,Sofia,4944,31,Baja,En observacion
+1693,Pedro,1459,54,Ninguna,En riesgo
+1694,Juan,1192,78,Alta,En riesgo
+1695,Claudia,4399,57,Ninguna,En riesgo
+1696,Luis,4973,2,Media,Saludable
+1697,Marta,3446,79,Alta,En observacion
+1698,Ana,1026,68,Media,En riesgo
+1699,Martin,3724,84,Alta,En observacion
+1700,Maria,2753,9,Baja,En observacion
+1701,Claudia,3844,82,Baja,En riesgo
+1702,Juan,4465,24,Alta,Saludable
+1703,Claudia,5855,67,Media,En observacion
+1704,Claudia,2375,60,Baja,En riesgo
+1705,Claudia,2263,28,Ninguna,En riesgo
+1706,Alejandro,1020,18,Media,En observacion
+1707,Martin,1516,42,Ninguna,En riesgo
+1708,Camila,5609,65,Media,En observacion
+1709,Jose,616,73,Media,En riesgo
+1710,Jorge,2933,60,Baja,En riesgo
+1711,Sofia,5963,42,Media,En observacion
+1712,Laura,1083,24,Media,En observacion
+1713,Sofia,894,19,Media,En observacion
+1714,Camila,5683,47,Baja,En observacion
+1715,Sofia,4288,82,Baja,En riesgo
+1716,Diego,3268,86,Media,En riesgo
+1717,Pedro,4667,23,Media,En observacion
+1718,Elena,4360,10,Media,Saludable
+1719,Maria,773,54,Media,En riesgo
+1720,Jose,2513,27,Media,En observacion
+1721,Sofia,5939,68,Baja,En riesgo
+1722,Jorge,4933,62,Media,En observacion
+1723,Miguel,1889,58,Media,En riesgo
+1724,Carlos,4066,4,Alta,Saludable
+1725,Elena,5202,50,Media,En observacion
+1726,Miguel,665,20,Ninguna,En riesgo
+1727,Maria,2067,11,Media,Saludable
+1728,Alejandro,5920,49,Alta,En observacion
+1729,Claudia,1228,3,Media,En observacion
+1730,Camila,2543,41,Media,En observacion
+1731,Ana,4697,83,Alta,En observacion
+1732,Carlos,3996,37,Media,En observacion
+1733,Luis,1278,24,Media,En observacion
+1734,Carlos,713,13,Media,En observacion
+1735,Miguel,4262,74,Media,En observacion
+1736,Alejandro,5707,31,Media,En observacion
+1737,Maria,2076,10,Ninguna,En observacion
+1738,Claudia,2948,60,Media,En observacion
+1739,Luis,3436,17,Media,Saludable
+1740,Martin,3617,26,Media,En observacion
+1741,Elena,1091,54,Media,En riesgo
+1742,Laura,5929,53,Baja,En observacion
+1743,Carlos,5705,81,Media,En observacion
+1744,Ana,3220,86,Baja,En riesgo
+1745,Lucia,1213,74,Alta,En riesgo
+1746,Marta,1435,20,Media,En observacion
+1747,Pedro,4837,43,Baja,En observacion
+1748,Miguel,501,4,Media,En observacion
+1749,Camila,3348,86,Media,En riesgo
+1750,Jose,4544,40,Media,En observacion
+1751,Juan,2449,58,Baja,En riesgo
+1752,Luis,1417,88,Alta,En riesgo
+1753,Jorge,3674,53,Ninguna,En riesgo
+1754,Elena,2741,73,Alta,En observacion
+1755,Diego,589,21,Ninguna,En riesgo
+1756,Martin,2209,82,Media,En riesgo
+1757,Miguel,2669,64,Baja,En riesgo
+1758,Pedro,4738,63,Media,En observacion
+1759,Claudia,3541,70,Ninguna,En riesgo
+1760,Lucia,605,3,Alta,En observacion
+1761,Marta,1386,64,Alta,En riesgo
+1762,Luis,927,14,Media,En observacion
+1763,Diego,5924,75,Alta,En observacion
+1764,Elena,2395,21,Alta,En observacion
+1765,Sofia,816,85,Ninguna,En riesgo
+1766,Elena,1134,46,Ninguna,En riesgo
+1767,Claudia,2425,80,Media,En riesgo
+1768,Laura,2556,45,Ninguna,En riesgo
+1769,Camila,3644,13,Media,Saludable
+1770,Camila,2770,49,Media,En observacion
+1771,Jorge,1939,19,Baja,En observacion
+1772,Alejandro,1052,49,Baja,En riesgo
+1773,Miguel,1215,32,Ninguna,En riesgo
+1774,Sofia,5883,58,Media,En observacion
+1775,Laura,4411,42,Baja,En observacion
+1776,Carlos,2213,78,Alta,En observacion
+1777,Carlos,3889,11,Alta,Saludable
+1778,Luis,1607,39,Alta,En observacion
+1779,Marta,5937,19,Ninguna,En observacion
+1780,Martin,4706,37,Baja,En observacion
+1781,Lucia,750,2,Baja,En observacion
+1782,Camila,2930,27,Media,En observacion
+1783,Camila,2554,55,Media,En observacion
+1784,Marta,958,89,Alta,En riesgo
+1785,Maria,5703,12,Media,Saludable
+1786,Camila,707,76,Media,En riesgo
+1787,Miguel,1399,65,Baja,En riesgo
+1788,Valentina,3961,36,Media,En observacion
+1789,Juan,3885,48,Alta,En observacion
+1790,Alejandro,521,65,Alta,En riesgo
+1791,Claudia,909,35,Alta,En observacion
+1792,Sofia,1394,53,Media,En riesgo
+1793,Lucia,1014,25,Ninguna,En riesgo
+1794,Claudia,5404,74,Baja,En riesgo
+1795,Pedro,5469,71,Baja,En riesgo
+1796,Valentina,4609,39,Media,En observacion
+1797,Elena,5566,42,Media,En observacion
+1798,Sofia,2634,21,Alta,En observacion
+1799,Camila,4095,19,Ninguna,En observacion
+1800,Elena,3456,7,Baja,En observacion
+1801,Luis,2060,28,Alta,En observacion
+1802,Diego,5920,39,Media,En observacion
+1803,Sofia,1766,89,Media,En riesgo
+1804,Maria,2669,29,Baja,En observacion
+1805,Marta,4138,80,Ninguna,En riesgo
+1806,Jorge,1249,83,Media,En riesgo
+1807,Pedro,3927,54,Media,En observacion
+1808,Marta,5280,15,Alta,Saludable
+1809,Pedro,2427,45,Alta,En observacion
+1810,Elena,4304,61,Alta,En observacion
+1811,Elena,4202,6,Alta,Saludable
+1812,Claudia,2856,79,Baja,En riesgo
+1813,Juan,5290,44,Baja,En observacion
+1814,Juan,2835,58,Alta,En observacion
+1815,Claudia,806,55,Baja,En riesgo
+1816,Camila,4165,47,Alta,En observacion
+1817,Miguel,2489,26,Media,En observacion
+1818,Ana,1161,52,Media,En riesgo
+1819,Pedro,5144,86,Media,En observacion
+1820,Marta,811,87,Media,En riesgo
+1821,Carlos,3420,72,Media,En riesgo
+1822,Pedro,1582,34,Media,En observacion
+1823,Lucia,3471,50,Ninguna,En riesgo
+1824,Marta,1254,83,Alta,En riesgo
+1825,Sofia,4630,36,Alta,Saludable
+1826,Lucia,5040,80,Alta,En observacion
+1827,Laura,5826,56,Baja,En observacion
+1828,Marta,852,7,Alta,En observacion
+1829,Jose,1402,78,Baja,En riesgo
+1830,Jorge,5951,19,Media,Saludable
+1831,Lucia,4388,52,Media,En observacion
+1832,Juan,658,11,Media,En observacion
+1833,Alejandro,2477,48,Alta,En observacion
+1834,Claudia,1456,16,Alta,Saludable
+1835,Lucia,2571,63,Media,En riesgo
+1836,Valentina,903,41,Media,En riesgo
+1837,Jorge,5111,28,Media,En observacion
+1838,Pedro,3279,18,Alta,Saludable
+1839,Jorge,1887,10,Ninguna,En observacion
+1840,Sofia,3953,49,Alta,En observacion
+1841,Martin,1455,70,Baja,En riesgo
+1842,Diego,2212,57,Baja,En riesgo
+1843,Camila,5203,33,Media,En observacion
+1844,Jorge,1773,19,Alta,Saludable
+1845,Maria,4311,49,Alta,En observacion
+1846,Ana,3125,87,Baja,En riesgo
+1847,Maria,2882,9,Baja,En observacion
+1848,Ana,1941,31,Baja,En riesgo
+1849,Valentina,3479,51,Ninguna,En riesgo
+1850,Luis,2297,14,Baja,En observacion
+1851,Alejandro,4890,83,Alta,En observacion
+1852,Laura,4509,2,Media,Saludable
+1853,Valentina,5350,36,Baja,En observacion
+1854,Laura,1894,39,Media,En observacion
+1855,Luis,4781,71,Alta,En observacion
+1856,Martin,1769,39,Baja,En riesgo
+1857,Jorge,5232,55,Media,En observacion
+1858,Martin,5887,22,Ninguna,En observacion
+1859,Diego,4214,10,Baja,Saludable
+1860,Claudia,1029,63,Alta,En riesgo
+1861,Elena,4123,7,Ninguna,En observacion
+1862,Elena,3458,55,Media,En observacion
+1863,Sofia,3414,59,Media,En observacion
+1864,Luis,5389,9,Media,Saludable
+1865,Alejandro,4091,38,Alta,Saludable
+1866,Elena,2647,27,Media,En observacion
+1867,Diego,5073,48,Alta,En observacion
+1868,Pedro,3869,35,Media,En observacion
+1869,Sofia,1439,12,Media,En observacion
+1870,Elena,1025,35,Baja,En riesgo
+1871,Elena,501,25,Baja,En riesgo
+1872,Jose,874,85,Alta,En riesgo
+1873,Elena,2840,3,Media,Saludable
+1874,Sofia,4505,81,Media,En observacion
+1875,Carlos,3552,63,Alta,En observacion
+1876,Valentina,5148,37,Baja,En observacion
+1877,Carlos,2865,87,Baja,En riesgo
+1878,Jorge,2025,86,Alta,En observacion
+1879,Claudia,4976,21,Media,En observacion
+1880,Miguel,2146,1,Alta,Saludable
+1881,Valentina,513,30,Baja,En riesgo
+1882,Luis,5099,10,Alta,Saludable
+1883,Pedro,2778,45,Ninguna,En riesgo
+1884,Jose,3655,61,Baja,En riesgo
+1885,Jose,629,68,Media,En riesgo
+1886,Miguel,4314,63,Media,En observacion
+1887,Laura,5433,9,Ninguna,En observacion
+1888,Miguel,3716,39,Media,En observacion
+1889,Jorge,3438,23,Alta,En observacion
+1890,Elena,4428,43,Media,En observacion
+1891,Martin,2540,59,Baja,En riesgo
+1892,Jorge,527,61,Baja,En riesgo
+1893,Laura,2613,86,Baja,En riesgo
+1894,Juan,1752,16,Ninguna,En observacion
+1895,Juan,4856,64,Ninguna,En riesgo
+1896,Miguel,2546,56,Ninguna,En riesgo
+1897,Marta,5055,54,Alta,En observacion
+1898,Claudia,4523,52,Media,En observacion
+1899,Lucia,4896,55,Baja,En observacion
+1900,Lucia,3874,8,Baja,Saludable
+1901,Claudia,3966,21,Baja,En observacion
+1902,Miguel,3581,12,Alta,Saludable
+1903,Ana,4278,88,Baja,En riesgo
+1904,Ana,1129,47,Baja,En riesgo
+1905,Maria,769,17,Alta,En observacion
+1906,Claudia,3139,75,Media,En riesgo
+1907,Pedro,2493,39,Alta,En observacion
+1908,Camila,3391,16,Media,Saludable
+1909,Diego,5457,14,Alta,Saludable
+1910,Diego,3932,14,Media,Saludable
+1911,Sofia,1780,78,Media,En riesgo
+1912,Elena,2860,62,Baja,En riesgo
+1913,Juan,1075,38,Baja,En riesgo
+1914,Claudia,1807,12,Baja,En observacion
+1915,Maria,3692,80,Media,En observacion
+1916,Jorge,3678,31,Alta,Saludable
+1917,Ana,3234,8,Ninguna,En observacion
+1918,Camila,2712,39,Alta,En observacion
+1919,Valentina,2852,19,Ninguna,En observacion
+1920,Alejandro,4068,89,Baja,En riesgo
+1921,Marta,2155,84,Media,En riesgo
+1922,Elena,2079,81,Ninguna,En riesgo
+1923,Sofia,2703,76,Alta,En observacion
+1924,Claudia,1890,79,Media,En riesgo
+1925,Diego,2242,72,Baja,En riesgo
+1926,Lucia,2425,62,Media,En riesgo
+1927,Valentina,1119,75,Ninguna,En riesgo
+1928,Maria,1774,43,Alta,En observacion
+1929,Sofia,1456,37,Media,En observacion
+1930,Elena,2439,82,Media,En riesgo
+1931,Lucia,4453,59,Baja,En observacion
+1932,Laura,2881,70,Media,En riesgo
+1933,Sofia,1468,47,Media,En riesgo
+1934,Martin,1816,17,Baja,En observacion
+1935,Claudia,1543,15,Alta,Saludable
+1936,Martin,781,54,Baja,En riesgo
+1937,Jorge,3344,38,Media,En observacion
+1938,Alejandro,1558,67,Baja,En riesgo
+1939,Claudia,4793,58,Baja,En observacion
+1940,Marta,3032,88,Media,En riesgo
+1941,Luis,4328,61,Media,En observacion
+1942,Marta,5678,12,Ninguna,En observacion
+1943,Lucia,5780,80,Media,En observacion
+1944,Jose,1508,5,Ninguna,En observacion
+1945,Martin,1729,82,Media,En riesgo
+1946,Elena,1535,76,Alta,En riesgo
+1947,Lucia,5085,59,Media,En observacion
+1948,Jose,775,89,Ninguna,En riesgo
+1949,Claudia,3240,13,Media,Saludable
+1950,Jorge,2789,53,Ninguna,En riesgo
+1951,Ana,1739,3,Ninguna,En observacion
+1952,Pedro,5870,38,Media,En observacion
+1953,Maria,625,71,Alta,En riesgo
+1954,Lucia,4565,24,Baja,En observacion
+1955,Lucia,4812,76,Media,En observacion
+1956,Valentina,4368,31,Baja,En observacion
+1957,Camila,1708,58,Media,En riesgo
+1958,Sofia,5842,62,Media,En observacion
+1959,Sofia,3749,37,Baja,En observacion
+1960,Sofia,1418,52,Media,En riesgo
+1961,Sofia,5913,66,Media,En observacion
+1962,Juan,4423,27,Media,En observacion
+1963,Maria,4903,2,Media,Saludable
+1964,Claudia,5955,79,Media,En observacion
+1965,Miguel,2469,21,Baja,En observacion
+1966,Ana,3293,37,Media,En observacion
+1967,Carlos,1391,71,Media,En riesgo
+1968,Elena,4970,71,Baja,En riesgo
+1969,Sofia,2533,61,Media,En riesgo
+1970,Jorge,1864,56,Media,En riesgo
+1971,Alejandro,628,5,Ninguna,En riesgo
+1972,Luis,1514,77,Baja,En riesgo
+1973,Jorge,2299,31,Media,En observacion
+1974,Camila,5977,9,Baja,Saludable
+1975,Juan,5112,2,Alta,Saludable
+1976,Marta,2018,58,Baja,En riesgo
+1977,Maria,4681,75,Media,En observacion
+1978,Pedro,1698,48,Media,En riesgo
+1979,Lucia,4373,58,Media,En observacion
+1980,Luis,5738,30,Alta,Saludable
+1981,Ana,2974,68,Alta,En observacion
+1982,Maria,3985,61,Ninguna,En riesgo
+1983,Laura,4549,51,Media,En observacion
+1984,Luis,4219,88,Media,En observacion
+1985,Valentina,802,40,Alta,En riesgo
+1986,Laura,4452,30,Alta,Saludable
+1987,Miguel,5183,84,Baja,En riesgo
+1988,Diego,1486,83,Media,En riesgo
+1989,Jose,2363,21,Media,En observacion
+1990,Martin,4940,3,Media,Saludable
+1991,Diego,5409,12,Baja,Saludable
+1992,Marta,3572,44,Alta,En observacion
+1993,Lucia,5906,41,Alta,En observacion
+1994,Jose,3624,48,Media,En observacion
+1995,Martin,1827,19,Media,En observacion
+1996,Ana,5688,76,Media,En observacion
+1997,Miguel,2908,80,Baja,En riesgo
+1998,Juan,4173,53,Baja,En observacion
+1999,Camila,3791,35,Baja,En observacion
+2000,Juan,4533,0,Media,Saludable
+2001,Diego,5605,14,Alta,Saludable
+2002,Claudia,1203,76,Media,En riesgo
+2003,Ana,1074,16,Ninguna,En observacion
+2004,Jorge,3732,23,Media,En observacion
+2005,Pedro,5708,57,Baja,En observacion
+2006,Sofia,5283,71,Alta,En observacion
+2007,Jorge,3132,22,Media,En observacion
+2008,Jose,4328,45,Alta,En observacion
+2009,Diego,3730,71,Media,En observacion
+2010,Marta,988,7,Ninguna,En riesgo
+2011,Laura,1847,58,Ninguna,En riesgo
+2012,Jose,4181,89,Media,En observacion
+2013,Claudia,3673,58,Media,En observacion
+2014,Elena,5089,12,Ninguna,En observacion
+2015,Alejandro,2167,38,Baja,En observacion
+2016,Claudia,2137,27,Alta,En observacion
+2017,Valentina,4614,88,Media,En observacion
+2018,Martin,4053,60,Media,En observacion
+2019,Carlos,1500,15,Media,En observacion
+2020,Juan,1350,1,Media,En observacion
+2021,Alejandro,1888,81,Media,En riesgo
+2022,Ana,5950,16,Media,Saludable
+2023,Marta,4212,29,Alta,Saludable
+2024,Claudia,1867,12,Media,En observacion
+2025,Jorge,1321,81,Baja,En riesgo
+2026,Martin,954,12,Baja,En observacion
+2027,Sofia,2124,42,Media,En observacion
+2028,Jorge,3272,84,Ninguna,En riesgo
+2029,Camila,4226,20,Ninguna,En observacion
+2030,Luis,3647,54,Media,En observacion
+2031,Valentina,4589,80,Alta,En observacion
+2032,Miguel,5306,39,Baja,En observacion
+2033,Claudia,2690,82,Baja,En riesgo
+2034,Martin,1416,14,Ninguna,En observacion
+2035,Miguel,4486,72,Ninguna,En riesgo
+2036,Maria,3375,51,Baja,En riesgo
+2037,Lucia,1940,73,Media,En riesgo
+2038,Martin,4900,52,Alta,En observacion
+2039,Marta,1235,86,Media,En riesgo
+2040,Martin,4068,51,Media,En observacion
+2041,Camila,3838,29,Baja,En observacion
+2042,Diego,3515,32,Media,En observacion
+2043,Luis,3389,56,Baja,En riesgo
+2044,Juan,1461,51,Media,En riesgo
+2045,Lucia,3489,8,Media,Saludable
+2046,Elena,4348,53,Alta,En observacion
+2047,Martin,1526,0,Media,En observacion
+2048,Alejandro,4365,43,Baja,En observacion
+2049,Juan,3363,74,Baja,En riesgo
+2050,Juan,3001,79,Ninguna,En riesgo
+2051,Jorge,2447,8,Media,Saludable
+2052,Elena,1677,31,Media,En observacion
+2053,Lucia,5260,14,Media,Saludable
+2054,Lucia,511,11,Media,En observacion
+2055,Juan,5752,77,Ninguna,En riesgo
+2056,Elena,4899,56,Baja,En observacion
+2057,Carlos,3864,7,Ninguna,En observacion
+2058,Laura,3522,71,Media,En observacion
+2059,Alejandro,3871,26,Ninguna,En observacion
+2060,Alejandro,3330,61,Alta,En observacion
+2061,Alejandro,542,11,Ninguna,En riesgo
+2062,Ana,1443,64,Media,En riesgo
+2063,Camila,2890,41,Media,En observacion
+2064,Alejandro,5945,61,Media,En observacion
+2065,Laura,3045,10,Ninguna,En observacion
+2066,Maria,2911,42,Alta,En observacion
+2067,Ana,5486,16,Media,Saludable
+2068,Lucia,1504,31,Ninguna,En riesgo
+2069,Pedro,520,84,Media,En riesgo
+2070,Marta,906,84,Alta,En riesgo
+2071,Pedro,1514,39,Media,En observacion
+2072,Valentina,4931,22,Media,En observacion
+2073,Camila,2338,55,Ninguna,En riesgo
+2074,Alejandro,3688,5,Baja,Saludable
+2075,Diego,5743,85,Media,En observacion
+2076,Camila,1214,49,Ninguna,En riesgo
+2077,Laura,4646,36,Media,En observacion
+2078,Jorge,4354,63,Alta,En observacion
+2079,Valentina,4919,53,Media,En observacion
+2080,Marta,5384,71,Media,En observacion
+2081,Martin,640,48,Alta,En riesgo
+2082,Jorge,5065,10,Ninguna,En observacion
+2083,Claudia,5382,87,Baja,En riesgo
+2084,Laura,5953,48,Media,En observacion
+2085,Juan,1463,20,Media,En observacion
+2086,Sofia,872,65,Baja,En riesgo
+2087,Valentina,4135,62,Ninguna,En riesgo
+2088,Maria,3041,82,Ninguna,En riesgo
+2089,Marta,4110,27,Media,En observacion
+2090,Claudia,2192,16,Baja,En observacion
+2091,Diego,5775,5,Media,Saludable
+2092,Carlos,605,18,Media,En observacion
+2093,Ana,2181,55,Alta,En observacion
+2094,Maria,4597,27,Alta,Saludable
+2095,Sofia,4516,65,Media,En observacion
+2096,Laura,3136,37,Media,En observacion
+2097,Marta,2637,36,Alta,En observacion
+2098,Jose,3916,67,Baja,En riesgo
+2099,Valentina,4945,85,Alta,En observacion
+2100,Elena,4030,89,Media,En observacion
+2101,Sofia,1786,48,Media,En riesgo
+2102,Miguel,3679,42,Ninguna,En riesgo
+2103,Martin,5658,35,Media,En observacion
+2104,Valentina,4154,57,Alta,En observacion
+2105,Lucia,2859,12,Media,Saludable
+2106,Elena,944,51,Baja,En riesgo
+2107,Carlos,5547,57,Ninguna,En riesgo
+2108,Pedro,535,31,Media,En riesgo
+2109,Miguel,5703,80,Media,En observacion
+2110,Marta,1975,59,Ninguna,En riesgo
+2111,Marta,4457,82,Alta,En observacion
+2112,Sofia,2298,57,Baja,En riesgo
+2113,Pedro,2345,55,Media,En observacion
+2114,Lucia,1908,27,Alta,En observacion
+2115,Maria,5791,0,Media,Saludable
+2116,Jorge,5995,41,Media,En observacion
+2117,Claudia,2208,81,Baja,En riesgo
+2118,Miguel,5981,47,Ninguna,En riesgo
+2119,Diego,3438,39,Media,En observacion
+2120,Maria,1800,62,Baja,En riesgo
+2121,Martin,1743,75,Alta,En riesgo
+2122,Luis,4476,71,Media,En observacion
+2123,Jose,3597,87,Alta,En observacion
+2124,Alejandro,5116,79,Ninguna,En riesgo
+2125,Pedro,509,3,Baja,En observacion
+2126,Maria,5579,37,Baja,En observacion
+2127,Marta,2925,26,Baja,En observacion
+2128,Claudia,2160,8,Baja,En observacion
+2129,Miguel,3131,15,Ninguna,En observacion
+2130,Juan,5315,55,Baja,En observacion
+2131,Jorge,1572,75,Ninguna,En riesgo
+2132,Lucia,3725,30,Media,En observacion
+2133,Jorge,5454,87,Alta,En observacion
+2134,Valentina,1816,13,Media,En observacion
+2135,Carlos,4645,24,Alta,Saludable
+2136,Juan,4183,33,Media,En observacion
+2137,Miguel,3773,66,Media,En observacion
+2138,Jorge,645,23,Baja,En riesgo
+2139,Luis,5510,72,Alta,En observacion
+2140,Jorge,3540,25,Alta,Saludable
+2141,Luis,1962,19,Media,En observacion
+2142,Alejandro,5176,63,Ninguna,En riesgo
+2143,Valentina,2084,9,Media,Saludable
+2144,Laura,982,82,Media,En riesgo
+2145,Sofia,3679,66,Baja,En riesgo
+2146,Miguel,1749,23,Baja,En riesgo
+2147,Camila,5268,4,Media,Saludable
+2148,Ana,1130,66,Media,En riesgo
+2149,Maria,1161,57,Media,En riesgo
+2150,Lucia,4003,26,Ninguna,En observacion
+2151,Carlos,3352,79,Alta,En observacion
+2152,Pedro,2966,14,Media,Saludable
+2153,Laura,1487,34,Alta,En observacion
+2154,Lucia,2046,75,Media,En riesgo
+2155,Marta,1149,52,Baja,En riesgo
+2156,Maria,1468,43,Media,En riesgo
+2157,Martin,3137,25,Alta,En observacion
+2158,Jorge,1600,46,Media,En riesgo
+2159,Juan,940,33,Alta,En observacion
+2160,Lucia,5516,86,Alta,En observacion
+2161,Luis,1269,49,Baja,En riesgo
+2162,Jorge,1843,83,Baja,En riesgo
+2163,Valentina,4858,11,Ninguna,En observacion
+2164,Claudia,4229,86,Ninguna,En riesgo
+2165,Pedro,4406,3,Baja,Saludable
+2166,Miguel,2077,86,Alta,En observacion
+2167,Carlos,4508,47,Baja,En observacion
+2168,Marta,5594,54,Baja,En observacion
+2169,Juan,3851,0,Baja,Saludable
+2170,Marta,5295,88,Media,En observacion
+2171,Claudia,2849,65,Media,En riesgo
+2172,Alejandro,4102,29,Baja,En observacion
+2173,Sofia,1741,2,Baja,En observacion
+2174,Claudia,1625,20,Ninguna,En observacion
+2175,Miguel,3101,88,Alta,En observacion
+2176,Maria,1690,83,Media,En riesgo
+2177,Martin,5601,48,Media,En observacion
+2178,Pedro,4631,85,Baja,En riesgo
+2179,Jorge,5339,84,Alta,En observacion
+2180,Juan,4948,61,Alta,En observacion
+2181,Lucia,572,37,Ninguna,En riesgo
+2182,Jorge,5972,14,Alta,Saludable
+2183,Jose,2414,51,Baja,En riesgo
+2184,Laura,5689,78,Media,En observacion
+2185,Marta,2972,45,Baja,En riesgo
+2186,Camila,3546,24,Media,En observacion
+2187,Martin,1207,20,Ninguna,En observacion
+2188,Martin,2304,87,Ninguna,En riesgo
+2189,Ana,4213,4,Alta,Saludable
+2190,Luis,5551,69,Alta,En observacion
+2191,Elena,3064,46,Media,En observacion
+2192,Camila,2975,86,Baja,En riesgo
+2193,Laura,4110,67,Ninguna,En riesgo
+2194,Elena,4755,17,Media,Saludable
+2195,Juan,3323,20,Baja,En observacion
+2196,Jose,2235,85,Alta,En observacion
+2197,Valentina,2085,22,Baja,En observacion
+2198,Marta,566,63,Ninguna,En riesgo
+2199,Valentina,3561,66,Media,En observacion
+2200,Sofia,2928,39,Media,En observacion
+2201,Laura,4653,9,Alta,Saludable
+2202,Laura,841,88,Media,En riesgo
+2203,Luis,5749,51,Media,En observacion
+2204,Laura,3274,71,Alta,En observacion
+2205,Valentina,5791,74,Media,En observacion
+2206,Lucia,3317,60,Media,En observacion
+2207,Carlos,3161,63,Media,En riesgo
+2208,Sofia,1732,4,Media,En observacion
+2209,Diego,4374,52,Alta,En observacion
+2210,Luis,2901,54,Baja,En riesgo
+2211,Maria,1994,36,Baja,En riesgo
+2212,Maria,4711,55,Media,En observacion
+2213,Pedro,1161,58,Alta,En observacion
+2214,Martin,4383,68,Baja,En riesgo
+2215,Laura,4119,72,Ninguna,En riesgo
+2216,Claudia,2368,58,Media,En observacion
+2217,Maria,2834,1,Media,Saludable
+2218,Laura,3874,64,Alta,En observacion
+2219,Camila,1516,59,Media,En riesgo
+2220,Juan,4906,50,Alta,En observacion
+2221,Ana,707,29,Media,En riesgo
+2222,Jorge,3165,10,Baja,En observacion
+2223,Claudia,2993,75,Media,En riesgo
+2224,Jose,1132,38,Media,En observacion
+2225,Laura,2602,89,Media,En riesgo
+2226,Miguel,3459,76,Media,En riesgo
+2227,Luis,3583,71,Alta,En observacion
+2228,Martin,5252,62,Alta,En observacion
+2229,Luis,2431,63,Ninguna,En riesgo
+2230,Maria,4219,60,Alta,En observacion
+2231,Diego,3062,53,Baja,En riesgo
+2232,Lucia,2179,72,Ninguna,En riesgo
+2233,Valentina,736,57,Media,En riesgo
+2234,Elena,4943,84,Media,En observacion
+2235,Alejandro,5225,55,Media,En observacion
+2236,Elena,2040,33,Ninguna,En riesgo
+2237,Sofia,4443,30,Ninguna,En observacion
+2238,Martin,5867,51,Baja,En observacion
+2239,Carlos,863,88,Alta,En riesgo
+2240,Laura,2868,75,Baja,En riesgo
+2241,Martin,785,0,Media,En observacion
+2242,Jose,648,54,Media,En riesgo
+2243,Sofia,5703,21,Alta,Saludable
+2244,Juan,4537,39,Alta,Saludable
+2245,Jorge,5051,0,Baja,Saludable
+2246,Ana,2266,64,Media,En riesgo
+2247,Pedro,5395,62,Media,En observacion
+2248,Elena,5780,53,Media,En observacion
+2249,Luis,1512,41,Ninguna,En riesgo
+2250,Jose,3331,20,Baja,En observacion
+2251,Martin,3007,78,Media,En riesgo
+2252,Luis,2023,80,Alta,En observacion
+2253,Camila,3285,21,Media,En observacion
+2254,Carlos,3056,37,Ninguna,En riesgo
+2255,Luis,4225,79,Media,En observacion
+2256,Miguel,5076,7,Media,Saludable
+2257,Alejandro,2101,61,Media,En riesgo
+2258,Marta,2908,46,Media,En observacion
+2259,Sofia,840,16,Baja,En observacion
+2260,Jorge,3317,16,Media,Saludable
+2261,Marta,2996,89,Alta,En observacion
+2262,Carlos,5430,12,Alta,Saludable
+2263,Juan,5799,16,Media,Saludable
+2264,Diego,2225,37,Ninguna,En riesgo
+2265,Diego,2189,80,Media,En riesgo
+2266,Martin,3767,77,Ninguna,En riesgo
+2267,Maria,4906,44,Baja,En observacion
+2268,Diego,761,5,Media,En observacion
+2269,Alejandro,1942,34,Alta,En observacion
+2270,Jorge,905,13,Alta,En observacion
+2271,Luis,2690,71,Baja,En riesgo
+2272,Diego,4937,60,Alta,En observacion
+2273,Jorge,5935,14,Media,Saludable
+2274,Juan,743,53,Media,En riesgo
+2275,Miguel,5085,26,Baja,En observacion
+2276,Ana,4607,12,Alta,Saludable
+2277,Ana,1060,30,Media,En observacion
+2278,Camila,4637,34,Media,En observacion
+2279,Laura,3225,59,Media,En observacion
+2280,Lucia,1093,5,Baja,En observacion
+2281,Claudia,2326,68,Alta,En observacion
+2282,Camila,3729,85,Baja,En riesgo
+2283,Marta,3787,57,Baja,En observacion
+2284,Carlos,4573,48,Media,En observacion
+2285,Elena,633,22,Baja,En riesgo
+2286,Juan,3638,88,Media,En observacion
+2287,Laura,4419,33,Alta,Saludable
+2288,Miguel,5543,25,Baja,En observacion
+2289,Pedro,572,46,Media,En riesgo
+2290,Ana,4994,4,Baja,Saludable
+2291,Elena,4725,89,Media,En observacion
+2292,Marta,3478,19,Ninguna,En observacion
+2293,Elena,4861,5,Media,Saludable
+2294,Carlos,2485,69,Alta,En observacion
+2295,Martin,1292,58,Media,En riesgo
+2296,Elena,5908,63,Baja,En riesgo
+2297,Valentina,4759,17,Baja,Saludable
+2298,Carlos,594,3,Media,En observacion
+2299,Alejandro,1633,16,Ninguna,En observacion
+2300,Carlos,5417,13,Media,Saludable
+2301,Claudia,737,77,Media,En riesgo
+2302,Luis,3446,12,Ninguna,En observacion
+2303,Laura,3030,6,Ninguna,En observacion
+2304,Diego,2460,43,Baja,En riesgo
+2305,Juan,1548,14,Ninguna,En observacion
+2306,Jorge,3029,18,Alta,Saludable
+2307,Carlos,3464,62,Ninguna,En riesgo
+2308,Alejandro,1463,34,Media,En observacion
+2309,Jose,1036,80,Alta,En riesgo
+2310,Marta,4723,34,Media,En observacion
+2311,Lucia,4179,18,Media,Saludable
+2312,Carlos,4687,19,Media,Saludable
+2313,Alejandro,4224,34,Media,En observacion
+2314,Lucia,1042,31,Alta,En observacion
+2315,Sofia,1345,47,Media,En riesgo
+2316,Jorge,4103,43,Media,En observacion
+2317,Claudia,3536,23,Media,En observacion
+2318,Laura,2994,60,Media,En observacion
+2319,Carlos,4985,16,Baja,Saludable
+2320,Ana,3219,70,Ninguna,En riesgo
+2321,Juan,2384,49,Baja,En riesgo
+2322,Jorge,4638,64,Media,En observacion
+2323,Ana,4849,31,Baja,En observacion
+2324,Jose,3701,35,Alta,Saludable
+2325,Alejandro,5679,12,Alta,Saludable
+2326,Jose,3210,69,Media,En riesgo
+2327,Claudia,2453,57,Baja,En riesgo
+2328,Jose,5237,13,Media,Saludable
+2329,Lucia,4350,36,Alta,Saludable
+2330,Claudia,1189,78,Alta,En riesgo
+2331,Diego,5872,67,Ninguna,En riesgo
+2332,Laura,2450,39,Baja,En observacion
+2333,Carlos,5675,58,Media,En observacion
+2334,Carlos,956,79,Media,En riesgo
+2335,Camila,5578,15,Media,Saludable
+2336,Marta,2630,61,Baja,En riesgo
+2337,Carlos,4476,3,Media,Saludable
+2338,Laura,5718,44,Ninguna,En riesgo
+2339,Jose,4744,89,Media,En observacion
+2340,Sofia,5948,27,Baja,En observacion
+2341,Lucia,1679,65,Alta,En riesgo
+2342,Camila,4785,30,Media,En observacion
+2343,Jose,4065,2,Media,Saludable
+2344,Claudia,1382,7,Media,En observacion
+2345,Marta,899,23,Alta,En observacion
+2346,Valentina,1108,14,Baja,En observacion
+2347,Jorge,2138,42,Media,En observacion
+2348,Carlos,2648,30,Baja,En observacion
+2349,Miguel,1882,72,Baja,En riesgo
+2350,Elena,1903,44,Media,En riesgo
+2351,Valentina,1319,65,Baja,En riesgo
+2352,Elena,3792,7,Baja,Saludable
+2353,Luis,1319,70,Media,En riesgo
+2354,Elena,919,56,Baja,En riesgo
+2355,Sofia,4719,79,Media,En observacion
+2356,Miguel,5017,29,Media,En observacion
+2357,Miguel,3802,73,Baja,En riesgo
+2358,Alejandro,2008,17,Media,Saludable
+2359,Camila,1267,68,Media,En riesgo
+2360,Lucia,2544,38,Media,En observacion
+2361,Alejandro,2639,59,Baja,En riesgo
+2362,Sofia,3529,42,Ninguna,En riesgo
+2363,Lucia,2049,44,Media,En observacion
+2364,Camila,2264,22,Baja,En observacion
+2365,Miguel,3145,68,Ninguna,En riesgo
+2366,Carlos,4216,5,Alta,Saludable
+2367,Laura,5105,55,Media,En observacion
+2368,Miguel,5802,3,Baja,Saludable
+2369,Marta,4981,22,Baja,En observacion
+2370,Martin,2793,5,Ninguna,En observacion
+2371,Alejandro,5337,31,Media,En observacion
+2372,Jose,3208,17,Alta,Saludable
+2373,Marta,1400,14,Media,En observacion
+2374,Luis,3584,39,Media,En observacion
+2375,Luis,2509,72,Media,En riesgo
+2376,Elena,741,73,Baja,En riesgo
+2377,Valentina,2885,83,Alta,En observacion
+2378,Sofia,4768,5,Baja,Saludable
+2379,Luis,1171,62,Media,En riesgo
+2380,Pedro,663,66,Media,En riesgo
+2381,Marta,964,10,Alta,En observacion
+2382,Elena,3542,42,Media,En observacion
+2383,Luis,5092,16,Alta,Saludable
+2384,Diego,5295,3,Ninguna,En observacion
+2385,Ana,2942,62,Baja,En riesgo
+2386,Ana,5298,67,Media,En observacion
+2387,Marta,2855,80,Media,En riesgo
+2388,Martin,4778,40,Ninguna,En riesgo
+2389,Miguel,5224,82,Media,En observacion
+2390,Ana,3057,4,Alta,Saludable
+2391,Lucia,1045,31,Media,En observacion
+2392,Marta,5219,85,Ninguna,En riesgo
+2393,Ana,4335,69,Alta,En observacion
+2394,Lucia,1093,34,Media,En observacion
+2395,Luis,5339,21,Ninguna,En observacion
+2396,Marta,4304,64,Alta,En observacion
+2397,Marta,1959,83,Alta,En riesgo
+2398,Laura,3993,21,Media,En observacion
+2399,Diego,3101,10,Ninguna,En observacion
+2400,Ana,2944,76,Media,En riesgo
+2401,Elena,3172,2,Ninguna,En observacion
+2402,Ana,4700,8,Baja,Saludable
+2403,Claudia,516,59,Alta,En riesgo
+2404,Laura,3691,75,Ninguna,En riesgo
+2405,Ana,892,86,Media,En riesgo
+2406,Valentina,924,13,Media,En observacion
+2407,Jorge,1071,17,Media,En observacion
+2408,Jorge,4131,72,Media,En observacion
+2409,Elena,1620,22,Alta,En observacion
+2410,Valentina,741,73,Alta,En riesgo
+2411,Juan,4397,82,Media,En observacion
+2412,Marta,4595,46,Baja,En observacion
+2413,Miguel,2779,68,Media,En riesgo
+2414,Luis,1288,46,Ninguna,En riesgo
+2415,Lucia,1214,86,Media,En riesgo
+2416,Lucia,5354,29,Media,En observacion
+2417,Carlos,3349,24,Alta,En observacion
+2418,Marta,1275,27,Alta,En observacion
+2419,Claudia,4526,24,Media,En observacion
+2420,Ana,2747,73,Baja,En riesgo
+2421,Juan,578,77,Ninguna,En riesgo
+2422,Ana,4426,57,Ninguna,En riesgo
+2423,Juan,1355,40,Media,En riesgo
+2424,Sofia,2648,24,Ninguna,En riesgo
+2425,Luis,1531,77,Media,En riesgo
+2426,Maria,5440,47,Alta,En observacion
+2427,Claudia,3771,9,Ninguna,En observacion
+2428,Martin,4076,74,Baja,En riesgo
+2429,Pedro,4682,10,Alta,Saludable
+2430,Jose,3956,84,Media,En observacion
+2431,Ana,4006,20,Media,Saludable
+2432,Luis,907,85,Baja,En riesgo
+2433,Lucia,3211,44,Media,En observacion
+2434,Jose,3588,6,Ninguna,En observacion
+2435,Juan,2168,80,Alta,En observacion
+2436,Laura,647,63,Media,En riesgo
+2437,Camila,4827,63,Media,En observacion
+2438,Jose,4397,1,Media,Saludable
+2439,Martin,2450,75,Media,En riesgo
+2440,Sofia,865,41,Baja,En riesgo
+2441,Jorge,2174,81,Ninguna,En riesgo
+2442,Camila,5031,53,Ninguna,En riesgo
+2443,Valentina,4994,74,Baja,En riesgo
+2444,Marta,5830,15,Ninguna,En observacion
+2445,Maria,3046,17,Media,Saludable
+2446,Luis,1062,58,Baja,En riesgo
+2447,Valentina,4062,89,Media,En observacion
+2448,Carlos,2989,15,Media,Saludable
+2449,Martin,5880,5,Media,Saludable
+2450,Marta,1272,56,Media,En riesgo
+2451,Lucia,2537,46,Media,En observacion
+2452,Alejandro,3923,47,Ninguna,En riesgo
+2453,Pedro,3067,41,Media,En observacion
+2454,Valentina,5939,75,Alta,En observacion
+2455,Elena,2073,59,Media,En observacion
+2456,Lucia,4194,76,Alta,En observacion
+2457,Sofia,5587,3,Alta,Saludable
+2458,Miguel,3791,1,Media,Saludable
+2459,Miguel,1746,89,Media,En riesgo
+2460,Miguel,4219,58,Media,En observacion
+2461,Marta,4339,26,Baja,En observacion
+2462,Juan,859,26,Baja,En riesgo
+2463,Jose,5516,78,Media,En observacion
+2464,Luis,2876,71,Media,En riesgo
+2465,Luis,3509,6,Media,Saludable
+2466,Lucia,3493,62,Baja,En riesgo
+2467,Maria,1462,45,Alta,En observacion
+2468,Lucia,4132,62,Alta,En observacion
+2469,Elena,2327,11,Baja,En observacion
+2470,Jose,2113,12,Media,Saludable
+2471,Ana,2140,42,Alta,En observacion
+2472,Diego,2716,16,Media,Saludable
+2473,Carlos,4812,62,Ninguna,En riesgo
+2474,Marta,877,80,Ninguna,En riesgo
+2475,Jose,4714,35,Baja,En observacion
+2476,Ana,4785,84,Media,En observacion
+2477,Juan,869,7,Media,En observacion
+2478,Marta,2696,68,Ninguna,En riesgo
+2479,Alejandro,4247,89,Ninguna,En riesgo
+2480,Marta,1151,79,Media,En riesgo
+2481,Jose,1269,35,Baja,En riesgo
+2482,Sofia,2921,27,Alta,En observacion
+2483,Juan,1280,46,Media,En riesgo
+2484,Diego,2216,75,Baja,En riesgo
+2485,Claudia,4483,29,Media,En observacion
+2486,Sofia,1811,22,Ninguna,En riesgo
+2487,Martin,3859,15,Alta,Saludable
+2488,Laura,5845,13,Media,Saludable
+2489,Pedro,1022,73,Ninguna,En riesgo
+2490,Alejandro,1021,70,Ninguna,En riesgo
+2491,Lucia,5378,51,Alta,En observacion
+2492,Alejandro,2820,36,Media,En observacion
+2493,Valentina,1435,28,Baja,En riesgo
+2494,Miguel,2730,66,Alta,En observacion
+2495,Maria,4540,14,Ninguna,En observacion
+2496,Elena,5083,46,Ninguna,En riesgo
+2497,Laura,5441,45,Alta,En observacion
+2498,Marta,4197,51,Alta,En observacion
+2499,Pedro,3337,18,Alta,Saludable
+2500,Sofia,4583,76,Ninguna,En riesgo
+2501,Laura,2961,20,Alta,Saludable
+2502,Miguel,3743,63,Media,En observacion
+2503,Sofia,3859,36,Media,En observacion
+2504,Jorge,1185,26,Media,En observacion
+2505,Claudia,2660,54,Alta,En observacion
+2506,Sofia,4488,28,Media,En observacion
+2507,Miguel,4566,19,Ninguna,En observacion
+2508,Claudia,2067,24,Ninguna,En riesgo
+2509,Jose,5841,69,Baja,En riesgo
+2510,Alejandro,538,62,Alta,En riesgo
+2511,Elena,3044,35,Media,En observacion
+2512,Valentina,5375,1,Baja,Saludable
+2513,Jorge,1756,21,Media,En observacion
+2514,Ana,3490,15,Ninguna,En observacion
+2515,Martin,2696,17,Baja,En observacion
+2516,Alejandro,3968,68,Alta,En observacion
+2517,Diego,3208,53,Ninguna,En riesgo
+2518,Pedro,801,29,Ninguna,En riesgo
+2519,Juan,1146,44,Alta,En observacion
+2520,Pedro,5258,18,Media,Saludable
+2521,Pedro,2259,86,Media,En riesgo
+2522,Camila,4851,33,Media,En observacion
+2523,Pedro,1097,12,Alta,Saludable
+2524,Sofia,1161,42,Media,En riesgo
+2525,Marta,4830,61,Ninguna,En riesgo
+2526,Carlos,1868,21,Media,En observacion
+2527,Jorge,3081,51,Alta,En observacion
+2528,Laura,4368,51,Baja,En observacion
+2529,Valentina,4037,35,Media,En observacion
+2530,Pedro,5365,72,Ninguna,En riesgo
+2531,Luis,4808,18,Media,Saludable
+2532,Pedro,5058,37,Alta,Saludable
+2533,Martin,782,69,Alta,En riesgo
+2534,Ana,4178,78,Baja,En riesgo
+2535,Marta,1986,56,Media,En riesgo
+2536,Alejandro,4582,19,Baja,Saludable
+2537,Laura,4683,8,Media,Saludable
+2538,Carlos,5663,31,Media,En observacion
+2539,Carlos,960,3,Media,En observacion
+2540,Martin,2825,49,Ninguna,En riesgo
+2541,Laura,4254,81,Ninguna,En riesgo
+2542,Martin,2968,4,Media,Saludable
+2543,Martin,2224,19,Media,Saludable
+2544,Ana,1876,86,Alta,En riesgo
+2545,Lucia,3243,74,Media,En riesgo
+2546,Claudia,1014,36,Media,En observacion
+2547,Camila,1202,21,Ninguna,En riesgo
+2548,Martin,2153,57,Ninguna,En riesgo
+2549,Martin,2566,67,Media,En riesgo
+2550,Laura,522,43,Media,En riesgo
+2551,Pedro,2960,33,Ninguna,En riesgo
+2552,Marta,5649,76,Baja,En riesgo
+2553,Jorge,1804,41,Alta,En observacion
+2554,Carlos,3800,8,Media,Saludable
+2555,Maria,5730,6,Media,Saludable
+2556,Marta,861,67,Media,En riesgo
+2557,Lucia,4227,18,Alta,Saludable
+2558,Lucia,1784,30,Alta,En observacion
+2559,Jorge,1014,34,Baja,En riesgo
+2560,Pedro,948,56,Media,En riesgo
+2561,Luis,5843,84,Alta,En observacion
+2562,Pedro,2355,60,Media,En observacion
+2563,Maria,5469,30,Baja,En observacion
+2564,Martin,4062,82,Ninguna,En riesgo
+2565,Jorge,3020,52,Media,En observacion
+2566,Marta,3581,31,Media,En observacion
+2567,Camila,1928,65,Ninguna,En riesgo
+2568,Maria,4467,58,Media,En observacion
+2569,Luis,1422,9,Media,En observacion
+2570,Valentina,3637,1,Media,Saludable
+2571,Pedro,2659,65,Alta,En observacion
+2572,Jose,5632,59,Media,En observacion
+2573,Jose,3047,87,Ninguna,En riesgo
+2574,Martin,3479,16,Baja,En observacion
+2575,Marta,2781,15,Media,Saludable
+2576,Jorge,3149,15,Ninguna,En observacion
+2577,Luis,813,45,Alta,En riesgo
+2578,Camila,3113,38,Media,En observacion
+2579,Marta,3583,30,Media,En observacion
+2580,Marta,2756,87,Baja,En riesgo
+2581,Marta,1537,0,Alta,Saludable
+2582,Elena,3989,10,Media,Saludable
+2583,Lucia,3134,84,Baja,En riesgo
+2584,Maria,4483,3,Baja,Saludable
+2585,Elena,2278,70,Baja,En riesgo
+2586,Marta,5610,25,Media,En observacion
+2587,Camila,5689,49,Alta,En observacion
+2588,Jorge,4395,11,Media,Saludable
+2589,Miguel,1624,80,Alta,En riesgo
+2590,Claudia,1197,74,Ninguna,En riesgo
+2591,Diego,2679,64,Media,En riesgo
+2592,Valentina,1904,46,Media,En riesgo
+2593,Elena,5751,52,Baja,En observacion
+2594,Camila,1543,70,Media,En riesgo
+2595,Ana,2429,1,Media,Saludable
+2596,Sofia,1513,23,Baja,En riesgo
+2597,Sofia,726,3,Ninguna,En riesgo
+2598,Marta,2328,18,Baja,En observacion
+2599,Laura,5417,25,Alta,Saludable
+2600,Martin,2523,74,Media,En riesgo
+2601,Juan,5466,39,Baja,En observacion
+2602,Valentina,2952,49,Alta,En observacion
+2603,Laura,2585,42,Media,En observacion
+2604,Ana,4783,74,Ninguna,En riesgo
+2605,Juan,1580,66,Alta,En riesgo
+2606,Ana,5536,11,Baja,Saludable
+2607,Ana,2820,66,Media,En riesgo
+2608,Ana,3690,26,Media,En observacion
+2609,Martin,3130,53,Alta,En observacion
+2610,Diego,3063,65,Baja,En riesgo
+2611,Alejandro,3792,48,Media,En observacion
+2612,Jorge,5121,15,Media,Saludable
+2613,Ana,4086,1,Baja,Saludable
+2614,Luis,4931,59,Baja,En observacion
+2615,Jorge,5674,53,Ninguna,En riesgo
+2616,Marta,3447,29,Media,En observacion
+2617,Luis,4459,83,Media,En observacion
+2618,Sofia,3313,37,Ninguna,En riesgo
+2619,Marta,3083,27,Baja,En observacion
+2620,Juan,661,24,Media,En riesgo
+2621,Lucia,1093,9,Alta,Saludable
+2622,Jose,3759,59,Baja,En observacion
+2623,Marta,4655,41,Media,En observacion
+2624,Luis,3462,39,Baja,En observacion
+2625,Marta,4388,76,Media,En observacion
+2626,Pedro,3890,41,Alta,En observacion
+2627,Alejandro,5001,46,Baja,En observacion
+2628,Juan,1163,36,Alta,En observacion
+2629,Diego,1632,79,Media,En riesgo
+2630,Valentina,5695,21,Media,En observacion
+2631,Jorge,1041,56,Media,En riesgo
+2632,Miguel,5933,83,Baja,En riesgo
+2633,Carlos,5593,26,Baja,En observacion
+2634,Laura,5736,40,Baja,En observacion
+2635,Diego,3474,79,Alta,En observacion
+2636,Jorge,1367,33,Alta,En observacion
+2637,Marta,2566,31,Media,En observacion
+2638,Carlos,931,89,Ninguna,En riesgo
+2639,Miguel,5335,88,Baja,En riesgo
+2640,Martin,5969,65,Baja,En riesgo
+2641,Elena,4778,11,Media,Saludable
+2642,Pedro,1706,39,Media,En observacion
+2643,Camila,3028,72,Media,En riesgo
+2644,Marta,1669,75,Alta,En riesgo
+2645,Sofia,1330,89,Alta,En riesgo
+2646,Ana,2151,72,Ninguna,En riesgo
+2647,Camila,1636,9,Media,En observacion
+2648,Miguel,3310,47,Media,En observacion
+2649,Luis,975,19,Alta,En observacion
+2650,Jorge,3310,38,Ninguna,En riesgo
+2651,Lucia,1826,59,Media,En riesgo
+2652,Luis,5566,65,Baja,En riesgo
+2653,Martin,1519,64,Ninguna,En riesgo
+2654,Pedro,5737,50,Media,En observacion
+2655,Lucia,2336,35,Baja,En observacion
+2656,Maria,4756,23,Alta,Saludable
+2657,Jose,2948,26,Alta,En observacion
+2658,Pedro,4793,1,Baja,Saludable
+2659,Sofia,1783,30,Baja,En riesgo
+2660,Luis,1159,56,Media,En riesgo
+2661,Valentina,5666,77,Media,En observacion
+2662,Marta,2510,65,Media,En riesgo
+2663,Elena,898,28,Alta,En observacion
+2664,Claudia,2233,14,Media,Saludable
+2665,Martin,2625,11,Media,Saludable
+2666,Luis,2671,27,Media,En observacion
+2667,Elena,574,83,Baja,En riesgo
+2668,Lucia,5197,23,Media,En observacion
+2669,Miguel,3971,20,Alta,Saludable
+2670,Pedro,1336,9,Media,En observacion
+2671,Elena,999,77,Ninguna,En riesgo
+2672,Valentina,637,17,Media,En observacion
+2673,Juan,2597,87,Alta,En observacion
+2674,Lucia,5568,13,Media,Saludable
+2675,Carlos,4196,33,Baja,En observacion
+2676,Luis,2385,57,Media,En observacion
+2677,Claudia,3257,75,Baja,En riesgo
+2678,Jose,4420,21,Ninguna,En observacion
+2679,Jorge,2400,69,Baja,En riesgo
+2680,Marta,3110,35,Baja,En observacion
+2681,Valentina,4486,44,Media,En observacion
+2682,Martin,1949,35,Alta,En observacion
+2683,Martin,1046,21,Ninguna,En riesgo
+2684,Jose,5517,77,Media,En observacion
+2685,Camila,5176,79,Alta,En observacion
+2686,Laura,5968,60,Baja,En observacion
+2687,Marta,2503,55,Media,En observacion
+2688,Maria,2596,88,Media,En riesgo
+2689,Martin,1203,32,Media,En observacion
+2690,Camila,2903,44,Media,En observacion
+2691,Laura,2125,35,Baja,En observacion
+2692,Jorge,3831,19,Media,Saludable
+2693,Claudia,5233,17,Media,Saludable
+2694,Miguel,5605,37,Media,En observacion
+2695,Pedro,3478,66,Baja,En riesgo
+2696,Jorge,5236,22,Baja,En observacion
+2697,Claudia,3339,15,Media,Saludable
+2698,Claudia,3884,58,Baja,En observacion
+2699,Maria,3159,68,Alta,En observacion
+2700,Luis,2361,67,Ninguna,En riesgo
+2701,Maria,3356,20,Media,Saludable
+2702,Camila,5801,77,Baja,En riesgo
+2703,Jorge,1185,77,Alta,En riesgo
+2704,Carlos,4783,69,Media,En observacion
+2705,Jose,2119,11,Media,Saludable
+2706,Marta,5580,15,Ninguna,En observacion
+2707,Juan,5143,80,Media,En observacion
+2708,Alejandro,1931,86,Ninguna,En riesgo
+2709,Jose,1375,13,Media,En observacion
+2710,Diego,5213,60,Media,En observacion
+2711,Elena,2961,70,Alta,En observacion
+2712,Diego,1865,45,Baja,En riesgo
+2713,Pedro,1743,31,Media,En observacion
+2714,Marta,5498,14,Ninguna,En observacion
+2715,Carlos,662,43,Ninguna,En riesgo
+2716,Alejandro,2474,16,Ninguna,En observacion
+2717,Ana,3791,40,Media,En observacion
+2718,Pedro,769,53,Baja,En riesgo
+2719,Claudia,1131,43,Baja,En riesgo
+2720,Valentina,1405,4,Alta,Saludable
+2721,Luis,3971,26,Baja,En observacion
+2722,Laura,3753,86,Alta,En observacion
+2723,Claudia,2514,77,Media,En riesgo
+2724,Sofia,2141,78,Alta,En observacion
+2725,Alejandro,704,42,Alta,En riesgo
+2726,Miguel,1081,30,Media,En observacion
+2727,Juan,1340,16,Media,En observacion
+2728,Carlos,5847,82,Baja,En riesgo
+2729,Valentina,2219,53,Alta,En observacion
+2730,Valentina,3143,61,Media,En riesgo
+2731,Maria,2797,86,Alta,En observacion
+2732,Luis,1374,31,Media,En observacion
+2733,Juan,1189,39,Baja,En riesgo
+2734,Laura,4500,12,Media,Saludable
+2735,Camila,3641,83,Baja,En riesgo
+2736,Laura,1922,34,Media,En observacion
+2737,Luis,1171,4,Baja,En observacion
+2738,Valentina,1671,72,Media,En riesgo
+2739,Miguel,4226,28,Media,En observacion
+2740,Camila,1443,69,Baja,En riesgo
+2741,Sofia,1949,24,Alta,En observacion
+2742,Martin,4237,21,Baja,En observacion
+2743,Claudia,3039,65,Baja,En riesgo
+2744,Claudia,4459,44,Media,En observacion
+2745,Juan,5491,68,Alta,En observacion
+2746,Ana,5932,88,Alta,En observacion
+2747,Sofia,4760,71,Ninguna,En riesgo
+2748,Juan,2861,0,Baja,En observacion
+2749,Miguel,5701,83,Alta,En observacion
+2750,Valentina,4152,43,Media,En observacion
+2751,Juan,4170,86,Media,En observacion
+2752,Jose,2253,74,Baja,En riesgo
+2753,Maria,2852,38,Alta,En observacion
+2754,Juan,2438,53,Media,En observacion
+2755,Claudia,870,87,Ninguna,En riesgo
+2756,Marta,5448,74,Alta,En observacion
+2757,Laura,4979,28,Media,En observacion
+2758,Valentina,2431,53,Ninguna,En riesgo
+2759,Miguel,924,89,Baja,En riesgo
+2760,Martin,5224,15,Media,Saludable
+2761,Laura,1394,19,Alta,Saludable
+2762,Carlos,1097,45,Alta,En observacion
+2763,Marta,3562,66,Media,En observacion
+2764,Lucia,2836,64,Ninguna,En riesgo
+2765,Carlos,5188,57,Media,En observacion
+2766,Diego,2187,52,Baja,En riesgo
+2767,Jose,1072,0,Ninguna,En observacion
+2768,Jorge,2590,80,Media,En riesgo
+2769,Valentina,4169,65,Alta,En observacion
+2770,Ana,4772,28,Media,En observacion
+2771,Sofia,5124,83,Ninguna,En riesgo
+2772,Jorge,2133,69,Baja,En riesgo
+2773,Laura,5561,7,Alta,Saludable
+2774,Maria,2017,28,Baja,En observacion
+2775,Sofia,4793,50,Media,En observacion
+2776,Lucia,3157,32,Ninguna,En riesgo
+2777,Marta,4148,2,Alta,Saludable
+2778,Valentina,5448,59,Media,En observacion
+2779,Martin,4088,34,Ninguna,En observacion
+2780,Lucia,2037,68,Media,En riesgo
+2781,Jorge,5676,75,Media,En observacion
+2782,Elena,3637,83,Alta,En observacion
+2783,Laura,597,19,Media,En observacion
+2784,Jose,3715,72,Media,En observacion
+2785,Jorge,5030,38,Ninguna,En observacion
+2786,Claudia,5232,3,Media,Saludable
+2787,Diego,4250,18,Media,Saludable
+2788,Ana,3657,44,Baja,En observacion
+2789,Pedro,5183,42,Alta,En observacion
+2790,Maria,843,12,Media,En observacion
+2791,Pedro,5913,12,Baja,Saludable
+2792,Diego,5166,59,Ninguna,En riesgo
+2793,Luis,1110,56,Baja,En riesgo
+2794,Miguel,2227,85,Baja,En riesgo
+2795,Valentina,2790,51,Alta,En observacion
+2796,Ana,2354,52,Ninguna,En riesgo
+2797,Alejandro,3108,85,Alta,En observacion
+2798,Camila,5555,42,Baja,En observacion
+2799,Pedro,2579,82,Media,En riesgo
+2800,Sofia,2824,71,Ninguna,En riesgo
+2801,Martin,5127,71,Baja,En riesgo
+2802,Jorge,1677,41,Baja,En riesgo
+2803,Jose,1591,89,Media,En riesgo
+2804,Juan,5479,25,Media,En observacion
+2805,Maria,3291,22,Baja,En observacion
+2806,Martin,2249,42,Baja,En riesgo
+2807,Luis,3175,76,Alta,En observacion
+2808,Lucia,1281,27,Ninguna,En riesgo
+2809,Pedro,3548,8,Ninguna,En observacion
+2810,Miguel,2605,19,Media,Saludable
+2811,Alejandro,4367,55,Baja,En observacion
+2812,Marta,5476,82,Media,En observacion
+2813,Jorge,5042,38,Media,En observacion
+2814,Luis,2613,50,Media,En observacion
+2815,Carlos,5873,11,Media,Saludable
+2816,Carlos,4470,78,Baja,En riesgo
+2817,Alejandro,2491,54,Media,En observacion
+2818,Elena,1567,77,Baja,En riesgo
+2819,Marta,2077,10,Baja,En observacion
+2820,Martin,1511,25,Baja,En riesgo
+2821,Ana,2774,41,Alta,En observacion
+2822,Jorge,5369,26,Ninguna,En observacion
+2823,Sofia,2314,10,Media,Saludable
+2824,Alejandro,2926,37,Media,En observacion
+2825,Luis,5797,42,Media,En observacion
+2826,Maria,4902,18,Media,Saludable
+2827,Miguel,5374,63,Ninguna,En riesgo
+2828,Maria,3051,5,Media,Saludable
+2829,Jose,4157,45,Baja,En observacion
+2830,Jorge,507,41,Alta,En riesgo
+2831,Laura,3055,64,Media,En riesgo
+2832,Carlos,975,71,Ninguna,En riesgo
+2833,Luis,5916,58,Baja,En observacion
+2834,Carlos,2711,51,Media,En observacion
+2835,Lucia,984,46,Media,En riesgo
+2836,Jorge,5500,6,Media,Saludable
+2837,Laura,5154,10,Media,Saludable
+2838,Alejandro,2785,60,Baja,En riesgo
+2839,Sofia,5723,67,Baja,En riesgo
+2840,Valentina,5829,24,Media,En observacion
+2841,Carlos,5063,11,Ninguna,En observacion
+2842,Martin,4025,25,Media,En observacion
+2843,Sofia,3839,11,Media,Saludable
+2844,Laura,3322,42,Media,En observacion
+2845,Maria,5443,50,Baja,En observacion
+2846,Claudia,3424,36,Media,En observacion
+2847,Lucia,758,45,Media,En riesgo
+2848,Maria,782,52,Media,En riesgo
+2849,Carlos,2398,87,Alta,En observacion
+2850,Martin,4635,79,Baja,En riesgo
+2851,Pedro,3476,12,Media,Saludable
+2852,Luis,2767,88,Alta,En observacion
+2853,Juan,3700,53,Baja,En observacion
+2854,Sofia,5610,56,Ninguna,En riesgo
+2855,Claudia,1112,3,Ninguna,En observacion
+2856,Elena,1187,74,Media,En riesgo
+2857,Marta,4190,48,Alta,En observacion
+2858,Laura,1112,6,Media,En observacion
+2859,Miguel,2807,10,Alta,Saludable
+2860,Miguel,3513,53,Ninguna,En riesgo
+2861,Laura,2281,86,Alta,En observacion
+2862,Pedro,3091,44,Media,En observacion
+2863,Carlos,3196,22,Media,En observacion
+2864,Maria,4458,27,Media,En observacion
+2865,Lucia,5748,56,Baja,En observacion
+2866,Diego,1074,25,Media,En observacion
+2867,Laura,2410,24,Alta,En observacion
+2868,Ana,5608,53,Media,En observacion
+2869,Carlos,4104,28,Media,En observacion
+2870,Diego,1169,82,Alta,En riesgo
+2871,Martin,4864,35,Baja,En observacion
+2872,Elena,1783,13,Media,En observacion
+2873,Laura,1423,77,Baja,En riesgo
+2874,Jorge,1625,34,Ninguna,En riesgo
+2875,Claudia,2029,29,Ninguna,En riesgo
+2876,Juan,2094,16,Ninguna,En observacion
+2877,Alejandro,746,66,Media,En riesgo
+2878,Alejandro,4211,79,Alta,En observacion
+2879,Lucia,2060,29,Media,En observacion
+2880,Jorge,2900,44,Ninguna,En riesgo
+2881,Alejandro,2743,78,Ninguna,En riesgo
+2882,Jorge,4364,88,Ninguna,En riesgo
+2883,Ana,2439,50,Alta,En observacion
+2884,Maria,5525,46,Ninguna,En riesgo
+2885,Miguel,3569,52,Media,En observacion
+2886,Claudia,726,63,Alta,En riesgo
+2887,Pedro,4047,37,Media,En observacion
+2888,Camila,764,63,Alta,En riesgo
+2889,Valentina,1895,86,Media,En riesgo
+2890,Jorge,4057,88,Media,En observacion
+2891,Martin,1145,6,Media,En observacion
+2892,Ana,3490,21,Baja,En observacion
+2893,Elena,5983,80,Ninguna,En riesgo
+2894,Camila,2399,81,Baja,En riesgo
+2895,Jorge,3004,40,Media,En observacion
+2896,Carlos,3272,73,Baja,En riesgo
+2897,Valentina,5845,9,Ninguna,En observacion
+2898,Elena,5577,56,Alta,En observacion
+2899,Miguel,1654,6,Media,En observacion
+2900,Carlos,1087,49,Media,En riesgo
+2901,Juan,5071,51,Alta,En observacion
+2902,Martin,2321,32,Baja,En observacion
+2903,Carlos,1485,0,Ninguna,En observacion
+2904,Elena,4579,52,Alta,En observacion
+2905,Carlos,3848,59,Baja,En observacion
+2906,Jorge,4331,33,Ninguna,En observacion
+2907,Miguel,1741,3,Ninguna,En observacion
+2908,Valentina,689,16,Media,En observacion
+2909,Elena,1480,3,Ninguna,En observacion
+2910,Carlos,2198,42,Media,En observacion
+2911,Alejandro,2215,89,Media,En riesgo
+2912,Sofia,3093,3,Alta,Saludable
+2913,Ana,4636,0,Alta,Saludable
+2914,Ana,5538,70,Baja,En riesgo
+2915,Alejandro,4933,49,Media,En observacion
+2916,Jose,5933,72,Media,En observacion
+2917,Juan,1598,60,Alta,En observacion
+2918,Sofia,2826,34,Baja,En observacion
+2919,Miguel,3747,7,Alta,Saludable
+2920,Juan,1395,23,Baja,En riesgo
+2921,Pedro,2174,82,Alta,En observacion
+2922,Camila,3409,35,Alta,En observacion
+2923,Camila,1430,49,Media,En riesgo
+2924,Jose,4884,42,Media,En observacion
+2925,Elena,1223,26,Media,En observacion
+2926,Marta,3440,31,Media,En observacion
+2927,Elena,1589,77,Ninguna,En riesgo
+2928,Claudia,5078,17,Baja,Saludable
+2929,Martin,1435,27,Alta,En observacion
+2930,Elena,2795,28,Media,En observacion
+2931,Laura,655,15,Ninguna,En riesgo
+2932,Elena,1570,46,Media,En riesgo
+2933,Valentina,2458,58,Alta,En observacion
+2934,Diego,3001,30,Baja,En observacion
+2935,Martin,4719,3,Baja,Saludable
+2936,Lucia,5563,36,Media,En observacion
+2937,Sofia,4330,16,Alta,Saludable
+2938,Jorge,1354,38,Alta,En observacion
+2939,Valentina,1139,47,Baja,En riesgo
+2940,Luis,2738,45,Media,En observacion
+2941,Lucia,2102,89,Media,En riesgo
+2942,Alejandro,941,47,Media,En riesgo
+2943,Ana,5128,38,Media,En observacion
+2944,Pedro,1836,3,Ninguna,En observacion
+2945,Ana,4200,29,Baja,En observacion
+2946,Jose,1448,29,Baja,En riesgo
+2947,Claudia,3873,21,Alta,Saludable
+2948,Elena,959,74,Alta,En riesgo
+2949,Jorge,5146,65,Media,En observacion
+2950,Laura,892,11,Alta,En observacion
+2951,Valentina,4438,35,Ninguna,En observacion
+2952,Marta,2287,17,Alta,Saludable
+2953,Luis,5440,89,Media,En observacion
+2954,Sofia,2757,52,Media,En observacion
+2955,Elena,1638,70,Baja,En riesgo
+2956,Luis,4308,0,Alta,Saludable
+2957,Sofia,5241,57,Media,En observacion
+2958,Lucia,2954,89,Media,En riesgo
+2959,Marta,1966,86,Ninguna,En riesgo
+2960,Ana,4174,89,Alta,En observacion
+2961,Claudia,1877,5,Ninguna,En observacion
+2962,Jose,3097,69,Baja,En riesgo
+2963,Carlos,641,43,Media,En riesgo
+2964,Claudia,3159,71,Baja,En riesgo
+2965,Luis,5096,23,Alta,Saludable
+2966,Lucia,1339,85,Ninguna,En riesgo
+2967,Alejandro,4118,18,Media,Saludable
+2968,Valentina,4417,17,Media,Saludable
+2969,Marta,1095,29,Media,En observacion
+2970,Jose,2404,41,Alta,En observacion
+2971,Luis,780,32,Ninguna,En riesgo
+2972,Diego,923,73,Alta,En riesgo
+2973,Carlos,4865,11,Baja,Saludable
+2974,Sofia,4749,26,Media,En observacion
+2975,Lucia,2250,38,Ninguna,En riesgo
+2976,Ana,5257,8,Media,Saludable
+2977,Claudia,2467,20,Media,Saludable
+2978,Claudia,4588,75,Media,En observacion
+2979,Marta,4678,28,Baja,En observacion
+2980,Laura,3446,32,Alta,En observacion
+2981,Elena,1949,61,Alta,En riesgo
+2982,Jorge,5894,14,Media,Saludable
+2983,Diego,2831,1,Baja,En observacion
+2984,Pedro,5575,51,Alta,En observacion
+2985,Claudia,2720,43,Media,En observacion
+2986,Luis,4289,53,Media,En observacion
+2987,Valentina,3310,17,Ninguna,En observacion
+2988,Ana,5994,2,Ninguna,En observacion
+2989,Maria,5228,6,Media,Saludable
+2990,Carlos,2031,42,Media,En observacion
+2991,Claudia,5382,81,Media,En observacion
+2992,Carlos,3490,37,Alta,En observacion
+2993,Ana,4993,36,Media,En observacion
+2994,Lucia,1643,57,Baja,En riesgo
+2995,Claudia,1433,32,Media,En observacion
+2996,Alejandro,1960,58,Ninguna,En riesgo
+2997,Laura,3223,10,Media,Saludable
+2998,Juan,3012,67,Baja,En riesgo
+2999,Martin,785,81,Media,En riesgo
+3000,Marta,764,67,Media,En riesgo

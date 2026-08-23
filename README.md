@@ -1,126 +1,158 @@
-# 💡 FinanceAI — Asistente Inteligente de Salud Financiera
+# FinanceAI - Plataforma inteligente de gestión y diagnóstico financiero
 
-Una solución inteligente para analizar el comportamiento y la salud financiera de usuarios a partir de sus transacciones, hábitos de consumo e indicadores financieros, transformando datos brutos en conocimiento claro y accionable.
-
----
-
-##  1. Funcionalidades del MVP (Features)
-
-- 🏷️ **Clasificación Automática de Gastos**: Categorización inteligente de transacciones en categorías clave (*Alimentación, Transporte, Salud, Vivienda, Educación, Ocio, Servicios, Ahorros, Deudas*).
-- 📊 **Evaluación del Perfil Financiero**: Catalogación del nivel de riesgo e higiene financiera del usuario en tres perfiles: **Saludable**, **En observación** o **En riesgo**, con cálculo de probabilidad.
-- 💡 **Recomendaciones Personalizadas**: Generación automática de consejos simples y accionables para reducir gastos excesivos y mejorar la capacidad de ahorro.
+FinanceAI es una aplicación web integral diseñada para ayudar a las personas a gestionar sus finanzas personales de forma simple e informada. La plataforma permite registrar ingresos y gastos, clasificar automáticamente los movimientos mediante inteligencia artificial, evaluar el estado de salud financiera del usuario y generar recomendaciones personalizadas para optimizar su presupuesto.
 
 ---
 
-##  2. Stack Tecnológico
+## Arquitectura general del sistema
 
-- **Ciencia de Datos**: Python, Pandas, Scikit-Learn (Random Forest & NLP TF-IDF), ONNX (`skl2onnx`).
-- **Back-End**: Java 17, Spring Boot, ONNX Runtime (`onnxruntime`), PostgreSQL (Spring Data JPA).
-- **Front-End**: Vue 3, Vite, HTML5, CSS3.
-- **Cloud & Infraestructura**: Oracle Cloud Infrastructure (OCI), Docker & Docker Compose.
+El proyecto está estructurado como una solución modular de cuatro componentes principales que se comunican entre sí de forma desacoplada y predecible:
 
----
+1. **Frontend (interfaz de usuario)**: Aplicación web interactiva de una sola página (SPA) desarrollada con Vue.js 3, Pinia y Tailwind CSS. Es la pantalla donde el usuario interactúa, carga transacciones, visualiza gráficos y consulta su estado financiero.
+2. **Backend (servidor de aplicaciones)**: API REST construida con Java 17 y Spring Boot 3.2.5. Se encarga de la lógica de negocio, la persistencia de datos, el cifrado de credenciales y la ejecución de los modelos de inteligencia artificial de forma nativa.
+3. **Base de datos (persistencia)**: Servidor relacional MySQL 8.0 gestionado mediante migraciones automáticas con Flyway, garantizando un esquema de datos consistente y reproducible.
+4. **Ciencia de datos y modelos (inteligencia artificial)**: Entorno de experimentación en Jupyter Lab con Python y Scikit-Learn. Los modelos entrenados se exportan al formato estándar ONNX, permitiendo que el backend de Java los ejecute directamente a gran velocidad sin necesidad de mantener un servidor de Python en producción.
 
-## 📁 3. Estructura Simplificada del Proyecto
+```mermaid
+flowchart LR
+    subgraph Usuario["Navegador web"]
+        UI["Frontend (Vue.js 3 + Vite)\nPuerto 8082"]
+    end
 
-```
-Test/
-├── backend/                  # API REST en Java Spring Boot
-├── frontend/                 # Interfaz Web en Vue 3 + Vite
-├── notebooks/                # Experimentos, EDA y entrenamiento ML en Python
-│   ├── data/                 # Datasets sintéticos en español
-│   ├── eda.ipynb             # Exploración y visualización de datos
-│   └── training.ipynb        # Entrenamiento y exportación ONNX
-├── shared-models/            # Modelos serializados .onnx y metadatos JSON
-├── docker-compose.yml        # Orquestación de contenedores locales
-├── .gitignore                # Reglas de exclusión de archivos pesados/temporales
-└── README.md                 # Documentación principal del proyecto
+    subgraph Servidor["Backend y persistencia"]
+        API["Backend (Spring Boot 3.2.5)\nPuerto 8081"]
+        DB[("Base de datos MySQL 8.0\nPuerto 3307")]
+    end
+
+    subgraph InteligenciaArtificial["Modelos e inferencia"]
+        ONNX["Modelos ONNX y metadatos\n(shared-models/)"]
+        DS["Ciencia de datos (Jupyter Lab)\nPuerto 8888"]
+    end
+
+    UI -->|"Peticiones HTTP (JSON)"| API
+    API -->|"Lectura y escritura de datos"| DB
+    API -->|"Inferencia nativa (ONNX Runtime)"| ONNX
+    DS -->|"Entrenamiento y exportación"| ONNX
 ```
 
 ---
 
-##  4. Endpoint Principal (`POST /analisis-financiero`)
+## Contenedores, servicios y puertos
 
-### Entrada (Request Payload):
-```json
-{
-  "ingreso_mensual": 4500,
-  "nivel_endeudamiento": 25,
-  "frecuencia_ahorro": "Media",
-  "transacciones": [
-    { "descripcion": "Supermercado", "valor": 420 },
-    { "descripcion": "Combustible", "valor": 300 },
-    { "descripcion": "Streaming", "valor": 40 }
-  ]
-}
-```
+La plataforma se despliega de manera homogénea mediante Docker Compose. Cada servicio cuenta con puertos mapeados localmente y límites de consumo de recursos para no sobrecargar el equipo:
 
-###  Salida (Response Payload):
-```json
-{
-  "perfil_financiero": "En observación",
-  "probabilidad": 0.82,
-  "resumen_gastos": {
-    "alimentacion": 420,
-    "transporte": 300,
-    "entretenimiento": 40
-  },
-  "recomendaciones": [
-    "Monitorear los gastos recurrentes de entretenimiento",
-    "Aumentar la reserva financiera mensual"
-  ]
-}
-```
+| Servicio | Tecnología | Puerto local | Puerto interno | Descripción del componente |
+| :--- | :--- | :--- | :--- | :--- |
+| **frontend** | Node 22 / Vue.js 3 + Vite | `http://localhost:8082` | `3000` | Interfaz visual, paneles de control y gráficos interactivos |
+| **backend** | Java 17 / Spring Boot 3.2.5 | `http://localhost:8081` | `8080` | API REST, lógica de análisis y motor de inferencia ONNX |
+| **db** | MySQL 8.0 | `localhost:3307` | `3306` | Base de datos relacional para usuarios, transacciones e historial |
+| **data-science** | Jupyter Lab / Python 3 | `http://localhost:8888` | `8888` | Cuadernos de simulación, análisis exploratorio y entrenamiento |
+
+> [!NOTE]
+> Por seguridad, los puertos de host están vinculados estrictamente a la dirección local `127.0.0.1`. Esto evita que los servicios queden expuestos a otros dispositivos dentro de redes locales compartidas o públicas.
 
 ---
 
-## 5. Guía de Ejecución Rápida con Docker
+## Guía de inicio rápido y configuración local
 
-### Requisitos previos:
-- Tener instalado **Docker Desktop** (o Docker Engine en Linux).
+Sigue estos pasos para poner en funcionamiento todo el entorno en tu computadora:
 
-### Iniciar el proyecto completo:
+### 1. Preparar los archivos de configuración
+Por motivos de seguridad y buenas prácticas, las contraseñas y variables de entorno no se incluyen directamente en el control de versiones. Debes crear tus archivos locales copiando las plantillas de ejemplo:
+
+* **Variables de entorno:** Copia el archivo `.env.example` y renómbralo como `.env`.
+* **Ajustes de Docker:** Copia el archivo `docker-compose.override.yml.example` y renómbralo como `docker-compose.override.yml`.
+
+En sistemas Linux o macOS puedes ejecutar:
 ```bash
-# 1. Clonar el repositorio y posicionarse en la carpeta del proyecto
-git clone <URL_REPOSISTORIO>
+cp .env.example .env
+cp docker-compose.override.yml.example docker-compose.override.yml
+```
 
-# 2. Levantar todos los servicios en segundo plano
+En Windows (PowerShell):
+```powershell
+Copy-Item .env.example .env
+Copy-Item docker-compose.override.yml.example docker-compose.override.yml
+```
+
+### 2. Iniciar los contenedores
+Ejecuta el siguiente comando en la raíz del proyecto para descargar las imágenes, compilar los servicios y arrancarlos en segundo plano:
+
+```bash
 docker compose up -d
 ```
 
-### Acceso a los servicios:
-- 🎨 **Front-End (Vue.js)**: `http://localhost:8082`
-- ⚙️ **Back-End (Spring Boot)**: `http://localhost:8081`
-- 📊 **Data Science (Jupyter Notebook)**: `http://localhost:8888`
-- 🗄️ **Base de Datos (PostgreSQL)**: `localhost:5433`
+### 3. Verificar el funcionamiento
+Una vez que el comando finalice, puedes ingresar a las siguientes direcciones desde tu navegador:
+
+* Interfaz web: [http://localhost:8082](http://localhost:8082)
+* Estado de la API: [http://localhost:8081](http://localhost:8081)
+* Entorno de cuadernos: [http://localhost:8888](http://localhost:8888)
+
+Para inspeccionar los registros (logs) del backend en caso de verificar la compilación y conexión con la base de datos:
+```bash
+docker compose logs -f backend
+```
+
+### 4. Detener el entorno
+Cuando termines de trabajar, puedes apagar los servicios de forma ordenada sin perder los datos guardados en la base de datos:
+```bash
+docker compose down
+```
 
 ---
 
-##  6. Equipo y Roles
+## Inteligencia artificial y metodología de análisis
 
-| Nombre     | Rol |
-| ---------- | -------------- |
-| Gabriel Estrada | Backend developer |
-| Cesar Maximiliano Chanan Romero | Backend developer |
-| Joel Israel Escalante Garcia | Backend developer |
-| Nicole Fernandez | Frontend |
-| Christian Quidel | Data scientist |
-| Esteban David Galdames | Data scientist |
-| Starlyn Manuel Duarte Guzman | Data analyst |
-| Oscar Alderete | Data engineer |
+FinanceAI utiliza dos modelos de aprendizaje automático serializados en formato ONNX para brindar una experiencia automatizada y personalizada:
+
+### 1. Clasificación automática de transacciones (NLP)
+Cuando el usuario ingresa una descripción en texto libre (por ejemplo, "compra en supermercado", "pago de luz", "boleto de colectivo"), el modelo de procesamiento de lenguaje natural analiza el texto y lo asigna a una de las **10 categorías oficiales**:
+
+* `Alimentacion`
+* `Educacion`
+* `Electrodomesticos`
+* `Inversion`
+* `Ocio`
+* `Salud`
+* `Servicios`
+* `Transporte`
+* `Vestimenta`
+* `Vivienda`
+
+El pipeline utiliza representación por frecuencia inversa de documentos (TF-IDF) y un clasificador lineal. Para evitar fallos por tildes o caracteres especiales, el backend aplica una normalización previa de texto antes de llamar al modelo.
+
+### 2. Diagnóstico de perfil financiero
+El motor analiza los indicadores económicos del usuario y lo clasifica en una de tres categorías de salud financiera:
+
+* **Saludable**: Estructura de gastos equilibrada, bajo nivel de compromiso sobre el ingreso y disciplina periódica de ahorro.
+* **En observación**: Nivel de gastos fijos moderadamente alto o capacidad de ahorro irregular. Requiere atención preventiva en gastos no esenciales.
+* **En riesgo**: Gastos fijos o deudas que comprometen una porción excesiva de los ingresos mensuales, con ahorro nulo o insuficiente para absorber contingencias.
+
+### 3. Generación de recomendaciones
+A partir del perfil diagnosticado y de la distribución real de gastos por categoría, el sistema elabora sugerencias prácticas en lenguaje natural, tales como límites de presupuesto en categorías críticas, pautas de ahorro mensual y estrategias de desendeudamiento.
 
 ---
 
-## 🗺️ 7. Roadmap del Proyecto
+## Seguridad y buenas prácticas aplicadas
 
-- [x] **Fase 1: Planeamiento & Arquitectura**: Definición del MVP, esquema de JSON e infraestructura Docker Compose.
-- [ ] **Fase 2: Ciencia de Datos**: Dataset sintético, EDA (`eda.ipynb`) y exportación a `.onnx`.
-- [ ] **Fase 3: Desarrollo de API & UI**: Implementación de endpoints REST en Spring Boot e interfaz web en Vue.
-- [ ] **Fase 4: Despliegue en OCI**: Configuración de servicios en Oracle Cloud Infrastructure (Object Storage / Compute).
-- [ ] **Fase 5: Verificación & Demo Day**: Pruebas integradas de 3 escenarios reales y presentación final.
+* **Cifrado de contraseñas**: El backend utiliza el algoritmo seguro `BCryptPasswordEncoder` para almacenar las claves de los usuarios. El frontend envía la contraseña en texto plano mediante el canal seguro (HTTPS/HTTP interno) y delega el cálculo del hash unidireccional exclusivamente al servidor, evitando vulnerabilidades de reenvío de hashes.
+* **Aislamiento de red**: La base de datos MySQL opera dentro de la red privada de Docker y solo acepta conexiones autorizadas del backend.
+* **Control de consumo de memoria**: Se establecieron límites de memoria RAM y CPU en `docker-compose.yml` para evitar ralentizaciones en equipos de desarrollo con recursos limitados.
+* **Reinicio manual (`restart: "no"`)**: Los contenedores solo se inician cuando el desarrollador ejecuta `docker compose up`, evitando que consuman memoria de fondo al encender la computadora.
 
 ---
 
-## 📄 8. Licencia
+## Estructura del repositorio
 
-Este proyecto se distribuye bajo la licencia **MIT**. Consulta el archivo `LICENSE` para más información.
+```text
+├── backend/               # Proyecto Java 17 con Spring Boot, controladores y servicios
+├── frontend/              # Aplicación web en Vue.js 3, componentes, vistas y Pinia
+├── notebooks/             # Cuadernos Jupyter, simulación de datos y entrenamiento de modelos
+├── shared-models/         # Modelos serializados (.onnx) y archivo de metadatos (metadata.json)
+├── docker-compose.yml     # Orquestación principal de contenedores y definición de servicios
+├── .env.example           # Plantilla de variables de entorno para desarrollo local
+└── README.md              # Documentación general del proyecto
+```
+
+Para consultar detalles específicos de implementación, configuración interna y comandos de cada área, revisa los archivos de documentación dentro de cada subdirectorio: [backend/README.md](./backend/README.md), [frontend/README.md](./frontend/README.md), [notebooks/README.md](./notebooks/README.md) y [shared-models/README.md](./shared-models/README.md).

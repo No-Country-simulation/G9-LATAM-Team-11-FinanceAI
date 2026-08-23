@@ -32,7 +32,7 @@ public class SecurityFilter extends OncePerRequestFilter {
         String autenticacion = request.getHeader("Authorization");
 
         if (autenticacion != null && autenticacion.startsWith("Bearer ")) {
-            String token = autenticacion.replace("Bearer ", "");
+            String token = autenticacion.substring(7).trim();
 
             if (tokenService.esTokenValido(token)) {
                 String email = tokenService.getSubject(token);

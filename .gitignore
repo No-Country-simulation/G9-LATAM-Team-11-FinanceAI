@@ -1,7 +1,40 @@
-#Default ignored files
-/shelf/
-/workspace.xml
+# Dependencias y compilaciones de Node (Frontend)
+frontend/node_modules/
+frontend/dist/
+frontend/.cache/
+
+# Archivos de compilación de Java/Spring Boot (Backend)
+backend/target/
+backend/.mvn/
+backend/*.jar
 target/
-/target/
+
+# Archivos de Jupyter y Data Science
+.ipynb_checkpoints/
+notebooks/.ipynb_checkpoints/
+notebooks/data/*.csv
+
+# Archivos de IDE y sistema operativo
+.DS_Store
+.vscode/
 .idea/
-target/
+*.log
+
+# Datos persistentes de contenedores local
+pgdata/
+
+# Archivos de variables de entorno locales (credenciales)
+*.env
+.env
+
+# Archivos de lectura para LLMs
+.agent/
+
+# Resguardo de scripts locales
+backup-shs/
+
+# Override local de Docker Compose
+docker-compose.override.yml
+
+# Ignorando .kiro para evitar versionar archivos de asistentes locales.
+.kiro/

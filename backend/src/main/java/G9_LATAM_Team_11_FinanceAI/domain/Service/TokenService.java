@@ -7,19 +7,20 @@ import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.nio.charset.StandardCharsets;
 import java.security.Key;
 import java.util.Date;
 
 @Service
 public class TokenService {
 
-    @Value("${TOKEN_SECRETO}")
+    @Value("${api.security.secret:${TOKEN_SECRETO:FinanceAI_Secret_Key_Super_Segura_2026_JWT_Token_HS256_Min}}")
     private String secreto;
 
     private static final long EXPIRATION_TIME = 86_400_000; // 24 horas en milisegundos
 
     private Key getSigningKey() {
-        return Keys.hmacShaKeyFor(secreto.getBytes());
+        return Keys.hmacShaKeyFor(secreto.getBytes(StandardCharsets.UTF_8));
     }
 
     public String generarToken(String email) {

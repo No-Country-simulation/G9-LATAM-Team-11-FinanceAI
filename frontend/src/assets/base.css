@@ -1,0 +1,196 @@
+@import 'tailwindcss';
+
+@theme {
+  /* Neo-Onice — superficies monocromas */
+  --color-onyx: #050506;
+  --color-coal: #0b0b0c;
+  --color-surface: #0a0a0b;
+  --color-surface-hover: #0e0e10;
+  --color-edge: #1a1a1e;
+  --color-edge-strong: #2e2e34;
+  --color-hairline: #17171a;
+  --color-ghost-edge: #232327;
+  --color-ghost-edge-strong: #3a3a40;
+
+  /* Neo-Onice — acento único */
+  --color-cyan: #00e5ff;
+  --color-cyan-hover: #66f0ff;
+  --color-cyan-glow: rgba(0, 229, 255, 0.25);
+
+  /* texto */
+  --color-ink: #ececec;
+  --color-muted: #8a8a92;
+  --color-faint: #66666e;
+  --color-dim: #55555c;
+  --color-silver: #c9c9cf;
+
+  /* botón principal (papel) */
+  --color-paper: #f5f5f6;
+
+  /* estado */
+  --color-success: #34d399;
+  --color-warning: #fbbf24;
+  --color-danger: #f87171;
+  --color-danger-bg: rgba(248, 113, 113, 0.08);
+  --color-danger-edge: rgba(248, 113, 113, 0.35);
+
+  /* radios cuadrados */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 10px;
+  --radius-full: 999px;
+
+  /* tipografía */
+  --font-sans: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+
+  /* movimiento */
+  --ease-out: cubic-bezier(0.32, 0.72, 0, 1);
+
+  /* layout */
+  --max-width: 1120px;
+  --gap: 1rem;
+  --nav-height: 70px;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    min-height: 100vh;
+    background-color: var(--color-onyx);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    position: relative;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    background: var(--color-cyan-glow);
+    color: #fff;
+  }
+
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible,
+  a:focus-visible {
+    outline: 2px solid var(--color-cyan);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* glow blanco sutil fijo en la parte superior */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 320px;
+    z-index: 0;
+    pointer-events: none;
+    background: radial-gradient(640px 320px at 50% -100px, rgba(255, 255, 255, 0.07), transparent 70%);
+  }
+
+  /* grano cinematográfico sutil */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 2147483647;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* scrollbar personalizada */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-onyx);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.16);
+    border-radius: var(--radius-full);
+    border: 2px solid var(--color-onyx);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.18) var(--color-onyx);
+  }
+}
+
+/* animaciones premium (GPU-safe, respetan prefers-reduced-motion) */
+@keyframes shimmer {
+  0% {
+    background-position: -480px 0;
+  }
+  100% {
+    background-position: 480px 0;
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+}
+
+@keyframes spin-ring {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes punto-pulso {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 229, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(0, 229, 255, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

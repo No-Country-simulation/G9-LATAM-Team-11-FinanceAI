@@ -1,0 +1,17 @@
+# =========================================================================
+# PLANTILLA DE CONFIGURACIÓN LOCAL DE OVERRIDES (Copia a docker-compose.override.yml)
+# =========================================================================
+# Instrucciones:
+# 1. Copia este archivo y renombralo como 'docker-compose.override.yml' en esta misma carpeta.
+# 2. Este archivo de plantilla está pensado para evitar problemas de permisos con ./mvnw 
+#    utilizando el Maven global preinstalado en el contenedor del backend.
+# =========================================================================
+
+services:
+  backend:
+    # Utiliza 'mvn' global del contenedor para evitar fallos de "Permission denied" en el arranque
+    command: sh -c "if [ -f pom.xml ]; then mvn spring-boot:run; else tail -f /dev/null; fi"
+
+  frontend:
+    # Instala dependencias y arranca el servidor de desarrollo
+    command: sh -c "npm install && npm run dev"

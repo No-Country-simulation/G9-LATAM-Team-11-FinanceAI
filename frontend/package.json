@@ -1,0 +1,49 @@
+{
+  "name": "frontend",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "lint": "run-s \"lint:*\"",
+    "lint:oxlint": "oxlint . --fix",
+    "lint:eslint": "eslint . --fix --cache",
+    "format": "prettier --write --experimental-cli src/"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "axios": "^1.19.0",
+    "chart.js": "^4.5.1",
+    "pinia": "^4.0.2",
+    "tailwindcss": "^4.3.3",
+    "vue": "^3.5.40",
+    "vue-chartjs": "^5.3.4",
+    "vue-router": "^5.2.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@vitejs/plugin-vue": "^6.0.8",
+    "@vue/test-utils": "^2.4.11",
+    "eslint": "^10.7.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-oxlint": "~1.73.0",
+    "eslint-plugin-vue": "~10.9.2",
+    "fast-check": "^4.9.0",
+    "globals": "^17.7.0",
+    "jsdom": "^30.0.1",
+    "npm-run-all2": "^9.0.2",
+    "oxlint": "~1.73.0",
+    "prettier": "3.9.5",
+    "vite": "^8.1.5",
+    "vite-plugin-vue-devtools": "^8.1.5",
+    "vitest": "^4.1.10",
+    "vue-eslint-parser": "^10.4.1"
+  },
+  "engines": {
+    "node": "^22.18.0 || >=24.12.0"
+  }
+}
