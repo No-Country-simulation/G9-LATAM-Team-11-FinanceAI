@@ -12,7 +12,9 @@ import G9_LATAM_Team_11_FinanceAI.domain.resumenmensual.ResumenMensual;
 import G9_LATAM_Team_11_FinanceAI.domain.transaccion.Transaccion;
 import G9_LATAM_Team_11_FinanceAI.domain.usuario.Usuario;
 import jakarta.persistence.EntityNotFoundException;
+import jakarta.transaction.Transactional;
 import jakarta.validation.ValidationException;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
@@ -21,41 +23,36 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @Service
+ @RequiredArgsConstructor
 public class TransacionService {
 
-    @Autowired
-    private ITransaccionRepository transaccionRepository;
+    private final ITransaccionRepository transaccionRepository;
+    private final IUsuarioRepository usuarioRepository;
+    private final DataScienceModelService dataScienceService;
+    private final IResumenMensualRepository resumenMensualRepository;
+    private final UsuarioValidacionService usuarioValidacionService;
 
-    @Autowired
-    private IUsuarioRepository usuarioRepository;
-
-    @Autowired
-    private DataScienceModelService dataScienceService;
-
-    private IResumenMensualRepository resumenMensualRepository;
-
+    @Transactional
     public Transaccion ingresarTransaccion(IngresarTransaccionDTO datos){
-
-        Usuario usuario = obtenerUsuarioPorId(datos.idUsuario());
-
-        validarUsuarioActivo(usuario);
+        Usuario usuario = usuarioValidacionService.obtenerUsuarioActivoOExcepcion(datos.idUsuario());
 
         BigDecimal ingresoFijoMensual = usuario.getIngresoMensual();
 
         if (ingresoFijoMensual == null) {
             throw new ValidationException("El usuario no tiene un ingreso mensual asignado.");
         }
-        // 1. Obtenemos mes y año de la fecha que viene en la transacción
+        // obtenemos mes y año de la fecha que viene en la transacción
         int mes = datos.fecha().getMonthValue();
         int anio = datos.fecha().getYear();
 
-        // 2. Calculamos lo gastado únicamente en ese mes y año
+        // calculamos lo gastado únicamente en ese mes y año
         BigDecimal gastadoEnElMes = transaccionRepository.obtenerTotalGastadoEnMes(usuario.getId(), mes, anio);
+        if(gastadoEnElMes == null){ gastadoEnElMes = BigDecimal.ZERO;}
 
-        // 3. Calculamos cuánto le queda disponible para este mes
+        //calculamos cuánto le queda disponible para este mes
         BigDecimal saldoDisponible = ingresoFijoMensual.subtract(gastadoEnElMes);
 
-        // 4. Validamos si la nueva transacción supera lo disponible
+        // verifica si la nueva transacción supera lo disponible
         if (saldoDisponible.compareTo(datos.monto()) < 0) {
             throw new ValidationException("No tiene suficiente ingreso para hacer esta transferencia.");
         }
@@ -67,15 +64,8 @@ public class TransacionService {
         //crea la transaccion con la categoria
         var transaccion  = crearTransaccion(datos, usuario, categoriaObtenida);
 
-        //borra
         //descontarMontoDelIngresoMensual(usuario, datos);
         return transaccionRepository.save(transaccion);
-    }
-
-
-    public Usuario obtenerUsuarioPorId(Long id){
-        return usuarioRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Usuario no existe"));
     }
 
     private Transaccion crearTransaccion(IngresarTransaccionDTO datos, Usuario usuario, String categoria) {
@@ -83,15 +73,8 @@ public class TransacionService {
     }
 
 
-    public void validarUsuarioActivo(Usuario usuario){
 
-        if(!Boolean.TRUE.equals(usuario.getActivo())){
-            throw new ValidationException("Usuario inactivo no puede hacer transferencia.");
-        }
-
-    }
-
-
+    @Transactional
     // Metodo para filtrar transacciones de usuarios por rangos de fechas
     public List<DetallesTransaccionFiltradaDTO> obtenerTransaccionesPorRango(TransaccionFiltradaDTO datos) {
         if (!usuarioRepository.existsByIdAndActivoTrue(datos.idUsuario())) {
@@ -106,7 +89,7 @@ public class TransacionService {
                 .toList();
     }
 
-
+    @Transactional
     public void actualizarTransferencia(Long id, ActualizarTransaccionDTO actualizar){
 
         Transaccion transaccion = obtenerTransaccionPorId(id);
@@ -127,12 +110,13 @@ public class TransacionService {
             transaccion.setMonto(actualizar.monto());
         }
     }
+
     private Transaccion obtenerTransaccionPorId(Long id){
         return transaccionRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("usuario no encontrado"));
     }
 
-
+    @Transactional
     public boolean eliminaTransaciones(Long id) {
         try {
             transaccionRepository.deleteById(id);
@@ -143,8 +127,9 @@ public class TransacionService {
     }
 
 
+    @Transactional
     public BigDecimal calcularSaldoDisponibleReal(Long usuarioId, int mesActual, int anioActual) {
-        Usuario usuario = obtenerUsuarioPorId(usuarioId);
+        Usuario usuario = usuarioValidacionService.obtenerUsuarioOExcepcion(usuarioId);
 
         // sueldo Fijo/Modificado actual
         BigDecimal sueldoBase = usuario.getIngresoMensual();
@@ -165,7 +150,6 @@ public class TransacionService {
         if (gastadoEnElMes == null) {
             gastadoEnElMes = BigDecimal.ZERO;
         }
-
         // calculo: (Sueldo Fijo + Sobrante Mes Anterior) - Gastos Mes Actual
         return sueldoBase.add(sobranteMesAnterior).subtract(gastadoEnElMes);
     }

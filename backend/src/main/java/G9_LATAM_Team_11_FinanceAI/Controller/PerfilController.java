@@ -2,7 +2,7 @@ package G9_LATAM_Team_11_FinanceAI.Controller;
 
 import G9_LATAM_Team_11_FinanceAI.domain.Models.FrecuenciaAhorro;
 import G9_LATAM_Team_11_FinanceAI.domain.Service.PerfilFinancieroService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,21 +13,19 @@ import java.math.BigDecimal;
 
 @RestController
 @RequestMapping("/perfil")
+@RequiredArgsConstructor
 public class PerfilController {
 
-    @Autowired
-    private PerfilFinancieroService perfilFinancieroService;
+    private final PerfilFinancieroService perfilFinancieroService;
 
     @GetMapping("/frecuencia-ahorro/{idUsuario}")
     public ResponseEntity<FrecuenciaAhorro> obtenerFrecuencia(@PathVariable Long idUsuario) {
-        FrecuenciaAhorro frecuencia = perfilFinancieroService.calcularFrecuenciaAhorro(idUsuario);
-        return ResponseEntity.ok(frecuencia);
+        return ResponseEntity.ok(perfilFinancieroService.calcularFrecuenciaAhorro(idUsuario));
     }
 
     @GetMapping("/endeudamiento/{idUsuario}")
     public ResponseEntity<BigDecimal> obtenerPorcentajeEndeudamiento(@PathVariable Long idUsuario) {
-        BigDecimal porcentaje = perfilFinancieroService.calcularPorcentajeEndeudamiento(idUsuario);
-        return ResponseEntity.ok(porcentaje);
+        return ResponseEntity.ok(perfilFinancieroService.calcularPorcentajeEndeudamiento(idUsuario));
     }
 
 }
