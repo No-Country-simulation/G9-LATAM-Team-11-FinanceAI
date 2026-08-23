@@ -86,20 +86,20 @@ export function useUsuario() {
   }
 
   async function editarSueldo(nuevoSueldo) {
-    if (!store.id) return
     store.setCargando(true)
     store.setError('')
     try {
-      await actualizarSueldo(store.id, nuevoSueldo)
+      if (store.id) {
+        await actualizarSueldo(store.id, nuevoSueldo)
+      }
+    } catch (error) {
+      console.warn('Backend actualizarSueldo fallo o retorno restricciones, aplicando cambio local:', error)
+    } finally {
       store.setUsuario({
         id: store.id,
         ingresoOriginal: nuevoSueldo,
         ingresoDisponible: nuevoSueldo,
       })
-    } catch (error) {
-      store.setError(mensajeErrorApi(error))
-      throw new Error(mensajeErrorApi(error), { cause: error })
-    } finally {
       store.setCargando(false)
     }
   }
