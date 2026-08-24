@@ -22,7 +22,9 @@ Haz clic en la imagen a continuación para ver una demostración completa en vid
 
 <div align="center">
 
-[![Demostración de FinanceAI](https://img.youtube.com/vi/5nUoQf9ThZI/maxresdefault.jpg)](https://www.youtube.com/watch?v=5nUoQf9ThZI)
+[![Demostración de FinanceAI](
+https://github.com/user-attachments/assets/fbaf41d1-daed-4670-b0df-af0142ab67b1)](
+https://github.com/user-attachments/assets/fbaf41d1-daed-4670-b0df-af0142ab67b1)
 
 *🎥 [Ver demostración en YouTube](https://www.youtube.com/watch?v=5nUoQf9ThZI)*
 
