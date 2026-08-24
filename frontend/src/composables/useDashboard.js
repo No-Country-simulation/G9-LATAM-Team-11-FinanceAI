@@ -127,7 +127,11 @@ export function useDashboard() {
 
   const ultimasTransacciones = computed(() =>
     [...transaccionesArray.value]
-      .sort((a, b) => new Date(`${b.fecha}T00:00:00`) - new Date(`${a.fecha}T00:00:00`))
+      .sort((a, b) => {
+        const diff = new Date(`${b.fecha}T00:00:00`) - new Date(`${a.fecha}T00:00:00`)
+        if (diff !== 0) return diff
+        return (Number(b.id) || 0) - (Number(a.id) || 0)
+      })
       .slice(0, 5),
   )
 
