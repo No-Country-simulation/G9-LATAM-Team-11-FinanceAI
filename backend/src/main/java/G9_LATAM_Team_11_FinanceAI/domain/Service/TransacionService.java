@@ -1,10 +1,10 @@
 package G9_LATAM_Team_11_FinanceAI.domain.Service;
 
-import G9_LATAM_Team_11_FinanceAI.DTO.CategoriaDTOs.SolicitudCategoriaDTO;
-import G9_LATAM_Team_11_FinanceAI.DTO.TransaccionDTOs.ActualizarTransaccionDTO;
-import G9_LATAM_Team_11_FinanceAI.DTO.TransaccionDTOs.DetallesTransaccionFiltradaDTO;
-import G9_LATAM_Team_11_FinanceAI.DTO.TransaccionDTOs.IngresarTransaccionDTO;
-import G9_LATAM_Team_11_FinanceAI.DTO.TransaccionDTOs.TransaccionFiltradaDTO;
+import G9_LATAM_Team_11_FinanceAI.DTO.CategoriaDTO.SolicitudCategoriaDTO;
+import G9_LATAM_Team_11_FinanceAI.DTO.TransaccionDTO.ActualizarTransaccionDTO;
+import G9_LATAM_Team_11_FinanceAI.DTO.TransaccionDTO.DetallesTransaccionFiltradaDTO;
+import G9_LATAM_Team_11_FinanceAI.DTO.TransaccionDTO.IngresarTransaccionDTO;
+import G9_LATAM_Team_11_FinanceAI.DTO.TransaccionDTO.TransaccionFiltradaDTO;
 import G9_LATAM_Team_11_FinanceAI.Repository.IResumenMensualRepository;
 import G9_LATAM_Team_11_FinanceAI.Repository.ITransaccionRepository;
 import G9_LATAM_Team_11_FinanceAI.Repository.IUsuarioRepository;
@@ -15,7 +15,6 @@ import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import jakarta.validation.ValidationException;
 import lombok.RequiredArgsConstructor;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -44,17 +43,11 @@ public class TransacionService {
         int mes = datos.fecha().getMonthValue();
         int anio = datos.fecha().getYear();
 
-        // calculamos lo gastado únicamente en ese mes y año
-        BigDecimal gastadoEnElMes = transaccionRepository.obtenerTotalGastadoEnMes(usuario.getId(), mes, anio);
-        if(gastadoEnElMes == null){ gastadoEnElMes = BigDecimal.ZERO;}
-
-        //calculamos cuánto le queda disponible para este mes
-        BigDecimal saldoDisponible = ingresoFijoMensual.subtract(gastadoEnElMes);
-
-        // verifica si la nueva transacción supera lo disponible
-        if (saldoDisponible.compareTo(datos.monto()) < 0) {
-            throw new ValidationException("No tiene suficiente ingreso para hacer esta transferencia.");
-        }
+        //calcula saldo disponible (sueldo + sobrante del mes - gastos)
+        BigDecimal saldoDisponible = calcularSaldoDisponibleReal(usuario.getId(), mes, anio);
+        // verifica que la transaccion no supere el saldo disponible
+        if(saldoDisponible.compareTo(datos.monto())<0){
+            throw new ValidationException("No tiene suficiente saldo para realizar la transaccion");}
 
         //obtener la categoria
         SolicitudCategoriaDTO solicitud = new SolicitudCategoriaDTO(datos);
@@ -63,7 +56,6 @@ public class TransacionService {
         //crea la transaccion con la categoria
         var transaccion  = crearTransaccion(datos, usuario, categoriaObtenida);
 
-        //descontarMontoDelIngresoMensual(usuario, datos);
         return transaccionRepository.save(transaccion);
     }
 

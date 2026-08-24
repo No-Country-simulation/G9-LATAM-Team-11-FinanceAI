@@ -1,10 +1,10 @@
 package G9_LATAM_Team_11_FinanceAI.Controller;
 
-import G9_LATAM_Team_11_FinanceAI.DTO.CategoriaDTOs.RespuestaCategoriaDTO;
-import G9_LATAM_Team_11_FinanceAI.DTO.TransaccionDTOs.ActualizarTransaccionDTO;
-import G9_LATAM_Team_11_FinanceAI.DTO.TransaccionDTOs.DetallesTransaccionFiltradaDTO;
-import G9_LATAM_Team_11_FinanceAI.DTO.TransaccionDTOs.IngresarTransaccionDTO;
-import G9_LATAM_Team_11_FinanceAI.DTO.TransaccionDTOs.TransaccionFiltradaDTO;
+import G9_LATAM_Team_11_FinanceAI.DTO.CategoriaDTO.RespuestaCategoriaDTO;
+import G9_LATAM_Team_11_FinanceAI.DTO.TransaccionDTO.ActualizarTransaccionDTO;
+import G9_LATAM_Team_11_FinanceAI.DTO.TransaccionDTO.DetallesTransaccionFiltradaDTO;
+import G9_LATAM_Team_11_FinanceAI.DTO.TransaccionDTO.IngresarTransaccionDTO;
+import G9_LATAM_Team_11_FinanceAI.DTO.TransaccionDTO.TransaccionFiltradaDTO;
 import G9_LATAM_Team_11_FinanceAI.domain.Service.TransacionService;
 import G9_LATAM_Team_11_FinanceAI.domain.transaccion.Transaccion;
 import jakarta.validation.Valid;

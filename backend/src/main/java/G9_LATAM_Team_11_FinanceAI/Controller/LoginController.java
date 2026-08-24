@@ -1,7 +1,7 @@
 package G9_LATAM_Team_11_FinanceAI.Controller;
 
-import G9_LATAM_Team_11_FinanceAI.DTO.AutenticacionDTOs.DatosLoginDTO;
-import G9_LATAM_Team_11_FinanceAI.DTO.AutenticacionDTOs.LoginRespuestaDTO;
+import G9_LATAM_Team_11_FinanceAI.DTO.AutenticacionDTO.DatosLoginDTO;
+import G9_LATAM_Team_11_FinanceAI.DTO.AutenticacionDTO.LoginRespuestaDTO;
 import G9_LATAM_Team_11_FinanceAI.domain.Service.UsuarioService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

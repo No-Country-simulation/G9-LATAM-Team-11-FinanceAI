@@ -1,6 +1,6 @@
 package G9_LATAM_Team_11_FinanceAI.domain.usuario;
 
-import G9_LATAM_Team_11_FinanceAI.DTO.UsuarioDTOs.IngresarUsuarioDTO;
+import G9_LATAM_Team_11_FinanceAI.DTO.UsuarioDTO.IngresarUsuarioDTO;
 import G9_LATAM_Team_11_FinanceAI.domain.resumenmensual.ResumenMensual;
 import G9_LATAM_Team_11_FinanceAI.domain.analisis_financiero.AnalisisFinanciero;
 import G9_LATAM_Team_11_FinanceAI.domain.historialsueldo.HistorialSueldo;

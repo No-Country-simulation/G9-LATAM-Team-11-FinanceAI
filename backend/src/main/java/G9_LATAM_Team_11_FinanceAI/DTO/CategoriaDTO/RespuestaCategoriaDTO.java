@@ -1,4 +1,4 @@
-package G9_LATAM_Team_11_FinanceAI.DTO.CategoriaDTOs;
+package G9_LATAM_Team_11_FinanceAI.DTO.CategoriaDTO;
 
 import G9_LATAM_Team_11_FinanceAI.domain.transaccion.Transaccion;
 import com.fasterxml.jackson.annotation.JsonProperty;

@@ -1,6 +1,6 @@
 package G9_LATAM_Team_11_FinanceAI.domain.Service;
 
-import G9_LATAM_Team_11_FinanceAI.DTO.CategoriaDTOs.SolicitudCategoriaDTO;
+import G9_LATAM_Team_11_FinanceAI.DTO.CategoriaDTO.SolicitudCategoriaDTO;
 import G9_LATAM_Team_11_FinanceAI.domain.Models.FrecuenciaAhorro;
 import ai.onnxruntime.OnnxTensor;
 import ai.onnxruntime.OnnxValue;

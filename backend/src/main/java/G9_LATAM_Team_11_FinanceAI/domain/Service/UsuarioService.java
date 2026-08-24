@@ -1,18 +1,16 @@
 package G9_LATAM_Team_11_FinanceAI.domain.Service;
 
-import G9_LATAM_Team_11_FinanceAI.DTO.AutenticacionDTOs.DatosLoginDTO;
-import G9_LATAM_Team_11_FinanceAI.DTO.AutenticacionDTOs.LoginRespuestaDTO;
+import G9_LATAM_Team_11_FinanceAI.DTO.AutenticacionDTO.DatosLoginDTO;
+import G9_LATAM_Team_11_FinanceAI.DTO.AutenticacionDTO.LoginRespuestaDTO;
 import G9_LATAM_Team_11_FinanceAI.DTO.HistorialSueldoDTO.HistorialSueldoDTO;
-import G9_LATAM_Team_11_FinanceAI.DTO.UsuarioDTOs.IngresarUsuarioDTO;
+import G9_LATAM_Team_11_FinanceAI.DTO.UsuarioDTO.IngresarUsuarioDTO;
 import G9_LATAM_Team_11_FinanceAI.Repository.IHistorialSueldoRespository;
 import G9_LATAM_Team_11_FinanceAI.Repository.IUsuarioRepository;
 import G9_LATAM_Team_11_FinanceAI.domain.historialsueldo.HistorialSueldo;
 import G9_LATAM_Team_11_FinanceAI.domain.usuario.Usuario;
-import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import jakarta.validation.ValidationException;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

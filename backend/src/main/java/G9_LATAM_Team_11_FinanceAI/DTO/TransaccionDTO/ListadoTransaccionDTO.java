@@ -1,4 +1,4 @@
-package G9_LATAM_Team_11_FinanceAI.DTO.TransaccionDTOs;
+package G9_LATAM_Team_11_FinanceAI.DTO.TransaccionDTO;
 
 import G9_LATAM_Team_11_FinanceAI.domain.transaccion.Transaccion;
 

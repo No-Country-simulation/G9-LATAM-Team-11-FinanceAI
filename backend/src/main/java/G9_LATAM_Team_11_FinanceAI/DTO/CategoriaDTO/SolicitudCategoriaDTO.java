@@ -1,6 +1,6 @@
-package G9_LATAM_Team_11_FinanceAI.DTO.CategoriaDTOs;
+package G9_LATAM_Team_11_FinanceAI.DTO.CategoriaDTO;
 
-import G9_LATAM_Team_11_FinanceAI.DTO.TransaccionDTOs.IngresarTransaccionDTO;
+import G9_LATAM_Team_11_FinanceAI.DTO.TransaccionDTO.IngresarTransaccionDTO;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.math.BigDecimal;
