@@ -22,6 +22,10 @@ export const useDivisaStore = defineStore('divisa', () => {
     const disponibles = MONEDAS_PRINCIPALES.filter(
       codigo => codigo === 'USD' || tasas.value[codigo] != null
     )
+    // Asegurar que la moneda activa siempre esté presente aunque la API falle
+    if (!disponibles.includes(monedaActiva.value)) {
+      disponibles.push(monedaActiva.value)
+    }
     return disponibles.sort()
   })
 

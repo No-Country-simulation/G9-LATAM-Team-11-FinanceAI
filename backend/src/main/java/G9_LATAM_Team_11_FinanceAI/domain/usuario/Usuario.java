@@ -1,7 +1,9 @@
 package G9_LATAM_Team_11_FinanceAI.domain.usuario;
 
 import G9_LATAM_Team_11_FinanceAI.DTO.UsuarioDTOs.IngresarUsuarioDTO;
+import G9_LATAM_Team_11_FinanceAI.domain.resumenmensual.ResumenMensual;
 import G9_LATAM_Team_11_FinanceAI.domain.analisis_financiero.AnalisisFinanciero;
+import G9_LATAM_Team_11_FinanceAI.domain.historialsueldo.HistorialSueldo;
 import G9_LATAM_Team_11_FinanceAI.domain.transaccion.Transaccion;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
@@ -42,6 +44,15 @@ public class Usuario implements UserDetails {
     @OneToMany(mappedBy = "usuario")
     @JsonIgnore
     private List<AnalisisFinanciero> analisisFinancieros;
+
+    @OneToMany(mappedBy = "usuario")
+    @JsonIgnore
+    private List<HistorialSueldo> historialSueldos;
+
+    @OneToMany(mappedBy = "usuario")
+    @JsonIgnore
+    private List<ResumenMensual> resumenesMensuales;
+
 
     //constructor para los datos del DTO
     public Usuario(IngresarUsuarioDTO datos, String passwordEncriptada) {

@@ -15,10 +15,10 @@ describe('Integración API Frankfurter v2: obtenerTasasDeCambio', () => {
 
   it('debe invocar https://api.frankfurter.dev/v2/rates con base=USD y retornar mapa de tasas', async () => {
     const fakeData = [
-      { base: 'USD', quote: 'EUR', rate: 0.92 },
-      { base: 'USD', quote: 'GBP', rate: 0.79 },
-      { base: 'USD', quote: 'CLP', rate: 950.5 },
-      { base: 'USD', quote: 'ARS', rate: 870.2 },
+      { date: '2026-08-22', base: 'USD', quote: 'EUR', rate: 0.92 },
+      { date: '2026-08-22', base: 'USD', quote: 'GBP', rate: 0.79 },
+      { date: '2026-08-22', base: 'USD', quote: 'CLP', rate: 950.5 },
+      { date: '2026-08-22', base: 'USD', quote: 'ARS', rate: 870.2 },
     ]
     axios.get.mockResolvedValue({ data: fakeData })
 
@@ -30,6 +30,7 @@ describe('Integración API Frankfurter v2: obtenerTasasDeCambio', () => {
       expect.objectContaining({ params: { base: 'USD' } }),
     )
     expect(result.EUR).toBe(0.92)
+    expect(result.ARS).toBe(870.2)
     expect(result.CLP).toBe(950.5)
   })
 

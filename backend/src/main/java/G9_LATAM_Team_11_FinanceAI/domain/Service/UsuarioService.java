@@ -2,11 +2,16 @@ package G9_LATAM_Team_11_FinanceAI.domain.Service;
 
 import G9_LATAM_Team_11_FinanceAI.DTO.AutenticacionDTOs.DatosLoginDTO;
 import G9_LATAM_Team_11_FinanceAI.DTO.AutenticacionDTOs.LoginRespuestaDTO;
+import G9_LATAM_Team_11_FinanceAI.DTO.HistorialSueldoDTO.HistorialSueldoDTO;
 import G9_LATAM_Team_11_FinanceAI.DTO.UsuarioDTOs.IngresarUsuarioDTO;
+import G9_LATAM_Team_11_FinanceAI.Repository.IHistorialSueldoRespository;
 import G9_LATAM_Team_11_FinanceAI.Repository.IUsuarioRepository;
+import G9_LATAM_Team_11_FinanceAI.domain.historialsueldo.HistorialSueldo;
 import G9_LATAM_Team_11_FinanceAI.domain.usuario.Usuario;
 import jakarta.persistence.EntityNotFoundException;
+import jakarta.transaction.Transactional;
 import jakarta.validation.ValidationException;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -14,59 +19,59 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class UsuarioService implements UserDetailsService {
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder;
 
-    @Autowired
-    private IUsuarioRepository usuarioRepository;
+    private final IUsuarioRepository usuarioRepository;
 
-    @Autowired
-    private TokenService tokenService;
+    private final TokenService tokenService;
 
+    private final IHistorialSueldoRespository historialSueldoRespository;
+
+    private final UsuarioValidacionService usuarioValidacionService;
+
+    @Transactional
     public Usuario ingresarUsuario(IngresarUsuarioDTO datos){
 
         ValidaUsuarioRepetido(datos);
-
         String passwordEncriptada = passwordEncoder.encode(datos.password());
+        Usuario usuario = new Usuario(datos, passwordEncriptada);
 
-        var ingreso = new Usuario(datos, passwordEncriptada);
-
-        return usuarioRepository.save(ingreso);
+        return usuarioRepository.save(usuario);
     }
 
     public void ValidaUsuarioRepetido(IngresarUsuarioDTO datos){
         boolean cuentaRepetida =usuarioRepository.existsByEmail(
                 datos.email());
-
-        if (cuentaRepetida){
+        if(cuentaRepetida){
             throw new ValidationException("La cuenta ya se encuentra registrada en la base de datos.");
         }
     }
 
+    @Transactional
     public Usuario obtenerUsuarioConTransacciones(Long id){
-
-        Usuario usuario = usuarioRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("usuario no encontrado"));
-
-        return usuario;
+        return usuarioValidacionService.obtenerUsuarioActivoOExcepcion(id);
     }
 
+    @Transactional
     public void eliminarUsuario(Long id){
-
-        var eliminar = usuarioRepository.getReferenceById(id);
-
-        eliminar.eliminarUsuario();
+        Usuario usuario = usuarioValidacionService.obtenerUsuarioOExcepcion(id);
+        usuario.eliminarUsuario();
     }
 
+    @Transactional
     public List<Usuario> obtenerTodosLosUsuariosConTransaccionesPorMesAnio(int mes, int anio) {
         return usuarioRepository.findAllUsuariosActivosConTransaccionesPorMesAnio(mes, anio);
     }
 
+    @Transactional
     public LoginRespuestaDTO loginUsuario (DatosLoginDTO datos) {
         var usuario = usuarioRepository.findByEmail(datos.email())
                 .orElseThrow(() -> new RuntimeException("Usuario no registrado."));
@@ -78,7 +83,6 @@ public class UsuarioService implements UserDetailsService {
             throw new RuntimeException("Contraseña incorrecta.");
         }
         String token = tokenService.generarToken(usuario.getEmail());
-        String mensaje = "Bienvenido/a, " + usuario.getNombre();
         return new LoginRespuestaDTO(token, usuario.getId(), usuario.getNombre(), usuario.getEmail());
     }
 
@@ -86,5 +90,41 @@ public class UsuarioService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return usuarioRepository.findByEmail(username)
                 .orElseThrow(() -> new UsernameNotFoundException("Usuario no encontrado con el email: " + username));
+    }
+
+    @Transactional
+    public void actualizarSueldoUsuario(Long usuarioId, BigDecimal nuevoSueldo) {
+        Usuario usuario = usuarioValidacionService.obtenerUsuarioOExcepcion(usuarioId);
+        BigDecimal sueldoAnterior = usuario.getIngresoMensual();
+
+        if (sueldoAnterior == null || sueldoAnterior.compareTo(nuevoSueldo) != 0) {
+            // registrar modificación en el historial de sueldo
+            HistorialSueldo historial = new HistorialSueldo(usuario, sueldoAnterior, nuevoSueldo);
+            historialSueldoRespository.save(historial);
+
+            // actualizar el sueldo del usuario
+            usuario.setIngresoMensual(nuevoSueldo);
+            usuarioRepository.save(usuario);
+        }
+    }
+
+    @Transactional
+    public List<HistorialSueldoDTO> obtenerHistorialSueldo(Long usuarioId) {
+        Usuario usuario = usuarioValidacionService.obtenerUsuarioOExcepcion(usuarioId);
+
+        List<HistorialSueldo> historial = historialSueldoRespository
+                .findByUsuarioIdOrderByFechaModificacionDesc(usuarioId);
+
+        if (historial.isEmpty()) {
+            return List.of(new HistorialSueldoDTO(
+                    usuario.getIngresoMensual(),
+                    usuario.getIngresoMensual(),
+                    LocalDateTime.now()
+            ));
+        }
+
+        return historial.stream()
+                .map(HistorialSueldoDTO::new)
+                .toList();
     }
 }

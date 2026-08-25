@@ -6,11 +6,11 @@ const props = defineProps({
   password: { type: String, default: '' },
 })
 
-const REQUISITOS_TOTALES = 5
+const REQUISITOS_TOTALES = 4
 
 const niveles = [
-  { minimo: 5, etiqueta: 'Fuerte', color: '#22c55e' },
-  { minimo: 4, etiqueta: 'Buena', color: '#22d3ee' },
+  { minimo: 4, etiqueta: 'Fuerte', color: '#22c55e' },
+  { minimo: 3, etiqueta: 'Buena', color: '#22d3ee' },
   { minimo: 2, etiqueta: 'Media', color: '#f59e0b' },
   { minimo: 0, etiqueta: 'Débil', color: '#ef4444' },
 ]

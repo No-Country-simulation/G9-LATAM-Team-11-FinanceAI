@@ -14,7 +14,7 @@ export function useTransacciones() {
   const store = useUsuarioStore()
 
   function esDemo() {
-    return store.id == null
+    return store.esDemo
   }
 
   function rangoPorDefecto() {

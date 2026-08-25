@@ -1,5 +1,5 @@
 <script setup>
-import { ref, reactive, computed } from 'vue'
+import { ref, reactive, computed, onMounted, onUnmounted } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useUsuarioStore } from '@/stores/usuario'
 import { useDivisaStore } from '@/stores/divisa'
@@ -7,7 +7,6 @@ import { useTransacciones } from '@/composables/useTransacciones'
 import { formatoMoneda } from '@/utils/formato'
 import { useDashboard } from '@/composables/useDashboard'
 import BaseCard from '@/components/base/BaseCard.vue'
-import BaseTag from '@/components/base/BaseTag.vue'
 import BaseButton from '@/components/base/BaseButton.vue'
 import BaseEmptyState from '@/components/base/BaseEmptyState.vue'
 import ListaTransacciones from '@/components/dashboard/ListaTransacciones.vue'
@@ -16,8 +15,25 @@ import FormularioTransaccion from '@/components/dashboard/FormularioTransaccion.
 const usuarioStore = useUsuarioStore()
 const divisaStore = useDivisaStore()
 const { transacciones } = storeToRefs(usuarioStore)
-const { gastoMes, ahorroMes } = useDashboard()
+const { gastoMes, saldoDisponible } = useDashboard()
 const { listarTransacciones, editarTransaccion, borrarTransaccion } = useTransacciones()
+
+const horaLocal = ref(new Date().toLocaleTimeString(navigator.language || undefined, { hour: '2-digit', minute: '2-digit' }))
+let intervaloHora = null
+
+onMounted(() => {
+  intervaloHora = setInterval(() => {
+    horaLocal.value = new Date().toLocaleTimeString(navigator.language || undefined, { hour: '2-digit', minute: '2-digit' })
+  }, 1000)
+})
+
+onUnmounted(() => {
+  clearInterval(intervaloHora)
+  // Al salir de la vista se resetea el filtro a su estado original/rango por defecto
+  if (filtroActivo.value || desde.value || hasta.value) {
+    listarTransacciones()
+  }
+})
 
 const mostrarFormulario = ref(false)
 const desde = ref('')
@@ -38,9 +54,10 @@ const eliminandoCargando = ref(false)
 const POR_PAGINA = 15
 const pagina = ref(1)
 
-const transaccionesOrdenadas = computed(() =>
-  [...transacciones.value].sort((a, b) => new Date(`${b.fecha}T00:00:00`) - new Date(`${a.fecha}T00:00:00`))
-)
+const transaccionesOrdenadas = computed(() => {
+  const lista = Array.isArray(transacciones.value) ? transacciones.value : []
+  return [...lista].sort((a, b) => new Date(`${b.fecha}T00:00:00`) - new Date(`${a.fecha}T00:00:00`))
+})
 
 const totalTransacciones = computed(() => transaccionesOrdenadas.value.length)
 
@@ -65,9 +82,10 @@ function paginaAnterior() {
   if (pagina.value > 1) pagina.value--
 }
 
-const totalFiltrado = computed(() =>
-  transacciones.value.reduce((sum, t) => sum + Number(t.monto || 0), 0)
-)
+const totalFiltrado = computed(() => {
+  const lista = Array.isArray(transacciones.value) ? transacciones.value : []
+  return lista.reduce((sum, t) => sum + Number(t.monto || 0), 0)
+})
 
 async function filtrar() {
   if (!desde.value || !hasta.value) return
@@ -157,7 +175,13 @@ async function ejecutarEliminar() {
   <div class="flex flex-col gap-6">
     <section class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
       <div>
-        <BaseTag>Transacciones</BaseTag>
+        <div class="group inline-flex cursor-default items-center gap-1.5 rounded-full border border-edge bg-surface px-2.5 py-1 transition-all duration-300 ease-out">
+          <span class="h-1.5 w-1.5 rounded-full bg-cyan animate-pulse"></span>
+          <span class="text-xs font-semibold text-muted">Transacciones</span>
+          <span class="inline-flex max-w-0 overflow-hidden whitespace-nowrap font-mono text-xs text-cyan opacity-0 transition-all duration-300 ease-out group-hover:max-w-[5rem] group-hover:ml-1 group-hover:opacity-100">
+            {{ horaLocal }}
+          </span>
+        </div>
         <h1 class="mt-4 text-2xl font-bold tracking-tight md:text-3xl">Tus gastos</h1>
         <p class="mt-1 text-sm text-muted">
           <template v-if="filtroActivo">
@@ -166,7 +190,7 @@ async function ejecutarEliminar() {
           <template v-else>
             Total del mes: <span class="font-semibold text-ink">−{{ formatoMoneda(gastoMes) }}</span>
             <span class="mx-2 text-hairline">|</span>
-            Disponible: <span class="font-semibold text-success">{{ formatoMoneda(ahorroMes) }}</span>
+            Disponible: <span class="font-semibold text-success">{{ formatoMoneda(saldoDisponible) }}</span>
           </template>
         </p>
       </div>
@@ -177,7 +201,7 @@ async function ejecutarEliminar() {
 
     <BaseCard v-if="mostrarFormulario">
       <h2 class="mb-4 text-sm font-semibold text-ink">Registrar gasto</h2>
-      <FormularioTransaccion @creada="mostrarFormulario = false; pagina = 1" />
+      <FormularioTransaccion @creada="pagina = 1" />
     </BaseCard>
 
     <!-- Filtro por fechas + paginación -->
@@ -205,7 +229,12 @@ async function ejecutarEliminar() {
           <BaseButton tamano="sm" :cargando="filtrando" @click="filtrar">
             Filtrar
           </BaseButton>
-          <BaseButton v-if="filtroActivo" variante="fantasma" tamano="sm" @click="limpiarFiltro">
+          <BaseButton
+            variante="secundario"
+            tamano="sm"
+            :disabled="!desde && !hasta && !filtroActivo"
+            @click="limpiarFiltro"
+          >
             Limpiar
           </BaseButton>
         </div>

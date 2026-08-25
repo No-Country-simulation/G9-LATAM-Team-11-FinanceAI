@@ -149,7 +149,7 @@
 ### A. Población Idempotente y Migración Flyway `V6`
 * **Dataset móvil de 365 días (2025-2026)**: Se actualizó el pipeline en `notebooks/poblar_db.ipynb` y `notebooks/data/poblar_datos.sql` con 10 usuarios y 6.000 transacciones con fechas del 22 de agosto de 2025 al 21 de agosto de 2026.
 * **Formalización en Flyway (`V6__poblar_datos_prueba.sql`)**: Se incorporó el semillero oficial en la migración `V6` utilizando cláusulas `INSERT IGNORE INTO` para asegurar su ejecución idempotente sin fallos por duplicidad de claves primarias.
-* **Cifrado de contraseñas de prueba**: Se corrigió el hash estático simulado de `poblar_db.ipynb` por un hash real generado con BCrypt (`$2a$10$kJio4J2CJgvbQPtXPLW2Mu2bsmJaTlG1Vij9Hy2jnRok6qTVz/W7a`), permitiendo que todos los usuarios de prueba inicien sesión con la contraseña `password123`.
+* **Cifrado de contraseñas de prueba**: Se configuró el hash BCrypt verificado (`$2a$10$oZqN23owgFlc8mn.mHavludNTpKhoa7nBhIcgp2iBlVKBG5IF.Abe`), permitiendo que todos los usuarios de prueba inicien sesión con la contraseña `password1234.`.
 
 ---
 
@@ -258,7 +258,7 @@ Se ejecutó un análisis en vivo de la infraestructura de producción mediante `
 ### B. Backend y Consistencia de Semillas
 
 * **Corrección de hashes BCrypt en `V6__poblar_datos_prueba.sql` y `poblar_db.ipynb`**:
-  * Se reemplazó el hash de prueba previo por el hash generado formalmente por BCrypt (`$2a$10$kJio4J2CJgvbQPtXPLW2Mu2bsmJaTlG1Vij9Hy2jnRok6qTVz/W7a`), permitiendo que todos los usuarios del dataset de prueba inicien sesión con la credencial estándar `password123`.
+  * Se configuró el hash verificado formalmente por BCrypt (`$2a$10$oZqN23owgFlc8mn.mHavludNTpKhoa7nBhIcgp2iBlVKBG5IF.Abe`), permitiendo que todos los usuarios del dataset de prueba inicien sesión con la credencial estándar `password1234.`.
 
 ---
 
