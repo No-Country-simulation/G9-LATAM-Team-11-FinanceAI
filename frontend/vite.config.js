@@ -10,7 +10,6 @@ export default defineConfig({
   server: {
     host: '0.0.0.0',
     port: 3000,
-    allowedHosts: true,
     proxy: {
       '/api': {
         target: process.env.VITE_BACKEND_URL || 'http://backend:8080', // eslint-disable-line no-undef

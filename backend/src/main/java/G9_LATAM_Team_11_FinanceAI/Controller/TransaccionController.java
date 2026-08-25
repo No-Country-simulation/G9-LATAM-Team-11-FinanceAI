@@ -49,11 +49,11 @@ public class TransaccionController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminarTransaccion (@PathVariable Long id){
-        boolean eliminar = transaccionService.eliminaTransaciones(id);
-        return eliminar ? ResponseEntity.ok().build() : ResponseEntity.noContent().build();
+    public ResponseEntity<Void> eliminarTransaccion(@PathVariable Long id) {
+        boolean eliminado = transaccionService.eliminarTransaccion(id);
+        return eliminado
+                ? ResponseEntity.noContent().build()  // 204 exito
+                : ResponseEntity.notFound().build();  // 404 si no existe
     }
-
-    
 
 }

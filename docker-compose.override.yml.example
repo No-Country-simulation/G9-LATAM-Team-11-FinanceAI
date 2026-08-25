@@ -1,17 +1,21 @@
 # =========================================================================
 # PLANTILLA DE CONFIGURACIÓN LOCAL DE OVERRIDES (Copia a docker-compose.override.yml)
 # =========================================================================
-# Instrucciones:
-# 1. Copia este archivo y renombralo como 'docker-compose.override.yml' en esta misma carpeta.
-# 2. Este archivo de plantilla está pensado para evitar problemas de permisos con ./mvnw 
-#    utilizando el Maven global preinstalado en el contenedor del backend.
+# Instrucciones para el equipo:
+# 1. Copia este archivo como 'docker-compose.override.yml' en esta misma carpeta.
+#    (El archivo .override.yml está ignorado en Git para no sobreescribir tus pruebas).
+# 2. Resuelve automáticamente:
+#    - Fallos de permisos ("Permission denied") en el backend usando Maven global.
+#    - Detección de cambios en caliente (Hot-Reload) en Frontend (Vite) para Windows, Mac y Linux.
 # =========================================================================
 
 services:
   backend:
-    # Utiliza 'mvn' global del contenedor para evitar fallos de "Permission denied" en el arranque
+    # Arranca Spring Boot automáticamente o mantiene el contenedor vivo si se está editando pom.xml
     command: sh -c "if [ -f pom.xml ]; then mvn spring-boot:run; else tail -f /dev/null; fi"
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
 
   frontend:
-    # Instala dependencias y arranca el servidor de desarrollo
-    command: sh -c "npm install && npm run dev"
+    # Instala dependencias y arranca Vite escuchando en todas las interfaces para hot-reload
+    command: sh -c "npm install && npm run dev -- --host 0.0.0.0"

@@ -30,14 +30,13 @@ services:
       - DB_HOST=db
       - DB_USER_M=${DB_USER_M:-dev_user}
       - DB_PASSWORD=${DB_PASSWORD:-dev_password}
-      - SHARED_MODELS_PATH=/app/models
       - OCI_STORAGE_BUCKET=${OCI_STORAGE_BUCKET:-financeai-bucket}
       - TOKEN_SECRETO=${TOKEN_SECRETO:-FinanceAI_Secret_Key_Super_Segura_2026_JWT_Token_HS256_Min$}
+      - SHARED_MODELS_PATH=/app/models
       - MAVEN_OPTS=-Xmx1024m -Xms512m
     volumes:
       - ./backend:/app
       - ./shared-models:/app/models
-      - ./shared-models:/shared-models
     working_dir: /app
     command: mvn spring-boot:run
     depends_on:
@@ -60,7 +59,7 @@ services:
     volumes:
       - ./frontend:/app
     working_dir: /app
-    command: sh -c "npm install && npm run dev"
+    command: sh -c "npm install && npm run dev" 
     restart: no
     deploy:
       resources:

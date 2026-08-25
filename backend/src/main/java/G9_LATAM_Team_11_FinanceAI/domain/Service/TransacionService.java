@@ -15,7 +15,6 @@ import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import jakarta.validation.ValidationException;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +22,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @Service
- @RequiredArgsConstructor
+@RequiredArgsConstructor
 public class TransacionService {
 
     private final ITransaccionRepository transaccionRepository;
@@ -117,13 +116,12 @@ public class TransacionService {
     }
 
     @Transactional
-    public boolean eliminaTransaciones(Long id) {
-        try {
+    public boolean eliminarTransaccion(Long id) {
+        if (transaccionRepository.existsById(id)) {
             transaccionRepository.deleteById(id);
             return true;
-        }catch (EmptyResultDataAccessException e){
-            return false;
         }
+        return false;
     }
 
 
